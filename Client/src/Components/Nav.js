@@ -5,6 +5,9 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './Home/Home'
 import Signin from './Signin/Signin'
 import Register from './Register/Register'
+import Him from './Him/Him';
+import Her from './Her/Her';
+import News from './News/News'
 
 class Navbar extends Component {
 state = {
@@ -27,23 +30,30 @@ render() {
           <MDBNavbarNav left>
 
             <MDBNavItem >
-              <MDBNavLink to = '/home'>Home</MDBNavLink>
+              <MDBNavLink to = '/home'><strong>Home</strong></MDBNavLink>
             </MDBNavItem>
-{/* 
+
+            {/* 
             <MDBNavItem>
               <MDBNavLink to = '/proucts'>Products</MDBNavLink>
             </MDBNavItem> */}
 
 
-
+            {/* the products Dropdown */}
             <MDBDropdown >
                 <MDBDropdownToggle nav caret>
-                  <div className="d-none d-md-inline">Products</div>
+                  <div className="d-none d-md-inline"><strong>Products</strong></div>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default">
-                  <MDBDropdownItem >Mens</MDBDropdownItem>
-                  <MDBDropdownItem>Ladies</MDBDropdownItem>
-                  <MDBDropdownItem >Payment</MDBDropdownItem>
+                  
+                    <MDBNavItem>
+                        <MDBNavLink  to="/him">
+                            <MDBNavLink to="/him">For Him</MDBNavLink>
+                        </MDBNavLink>
+                    </MDBNavItem>
+
+                  <MDBDropdownItem>For Her</MDBDropdownItem>
+                  <MDBDropdownItem >Deals </MDBDropdownItem>
                  
                 </MDBDropdownMenu>
               </MDBDropdown>
@@ -55,7 +65,7 @@ render() {
 
 
             <MDBNavItem>
-              <MDBNavLink to='/deals'>News</MDBNavLink>
+              <MDBNavLink to='/news'>News</MDBNavLink>
             </MDBNavItem>
 
 
@@ -116,6 +126,11 @@ render() {
         <Route exact path="/" component={Home}/>
         <Route  path="/home" component={Home}/>
 
+        <Route  path="/him" component={Him}/>
+        <Route  path="/her" component={Her}/>
+        <Route  path="/news" component={News}/>
+           
+          
 
         <Route path="/signin" component = {Signin} />
 
