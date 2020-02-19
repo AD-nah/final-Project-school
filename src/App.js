@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react'
 import './App.css';
-import Navbar from './components/Navbar/Nav'
+import Nav from './Components/Nav';
 
+<<<<<<< HEAD
 function App() {
   return (
     <div className="App">
@@ -9,5 +10,15 @@ function App() {
     </div>
   );
 }
+=======
+export default class App extends Component {
+  render() {
+    return (
+>>>>>>> dcc92596e7dd8d49bfe92fbff0909dbd7a93278a
 
-export default App;
+        <div className="App">
+          <Nav/>
+        </div>
+    )
+  }
+}
