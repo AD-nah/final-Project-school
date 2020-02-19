@@ -9,7 +9,7 @@ const Footer = () => {
                     <MDBCol className="col-md-4 mx-auto">
                         <h5 className="font-weight-bold text-uppercase mt-3 mb-4">Footer Content</h5>
                         <p>
-                            Here you can use rows and columns here to organize your footer
+                            use rows and columns here to organize your footer
                             content.
                         </p>
                         

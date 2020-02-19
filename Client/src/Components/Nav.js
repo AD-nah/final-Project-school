@@ -25,21 +25,45 @@ render() {
         <MDBNavbarToggler onClick={this.toggleCollapse} />
         <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
           <MDBNavbarNav left>
+
             <MDBNavItem >
-
-              
               <MDBNavLink to = '/home'>Home</MDBNavLink>
-
             </MDBNavItem>
+{/* 
             <MDBNavItem>
               <MDBNavLink to = '/proucts'>Products</MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem>
+            </MDBNavItem> */}
 
-              <MDBNavLink to='/deals'>Deals</MDBNavLink>
+
+
+            <MDBDropdown >
+                <MDBDropdownToggle nav caret>
+                  <div className="d-none d-md-inline">Products</div>
+                </MDBDropdownToggle>
+                <MDBDropdownMenu className="dropdown-default">
+                  <MDBDropdownItem >Mens</MDBDropdownItem>
+                  <MDBDropdownItem>Ladies</MDBDropdownItem>
+                  <MDBDropdownItem >Payment</MDBDropdownItem>
+                 
+                </MDBDropdownMenu>
+              </MDBDropdown>
+
+
+
+
+
+
+
+            <MDBNavItem>
+              <MDBNavLink to='/deals'>News</MDBNavLink>
             </MDBNavItem>
-            <MDBNavItem
-            >
+
+
+
+
+
+
+            <MDBNavItem>
               <MDBDropdown >
                 <MDBDropdownToggle nav caret>
                   <div className="d-none d-md-inline">More</div>
@@ -54,21 +78,21 @@ render() {
             </MDBNavItem>
           </MDBNavbarNav>
           <MDBNavbarNav right>
-            <MDBNavItem>
 
-              <MDBNavLink to="#!" className="waves-effect waves-light" to="#!">
-                 <MDBNavLink ><strong>Register</strong></MDBNavLink>
+            <MDBNavItem>
+              <MDBNavLink className="waves-effect waves-light" to="/register">
+                  <MDBNavLink to="/register" ><strong>Register</strong></MDBNavLink>
               </MDBNavLink>
             </MDBNavItem>
-            <MDBNavItem>
 
-              <MDBNavLink className="waves-effect waves-light" to="#!">
-                 <MDBNavLink to="#!"><strong>Sign-in</strong></MDBNavLink>
+            <MDBNavItem>
+              <MDBNavLink className="waves-effect waves-light" to="/signin">
+                 <MDBNavLink to="/signin" ><strong>Sign-in</strong></MDBNavLink>
               </MDBNavLink>
             </MDBNavItem>
+
             <MDBNavItem>
             <MDBDropdown>
-            
                   <MDBDropdownToggle caret color="primary">
                     Account
                  </MDBDropdownToggle>
@@ -79,17 +103,19 @@ render() {
                     <MDBDropdownItem divider />
                     <MDBDropdownItem>Logout</MDBDropdownItem>
                   </MDBDropdownMenu>
-  
               </MDBDropdown>
             </MDBNavItem>
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBNavbar>
 
+
+
       <Switch>
 
-        <Route exact path="/" component={Home}/>>
-        <Route  path="/home" component={Home}/>>
+        <Route exact path="/" component={Home}/>
+        <Route  path="/home" component={Home}/>
+
 
         <Route path="/signin" component = {Signin} />
 
