@@ -34,7 +34,7 @@ render() {
               <MDBNavLink to = '/proucts'>Products</MDBNavLink>
             </MDBNavItem> */}
 
-            {/* hello  */}
+
 
             <MDBDropdown >
                 <MDBDropdownToggle nav caret>
