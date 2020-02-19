@@ -25,20 +25,21 @@ render() {
         <MDBNavbarToggler onClick={this.toggleCollapse} />
         <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
           <MDBNavbarNav left>
+            <MDBNavItem >
 
-            <MDBNavItem>
+              
               <MDBNavLink to = '/home'>Home</MDBNavLink>
-            </MDBNavItem>
 
-            <MDBNavItem>
-              <MDBNavLink to = '/home'>Home</MDBNavLink>
             </MDBNavItem>
-            
             <MDBNavItem>
-              <MDBNavLink to = '/home'>Home</MDBNavLink>
+              <MDBNavLink to = 'Pro'>Products</MDBNavLink>
             </MDBNavItem>
-            
             <MDBNavItem>
+
+              <MDBNavLink to='dfsfasd'>Deals</MDBNavLink>
+            </MDBNavItem>
+            <MDBNavItem
+            >
               <MDBDropdown >
                 <MDBDropdownToggle nav caret>
                   <div className="d-none d-md-inline">More</div>
@@ -51,19 +52,18 @@ render() {
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavItem>
-
           </MDBNavbarNav>
           <MDBNavbarNav right>
             <MDBNavItem>
 
               <MDBNavLink className="waves-effect waves-light" to="#!">
-                 <MDBNavLink to = '/fff'><strong>Register</strong></MDBNavLink>
+                 <MDBNavLink ><strong>Register</strong></MDBNavLink>
               </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
 
               <MDBNavLink className="waves-effect waves-light" to="#!">
-                 <MDBNavLink to="/gf"><strong>Sign-in</strong></MDBNavLink>
+                 <MDBNavLink to=""><strong>Sign-in</strong></MDBNavLink>
               </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
