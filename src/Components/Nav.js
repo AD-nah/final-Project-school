@@ -28,17 +28,15 @@ render() {
             <MDBNavItem >
 
               
-              <MDBNavLink >
-              <MDBNavLink>Home</MDBNavLink>
-              </MDBNavLink>
+              <MDBNavLink to = '/home'>Home</MDBNavLink>
 
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink>Products</MDBNavLink>
+              <MDBNavLink to = 'Pro'>Products</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
 
-              <MDBNavLink >Deals</MDBNavLink>
+              <MDBNavLink to='dfsfasd'>Deals</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem
             >
@@ -88,7 +86,7 @@ render() {
         </MDBCollapse>
       </MDBNavbar>
 
-      {/* <Switch>
+      <Switch>
 
         <Route exact path="/" component={Home}/>>
         <Route  path="/home" component={Home}/>>
@@ -98,7 +96,7 @@ render() {
         <Route path="/Register" component = {Register} />
 
       </Switch>
-  */}
+ 
     </div>
     );
   }
