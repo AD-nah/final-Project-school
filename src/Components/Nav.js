@@ -32,11 +32,11 @@ render() {
 
             </MDBNavItem>
             <MDBNavItem>
-              <MDBNavLink to = 'Pro'>Products</MDBNavLink>
+              <MDBNavLink to = '/proucts'>Products</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
 
-              <MDBNavLink to='dfsfasd'>Deals</MDBNavLink>
+              <MDBNavLink to='/deals'>Deals</MDBNavLink>
             </MDBNavItem>
             <MDBNavItem
             >
