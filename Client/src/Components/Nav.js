@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
 MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route ,Link} from 'react-router-dom';
 import Home from './Home/Home'
 import Signin from './Signin/Signin'
 import Register from './Register/Register'
@@ -33,11 +33,6 @@ render() {
               <MDBNavLink to = '/home'><strong>Home</strong></MDBNavLink>
             </MDBNavItem>
 
-            {/* 
-            <MDBNavItem>
-              <MDBNavLink to = '/proucts'>Products</MDBNavLink>
-            </MDBNavItem> */}
-
 
             {/* the products Dropdown */}
             <MDBDropdown >
@@ -45,31 +40,23 @@ render() {
                   <div className="d-none d-md-inline"><strong>Products</strong></div>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default">
-                  
-                    <MDBNavItem>
-                        <MDBNavLink  to="/him">
-                            <MDBNavLink to="/him">For Him</MDBNavLink>
-                        </MDBNavLink>
-                    </MDBNavItem>
-
-                  <MDBDropdownItem>For Her</MDBDropdownItem>
-                  <MDBDropdownItem >Deals </MDBDropdownItem>
-                 
+                  <MDBDropdownItem>
+                      <Link to = "/her">For Her</Link>
+                  </MDBDropdownItem>
+                  <MDBDropdownItem>
+                      <Link to = "/him">For Him</Link>
+                  </MDBDropdownItem>
+                  <MDBDropdownItem>
+                      <Link to = "/news">For Him</Link>
+                  </MDBDropdownItem>
                 </MDBDropdownMenu>
               </MDBDropdown>
-
-
-
-
 
 
 
             <MDBNavItem>
               <MDBNavLink to='/news'>News</MDBNavLink>
             </MDBNavItem>
-
-
-
 
 
 
