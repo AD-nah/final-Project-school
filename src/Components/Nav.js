@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
 MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
-import { Switch, Route , Link} from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Home from './Home/Home'
 import Signin from './Signin/Signin'
 import Register from './Register/Register'
@@ -56,14 +56,14 @@ render() {
           <MDBNavbarNav right>
             <MDBNavItem>
 
-              <MDBNavLink className="waves-effect waves-light" to="#!">
+              <MDBNavLink to="#!" className="waves-effect waves-light" to="#!">
                  <MDBNavLink ><strong>Register</strong></MDBNavLink>
               </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
 
               <MDBNavLink className="waves-effect waves-light" to="#!">
-                 <MDBNavLink to=""><strong>Sign-in</strong></MDBNavLink>
+                 <MDBNavLink to="#!"><strong>Sign-in</strong></MDBNavLink>
               </MDBNavLink>
             </MDBNavItem>
             <MDBNavItem>
@@ -93,7 +93,7 @@ render() {
 
         <Route path="/signin" component = {Signin} />
 
-        <Route path="/Register" component = {Register} />
+        <Route path="/register" component = {Register} />
 
       </Switch>
  
