@@ -113,18 +113,9 @@ class Navbar extends Component {
               <MDBBtn onClick={this.registerToggle} className="w-60 p-2" color="white" >Register</MDBBtn>
               <MDBModal isOpen={this.state.registerModal} toggle={this.registerToggle}>
                 <MDBModalHeader toggle={this.registerToggle}>Please Register</MDBModalHeader>
-                
                 <MDBModalBody>
-
-                  {/* the register form */}
-                  <h1>hhh</h1>
                   <RegisterForm />
                 </MDBModalBody>
-
-                <MDBModalFooter>
-                  <MDBBtn onClick={this.registerToggle}>Close</MDBBtn>
-                  <MDBBtn color="primary">Register</MDBBtn>
-                </MDBModalFooter>
               </MDBModal>
 
 
@@ -138,10 +129,6 @@ class Navbar extends Component {
                 <MDBModalBody>
                   <LoginForm />
                 </MDBModalBody>
-                <MDBModalFooter>
-                  <MDBBtn onClick={this.loginToggle} color="danger">Close</MDBBtn>
-                  <MDBBtn color="primary">Log-In</MDBBtn>
-                </MDBModalFooter>
               </MDBModal>
 
 
