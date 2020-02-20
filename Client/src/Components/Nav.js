@@ -17,6 +17,7 @@ import LoginForm from './LoginForm/LoginForm'
 import RegisterForm from './RegisterForm/RegisterForm'
 import Chart from './Chart/Chart'
 
+import  Logo  from '../../src/fire.svg';
 
 
 
@@ -53,30 +54,33 @@ class Navbar extends Component {
   render() {
     return (
       <div>
-        <MDBNavbar color="grey darken-4" dark expand="md">
+        <MDBNavbar color="special-color" dark expand="md">
+          
           <MDBNavbarBrand>
-            <strong className="white-text font-weight-bold">Scount</strong>
+          <img style={{width:"40px"}}   src={Logo} alt="Logo" />
+            <strong className="white-text font-weight-bold"> 
+            Scount</strong>
           </MDBNavbarBrand>
           <MDBNavbarToggler onClick={this.toggleCollapse} />
           <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
             <MDBNavbarNav left>
 
               <MDBNavItem >
-                <MDBNavLink to='/home'><strong>Home</strong></MDBNavLink>
+                <MDBNavLink  className=" font-weight-bold" to='/home'>Home</MDBNavLink>
               </MDBNavItem>
 
 
               {/* the products Dropdown */}
               <MDBDropdown >
                 <MDBDropdownToggle nav caret>
-                  <div className="d-none d-md-inline"><strong>Products</strong></div>
+                  <div className="d-none d-md-inline  font-weight-bold">Products</div>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default">
                   <MDBDropdownItem>
-                    <Link to="/her"><strong>For Her </strong></Link>
+                    <Link  className=" font-weight-bold" to="/her">For Her </Link>
                   </MDBDropdownItem>
                   <MDBDropdownItem>
-                    <Link to="/him"><strong>For Him </strong></Link>
+                    <Link  className=" font-weight-bold" to="/him">For Him </Link>
                   </MDBDropdownItem>
 
                 </MDBDropdownMenu>
@@ -85,7 +89,7 @@ class Navbar extends Component {
 
 
               <MDBNavItem>
-                <MDBNavLink to='/news'>News</MDBNavLink>
+                <MDBNavLink className=" font-weight-bold" to='/news'>News</MDBNavLink>
               </MDBNavItem>
 
 
@@ -93,16 +97,21 @@ class Navbar extends Component {
               <MDBNavItem>
                 <MDBDropdown >
                   <MDBDropdownToggle nav caret>
-                    <div className="d-none d-md-inline">More</div>
+                    <div className="d-none d-md-inline font-weight-bold">More</div>
                   </MDBDropdownToggle>
                   <MDBDropdownMenu className="dropdown-default">
 
                     <MDBDropdownItem >
-                    <Link to="/about"><strong>About</strong></Link>
+                    <Link className=" font-weight-bold" to="/about">About</Link>
                     </MDBDropdownItem>
 
-                    <MDBDropdownItem>Payment</MDBDropdownItem>
-                    <MDBDropdownItem >Policy</MDBDropdownItem>
+                    <MDBDropdownItem >
+                    <Link className=" font-weight-bold" to="/#">Payment</Link>
+                    </MDBDropdownItem>
+
+                    <MDBDropdownItem >
+                    <Link className=" font-weight-bold" to="/#">Policy</Link>
+                    </MDBDropdownItem>
 
                   </MDBDropdownMenu>
                 </MDBDropdown>
@@ -170,6 +179,7 @@ class Navbar extends Component {
               </MDBNavItem>
             </MDBNavbarNav>
           </MDBCollapse>
+        
         </MDBNavbar>
 
 

@@ -1,8 +1,10 @@
 import React from "react";
 
-import {  MDBRow, MDBCol, MDBCard, MDBCardBody, MDBIcon, MDBBtn,MDBNavItem,MDBNavbarBrand } from 'mdbreact';
+import {  MDBRow, MDBCol, MDBCard, MDBCardBody, MDBIcon, MDBBtn,MDBNavItem } from 'mdbreact';
 
-
+import wissam from '../../imgs/wissam.jpeg';
+import nahlawi  from '../../imgs/nahlawi.jpeg';
+import suleman from '../../imgs/suleman.jpg'
 
 const About = () => {
   return (
@@ -25,7 +27,8 @@ const About = () => {
           <MDBCol md="4" className="mb-md-0 mb-5">
               <MDBNavItem
                 tag="img"
-                src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg"
+                src={nahlawi}
+                style={{width:'300px'}}
                 className="rounded z-depth-1-half img-fluid"
                 alt="Sample avatar"
               />
@@ -34,12 +37,12 @@ const About = () => {
               </h4>
               <h6 className="text-uppercase grey-text mb-3">Web Developer</h6>
 
-              <MDBBtn href="https://www.linkedin.com/in/ahmad-nahlawi/" tag="a" floating size="lg" className="mx-1 mb-0 btn-li">
+              <MDBBtn href="https://www.linkedin.com/in/ahmad-nahlawi/" tag="a" floating  className="mx-1 mb-0 btn-li">
                     <i class="fab fa-linkedin-in"></i>
               </MDBBtn>
 
-              <MDBBtn href="https://github.com/AD-nah" tag="a" floating size="lg" className="mx-1 mb-0 btn-tw">
-                <MDBIcon fab icon="github" />
+              <MDBBtn href="https://github.com/AD-nah" tag="a" floating className="mx-1 mb-0 btn-tw">
+                <MDBIcon size="lg"   fab icon="github" />
               </MDBBtn>
             </MDBCol>
            
@@ -50,7 +53,8 @@ const About = () => {
             <MDBCol md="4" className="mb-md-0 mb-5">
               <MDBNavItem
                 tag="img"
-                src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg"
+                src={wissam}
+                style={{width:'300px'}}
                 className="rounded z-depth-1-half img-fluid"
                 alt="Sample avatar"
               />
@@ -58,11 +62,11 @@ const About = () => {
                 Wissam-Bashir
               </h4>
               <h6 className="text-uppercase grey-text mb-3">Web Developer</h6>
-              <MDBBtn tag="a" floating size="lg" className="mx-1 mb-0 btn-li">
-                <i class="fab fa-linkedin-in"></i>
+              <MDBBtn tag="a" floating  className="mx-1 mb-0 btn-li">
+                <i  class="fab fa-linkedin-in"></i>
               </MDBBtn>
-              <MDBBtn  href='https://github.com/wisam450' tag="a" floating size="lg" className="mx-1 mb-0 btn-tw">
-                <MDBIcon fab icon="github" />
+              <MDBBtn  href='https://github.com/wisam450' tag="a" floating  className="mx-1 mb-0 btn-tw">
+                <MDBIcon size="lg"  fab icon="github" />
               </MDBBtn>
               
             </MDBCol>
@@ -74,7 +78,8 @@ const About = () => {
             <MDBCol md="4" className="mb-md-0 mb-5">
               <MDBNavItem
                 tag="img"
-                src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg"
+                style={{height:'300px',width:'325px'}}
+                src={suleman}
                 className="rounded z-depth-1-half img-fluid"
                 alt="Sample avatar"
               />
@@ -82,16 +87,14 @@ const About = () => {
                 AD-Suleman
               </h4>
               <h6 className="text-uppercase grey-text mb-3">Web Developer</h6>
-              <MDBBtn href="https://www.linkedin.com/in/ahmed-suleman-aba307190/" tag="a" floating size="lg" className="mx-1 mb-0 btn-li">
+              <MDBBtn href="https://www.linkedin.com/in/ahmed-suleman-aba307190/" tag="a" floating className="mx-1 mb-0 btn-li">
               <i  class="fab fa-linkedin-in"></i>
               </MDBBtn>
-              <MDBBtn  href="https://github.com/adsulemann"  tag="a" floating size="lg" className="mx-1 mb-0 btn-tw">
-                <MDBIcon fab icon="github" />
+              <MDBBtn  href="https://github.com/adsulemann"  tag="a" floating  className="mx-1 mb-0 btn-tw">
+                <MDBIcon size="lg"  fab icon="github" />
               </MDBBtn>
             </MDBCol>
-
-
-
+            
           </MDBRow>
         </MDBCardBody>
       </MDBCard>
