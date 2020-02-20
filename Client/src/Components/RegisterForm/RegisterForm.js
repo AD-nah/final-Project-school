@@ -6,14 +6,54 @@ const RegisterForm = () => {
     <MDBContainer>
       
         <MDBCol  className= ' w-100 ' lg>
+
               <MDBInput
-                label="Your email"
+                label="Name"
+                group
+                type="text"
+                success="Accepted.."
+              />
+
+
+
+              <MDBInput
+                label="Email"
                 group
                 type="email"
                 validate
-                error="wrong"
-                success="right"
+                error="Email Wrong"
+                success="Accepted.."
               />
+              
+              
+              <MDBInput
+                label="City"
+                group
+                type="text"
+                validate
+                success="Accepted.."
+              />
+              
+              
+              <MDBInput
+              label="Plz/Zip"
+              group
+              type="number"
+              validate
+              success="Accepted.."
+              />
+
+
+              <MDBInput
+              label="Country"
+              group
+              type="text"
+              validate
+              success="Accepted.."
+              />
+
+
+
               <MDBInput
                 label="Your password"
                 group
@@ -21,13 +61,17 @@ const RegisterForm = () => {
                 validate
                 containerClass="mb-0"
               />
-              <p className="font-small blue-text d-flex justify-content-end pb-3">
-                Forgot
-                <a href="#!" className="blue-text ml-1">
+              
+              
+              <MDBInput
+                label="Confirm password"
+                group
+                type="password"
+                validate
+                containerClass="mb-0"
+              />
+                  
 
-                  Password?
-                </a>
-              </p>
               <div className="text-center mb-3">
                 <MDBBtn
                   type="button"
@@ -35,13 +79,19 @@ const RegisterForm = () => {
                   rounded
                   className="btn-block z-depth-1a"
                 >
-                  Sign in
+                Register
                 </MDBBtn>
               </div>
+
+
+
               <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
 
-                or Sign in with:
+                or Register in with:
               </p>
+
+
+
               <div className="row my-3 d-flex justify-content-center">
                 <MDBBtn
                   type="button"
@@ -51,6 +101,8 @@ const RegisterForm = () => {
                 >
                   <MDBIcon fab icon="facebook-f" className="blue-text text-center" />
                 </MDBBtn>
+
+
                 <MDBBtn
                   type="button"
                   color="white"
@@ -59,6 +111,8 @@ const RegisterForm = () => {
                 >
                   <MDBIcon fab icon="twitter" className="blue-text" />
                 </MDBBtn>
+
+
                 <MDBBtn
                   type="button"
                   color="white"
@@ -68,20 +122,62 @@ const RegisterForm = () => {
                   <MDBIcon fab icon="google-plus-g" className="blue-text" />
                 </MDBBtn>
               </div>
-           
-            <MDBModalFooter className="mx-5 pt-3 mb-1">
-              <p className="font-small grey-text d-flex justify-content-end">
-                Not a member?
-                <a href="#!" className="blue-text ml-1">
-                  Sign Up
-                </a>
-              </p>
-            </MDBModalFooter>
-       
         </MDBCol>
-     
     </MDBContainer>
   );
 };
 
 export default RegisterForm;
+
+
+
+
+// import React from "react";
+// import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
+
+        // <form>
+//                 <p className="h4 text-center py-4">Sign up</p>
+//                 <div className="grey-text">
+//                   <MDBInput
+//                     label="Your name"
+//                     icon="user"
+//                     group
+//                     type="text"
+//                     validate
+//                     error="wrong"
+//                     success="right"
+//                   />
+//                   <MDBInput
+//                     label="Your email"
+//                     icon="envelope"
+//                     group
+//                     type="email"
+//                     validate
+//                     error="wrong"
+//                     success="right"
+//                   />
+//                   <MDBInput
+//                     label="Confirm your email"
+//                     icon="exclamation-triangle"
+//                     group
+//                     type="text"
+//                     validate
+//                     error="wrong"
+//                     success="right"
+//                   />
+//                   <MDBInput
+//                     label="Your password"
+//                     icon="lock"
+//                     group
+//                     type="password"
+//                     validate
+//                   />
+//                 </div>
+//                 <div className="text-center py-4 mt-3">
+//                   <MDBBtn color="cyan" type="submit">
+//                     Register
+//                   </MDBBtn>
+//                 </div>
+//               </form>
+//            
+
