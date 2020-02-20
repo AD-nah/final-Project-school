@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class Dashboard extends Component {
+export default class Profile extends Component {
     render() {
         return (
             <div>
-               Welcome from dashbaord 
+               Welcome from profile 
             </div>
         )
     }

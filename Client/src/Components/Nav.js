@@ -1,131 +1,205 @@
 import React, { Component } from "react";
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
-MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
-import { Switch, Route ,Link} from 'react-router-dom';
+import {
+  MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
+  MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBBtn, MDBModal, MDBModalHeader, MDBModalBody, MDBModalFooter
+} from "mdbreact";
+import { Switch, Route, Link } from 'react-router-dom';
 import Home from './Home/Home'
-import Signin from './Signin/Signin'
-import Register from './Register/Register'
+
+
 import Him from './Him/Him';
 import Her from './Her/Her';
 import News from './News/News'
+import Logout from '../Auth/Logout'
+import Profile from './Profile/Profile'
+import About from './About/About'
+import LoginForm from './LoginForm/LoginForm'
+import RegisterForm from './RegisterForm/RegisterForm'
+
+
+
+
+
+
 
 class Navbar extends Component {
-state = {
-  isOpen: false
-};
-
-toggleCollapse = () => {
-  this.setState({ isOpen: !this.state.isOpen });
-}
-
-render() {
-  return (
-    <div>
-      <MDBNavbar color="primary-color" dark expand="md">
-        <MDBNavbarBrand>
-          <strong className="white-text">Scount</strong>
-        </MDBNavbarBrand>
-        <MDBNavbarToggler onClick={this.toggleCollapse} />
-        <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
-          <MDBNavbarNav left>
-
-            <MDBNavItem >
-              <MDBNavLink to = '/home'><strong>Home</strong></MDBNavLink>
-            </MDBNavItem>
+  state = {
+    isOpen: false,
+    registerModal: false,
+    loginModal: false,
 
 
-            {/* the products Dropdown */}
-            <MDBDropdown >
+
+  };
+
+
+
+  toggleCollapse = () => {
+    this.setState({ isOpen: !this.state.isOpen });
+  }
+
+  // the toggle for the modal login and register 
+  registerToggle = () => {
+    this.setState({
+      registerModal: !this.state.registerModal
+    });
+  }
+  loginToggle = () => {
+    this.setState({
+      loginModal: !this.state.loginModal
+    });
+  }
+
+
+  render() {
+    return (
+      <div>
+        <MDBNavbar color="grey darken-4" dark expand="md">
+          <MDBNavbarBrand>
+            <strong className="white-text">Scount</strong>
+          </MDBNavbarBrand>
+          <MDBNavbarToggler onClick={this.toggleCollapse} />
+          <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
+            <MDBNavbarNav left>
+
+              <MDBNavItem >
+                <MDBNavLink to='/home'><strong>Home</strong></MDBNavLink>
+              </MDBNavItem>
+
+
+              {/* the products Dropdown */}
+              <MDBDropdown >
                 <MDBDropdownToggle nav caret>
                   <div className="d-none d-md-inline"><strong>Products</strong></div>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default">
                   <MDBDropdownItem>
-                      <Link to = "/her">For Her</Link>
+                    <Link to="/her"><strong>For Her </strong></Link>
                   </MDBDropdownItem>
                   <MDBDropdownItem>
-                      <Link to = "/him">For Him</Link>
+                    <Link to="/him"><strong>For Him </strong></Link>
                   </MDBDropdownItem>
-                  <MDBDropdownItem>
-                      <Link to = "/news">For Him</Link>
-                  </MDBDropdownItem>
+
                 </MDBDropdownMenu>
               </MDBDropdown>
 
 
 
-            <MDBNavItem>
-              <MDBNavLink to='/news'>News</MDBNavLink>
-            </MDBNavItem>
+              <MDBNavItem>
+                <MDBNavLink to='/news'>News</MDBNavLink>
+              </MDBNavItem>
 
 
 
-            <MDBNavItem>
-              <MDBDropdown >
-                <MDBDropdownToggle nav caret>
-                  <div className="d-none d-md-inline">More</div>
-                </MDBDropdownToggle>
-                <MDBDropdownMenu className="dropdown-default">
-                  <MDBDropdownItem >About</MDBDropdownItem>
-                  <MDBDropdownItem>Payment</MDBDropdownItem>
-                  <MDBDropdownItem >Policy</MDBDropdownItem>
-                 
-                </MDBDropdownMenu>
-              </MDBDropdown>
-            </MDBNavItem>
-          </MDBNavbarNav>
-          <MDBNavbarNav right>
+              <MDBNavItem>
+                <MDBDropdown >
+                  <MDBDropdownToggle nav caret>
+                    <div className="d-none d-md-inline">More</div>
+                  </MDBDropdownToggle>
+                  <MDBDropdownMenu className="dropdown-default">
+                    <MDBDropdownItem >About</MDBDropdownItem>
+                    <MDBDropdownItem>Payment</MDBDropdownItem>
+                    <MDBDropdownItem >Policy</MDBDropdownItem>
 
-            <MDBNavItem>
-              <MDBNavLink className="waves-effect waves-light" to="/register">
-                  <MDBNavLink to="/register" ><strong>Register</strong></MDBNavLink>
-              </MDBNavLink>
-            </MDBNavItem>
+                  </MDBDropdownMenu>
+                </MDBDropdown>
+              </MDBNavItem>
+            </MDBNavbarNav>
+            <MDBNavbarNav right>
 
-            <MDBNavItem>
-              <MDBNavLink className="waves-effect waves-light" to="/signin">
-                 <MDBNavLink to="/signin" ><strong>Sign-in</strong></MDBNavLink>
-              </MDBNavLink>
-            </MDBNavItem>
 
-            <MDBNavItem>
-            <MDBDropdown>
-                  <MDBDropdownToggle caret color="primary">
+
+              {/* the Register modal  */}
+              <MDBBtn onClick={this.registerToggle} className="w-60 p-2" color="white" >Register</MDBBtn>
+              <MDBModal isOpen={this.state.registerModal} toggle={this.registerToggle}>
+                <MDBModalHeader toggle={this.registerToggle}>Please Register</MDBModalHeader>
+                
+                <MDBModalBody>
+
+                  {/* the register form */}
+                  <h1>hhh</h1>
+                  <RegisterForm />
+                </MDBModalBody>
+
+                <MDBModalFooter>
+                  <MDBBtn onClick={this.registerToggle}>Close</MDBBtn>
+                  <MDBBtn color="primary">Register</MDBBtn>
+                </MDBModalFooter>
+              </MDBModal>
+
+
+
+
+
+              {/* the login modals */}
+              <MDBBtn onClick={this.loginToggle} className="w-60 p-2" color="white" >Login</MDBBtn>
+              <MDBModal isOpen={this.state.loginModal} toggle={this.loginToggle}>
+                <MDBModalHeader toggle={this.loginToggle}>Please Login</MDBModalHeader>
+                <MDBModalBody>
+                  <LoginForm />
+                </MDBModalBody>
+                <MDBModalFooter>
+                  <MDBBtn onClick={this.loginToggle} color="danger">Close</MDBBtn>
+                  <MDBBtn color="primary">Log-In</MDBBtn>
+                </MDBModalFooter>
+              </MDBModal>
+
+
+
+
+
+
+
+
+              {/*the Account dropDown  */}
+              <MDBNavItem>
+                <MDBDropdown>
+                  <MDBDropdownToggle className="w-78 p-2" caret color="white">
                     Account
                  </MDBDropdownToggle>
-                  <MDBDropdownMenu basic>
-                    <MDBDropdownItem>Dashboard</MDBDropdownItem>
-                    <MDBDropdownItem>My-Chart</MDBDropdownItem>
-                    <MDBDropdownItem></MDBDropdownItem>
-                    <MDBDropdownItem divider />
-                    <MDBDropdownItem>Logout</MDBDropdownItem>
+                  <MDBDropdownMenu >
+
+                    <MDBDropdownItem>
+                      <Link to="/profile"><strong>Profile</strong></Link>
+                    </MDBDropdownItem>
+
+
+                    <MDBDropdownItem>
+                      <Link to="/chart"><strong>My-Chart</strong></Link>
+                    </MDBDropdownItem>
+
+                    <MDBDropdownItem >
+                      <Link to="/logout"><strong>Log-Out</strong></Link>
+                    </MDBDropdownItem>
+
+
+
+
                   </MDBDropdownMenu>
-              </MDBDropdown>
-            </MDBNavItem>
-          </MDBNavbarNav>
-        </MDBCollapse>
-      </MDBNavbar>
+                </MDBDropdown>
+              </MDBNavItem>
+            </MDBNavbarNav>
+          </MDBCollapse>
+        </MDBNavbar>
 
 
 
-      <Switch>
+        <Switch>
 
-        <Route exact path="/" component={Home}/>
-        <Route  path="/home" component={Home}/>
+          <Route exact path="/" component={Home} />
+          <Route path="/home" component={Home} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/about" component={About} />
 
-        <Route  path="/him" component={Him}/>
-        <Route  path="/her" component={Her}/>
-        <Route  path="/news" component={News}/>
-           
-          
+          <Route path="/him" component={Him} />
+          <Route path="/her" component={Her} />
+          <Route path="/news" component={News} />
+          <Route path="/logout" component={Logout} />
 
-        <Route path="/signin" component = {Signin} />
 
-        <Route path="/register" component = {Register} />
+        </Switch>
 
-      </Switch>
- 
-    </div>
+      </div>
     );
   }
 }
