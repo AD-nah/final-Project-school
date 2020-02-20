@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {
   MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
-  MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBBtn, MDBModal, MDBModalHeader, MDBModalBody, MDBModalFooter
+  MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBBtn, MDBModal, MDBModalHeader, MDBModalBody, 
 } from "mdbreact";
 import { Switch, Route, Link } from 'react-router-dom';
 import Home from './Home/Home'
@@ -15,8 +15,7 @@ import Profile from './Profile/Profile'
 import About from './About/About'
 import LoginForm from './LoginForm/LoginForm'
 import RegisterForm from './RegisterForm/RegisterForm'
-
-
+import Chart from './Chart/Chart'
 
 
 
@@ -56,7 +55,7 @@ class Navbar extends Component {
       <div>
         <MDBNavbar color="grey darken-4" dark expand="md">
           <MDBNavbarBrand>
-            <strong className="white-text">Scount</strong>
+            <strong className="white-text font-weight-bold">Scount</strong>
           </MDBNavbarBrand>
           <MDBNavbarToggler onClick={this.toggleCollapse} />
           <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
@@ -97,7 +96,11 @@ class Navbar extends Component {
                     <div className="d-none d-md-inline">More</div>
                   </MDBDropdownToggle>
                   <MDBDropdownMenu className="dropdown-default">
-                    <MDBDropdownItem >About</MDBDropdownItem>
+
+                    <MDBDropdownItem >
+                    <Link to="/about"><strong>About</strong></Link>
+                    </MDBDropdownItem>
+
                     <MDBDropdownItem>Payment</MDBDropdownItem>
                     <MDBDropdownItem >Policy</MDBDropdownItem>
 
@@ -182,6 +185,7 @@ class Navbar extends Component {
           <Route path="/her" component={Her} />
           <Route path="/news" component={News} />
           <Route path="/logout" component={Logout} />
+          <Route path="/chart" component={Chart} />
 
 
         </Switch>
