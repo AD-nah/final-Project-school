@@ -1,42 +1,11 @@
-// import React from "react";
-// import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from 'mdbreact';
-
-// const LoginForm = () => {
-// return (
-
-//     <MDBContainer className= 'border border-dark'>
-//     <MDBCol col="">
-//       <form>
-//         <div className="grey-text">
-         
-//           <MDBInput label="Your email" icon="envelope" group type="email" validate error="wrong"
-//             success="right" />
-     
-//           <MDBInput label="Your password" icon="lock" group type="password" validate />
-//         </div>
-//       </form>
-//     </MDBCol>
-// </MDBContainer>
-// );
-// };
-
-// export default LoginForm;
-
-
 import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBBtn, MDBIcon, MDBModalFooter } from 'mdbreact';
 
 const LoginForm = () => {
   return (
     <MDBContainer>
-      <MDBRow lg>
-        <MDBCol lg>
-           
-              <div className="text-center">
-                <h3 className="dark-grey-text mb-5">
-                  <strong>Sign in</strong>
-                </h3>
-              </div>
+      
+        <MDBCol  className= ' w-100 ' lg>
               <MDBInput
                 label="Your email"
                 group
@@ -104,14 +73,13 @@ const LoginForm = () => {
               <p className="font-small grey-text d-flex justify-content-end">
                 Not a member?
                 <a href="#!" className="blue-text ml-1">
-
                   Sign Up
                 </a>
               </p>
             </MDBModalFooter>
        
         </MDBCol>
-      </MDBRow>
+     
     </MDBContainer>
   );
 };
