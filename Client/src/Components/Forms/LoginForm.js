@@ -2,7 +2,7 @@ import React from "react";
 import { MDBContainer, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBModalFooter } from 'mdbreact';
 import {Spinner} from 'react-bootstrap'
 import Validator from 'validator'
-import ErrorMessage from '../../messages/ErrorMessage'
+import ErrorMessage from '../Messages/ErrorMessage'
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -46,6 +46,7 @@ class LoginForm extends React.Component {
                         }).catch((err) => { 
                           
                           return this.setState({ errors : err.response.data.globalErrors , loading: false })
+
                         })
     }
   }
@@ -75,11 +76,12 @@ class LoginForm extends React.Component {
 
                 <MDBInput
                   label="Your email"
-                  group
+                  //group
                   type="email"
-                  validate
-                  error="wrong"
+                  //validate
+                  //error="wrong"
                   success="right"
+                  name = 'email'
                   onChange = {this.onChange}
                   value = {this.state.data.email} 
                 />
@@ -88,10 +90,11 @@ class LoginForm extends React.Component {
 
                 <MDBInput
                   label="Your password"
-                  group
+                  //group
                   type="password"
-                  validate
+                  //validate
                   containerClass="mb-0"
+                  name = 'password'
                   onChange = {this.onChange}
                   value = {this.state.data.password} 
                 />
