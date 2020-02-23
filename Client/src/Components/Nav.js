@@ -13,8 +13,10 @@ import News from './News/News'
 import Logout from '../Auth/Logout'
 import Profile from './Profile/Profile'
 import About from './About/About'
-import LoginForm from './LoginForm/LoginForm'
-import RegisterForm from './RegisterForm/RegisterForm'
+
+import LoginPage from './Pages/LoginPage'
+import RegisterPage from './Pages/RegisterPage'
+
 import Chart from './Chart/Chart'
 
 import  Logo  from '../../src/fire.svg';
@@ -125,8 +127,10 @@ class Navbar extends Component {
               <MDBBtn onClick={this.registerToggle} className="w-60 p-2" color="white" >Register</MDBBtn>
               <MDBModal isOpen={this.state.registerModal} toggle={this.registerToggle}>
                 <MDBModalHeader toggle={this.registerToggle}>Please Register</MDBModalHeader>
-                <MDBModalBody>
-                  <RegisterForm />
+                <MDBModalBody>  
+
+                  <RegisterPage />
+                
                 </MDBModalBody>
               </MDBModal>
 
@@ -139,7 +143,9 @@ class Navbar extends Component {
               <MDBModal isOpen={this.state.loginModal} toggle={this.loginToggle}>
                 <MDBModalHeader toggle={this.loginToggle}>Please Login</MDBModalHeader>
                 <MDBModalBody>
-                  <LoginForm />
+
+                  <LoginPage />
+
                 </MDBModalBody>
               </MDBModal>
 
