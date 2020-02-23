@@ -1,6 +1,9 @@
 import React from "react";
 import { MDBContainer, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBModalFooter } from 'mdbreact';
+import {Spinner} from 'react-bootstrap'
 import Validator from 'validator'
+import ErrorMessage from '../../messages/ErrorMessage'
+
 class LoginForm extends React.Component {
   constructor(props) {
     super(props)
@@ -62,7 +65,14 @@ class LoginForm extends React.Component {
       <MDBContainer>
         
           <MDBCol  className= ' w-100 ' lg>
-              <form onSubmit = { this.onSubmit }>
+              <form onSubmit = { this.onSubmit }
+              >
+              {/* {this.state.errors.email && <ErrorMessage text = {this.state.errors.email}/>} */}
+
+              {this.state.loading && <Spinner animation="border" />}
+
+              {this.state.errors.authError && <ErrorMessage text = {this.state.errors.authError}/>}
+
                 <MDBInput
                   label="Your email"
                   group
@@ -72,8 +82,10 @@ class LoginForm extends React.Component {
                   success="right"
                   onChange = {this.onChange}
                   value = {this.state.data.email} 
-
                 />
+
+                {this.state.errors.email && <ErrorMessage text = {this.state.errors.email}/>}
+
                 <MDBInput
                   label="Your password"
                   group
@@ -83,6 +95,8 @@ class LoginForm extends React.Component {
                   onChange = {this.onChange}
                   value = {this.state.data.password} 
                 />
+
+                {this.state.errors.password && <ErrorMessage text = {this.state.errors.password}/>}
 
                 <p className="font-small blue-text d-flex justify-content-end pb-3">
                   Forgot
@@ -106,7 +120,7 @@ class LoginForm extends React.Component {
 
 
 
-              
+
                 <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
 
                   or Login in with:
