@@ -1,7 +1,7 @@
 import React from "react";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 import './footer.css'
-import fb_icon from './icons/facebook.svg'
+
 const Footer = () => {
     return (
         <MDBFooter className="page-footer font-small stylish-color-dark pt-4">
@@ -47,14 +47,13 @@ const Footer = () => {
                         <a className="btn-floating btn-li mx-1">
                                 <i class="fab fa-github"></i>                        </a>
                     </li>
-                
                 </ul>
                 {/* Social buttons  */}
 
             </MDBContainer>
             <div className="footer-copyright text-center py-3">
                 <MDBContainer fluid>
-                    &copy; {new Date().getFullYear()} Copyright: <a href="#"> MDBootstrap.com </a>
+                    &copy; {new Date().getFullYear()} Copyright: <a href="#"> Scount </a>
                 </MDBContainer>
             </div>
         </MDBFooter>
