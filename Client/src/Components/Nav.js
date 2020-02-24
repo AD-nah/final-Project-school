@@ -10,7 +10,6 @@ import Home from './Home/Home'
 import Him from './Him/Him';
 import Her from './Her/Her';
 import News from './News/News'
-import Logout from '../Auth/Logout'
 import Profile from './Profile/Profile'
 import About from './About/About'
 
@@ -200,7 +199,6 @@ class Navbar extends Component {
           <Route path="/him" component={Him} />
           <Route path="/her" component={Her} />
           <Route path="/news" component={News} />
-          <Route path="/logout" component={Logout} />
           <Route path="/chart" component={Chart} />
 
 
