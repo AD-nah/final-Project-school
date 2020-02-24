@@ -4,7 +4,7 @@ export default class Her extends Component {
     render() {
         return (
             <div>
-                welcome to Her
+                Her PAGE
             </div>
         )
     }

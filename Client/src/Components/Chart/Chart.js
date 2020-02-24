@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class Logout extends Component {
+export default class Chart extends Component {
     render() {
         return (
             <div>
-               Your are out... 
+              Welcome from chart  
             </div>
         )
     }

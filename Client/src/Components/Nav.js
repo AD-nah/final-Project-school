@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {
   MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
-  MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBBtn, MDBModal, MDBModalHeader, MDBModalBody, MDBModalFooter
+  MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBBtn, MDBModal, MDBModalHeader, MDBModalBody, 
 } from "mdbreact";
 import { Switch, Route, Link } from 'react-router-dom';
 import Home from './Home/Home'
@@ -10,14 +10,15 @@ import Home from './Home/Home'
 import Him from './Him/Him';
 import Her from './Her/Her';
 import News from './News/News'
-import Logout from '../Auth/Logout'
 import Profile from './Profile/Profile'
 import About from './About/About'
-import LoginForm from './LoginForm/LoginForm'
-import RegisterForm from './RegisterForm/RegisterForm'
 
+import LoginPage from './Pages/LoginPage'
+import RegisterPage from './Pages/RegisterPage'
 
+import Chart from './Chart/Chart'
 
+import  Logo  from '../../src/fire.svg';
 
 
 
@@ -54,30 +55,33 @@ class Navbar extends Component {
   render() {
     return (
       <div>
-        <MDBNavbar color="grey darken-4" dark expand="md">
+        <MDBNavbar color="special-color" dark expand="md">
+          
           <MDBNavbarBrand>
-            <strong className="white-text">Scount</strong>
+          <img style={{width:"40px"}}   src={Logo} alt="Logo" />
+            <strong className="white-text font-weight-bold"> 
+            Scount</strong>
           </MDBNavbarBrand>
           <MDBNavbarToggler onClick={this.toggleCollapse} />
           <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
             <MDBNavbarNav left>
 
               <MDBNavItem >
-                <MDBNavLink to='/home'><strong>Home</strong></MDBNavLink>
+                <MDBNavLink  className=" font-weight-bold" to='/home'>Home</MDBNavLink>
               </MDBNavItem>
 
 
               {/* the products Dropdown */}
               <MDBDropdown >
                 <MDBDropdownToggle nav caret>
-                  <div className="d-none d-md-inline"><strong>Products</strong></div>
+                  <div className="d-none d-md-inline  font-weight-bold">Products</div>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default">
                   <MDBDropdownItem>
-                    <Link to="/her"><strong>For Her </strong></Link>
+                    <Link  className=" font-weight-bold" to="/her">For Her </Link>
                   </MDBDropdownItem>
                   <MDBDropdownItem>
-                    <Link to="/him"><strong>For Him </strong></Link>
+                    <Link  className=" font-weight-bold" to="/him">For Him </Link>
                   </MDBDropdownItem>
 
                 </MDBDropdownMenu>
@@ -86,7 +90,7 @@ class Navbar extends Component {
 
 
               <MDBNavItem>
-                <MDBNavLink to='/news'>News</MDBNavLink>
+                <MDBNavLink className=" font-weight-bold" to='/news'>News</MDBNavLink>
               </MDBNavItem>
 
 
@@ -94,12 +98,21 @@ class Navbar extends Component {
               <MDBNavItem>
                 <MDBDropdown >
                   <MDBDropdownToggle nav caret>
-                    <div className="d-none d-md-inline">More</div>
+                    <div className="d-none d-md-inline font-weight-bold">More</div>
                   </MDBDropdownToggle>
                   <MDBDropdownMenu className="dropdown-default">
-                    <MDBDropdownItem >About</MDBDropdownItem>
-                    <MDBDropdownItem>Payment</MDBDropdownItem>
-                    <MDBDropdownItem >Policy</MDBDropdownItem>
+
+                    <MDBDropdownItem >
+                    <Link className=" font-weight-bold" to="/about">About</Link>
+                    </MDBDropdownItem>
+
+                    <MDBDropdownItem >
+                    <Link className=" font-weight-bold" to="/#">Payment</Link>
+                    </MDBDropdownItem>
+
+                    <MDBDropdownItem >
+                    <Link className=" font-weight-bold" to="/#">Policy</Link>
+                    </MDBDropdownItem>
 
                   </MDBDropdownMenu>
                 </MDBDropdown>
@@ -109,40 +122,31 @@ class Navbar extends Component {
 
 
 
-              {/* the Register modal  */}
-              <MDBBtn onClick={this.registerToggle} className="w-60 p-2" color="white" >Register</MDBBtn>
-              <MDBModal isOpen={this.state.registerModal} toggle={this.registerToggle}>
-                <MDBModalHeader toggle={this.registerToggle}>Please Register</MDBModalHeader>
-                
-                <MDBModalBody>
-
-                  {/* the register form */}
-                  <h1>hhh</h1>
-                  <RegisterForm />
-                </MDBModalBody>
-
-                <MDBModalFooter>
-                  <MDBBtn onClick={this.registerToggle}>Close</MDBBtn>
-                  <MDBBtn color="primary">Register</MDBBtn>
-                </MDBModalFooter>
-              </MDBModal>
-
-
-
-
-
               {/* the login modals */}
               <MDBBtn onClick={this.loginToggle} className="w-60 p-2" color="white" >Login</MDBBtn>
               <MDBModal isOpen={this.state.loginModal} toggle={this.loginToggle}>
                 <MDBModalHeader toggle={this.loginToggle}>Please Login</MDBModalHeader>
                 <MDBModalBody>
-                  <LoginForm />
+
+                  <LoginPage />
+
                 </MDBModalBody>
-                <MDBModalFooter>
-                  <MDBBtn onClick={this.loginToggle} color="danger">Close</MDBBtn>
-                  <MDBBtn color="primary">Log-In</MDBBtn>
-                </MDBModalFooter>
               </MDBModal>
+
+
+              {/* the Register modal  */}
+              <MDBBtn onClick={this.registerToggle} className="w-60 p-2" color="white" >Register</MDBBtn>
+              <MDBModal isOpen={this.state.registerModal} toggle={this.registerToggle}>
+                <MDBModalHeader toggle={this.registerToggle}>Please Register</MDBModalHeader>
+                <MDBModalBody>  
+
+                  <RegisterPage />
+                
+                </MDBModalBody>
+              </MDBModal>
+
+
+
 
 
 
@@ -180,6 +184,7 @@ class Navbar extends Component {
               </MDBNavItem>
             </MDBNavbarNav>
           </MDBCollapse>
+        
         </MDBNavbar>
 
 
@@ -194,7 +199,7 @@ class Navbar extends Component {
           <Route path="/him" component={Him} />
           <Route path="/her" component={Her} />
           <Route path="/news" component={News} />
-          <Route path="/logout" component={Logout} />
+          <Route path="/chart" component={Chart} />
 
 
         </Switch>

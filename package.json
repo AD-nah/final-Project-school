@@ -1,0 +1,19 @@
+{
+  "name": "final-Project-school",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App, express Renerator]",
+  "main": "",
+  "scripts": {
+    "dev": "concurrently \"cd Server && npm start\" \"cd Client && npm start \" "  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AD-nah/final-Project-school.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AD-nah/final-Project-school/issues"
+  },
+  "homepage": "https://github.com/AD-nah/final-Project-school#readme"
+}

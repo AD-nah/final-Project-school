@@ -1,0 +1,1 @@
+export const USER_LIGGED_IN_TYPE = 'USER_LIGGED_IN'
