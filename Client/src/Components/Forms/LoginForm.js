@@ -9,15 +9,12 @@ class LoginForm extends React.Component {
     super(props)
   
     this.state = {
-
       data:{
-
           email:'ahmad.alnahlawi@icloud.com',
           password:'asdf1234'
       },
       loading: false,
       errors:{}
-
       }
     }
 
@@ -26,7 +23,7 @@ class LoginForm extends React.Component {
           ...this.state.data, 
           [e.target.name] :e.target.value
       }
-  })
+    })
 
   onSubmit = (e) =>{
 
@@ -41,10 +38,14 @@ class LoginForm extends React.Component {
         return this.props
                         .submit(this.state.data).then((res) => {
 
+                          console.log('auth data is successfully received (LoginForm.js)')
+
                           return this.setState({loading: false})
 
                         }).catch((err) => { 
-                          
+
+                            console.log('receiving auth data is failed (LoginForm.js) Server Error is: ', err)
+
                           return this.setState({ errors : err.response.data.globalErrors , loading: false })
 
                         })
@@ -65,7 +66,7 @@ class LoginForm extends React.Component {
     return (
       <MDBContainer>
         
-          <MDBCol  className= ' w-100 ' lg>
+          <MDBCol  className= ' w-100 ' >
               <form onSubmit = { this.onSubmit }
               >
               {/* {this.state.errors.email && <ErrorMessage text = {this.state.errors.email}/>} */}
