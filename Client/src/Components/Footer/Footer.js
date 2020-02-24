@@ -15,7 +15,7 @@ const Footer = () => {
                         </p>
                         
 
-                        
+
                     </MDBCol>
                     <MDBCol md="2" className="col-md-2 mx-auto">
                         <h5 className="font-weight-bold text-uppercase mt-2 mb-4">Links</h5>
@@ -47,7 +47,7 @@ const Footer = () => {
                
                     <li className="list-inline-item">
                         <a className="btn-floating btn-li mx-1">
-                                <i class="fab fa-github"></i>                        </a>
+                                <i className="fab fa-github"></i>                        </a>
                     </li>
                 </ul>
                 {/* Social buttons  */}
