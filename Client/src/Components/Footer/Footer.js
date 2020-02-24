@@ -45,7 +45,7 @@ const Footer = () => {
                
                     <li className="list-inline-item">
                         <a className="btn-floating btn-li mx-1">
-                                <i class="fab fa-github"></i>                        </a>
+                                <i className="fab fa-github"></i>                        </a>
                     </li>
                 </ul>
                 {/* Social buttons  */}

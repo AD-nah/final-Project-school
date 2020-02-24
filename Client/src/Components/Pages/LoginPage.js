@@ -14,7 +14,7 @@ class LoginPage extends Component {
         }
         
         return (
-                <LoginForm submit = {submit} />
+            <LoginForm submit = {submit} />
         )
     }
 }

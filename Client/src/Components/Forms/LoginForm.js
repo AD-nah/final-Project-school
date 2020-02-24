@@ -69,8 +69,8 @@ class LoginForm extends React.Component {
       <MDBContainer>
         
           <MDBCol  className= ' w-100 ' lg>
-              <form onSubmit = { this.onSubmit }
-              >
+              <form onSubmit = { this.onSubmit }>
+             
               {/* {this.state.errors.email && <ErrorMessage text = {this.state.errors.email}/>} */}
               {this.state.loading && <SemipolarLoading  />}
               {this.state.errors.authError && <ErrorMessage text ={this.state.errors.authError}/>}
@@ -87,7 +87,7 @@ class LoginForm extends React.Component {
                 />
                   <br/>
                 {this.state.errors.email && <ErrorMessage text ={this.state.errors.email}/>}
-
+                
                 <MDBInput
                    className='text-dark'
                   label="Your password"
@@ -161,7 +161,6 @@ class LoginForm extends React.Component {
                   </a>
                 </p>
               </MDBModalFooter>
-        
           </MDBCol>
       
       </MDBContainer>
