@@ -43,9 +43,33 @@ export default class Home extends Component {
                 </div>
                 <br />
                 <br />
-                {/* Cards Code start 20,02,2020*/}
+                {/* Cards Code start 24,02,2020*/}
                 <div class="container">
-                    <div class="row">
+                    {/*grid  system */}
+                    {/* <!-- Stack the columns on mobile by making one full-width and the other half-width --> */}
+                    <div class="media">
+  <img class="d-flex mr-3" src="https://mdbootstrap.com/img/Photos/Others/placeholder4.jpg" alt="Generic placeholder image">
+  <div class="media-body">
+    <h5 class="mt-0 font-weight-bold">Media heading</h5>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in
+    vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia
+    congue felis in faucibus.
+
+    <div class="media mt-4">
+      <a class="d-flex pr-3" href="#">
+        <img src="https://mdbootstrap.com/img/Photos/Others/placeholder6.jpg" alt="Generic placeholder image"/>
+      </a>
+      <div class="media-body">
+        <h5 class="mt-0 font-weight-bold">Media heading</h5>
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in
+        vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia
+        congue felis in faucibus.
+      </div>
+    </div>
+  </div>
+</div>
+
+                    {/* <div class="row">
                         
                         <div class="col-sm">
                             <div class="card card-cascade wider reverse">
@@ -124,7 +148,7 @@ export default class Home extends Component {
                                 </div>
 
                             </div>    </div>
-                    </div>
+                    </div> */}
                 </div>
                 <br />
                 <br />
