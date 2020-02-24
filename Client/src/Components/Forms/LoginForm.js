@@ -1,15 +1,19 @@
 import React from "react";
 import { MDBContainer, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBModalFooter } from 'mdbreact';
-import {Spinner} from 'react-bootstrap'
+
 import Validator from 'validator'
 import ErrorMessage from '../Messages/ErrorMessage'
+
+//Loading Spinner
+import { SemipolarLoading } from 'react-loadingg';
+
+
 
 class LoginForm extends React.Component {
   constructor(props) {
     super(props)
   
     this.state = {
-
       data:{
 
           email:'ahmad.alnahlawi@icloud.com',
@@ -29,7 +33,6 @@ class LoginForm extends React.Component {
   })
 
   onSubmit = (e) =>{
-
     e.preventDefault()
     const errors = this.validate( this.state.data ) // do not do enything else if we have errors 
     this.setState({ errors })
@@ -69,31 +72,26 @@ class LoginForm extends React.Component {
               <form onSubmit = { this.onSubmit }
               >
               {/* {this.state.errors.email && <ErrorMessage text = {this.state.errors.email}/>} */}
-
-              {this.state.loading && <Spinner animation="border" />}
-
-              {this.state.errors.authError && <ErrorMessage text = {this.state.errors.authError}/>}
+              {this.state.loading && <SemipolarLoading  />}
+              {this.state.errors.authError && <ErrorMessage text ={this.state.errors.authError}/>}
 
                 <MDBInput
+                className='text-dark'
                   label="Your email"
-                  //group
                   type="email"
-                  //validate
-                  //error="wrong"
-                  success="right"
+                  validate
+                  success=""
                   name = 'email'
                   onChange = {this.onChange}
                   value = {this.state.data.email} 
                 />
-
-                {this.state.errors.email && <ErrorMessage text = {this.state.errors.email}/>}
+                  <br/>
+                {this.state.errors.email && <ErrorMessage text ={this.state.errors.email}/>}
 
                 <MDBInput
+                   className='text-dark'
                   label="Your password"
-                  //group
                   type="password"
-                  //validate
-                  containerClass="mb-0"
                   name = 'password'
                   onChange = {this.onChange}
                   value = {this.state.data.password} 

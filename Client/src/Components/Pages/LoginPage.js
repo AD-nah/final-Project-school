@@ -10,7 +10,7 @@ class LoginPage extends Component {
 
         const submit = (data) => {
             console.log(data)
-            return this.props.loginAction(data).then(() => this.props.history.push('/'))
+            return this.props.loginAction(data)/* .then(() => this.props.history.push('/')) */
         }
         
         return (
@@ -20,9 +20,9 @@ class LoginPage extends Component {
 }
 
 LoginPage.propTypes = {
-    history: PropTypes.shape({
+/*     history: PropTypes.shape({
      push: PropTypes.func.isRequired
-   }).isRequired,
+   }).isRequired, */
    loginAction: PropTypes.func.isRequired,
 };
 export default connect(null, { loginAction: reduxActions.loginAction })(LoginPage)
