@@ -33,7 +33,7 @@ class LoginForm extends React.Component {
           ...this.state.data, 
           [e.target.name] :e.target.value
       }
-  })
+    })
 
   onSubmit = (e) =>{
     e.preventDefault()
@@ -47,10 +47,14 @@ class LoginForm extends React.Component {
         return this.props
                         .submit(this.state.data).then((res) => {
 
+                          console.log('auth data is successfully received (LoginForm.js)')
+
                           return this.setState({loading: false})
 
                         }).catch((err) => { 
-                          
+
+                            console.log('receiving auth data is failed (LoginForm.js) Server Error is: ', err)
+
                           return this.setState({ errors : err.response.data.globalErrors , loading: false })
 
                         })
