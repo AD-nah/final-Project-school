@@ -1,11 +1,16 @@
 import React from "react";
 import { MDBContainer, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBModalFooter } from 'mdbreact';
+//import { toast } from "react-toastify";
+
 
 import Validator from 'validator'
 import ErrorMessage from '../Messages/ErrorMessage'
 
 //Loading Spinner
 import { SemipolarLoading } from 'react-loadingg';
+
+
+//ERROR MESSAGES
 
 
 
@@ -15,13 +20,11 @@ class LoginForm extends React.Component {
   
     this.state = {
       data:{
-
           email:'ahmad.alnahlawi@icloud.com',
           password:'asdf1234'
       },
       loading: false,
       errors:{}
-
       }
     }
 
@@ -71,9 +74,9 @@ class LoginForm extends React.Component {
           <MDBCol  className= ' w-100 ' lg>
               <form onSubmit = { this.onSubmit }>
              
-              {/* {this.state.errors.email && <ErrorMessage text = {this.state.errors.email}/>} */}
+             
               {this.state.loading && <SemipolarLoading  />}
-              {this.state.errors.authError && <ErrorMessage text ={this.state.errors.authError}/>}
+              {this.state.errors.authError && <ErrorMessage text ={this.state.errors.authError} />}
 
                 <MDBInput
                 className='text-dark'
@@ -86,7 +89,9 @@ class LoginForm extends React.Component {
                   value = {this.state.data.email} 
                 />
                   <br/>
-                {this.state.errors.email && <ErrorMessage text ={this.state.errors.email}/>}
+                 
+
+                {this.state.errors.email &&  <ErrorMessage text ={this.state.errors.email}/>}
                 
                 <MDBInput
                    className='text-dark'
@@ -97,7 +102,7 @@ class LoginForm extends React.Component {
                   value = {this.state.data.password} 
                 />
 
-                {this.state.errors.password && <ErrorMessage text = {this.state.errors.password}/>}
+                {this.state.errors.password &&  <ErrorMessage text = {this.state.errors.password}/>}
 
                 <p className="font-small blue-text d-flex justify-content-end pb-3">
                   Forgot
