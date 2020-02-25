@@ -13,12 +13,15 @@
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
+    "react-loadingg": "^1.7.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
+    "react-toastify": "^5.5.0",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
+    "thunk": "0.0.1",
     "validator": "^12.2.0"
   },
   "scripts": {
@@ -42,5 +45,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy":"http://127.0.0.1:3001"
+  "proxy": "http://127.0.0.1:3001"
 }
