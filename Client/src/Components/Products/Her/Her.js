@@ -1,10 +1,7 @@
-
-
 import React from 'react';
 
 
 //MATERIAL-UI Library for React packages
-
 //import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button/Button';
 import CameraIcon from '@material-ui/core/Icon/Icon';
@@ -90,7 +87,7 @@ export default function Album() {
         </div>
 
 
-        <Container className={classes.cardGrid} maxWidth="md">
+        <Container className={classes.cardGrid} maxWidth="lg">
           {/* End hero unit */}
           <Grid container spacing={4}>
             {cards.map(card => (
@@ -108,6 +105,12 @@ export default function Album() {
                     <Typography>
                       This is a media card. You can use this section to describe the content.
                     </Typography>
+                    <hr/>
+
+                    <Typography gutterBottom variant="h7" >
+                      Cost:  &#36;
+                    </Typography>
+
                   </CardContent>
                   <CardActions>
                     <Button size="small" color="primary">
@@ -133,8 +136,6 @@ export default function Album() {
 
 
       </main>
-     
-
     </React.Fragment>
   );
 }
