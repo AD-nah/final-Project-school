@@ -19,11 +19,11 @@ import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import combineReducers from './Redux/combineReducers'
 import {userLoggedIn} from './Redux/Actions/auth'
- //sCount
-
- const store = createStore(combineReducers, composeWithDevTools(applyMiddleware( thunk )))
 
 
+ const store = createStore(combineReducers, composeWithDevTools(applyMiddleware(thunk)))
+
+ // save login on reload
  if (localStorage.sCount){
    const user = {
      token: localStorage.sCount
