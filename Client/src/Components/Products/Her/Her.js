@@ -68,7 +68,7 @@ export default function Album() {
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              Products layout
+              Products for Her layout
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
               Something short and leading about the collection below—its contents, the creator, etc.
@@ -109,7 +109,7 @@ export default function Album() {
                     <hr/>
 
                     <Typography gutterBottom variant="h7" >
-                      Cost:  &#36;
+                       <Typography variant="h5" component="h3">&#36;</Typography>
                     </Typography>
 
                   </CardContent>
