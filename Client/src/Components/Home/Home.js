@@ -1,4 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import img from '../../imgs/test.jpg';
+import img1 from '../../imgs/test1.jpg';
+import img2 from '../../imgs/test2.jpg';
+import img3 from '../../imgs/test3.jpg';
+
 
 export default class Home extends Component {
     render() {
@@ -43,9 +48,56 @@ export default class Home extends Component {
                 </div>
                 <br />
                 <br />
+                {/* Cards Code start 24,02,2020*/}
+              
+                <div className="row">
+                    <div className="col">
+                       
+                       
+                        <img src={img} alt="Testig Photo"/>
+                    </div>
+
+                    <div className="col">
+                    <h2>Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</h2>
+                    </div>
+
+                 
+
+                </div>
+                <div className="row">
+                    <div className="col mt-4">
+                       
+                    <h2>Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</h2>
+                        
+                    </div>
+
+                    <div className="col">
+                    <img src={img1} alt="Testig Photo"/>
+                    
+                    </div>
+                    </div>
+
+                {/*Third Div 3*/}
+                <div className="row mt-3">
+                    <div className="col">
+                        <img src={img2}/>
+                    </div>
+                    <div className="col">
+                        <img src={img3}/>
+                    </div>
+
+                </div>
+
+                {/*SECUND DEV*/}
+
+                    {/*grid  system */}
+                    {/* <!-- Stack the columns on mobile by making one full-width and the other half-width --> */}
+ 
+                    {/* <div class="row">
                 {/* Cards Code start 20,02,2020*/}
                 <div className="container">
                     <div className="row">
+
                         
                         <div className="col-sm">
                             <div className="card card-cascade wider reverse">
@@ -124,8 +176,8 @@ export default class Home extends Component {
                                 </div>
 
                             </div>    </div>
-                    </div>
-                </div>
+                    </div> */}
+                
                 <br />
                 <br />
                 {/* Cards Code ende 20,02,2020*/}
