@@ -3,9 +3,16 @@ import React, { Component } from 'react'
 export default class Her extends Component {
     render() {
         return (
+            
             <div className="container">
             <div className="row">
                 
+                <div>
+                <h2>Welcome feel free to shop... </h2>
+
+                </div>
+
+
                 <div className="col-sm">
                     <div className="card card-cascade wider reverse">
 

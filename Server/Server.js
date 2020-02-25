@@ -18,7 +18,10 @@ require('mongoose').connect(process.env.SERVER_DB_URI_CLOUD, {
         console.log('Connected:',[res.name, res.host, res.user])
     }
 })
+
+
     
+
 server.use(logger('dev'));
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
