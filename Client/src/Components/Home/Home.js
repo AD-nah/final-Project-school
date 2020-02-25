@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './home.css'
-import React, { Component } from 'react';
 import img from '../../imgs/test.jpg';
 import img1 from '../../imgs/test1.jpg';
 import img2 from '../../imgs/test2.jpg';
