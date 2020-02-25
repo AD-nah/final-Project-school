@@ -1,5 +1,15 @@
 import React, { Component } from 'react'
 import './home.css'
+<<<<<<< HEAD
+=======
+import React, { Component } from 'react';
+import img from '../../imgs/test.jpg';
+import img1 from '../../imgs/test1.jpg';
+import img2 from '../../imgs/test2.jpg';
+import img3 from '../../imgs/test3.jpg';
+
+
+>>>>>>> 32dd9af463fcb4b3d8485a6cab4be55a2c3b11a7
 export default class Home extends Component {
     render() {
         return (
@@ -43,6 +53,10 @@ export default class Home extends Component {
                 </div>
                 <br />
                 <br />
+<<<<<<< HEAD
+=======
+
+>>>>>>> 32dd9af463fcb4b3d8485a6cab4be55a2c3b11a7
             </React.Fragment>
         )
     }
