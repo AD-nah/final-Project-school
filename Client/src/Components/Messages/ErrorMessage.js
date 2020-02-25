@@ -1,57 +1,27 @@
 
-
-
-import React from "react";
-import PropTypes from "prop-types";
-
-const ErrorMessage = ({ text }) => (
-
-            <div className="alert alert-danger alert-dismissible fade show" role="alert">
-
-                        {text}
-
-                <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-                {/* <span aria-hidden="true">&times;</span> */}
-                </button>
-            </div>
-);
-
-ErrorMessage.propTypes = {
-  text: PropTypes.string.isRequired
-};
-
-export default ErrorMessage;
+import React, { Component } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+// minified version is also included
+// import 'react-toastify/dist/ReactToastify.min.css';
 
 
 
+class ErrorMessage extends Component {
 
 
+  componentDidMount(){
 
+    toast.error(this.props.text)
 
+  }
 
-
-
-
-
-
-
-// import React, { Component } from 'react'
-
-// export default class ErrorMessage extends Component {
-
-    
-//     render() {
-//         return (
-//             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-
-//                         {this.props.text}
-
-//                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-//                 <span aria-hidden="true">&times;</span>
-//                 </button>
-//              </div>
-//         )
-//     }
-// }
-
-
+  render(){
+    return (
+      <div>
+         <ToastContainer/>
+      </div>
+    )
+  }
+}
+export default ErrorMessage

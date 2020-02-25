@@ -1,23 +1,30 @@
 import React from "react";
 import { MDBContainer, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBModalFooter } from 'mdbreact';
-import {Spinner} from 'react-bootstrap'
+//import { toast } from "react-toastify";
+
+
 import Validator from 'validator'
 import ErrorMessage from '../Messages/ErrorMessage'
+
+//Loading Spinner
+import { SemipolarLoading } from 'react-loadingg';
+
+
+//ERROR MESSAGES
+
+
 
 class LoginForm extends React.Component {
   constructor(props) {
     super(props)
   
     this.state = {
-
       data:{
-
           email:'ahmad.alnahlawi@icloud.com',
           password:'asdf1234'
       },
       loading: false,
       errors:{}
-
       }
     }
 
@@ -26,10 +33,9 @@ class LoginForm extends React.Component {
           ...this.state.data, 
           [e.target.name] :e.target.value
       }
-  })
+    })
 
   onSubmit = (e) =>{
-
     e.preventDefault()
     const errors = this.validate( this.state.data ) // do not do enything else if we have errors 
     this.setState({ errors })
@@ -41,10 +47,14 @@ class LoginForm extends React.Component {
         return this.props
                         .submit(this.state.data).then((res) => {
 
+                          console.log('auth data is successfully received (LoginForm.js)')
+
                           return this.setState({loading: false})
 
                         }).catch((err) => { 
-                          
+
+                            console.log('receiving auth data is failed (LoginForm.js) Server Error is: ', err)
+
                           return this.setState({ errors : err.response.data.globalErrors , loading: false })
 
                         })
@@ -66,40 +76,37 @@ class LoginForm extends React.Component {
       <MDBContainer>
         
           <MDBCol  className= ' w-100 ' lg>
-              <form onSubmit = { this.onSubmit }
-              >
-              {/* {this.state.errors.email && <ErrorMessage text = {this.state.errors.email}/>} */}
-
-              {this.state.loading && <Spinner animation="border" />}
-
-              {this.state.errors.authError && <ErrorMessage text = {this.state.errors.authError}/>}
+              <form onSubmit = { this.onSubmit }>
+             
+             
+              {this.state.loading && <SemipolarLoading  />}
+              {this.state.errors.authError && <ErrorMessage text ={this.state.errors.authError} />}
 
                 <MDBInput
+                className='text-dark'
                   label="Your email"
-                  //group
                   type="email"
-                  //validate
-                  //error="wrong"
-                  success="right"
+                  validate
+                  success=""
                   name = 'email'
                   onChange = {this.onChange}
                   value = {this.state.data.email} 
                 />
+                  <br/>
+                 
 
-                {this.state.errors.email && <ErrorMessage text = {this.state.errors.email}/>}
-
+                {this.state.errors.email &&  <ErrorMessage text ={this.state.errors.email}/>}
+                
                 <MDBInput
+                   className='text-dark'
                   label="Your password"
-                  //group
                   type="password"
-                  //validate
-                  containerClass="mb-0"
                   name = 'password'
                   onChange = {this.onChange}
                   value = {this.state.data.password} 
                 />
 
-                {this.state.errors.password && <ErrorMessage text = {this.state.errors.password}/>}
+                {this.state.errors.password &&  <ErrorMessage text = {this.state.errors.password}/>}
 
                 <p className="font-small blue-text d-flex justify-content-end pb-3">
                   Forgot
@@ -163,7 +170,6 @@ class LoginForm extends React.Component {
                   </a>
                 </p>
               </MDBModalFooter>
-        
           </MDBCol>
       
       </MDBContainer>

@@ -7,8 +7,10 @@ import { Switch, Route, Link } from 'react-router-dom';
 import Home from './Home/Home'
 
 
-import Him from './Him/Him';
-import Her from './Her/Her';
+
+
+import Him from './Products/Him/Him'
+import Her from './Products/Her/Her';
 import News from './News/News'
 import Profile from './Profile/Profile'
 import About from './About/About'

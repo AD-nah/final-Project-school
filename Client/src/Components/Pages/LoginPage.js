@@ -1,29 +1,45 @@
 import React, { Component } from 'react'
-import LoginForm from '../Forms/LoginForm'
-import * as reduxActions from '../../Redux/Actions/auth'
+import { Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import LoginForm from '../Forms/LoginForm'
 import {connect} from 'react-redux'
+import * as reduxActions from '../../Redux/Actions/auth'
 
 class LoginPage extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            redirect: null
+        }
+    }
+
+    
+         
+        submit = (userLoginAuthData) => {
+              
+           return this.props.loginAction(userLoginAuthData).then((res) => {
+           
+            this.setState({redirect: <Redirect to = '/her'/>})
+
+        })
+
+    }
 
     render() {
 
-        const submit = (data) => {
-            console.log(data)
-            return this.props.loginAction(data).then(() => this.props.history.push('/'))
-        }
-        
         return (
-                <LoginForm submit = {submit} />
+        <div>
+            {this.state.redirect}
+            <LoginForm submit = {this.submit} />
+        </div>
         )
     }
 }
 
 LoginPage.propTypes = {
-    history: PropTypes.shape({
-     push: PropTypes.func.isRequired
-   }).isRequired,
    loginAction: PropTypes.func.isRequired,
 };
 export default connect(null, { loginAction: reduxActions.loginAction })(LoginPage)
 
+ 
