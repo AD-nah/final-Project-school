@@ -14,8 +14,6 @@ const Footer = () => {
                             content.
                         </p>
                         
-
-
                     </MDBCol>
                     <MDBCol md="2" className="col-md-2 mx-auto">
                         <h5 className="font-weight-bold text-uppercase mt-2 mb-4">Links</h5>
