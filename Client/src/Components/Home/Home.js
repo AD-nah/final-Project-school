@@ -1,5 +1,12 @@
 import React, { Component } from 'react'
 import './home.css'
+import React, { Component } from 'react';
+import img from '../../imgs/test.jpg';
+import img1 from '../../imgs/test1.jpg';
+import img2 from '../../imgs/test2.jpg';
+import img3 from '../../imgs/test3.jpg';
+
+
 export default class Home extends Component {
     render() {
         return (
@@ -43,6 +50,7 @@ export default class Home extends Component {
                 </div>
                 <br />
                 <br />
+
             </React.Fragment>
         )
     }
