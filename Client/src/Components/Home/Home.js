@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 import './home.css'
-<<<<<<< HEAD
-=======
-import React, { Component } from 'react';
+
 import img from '../../imgs/test.jpg';
 import img1 from '../../imgs/test1.jpg';
 import img2 from '../../imgs/test2.jpg';
 import img3 from '../../imgs/test3.jpg';
 
 
->>>>>>> 32dd9af463fcb4b3d8485a6cab4be55a2c3b11a7
 export default class Home extends Component {
     render() {
         return (
@@ -53,10 +50,141 @@ export default class Home extends Component {
                 </div>
                 <br />
                 <br />
-<<<<<<< HEAD
-=======
 
->>>>>>> 32dd9af463fcb4b3d8485a6cab4be55a2c3b11a7
+
+
+
+                    {/* Cards Code start 24,02,2020*/}
+              
+                <div className="row">
+                    <div className="col">
+                       
+                       
+                        <img src={img} alt="Testig Photo"/>
+                    </div>
+
+                    <div className="col">
+                    <h2>Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</h2>
+                    </div>
+
+                 
+
+                </div>
+                <div className="row">
+                    <div className="col mt-4">
+                       
+                    <h2>Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</h2>
+                        
+                    </div>
+
+                    <div className="col">
+                    <img src={img1} alt="Testig Photo"/>
+                    
+                    </div>
+                    </div>
+
+                {/*Third Div 3*/}
+                <div className="row mt-3">
+                    <div className="col">
+                        <img src={img2}/>
+                    </div>
+                    <div className="col">
+                        <img src={img3}/>
+                    </div>
+
+                </div>
+
+                {/*SECUND DEV*/}
+
+                    {/*grid  system */}
+                    {/* <!-- Stack the columns on mobile by making one full-width and the other half-width --> */}
+ 
+                    {/* <div class="row">
+                {/* Cards Code start 20,02,2020*/}
+                <div className="container">
+                    <div className="row">
+
+                        
+                        <div className="col-sm">
+                            <div className="card card-cascade wider reverse">
+
+                                <div className="view view-cascade overlay" >
+                                    <img className="card-img-top" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg" alt="Card image cap" />
+                                    <a href="#!">
+                                        <div className="mask rgba-white-slight"></div>
+                                    </a>
+                                </div>
+
+                                <div className="card-body card-body-cascade text-center">
+                                    <h4 className="card-title"><strong>My adventure</strong></h4>
+                                    <h6 className="font-weight-bold indigo-text py-2">Photography</h6>
+                                    <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem perspiciatis
+                                      voluptatum a, quo nobis, non commodi quia repellendus sequi nulla voluptatem dicta reprehenderit, placeat
+                                      laborum ut beatae ullam suscipit veniam.
+                                     </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div className="col-sm">
+                            <div className="card card-cascade wider reverse">
+
+                                <div className="view view-cascade overlay">
+                                    <img className="card-img-top" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"
+                                        alt="Card image cap" />
+                                    <a href="#!">
+                                        <div className="mask rgba-white-slight"></div>
+                                    </a>
+                                </div>
+
+                                <div className="card-body card-body-cascade text-center">
+
+
+                                    <h4 className="card-title"><strong>My adventure</strong></h4>
+
+                                    <h6 className="font-weight-bold indigo-text py-2">Photography</h6>
+
+                                    <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem perspiciatis
+                                      voluptatum a, quo nobis, non commodi quia repellendus sequi nulla voluptatem dicta reprehenderit, placeat
+                                      laborum ut beatae ullam suscipit veniam.
+                                      </p>
+
+
+
+                                </div>
+
+                            </div>    </div>
+                        <div className="col-sm">
+                            <div className="card card-cascade wider reverse">
+
+                                <div className="view view-cascade overlay">
+                                    <img className="card-img-top" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"
+                                        alt="Card image cap" />
+                                    <a href="#!">
+                                        <div className="mask rgba-white-slight"></div>
+                                    </a>
+                                </div>
+
+                                <div className="card-body card-body-cascade text-center wider reverse">
+
+
+                                    <h4 className="card-title"><strong>My adventure</strong></h4>
+
+                                    <h6 className="font-weight-bold indigo-text py-2">Photography</h6>
+
+                                    <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem perspiciatis
+                                      voluptatum a, quo nobis, non commodi quia repellendus sequi nulla voluptatem dicta reprehenderit, placeat
+                                      laborum ut beatae ullam suscipit veniam.
+                                    </p>
+                                </div>
+                            </div>    
+                        </div>
+                        </div>
+                    </div> 
+                
+                <br />
+                <br />
+                {/* Cards Code ende 20,02,2020*/}
             </React.Fragment>
         )
     }
