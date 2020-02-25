@@ -1,5 +1,5 @@
 import {USER_LIGGED_IN_TYPE} from '../types'
-
+import {USER_LIGGED_OUT_TYPE} from '../types'
 
 export default function userReducer (state = {}, action = {}){
 
@@ -10,6 +10,8 @@ export default function userReducer (state = {}, action = {}){
                 console.log({...state})
                 return action.authenticatedData
 
+        case USER_LIGGED_OUT_TYPE:
+            return {}
         default:
 
             return state
