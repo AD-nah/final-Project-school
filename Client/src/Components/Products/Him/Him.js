@@ -13,7 +13,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Sidebar from './AsideBar/AsideBar'
+// import Sidebar from './AsideBar/AsideBar'
 
 
 
@@ -102,9 +102,9 @@ export default function Album() {
 
       <main>
           {/* asidebar */}
-          <div>
+          {/* <div>
             <Sidebar items={items} />
-          </div>
+          </div> */}
 
 
 
