@@ -4,21 +4,18 @@ import React from 'react';
 //MATERIAL-UI Library for React packages
 //import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button/Button';
-import CameraIcon from '@material-ui/core/Icon/Icon';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-//import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Fab from '@material-ui/core/Fab/Fab';
-import FavoriteIcon from '@material-ui/core/Icon/Icon'
-//import Link from '@material-ui/core/Link';
-import AddIcon from '@material-ui/core/Icon/Icon'
+import Sidebar from './AsideBar/AsideBar'
+
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -55,6 +52,46 @@ const useStyles = makeStyles(theme => ({
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
+
+// aside bar items
+const items = [
+    { name: 'home', label: 'Home' },
+    {
+      name: 'billing',
+      label: 'Billing',
+      items: [
+        { name: 'statements', label: 'Statements' },
+        { name: 'reports', label: 'Reports' },
+      ],
+    },
+    {
+      name: 'settings',
+      label: 'Settings',
+      items: [
+        { name: 'profile', label: 'Profile' },
+        { name: 'insurance', label: 'Insurance' },
+        {
+          name: 'notifications',
+          label: 'Notifications',
+          items: [
+            { name: 'email', label: 'Email' },
+            {
+              name: 'desktop',
+              label: 'Desktop',
+              items: [
+                { name: 'schedule', label: 'Schedule' },
+                { name: 'frequency', label: 'Frequency' },
+              ],
+            },
+            { name: 'sms', label: 'SMS' },
+          ],
+        },
+      ],
+    },
+  ]
+
+
+
 export default function Album() {
   const classes = useStyles();
 
@@ -64,6 +101,13 @@ export default function Album() {
       
 
       <main>
+          {/* asidebar */}
+          <div>
+            <Sidebar items={items} />
+          </div>
+
+
+
         {/* Hero unit */}
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
