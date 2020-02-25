@@ -4,13 +4,12 @@ import PropTypes from 'prop-types'
 import LoginForm from '../Forms/LoginForm'
 import {connect} from 'react-redux'
 import * as reduxActions from '../../Redux/Actions/auth'
-
 class LoginPage extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            redirect: null
+            redirect: false,
         }
     }
 
@@ -19,10 +18,14 @@ class LoginPage extends Component {
         submit = (userLoginAuthData) => {
               
            return this.props.loginAction(userLoginAuthData).then((res) => {
-           
-            this.setState({redirect: <Redirect to = '/her'/>})
 
-        })
+            
+               this.setState({redirect: true})
+               
+              this.props.closeLogin()
+               
+               
+            })
 
     }
 
@@ -30,8 +33,7 @@ class LoginPage extends Component {
 
         return (
         <div>
-            {this.state.redirect}
-            <LoginForm submit = {this.submit} />
+            {!this.state.redirect ? <LoginForm submit = {this.submit} /> : <Redirect to = '/her'/>}
         </div>
         )
     }
