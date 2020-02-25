@@ -112,10 +112,13 @@ export default function Album() {
                     </Typography>
 
                   </CardContent>
+
+
                   <CardActions>
                     <Button size="small" color="primary">
                       View
                     </Button>
+
 
                     <Button size="small" color="primary">
                       Favorite +
@@ -125,7 +128,6 @@ export default function Album() {
                     <Button size="small" color="primary">
                       Chart +
                     </Button>
-
 
                   </CardActions>
                 </Card>
