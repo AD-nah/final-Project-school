@@ -1,1 +1,4 @@
 export const USER_LIGGED_IN_TYPE = 'USER_LIGGED_IN'
+export const USER_LIGGED_OUT_TYPE = 'USER_LIGGED_OUT'
+
+
