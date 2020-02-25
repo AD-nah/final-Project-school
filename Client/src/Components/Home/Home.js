@@ -5,6 +5,12 @@ import img2 from '../../imgs/test2.jpg';
 import img3 from '../../imgs/test3.jpg';
 
 
+
+
+
+
+
+
 export default class Home extends Component {
     render() {
         return (
