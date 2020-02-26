@@ -12,7 +12,9 @@ router.post('/', (req, res) => {
 
             console.log('SERVER: ', req.body.userSignInData.email, 'logged in')
 
-            res.status(200).json({ userSignedInData: foundedUser.toAuthJSON()})
+            const generatedJWT = foundedUser.toAuthJSON()
+            foundedUser.saveCurrentJWTtoDB(generatedJWT)
+            res.status(200).json({ userSignedInData: generatedJWT})
 
         }else{
 
