@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/AD-nah/final-Project-school/issues"
   },
-  "homepage": "https://github.com/AD-nah/final-Project-school#readme"
+  "homepage": "https://github.com/AD-nah/final-Project-school#readme",
+  "dependencies": {
+    "semantic-ui-react": "^0.88.2"
+  }
 }
