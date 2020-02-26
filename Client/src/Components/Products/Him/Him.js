@@ -1,6 +1,6 @@
 
 import React,{Component} from 'react';
-
+import ReactDOM from "react-dom";
 
 
 //MATERIAL-UI Library for React packages
@@ -15,9 +15,12 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
-import { Dropdown, Input } from 'semantic-ui-react'
 import "../style.css"
+
+// the ANTD Library
+import "antd/dist/antd.css";
+import { Menu, Icon } from "antd";
+
 
 // the style of the cards
 const useStyles = makeStyles(theme => ({
@@ -57,70 +60,18 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 
 //  the toggle search
-const tagOptions = [
-  {
-    key: 'Important',
-    text: 'Important',
-    value: 'Important',
-    label: { color: 'red', empty: true, circular: true },
-  },
-  {
-    key: 'Announcement',
-    text: 'Announcement',
-    value: 'Announcement',
-    label: { color: 'blue', empty: true, circular: true },
-  },
-  {
-    key: 'Cannot Fix',
-    text: 'Cannot Fix',
-    value: 'Cannot Fix',
-    label: { color: 'black', empty: true, circular: true },
-  },
-  {
-    key: 'News',
-    text: 'News',
-    value: 'News',
-    label: { color: 'purple', empty: true, circular: true },
-  },
-  {
-    key: 'Enhancement',
-    text: 'Enhancement',
-    value: 'Enhancement',
-    label: { color: 'orange', empty: true, circular: true },
-  },
-  {
-    key: 'Change Declined',
-    text: 'Change Declined',
-    value: 'Change Declined',
-    label: { empty: true, circular: true },
-  },
-  {
-    key: 'Off Topic',
-    text: 'Off Topic',
-    value: 'Off Topic',
-    label: { color: 'yellow', empty: true, circular: true },
-  },
-  {
-    key: 'Interesting',
-    text: 'Interesting',
-    value: 'Interesting',
-    label: { color: 'pink', empty: true, circular: true },
-  },
-  {
-    key: 'Discussion',
-    text: 'Discussion',
-    value: 'Discussion',
-    label: { color: 'green', empty: true, circular: true },
-  },
-]
+
+
+
+
+
 
 
 export default function Him() {
 
   const classes = useStyles();
 
-
-
+ 
  
 
 
@@ -132,69 +83,9 @@ export default function Him() {
       
       {/* START THE TOGGLE INFO */}
       
-                    <div
-                role="listbox"
-                aria-expanded="false"
-                aria-multiselectable="true"
-                class="ui multiple dropdown"
-                tabindex="0"
-              >
-                <div class="text" role="alert" aria-live="polite" aria-atomic="true">Filter Posts</div>
-                <i aria-hidden="true" class="filter icon"></i>
-                <div class="menu transition">
-                  <div class="ui left icon input search">
-                    <input type="text" />
-                    <i aria-hidden="true" class="search icon"></i>
-                  </div>
-                  <div class="divider"></div>
-                  <div class="header">
-                    <i aria-hidden="true" class="tags icon"></i>
-                    Tag Label
-                  </div>
-                  <div class="scrolling menu transition">
-                    <div role="option" class="item">
-                      <div class="ui red circular empty label"></div>
-                      <span class="text">Important</span>
-                    </div>
-                    <div role="option" class="item">
-                      <div class="ui blue circular empty label"></div>
-                      <span class="text">Announcement</span>
-                    </div>
-                    <div role="option" class="item">
-                      <div class="ui black circular empty label"></div>
-                      <span class="text">Cannot Fix</span>
-                    </div>
-                    <div role="option" class="item">
-                      <div class="ui purple circular empty label"></div>
-                      <span class="text">News</span>
-                    </div>
-                    <div role="option" class="item">
-                      <div class="ui orange circular empty label"></div>
-                      <span class="text">Enhancement</span>
-                    </div>
-                    <div role="option" class="item">
-                      <div class="ui circular empty label"></div>
-                      <span class="text">Change Declined</span>
-                    </div>
-                    <div role="option" class="item">
-                      <div class="ui yellow circular empty label"></div>
-                      <span class="text">Off Topic</span>
-                    </div>
-                    <div role="option" class="item">
-                      <div class="ui pink circular empty label"></div>
-                      <span class="text">Interesting</span>
-                    </div>
-                    <div role="option" class="item">
-                      <div class="ui green circular empty label"></div>
-                      <span class="text">Discussion</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-      {/*End of the toggle Inf  */}
-      
-
        {/* the cards contents */}
+
+
      <div className={classes.heroContent}>
        <Container maxWidth="sm">
          <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
