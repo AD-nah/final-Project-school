@@ -31,5 +31,7 @@ server.use(express.static(path.join(__dirname, 'public')));
 server.use('/', require('./routes/index'));
 server.use('/users', require('./routes/users'));
 server.use('/api/auth-req',    require('./routes/auth'))
+server.use('/api/logout-req',    require('./routes/logout'))
+server.use('/api/register-req',    require('./routes/register'))
 
 module.exports = server;

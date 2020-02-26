@@ -3,7 +3,7 @@ import {
   MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
   MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBBtn, MDBModal, MDBModalHeader, MDBModalBody 
 } from "mdbreact";
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link, Redirect } from 'react-router-dom';
 import Home from './Home/Home'
 import * as reduxActios from '../Redux/Actions/auth'
 
@@ -30,6 +30,7 @@ class Navbar extends Component {
     isOpen: false,
     registerModal: false,
     loginModal: false,
+    logoutSuccess: false
   };
 
   toggleCollapse = () => {
@@ -52,11 +53,23 @@ class Navbar extends Component {
 
   }
 
+  logoutHandler = () => {
+    this.props.logoutAction().then(res => {
+     // console.log(res);
+      
+     this.setState({logoutSuccess: true})
+            
+    }).catch(err => {
+
+      console.log(err)
+    })
+  }
+
   render() {
     return (
       <div>
         <MDBNavbar color="special-color" dark expand="md">
-
+        {this.state.logoutSuccess &&  <SuccessMessage text = 'you are Logged Out'/> }
 
 
           
@@ -147,7 +160,7 @@ class Navbar extends Component {
                 <MDBModalHeader toggle={this.registerToggle}>Please Register</MDBModalHeader>
                 <MDBModalBody>  
 
-                  <RegisterPage />
+                  <RegisterPage  closeLogin = {this.loginToggle}/>
                 
                 </MDBModalBody>
               </MDBModal>
@@ -155,6 +168,7 @@ class Navbar extends Component {
 
 
               {this.props.isAuthenticated && ( <SuccessMessage text = 'successfully loggedin' /> )}
+
 
               {this.props.isAuthenticated && (
                 <MDBNavItem>
@@ -174,7 +188,8 @@ class Navbar extends Component {
                       </MDBDropdownItem>
 
                       <MDBDropdownItem >
-                        <button onClick = {() => this.props.logoutAction()}>Log-Out</button>
+                      <button onClick = {this.logoutHandler}>Log-Out</button>
+                        {/* <button onClick = {() => {this.props.logoutAction()}}>Log-Out</button> */}
                       </MDBDropdownItem>
 
                     </MDBDropdownMenu>
@@ -244,5 +259,5 @@ const mapStateToProps = (state) =>{
   }
 }
 
- export default connect( mapStateToProps, {logoutAction: reduxActios.logoutAction})(Navbar)
+ export default connect( mapStateToProps, { logoutAction: reduxActios.logoutAction })(Navbar)
 //export default Navbar
