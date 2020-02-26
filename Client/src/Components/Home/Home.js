@@ -3,16 +3,33 @@ import img from '../../imgs/test.jpg';
 import img1 from '../../imgs/test1.jpg';
 import img2 from '../../imgs/test2.jpg';
 import img3 from '../../imgs/test3.jpg';
-
 import black from '../../imgs/black.jpg';
 import grau from '../../imgs/grau.jpg';
+import './home.css'
+import video1 from './video/almosa.mp4'
 
 
 export default class Home extends Component {
     render() {
         return (
             <React.Fragment>
-                <div id="carousel-example-1z" className="carousel slide carousel-fade" data-ride="carousel">
+                <header>
+  <div class="overlay"></div>
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    {/* <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4"/> */}
+    <source src={video1} type="video/mp4"/>
+  </video>
+  <div class="container h-100">
+    <div class="d-flex h-100 text-center align-items-center">
+      <div class="w-100 text-white">
+        <h1 class="display-3">Video Header</h1>
+        <p class="lead mb-0">Hallo Web Shop</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+                {/* <div id="carousel-example-1z" className="carousel slide carousel-fade" data-ride="carousel">
 
                     <ol className="carousel-indicators">
                         <li data-target="#carousel-example-1z" data-slide-to="0" className="active"></li>
@@ -48,7 +65,7 @@ export default class Home extends Component {
                         <span className="sr-only">Next</span>
                     </a>
 
-                </div>
+                </div> */}
                 <br />
                 <br />
                 {/* Cards Code start 24,02,2020*/}
