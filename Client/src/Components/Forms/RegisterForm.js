@@ -3,6 +3,7 @@ import { MDBContainer, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBModalFooter } from 
 //import { toast } from "react-toastify";
 
 
+
 import Validator from 'validator'
 import ErrorMessage from '../Messages/ErrorMessage'
 
@@ -170,8 +171,7 @@ class RegisterForm extends React.Component {
                   </a>
                 </p>
               </MDBModalFooter>
-          </MDBCol>
-      
+          </MDBCol>      
       </MDBContainer>
     )
   }

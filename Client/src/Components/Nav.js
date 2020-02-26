@@ -167,7 +167,9 @@ class Navbar extends Component {
          
 
 
-              {this.props.isAuthenticated && ( <SuccessMessage text = 'Logged In'/> )}
+              {this.props.isAuthenticated && ( <SuccessMessage text = 'successfully loggedin' /> )}
+
+
               {this.props.isAuthenticated && (
                 <MDBNavItem>
                   <MDBDropdown>
