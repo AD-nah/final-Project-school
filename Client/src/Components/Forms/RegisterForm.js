@@ -1,6 +1,7 @@
 import React from "react";
 import { MDBContainer, MDBCol, MDBInput, MDBBtn, MDBIcon} from 'mdbreact';
 
+
 const RegisterForm = () => {
   return (
     <MDBContainer>
