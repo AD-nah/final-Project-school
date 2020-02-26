@@ -1,16 +1,11 @@
-import React, { Component } from 'react'
-import './home.css'
-
+import React, { Component } from 'react';
 import img from '../../imgs/test.jpg';
 import img1 from '../../imgs/test1.jpg';
 import img2 from '../../imgs/test2.jpg';
 import img3 from '../../imgs/test3.jpg';
 
-
-
-
-
-
+import black from '../../imgs/black.jpg';
+import grau from '../../imgs/grau.jpg';
 
 
 export default class Home extends Component {
@@ -56,140 +51,221 @@ export default class Home extends Component {
                 </div>
                 <br />
                 <br />
+                {/* Cards Code start 24,02,2020*/}
 
+                {/*Section start*/}
+    <section>
+    <div className="container">
+      <div className="row align-items-center">
+        <div className="col-lg-6 order-lg-2">
+          <div className="p-5">
+            <img className="img-fluid rounded-circle" src={black} alt=""/>
+          </div>
+        </div>
+        <div className="col-lg-6 order-lg-1">
+          <div className="p-5">
+            <h2 className="display-4">Our product is the best in the market</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-
-
-                    {/* Cards Code start 24,02,2020*/}
-              
-                <div className="row">
-                    <div className="col">
+  <section>
+    <div className="container">
+      <div className="row align-items-center">
+        <div className="col-lg-6">
+          <div className="p-5">
+            <img className="img-fluid rounded-circle" src={grau} alt=""/>
+          </div>
+        </div>
+        <div className="col-lg-6">
+          <div className="p-5">
+            <h2 className="display-4">Our product is the best in the market</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+                {/*Section end*/}
+                           {/*Bar start*/}
+    <section class="page-section bg-dark text-white">
+    <div className="container text-center">
+      <h2 className="mb-4">Free Download at Start Bootstrap!</h2>
+      <a className="btn btn-light btn-xl" href="https://startbootstrap.com/themes/creative/">Download Now!</a>
+    </div>
+  </section>
+                {/*Bar end*/}
+                
+         <div className="container-fluid">
+                <div className="row mt-2">
+                    <div className="col-md-6 col-lg-6 ">
                        
                        
-                        <img src={img} alt="Testig Photo"/>
+                        <img className="img-fluid"  src={img} alt="Testig Photo"/>
                     </div>
 
-                    <div className="col">
+                    <div className="col-md-6 ">
+                        <h1>This the Show</h1>
                     <h2>Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</h2>
                     </div>
 
                  
 
                 </div>
-                <div className="row">
-                    <div className="col mt-4">
-                       
+                <div className="row mt-2 text-center">
+                    <div className="col-md-7 mt-3">
+                       <h1>Hallo form me</h1>
                     <h2>Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</h2>
                         
                     </div>
 
-                    <div className="col">
-                    <img src={img1} alt="Testig Photo"/>
+                    <div className="col-md-5">
+                    <img className="rounded-circle img-fluid" src={img1} alt="Testig Photo"/>
                     
                     </div>
-                    </div>
+                </div>
 
                 {/*Third Div 3*/}
-                <div className="row mt-3">
-                    <div className="col">
-                        <img src={img2}/>
+     
+                <div className="row mt-2">
+                    <div className=" col md-6 mt-2">
+                        <img className="img-fluid" src={img2}/>
                     </div>
-                    <div className="col">
-                        <img src={img3}/>
+                    <div className="col md-6 mt-2">
+                        <img className="img-fluid" src={img3}/>
                     </div>
 
                 </div>
-
-                {/*SECUND DEV*/}
-
-                    {/*grid  system */}
-                    {/* <!-- Stack the columns on mobile by making one full-width and the other half-width --> */}
- 
-                    {/* <div class="row">
-                {/* Cards Code start 20,02,2020*/}
-                <div className="container">
-                    <div className="row">
-
-                        
-                        <div className="col-sm">
-                            <div className="card card-cascade wider reverse">
-
-                                <div className="view view-cascade overlay" >
-                                    <img className="card-img-top" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg" alt="Card image cap" />
-                                    <a href="#!">
-                                        <div className="mask rgba-white-slight"></div>
-                                    </a>
-                                </div>
-
-                                <div className="card-body card-body-cascade text-center">
-                                    <h4 className="card-title"><strong>My adventure</strong></h4>
-                                    <h6 className="font-weight-bold indigo-text py-2">Photography</h6>
-                                    <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem perspiciatis
-                                      voluptatum a, quo nobis, non commodi quia repellendus sequi nulla voluptatem dicta reprehenderit, placeat
-                                      laborum ut beatae ullam suscipit veniam.
-                                     </p>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div className="col-sm">
-                            <div className="card card-cascade wider reverse">
-
-                                <div className="view view-cascade overlay">
-                                    <img className="card-img-top" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"
-                                        alt="Card image cap" />
-                                    <a href="#!">
-                                        <div className="mask rgba-white-slight"></div>
-                                    </a>
-                                </div>
-
-                                <div className="card-body card-body-cascade text-center">
-
-
-                                    <h4 className="card-title"><strong>My adventure</strong></h4>
-
-                                    <h6 className="font-weight-bold indigo-text py-2">Photography</h6>
-
-                                    <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem perspiciatis
-                                      voluptatum a, quo nobis, non commodi quia repellendus sequi nulla voluptatem dicta reprehenderit, placeat
-                                      laborum ut beatae ullam suscipit veniam.
-                                      </p>
-
-
-
-                                </div>
-
-                            </div>    </div>
-                        <div className="col-sm">
-                            <div className="card card-cascade wider reverse">
-
-                                <div className="view view-cascade overlay">
-                                    <img className="card-img-top" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"
-                                        alt="Card image cap" />
-                                    <a href="#!">
-                                        <div className="mask rgba-white-slight"></div>
-                                    </a>
-                                </div>
-
-                                <div className="card-body card-body-cascade text-center wider reverse">
-
-
-                                    <h4 className="card-title"><strong>My adventure</strong></h4>
-
-                                    <h6 className="font-weight-bold indigo-text py-2">Photography</h6>
-
-                                    <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem perspiciatis
-                                      voluptatum a, quo nobis, non commodi quia repellendus sequi nulla voluptatem dicta reprehenderit, placeat
-                                      laborum ut beatae ullam suscipit veniam.
-                                    </p>
-                                </div>
-                            </div>    
-                        </div>
-                        </div>
-                    </div> 
-                
+                </div>
                 <br />
                 <br />
+
+                <section class="page-section" id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Services</h2>
+          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">E-Commerce</h4>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+        </div>
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">Responsive Design</h4>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+        </div>
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="service-heading">Web Security</h4>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+                {/*Befor Footer start*/}
+
+    {/* <section id="portfolio">
+    <div class="container-fluid p-0">
+      <div class="row no-gutters">
+        <div class="col-lg-4 col-sm-6">
+          <a class="portfolio-box" href="img/portfolio/fullsize/1.jpg">
+            <img class="img-fluid" src="img/portfolio/thumbnails/1.jpg" alt=""/>
+            <div class="portfolio-box-caption">
+              <div class="project-category text-white-50">
+                Category
+              </div>
+              <div class="project-name">
+                Project Name
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="portfolio-box" href="img/portfolio/fullsize/2.jpg">
+            <img class="img-fluid" src="img/portfolio/thumbnails/2.jpg" alt=""/>
+            <div class="portfolio-box-caption">
+              <div class="project-category text-white-50">
+                Category
+              </div>
+              <div class="project-name">
+                Project Name
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="portfolio-box" href="img/portfolio/fullsize/3.jpg">
+            <img class="img-fluid" src="img/portfolio/thumbnails/3.jpg" alt=""/>
+            <div class="portfolio-box-caption">
+              <div class="project-category text-white-50">
+                Category
+              </div>
+              <div class="project-name">
+                Project Name
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="portfolio-box" href="img/portfolio/fullsize/4.jpg">
+            <img class="img-fluid" src="img/portfolio/thumbnails/4.jpg" alt=""/>
+            <div class="portfolio-box-caption">
+              <div class="project-category text-white-50">
+                Category
+              </div>
+              <div class="project-name">
+                Project Name
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="portfolio-box" href="img/portfolio/fullsize/5.jpg">
+            <img class="img-fluid" src="img/portfolio/thumbnails/5.jpg" alt=""/>
+            <div class="portfolio-box-caption">
+              <div class="project-category text-white-50">
+                Category
+              </div>
+              <div class="project-name">
+                Project Name
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          <a class="portfolio-box" href="img/portfolio/fullsize/6.jpg">
+            <img class="img-fluid" src="img/portfolio/thumbnails/6.jpg" alt=""/>
+            <div class="portfolio-box-caption p-3">
+              <div class="project-category text-white-50">
+                Category
+              </div>
+              <div class="project-name">
+                Project Name
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section> */}
+                {/*Befor Footer end*/}
                 {/* Cards Code ende 20,02,2020*/}
             </React.Fragment>
         )
