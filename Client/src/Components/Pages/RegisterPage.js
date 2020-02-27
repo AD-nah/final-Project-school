@@ -13,19 +13,17 @@ class RegisterPage extends Component {
             redirect: false,
         }
     }
+
     submit = (data) => {
               
         return this.props.registerAction(data).then((res) => {
 
-         
             this.setState({redirect: true})
             
-           this.props.closeLogin()
-            
-            
+            this.props.closeRegister()            
          })
+    }
 
- }
     render() {
         return (
             <div>

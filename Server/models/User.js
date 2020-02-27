@@ -40,7 +40,7 @@ userSchema.methods.saveLastLoggedInDate = function saveLastLoggedInDate(date){
   this.lastLoggedinDate = date
 }
 userSchema.methods.saveLastLoggedOutDate = function saveLastLoggedOutDate(date){
-  this.loggedinToken = 'noToken'  
+  this.loggedinToken = 'offline'  
   this.lastLoggedOutDate = date
 }
 userSchema.methods.isValidPassword = function isValidPassword(password) {
