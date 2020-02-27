@@ -1,6 +1,8 @@
-
 import React,{Component} from 'react';
 
+
+
+// ------------------------------------------------------------------
 
 //MATERIAL-UI Library for React packages
 import Button from '@material-ui/core/Button/Button';
@@ -17,15 +19,34 @@ import "../style.css"
 
 
 
+
+// ----------------------------------------------------------------------
+
 // Import Antd  library
 import "antd/dist/antd.css";
-import { Menu, Icon } from "antd";
-import { Rate } from 'antd';
+import { Menu, Icon,Popconfirm, message,Rate  } from "antd";
 const { SubMenu } = Menu;
-const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
+const desc = ['Ugly', 'Works', 'Ok', 'Very Good', 'Beautiful'];
+
+// confirm on click or error on cancel
+function confirm(e) {
+  console.log(e);
+  message.success('Added successfuly..');
+}
+function cancel(e) {
+  console.log(e);
+  message.error('Item deleted..');
+}
 
 
-// the Cards style from Material-ui
+// --------------------------------------------------------------
+
+
+
+
+
+
+// Cards style from Material-ui
 const useStyles = makeStyles(theme => ({
   icon: {
     marginRight: theme.spacing(2),
@@ -67,9 +88,19 @@ const  cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 
 
+
+
+
+
+
+
+
+
+
+
 export default class Him extends React.Component {
  
-  //for the rates
+  //for the rate stars
   state = {
     value: 3,
   };
@@ -82,6 +113,9 @@ export default class Him extends React.Component {
     console.log("click ", e);
   };
 
+
+
+
   render() {
 
     // for the rates
@@ -91,7 +125,6 @@ export default class Him extends React.Component {
 
       <React.Fragment>
         <CssBaseline /> 
-
 
         {/* start side */}
           <Container>
@@ -104,6 +137,8 @@ export default class Him extends React.Component {
                     mode="inline"
                   
                   >
+
+
                     <SubMenu
                       key="sub1"
                       title={
@@ -156,7 +191,7 @@ export default class Him extends React.Component {
                 </div>
             </div>
           </Container>
-       {/* end side */}
+       {/* end Aside */}
 
 
 
@@ -205,14 +240,25 @@ export default class Him extends React.Component {
                         </Button>
 
 
-                        <Button size="small" color="primary">
-                          Favorite +
-                        </Button>
-                        
+                        <Popconfirm
+                              title="Are you sure?"
+                              onConfirm={confirm}
+                              onCancel={cancel}
+                              okText="Yes"
+                              cancelText="No">
+                              <a href="#" style={{fontSize:"18px"}}>Favorite +</a>
+                        </Popconfirm>
 
-                        <Button size="small" color="primary">
-                          Chart +
-                        </Button>
+                        
+                        <Popconfirm
+                              title="Are you sure ?"
+                              onConfirm={confirm}
+                              onCancel={cancel}
+                              okText="Yes"
+                              cancelText="No">
+                              <a href="#"  style={{fontSize:"18px"}}>Chart +</a>
+                        </Popconfirm>
+                     
 
                       </CardActions>
                     </Card>
