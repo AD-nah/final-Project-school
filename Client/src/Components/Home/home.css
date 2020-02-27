@@ -40,11 +40,18 @@ header {
   }
   
   @media (pointer: coarse) and (hover: none) {
-    header {
-      background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
-    }
     header video {
       display: none;
     }
   }
   /*end Background Video*/
+/*background for youTube start*/
+  .page1-section {
+    padding: 5rem 0;
+    background-color:   #0b0b0b;
+  }
+/*background for youTube end*/
+  
+      
+          
+  
