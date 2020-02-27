@@ -68,7 +68,7 @@ class Navbar extends Component {
   render() {
     return (
       <div>
-        <MDBNavbar color="special-color" dark expand="md">
+        <MDBNavbar  color="special-color" dark expand="md">
         {this.state.logoutSuccess &&  <SuccessMessage text = 'you are Logged Out'/> }
 
 
