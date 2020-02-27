@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/AD-nah/final-Project-school#readme",
   "dependencies": {
+    "@material-ui/lab": "^4.0.0-alpha.44",
     "antd": "^3.26.12"
   }
 }
