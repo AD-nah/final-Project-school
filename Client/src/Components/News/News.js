@@ -3,9 +3,11 @@ import React, { Component } from 'react'
 export default class News extends Component {
     render() {
         return (
-            <div>
-                Hello from News
+            <React.Fragment>
+            <div className="container-fluid">
+            
             </div>
+            </React.Fragment>
         )
     }
 }
