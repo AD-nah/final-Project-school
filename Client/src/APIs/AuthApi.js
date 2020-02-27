@@ -4,9 +4,9 @@ import axios from 'axios'
 export default  {
     user:{
 
-        loginRequest : ( userSignInData ) => {
+        loginRequest : ( data ) => {
 
-            return axios.post('/api/auth-req', { userSignInData }).then( response => response.data.userSignedInData )
+            return axios.post('/api/auth-req', { data }).then( response => response.data.userSignedInData )
         },
         logoutRequest : (token) => {
 

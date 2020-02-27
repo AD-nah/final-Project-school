@@ -15,9 +15,9 @@ class LoginPage extends Component {
 
     
          
-        submit = (userLoginAuthData) => {
+        submit = (data) => {
               
-           return this.props.loginAction(userLoginAuthData).then((res) => {
+           return this.props.loginAction(data).then((res) => {
 
             
                this.setState({redirect: true})

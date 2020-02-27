@@ -19,14 +19,7 @@ require('mongoose').connect(process.env.SERVER_DB_URI_CLOUD, {
         console.log('Connected:',[res.name, res.host, res.user])
     }
 })
-<<<<<<< HEAD
-     
-=======
 
-
-    
-
->>>>>>> 0c2037643d7f6fa6be80bacf51cebfa2be449c74
 server.use(logger('dev'));
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
