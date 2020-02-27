@@ -1,88 +1,227 @@
-import React, { Component } from 'react'
 
-export default class Her extends Component {
-    render() {
-        return (
-            <div className="container">
-            <div className="row">
+import React,{Component} from 'react';
+
+
+//MATERIAL-UI Library for React packages
+import Button from '@material-ui/core/Button/Button';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import "../style.css"
+
+
+
+// Import Antd  library
+import "antd/dist/antd.css";
+import { Menu, Icon } from "antd";
+import { Rate } from 'antd';
+const { SubMenu } = Menu;
+const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
+
+
+// the Cards style from Material-ui
+const useStyles = makeStyles(theme => ({
+  icon: {
+    marginRight: theme.spacing(2),
+  },
+  heroContent: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(8, 0, 6),
+  },
+  heroButtons: {
+    marginTop: theme.spacing(4),
+  },
+  cardGrid: {
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8),
+  },
+  card: {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  cardMedia: {
+    paddingTop: '56.25%', // 16:9
+  },
+  cardContent: {
+    flexGrow: 1,
+  },
+  footer: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(6),
+  },
+  side:{
+    maxWidth:"100px",
+    float:"left"
+  }
+}));
+const  cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+
+
+
+
+export default class Her extends React.Component {
+ 
+  //for the rates
+  state = {
+    value: 3,
+  };
+  // for the  rate chages
+  handleChange = value => {
+    this.setState({ value });
+  };
+
+  handleClick = e => {
+    console.log("click ", e);
+  };
+
+  render() {
+
+    // for the rates
+    const { value } = this.state;
+
+    return (
+
+      <React.Fragment>
+        <CssBaseline /> 
+
+
+        {/* start side */}
+          <Container>
+             <div style={{maxWidth:"550px", float:"left"}}>
+                  <Menu
+                    onClick={this.handleClick}
+                    style={{ width: 180 }}
+                    defaultSelectedKeys={["1"]}
+                    defaultOpenKeys={["sub1"]}
+                    mode="inline"
+                  
+                  >
+                    <SubMenu
+                      key="sub1"
+                      title={
+                        <span>
+                          <Icon type="search" />
+                          <span>  Search </span>
+                        </span>
+                      }
+                    >
+                      
+                        <Menu.Item key="1">
+                            <Icon type="skin" />Clothe
+                        </Menu.Item>
+                        <Menu.Item key="2">
+                            <Icon type="yuque" />Shoes
+                        </Menu.Item>
                 
-                <div className="col-sm">
-                    <div className="card card-cascade wider reverse">
+                      
+                    </SubMenu>
+                    <SubMenu
+                      key="sub2"
+                      title={
+                        <span>
+                          <Icon type="appstore" />
+                          <span>Else</span>
+                        </span>
+                      }
+                    >
+                      <Menu.Item key="5">Option 5</Menu.Item>
+                      <Menu.Item key="6">Option 6</Menu.Item>
+                    
+                    </SubMenu>
+                   
+                  </Menu>
+                  </div>
 
-                        <div className="view view-cascade overlay" >
-                            <img className="card-img-top" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg" alt="Card image cap" />
-                            <a href="#!">
-                                <div className="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
+                    {/* the header */}
+            <div className={useStyles.heroContent} >
+          
+                <Typography component="h1" variant="h4" align="center" color="textPrimary" gutterBottom>
+                  Products for Her layout
+                </Typography>
 
-                        <div className="card-body card-body-cascade text-center">
-                            <h4 className="card-title"><strong>My adventure</strong></h4>
-                            <h6 className="font-weight-bold indigo-text py-2">Photography</h6>
-                            <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem perspiciatis
-                              voluptatum a, quo nobis, non commodi quia repellendus sequi nulla voluptatem dicta reprehenderit, placeat
-                              laborum ut beatae ullam suscipit veniam.
-                             </p>
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <div className="col-sm">
-                    <div className="card card-cascade wider reverse">
-
-                        <div className="view view-cascade overlay">
-                            <img className="card-img-top" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"
-                                alt="Card image cap" />
-                            <a href="#!">
-                                <div className="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <div className="card-body card-body-cascade text-center">
-
-
-                            <h4 className="card-title"><strong>My adventure</strong></h4>
-
-                            <h6 className="font-weight-bold indigo-text py-2">Photography</h6>
-
-                            <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem perspiciatis
-                              voluptatum a, quo nobis, non commodi quia repellendus sequi nulla voluptatem dicta reprehenderit, placeat
-                              laborum ut beatae ullam suscipit veniam.</p>
-                        </div>
-                    </div>    
-                </div>
-
-
-
-                <div className="col-sm">
-                    <div className="card card-cascade wider reverse">
-
-                        <div className="view view-cascade overlay">
-                            <img className="card-img-top" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"
-                                alt="Card image cap" />
-                            <a href="#!">
-                                <div className="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <div className="card-body card-body-cascade text-center wider reverse">
-
-
-                            <h4 className="card-title"><strong>My adventure</strong></h4>
-
-                            <h6 className="font-weight-bold indigo-text py-2">Photography</h6>
-
-                            <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem perspiciatis
-                              voluptatum a, quo nobis, non commodi quia repellendus sequi nulla voluptatem dicta reprehenderit, placeat
-                              laborum ut beatae ullam suscipit veniam.\
-                            </p>
-                        </div>
-                    </div>    
+                <div style={{wordWrap:"break-word"}}>
+                  <Typography variant="h6" align="center" color="textSecondary" paragraph>
+                    Something short and leading about the collection below—its contents, the creator, etc.
+                    Make it short and sweet, but not too short so folks don&apos;t simply skip over it
+                    entirely.
+                  </Typography>
                 </div>
             </div>
-        </div>
-        )
-    }
+          </Container>
+       {/* end side */}
+
+
+     
+     
+
+
+
+            <Container className={useStyles.cardGrid} maxWidth="lg" >
+            
+              <Grid container spacing={4}>
+                {cards.map(card => (
+                  <Grid item key={card} xs={12} sm={6} md={4}>
+                    <Card className={useStyles.card}>
+                      <CardMedia
+                        className={useStyles.cardMedia}
+                        image="https://picsum.photos/200/300"
+                        title="Image title"
+                      />
+                      <CardContent className={useStyles.cardContent}>
+                        <Typography gutterBottom variant="h5" component="h2">
+                          Heading
+                        </Typography>
+                        <Typography>
+                          This is a media card.
+                        </Typography>
+
+                        <hr/>
+                        <span>
+                          <Rate tooltips={desc} onChange={this.handleChange} value={value} />
+                          {value ? <span className="ant-rate-text">{desc[value - 1]}</span> : ''}
+                        </span>
+                        <hr/>
+
+                        <Typography gutterBottom variant="h7" >
+                                <Typography variant="h5" component="h3">&#36;</Typography>
+                        </Typography>
+
+                      </CardContent>
+
+
+                      <CardActions>
+                        <Button size="small" color="primary">
+                          View
+                        </Button>
+
+
+                        <Button size="small" color="primary">
+                          Favorite +
+                        </Button>
+                        
+
+                        <Button size="small" color="primary">
+                          Chart +
+                        </Button>
+
+                      </CardActions>
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
+            </Container>
+          </React.Fragment>        
+     
+   
+
+    );
+  }
 }

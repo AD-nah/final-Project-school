@@ -1,6 +1,6 @@
 import React from "react";
 import { MDBContainer, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBModalFooter } from 'mdbreact';
-//import { toast } from "react-toastify";
+
 
 
 import Validator from 'validator'
@@ -10,7 +10,7 @@ import ErrorMessage from '../Messages/ErrorMessage'
 import { SemipolarLoading } from 'react-loadingg';
 
 
-//ERROR MESSAGES
+
 
 
 
@@ -177,4 +177,5 @@ class LoginForm extends React.Component {
   }
 } 
 
+// SuccessMessage
 export default LoginForm;
