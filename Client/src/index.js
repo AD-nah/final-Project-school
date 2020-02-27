@@ -18,14 +18,21 @@ import thunk from 'redux-thunk'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import combineReducers from './Redux/combineReducers'
+import {userLoggedIn} from './Redux/Actions/auth'
+
+
+ const store = createStore(combineReducers, composeWithDevTools(applyMiddleware(thunk)))
+
+ // save login on reload
+ if (localStorage.sCount){
+   const user = {
+     token: localStorage.sCount
+   }
+    store.dispatch(userLoggedIn(user))
+ }
 
 
 
-
-
-
-
-const store = createStore(combineReducers, composeWithDevTools(applyMiddleware( thunk )))
 
 ReactDOM.render(
   <BrowserRouter>

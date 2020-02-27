@@ -78,7 +78,7 @@ export default class Home extends Component {
                            {/*Bar start*/}
     <section class="page-section bg-dark text-white">
     <div className="container text-center">
-      <h2 className="mb-4">Free Download at Start Bootstrap!</h2>
+      <h2 className="mb-4">hallo </h2>
       <a className="btn btn-light btn-xl" href="#">Download</a>
     </div>
   </section>
@@ -189,7 +189,7 @@ export default class Home extends Component {
             <i class="fas fa-circle fa-stack-2x text-primary"></i>
             <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">Responsive Design</h4>
+          <h4 class="service-heading">Design</h4>
           <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
         </div>
         <div class="col-md-4">
