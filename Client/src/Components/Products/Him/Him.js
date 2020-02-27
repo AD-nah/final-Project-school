@@ -154,7 +154,7 @@ export default class Him extends React.Component {
                     color="textPrimary"
                     gutterBottom
                   >
-                    Album layout
+                    Men's Album
                   </Typography>
                   <Typography
                     variant="h5"
