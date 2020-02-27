@@ -10,6 +10,7 @@ require('mongoose').connect(process.env.SERVER_DB_URI_CLOUD, {
     useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: true
+    
 
 }, ( err, res ) => {
     if( err ){ 
@@ -18,9 +19,6 @@ require('mongoose').connect(process.env.SERVER_DB_URI_CLOUD, {
         console.log('Connected:',[res.name, res.host, res.user])
     }
 })
-
-
-    
 
 server.use(logger('dev'));
 server.use(express.json());
