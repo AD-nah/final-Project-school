@@ -6,7 +6,12 @@ import img3 from '../../imgs/test3.jpg';
 import black from '../../imgs/black.jpg';
 import grau from '../../imgs/grau.jpg';
 import './home.css'
-import video1 from './video/almosa.mp4'
+import video1 from './video/almosa.mp4';
+import caro1 from './video/1.jpg';
+import caro2 from './video/2.jpg';
+import caro3 from './video/3.jpg';
+
+
 
 
 export default class Home extends Component {
@@ -22,50 +27,13 @@ export default class Home extends Component {
   <div class="container h-100">
     <div class="d-flex h-100 text-center align-items-center">
       <div class="w-100 text-white">
-        <h1 class="display-3">Video Header</h1>
+        <h1 class="display-3">Our Shop</h1>
         <p class="lead mb-0">Hallo Web Shop</p>
       </div>
     </div>
   </div>
 </header>
 
-                {/* <div id="carousel-example-1z" className="carousel slide carousel-fade" data-ride="carousel">
-
-                    <ol className="carousel-indicators">
-                        <li data-target="#carousel-example-1z" data-slide-to="0" className="active"></li>
-                        <li data-target="#carousel-example-1z" data-slide-to="1"></li>
-                        <li data-target="#carousel-example-1z" data-slide-to="2"></li>
-                    </ol>
-
-                    <div className="carousel-inner" role="listbox">
-
-                        <div className="carousel-item active">
-                            <img className="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg"
-                                alt="First slide" />
-                        </div>
-
-                        <div className="carousel-item">
-                            <img className="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg"
-                                alt="Second slide" />
-                        </div>
-
-                        <div className="carousel-item">
-                            <img className="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"
-                                alt="Third slide" />
-                        </div>
-
-                    </div>
-
-                    <a className="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
-                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span className="sr-only">Previous</span>
-                    </a>
-                    <a className="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
-                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span className="sr-only">Next</span>
-                    </a>
-
-                </div> */}
                 <br />
                 <br />
                 {/* Cards Code start 24,02,2020*/}
@@ -111,7 +79,7 @@ export default class Home extends Component {
     <section class="page-section bg-dark text-white">
     <div className="container text-center">
       <h2 className="mb-4">Free Download at Start Bootstrap!</h2>
-      <a className="btn btn-light btn-xl" href="https://startbootstrap.com/themes/creative/">Download Now!</a>
+      <a className="btn btn-light btn-xl" href="#">Download</a>
     </div>
   </section>
                 {/*Bar end*/}
@@ -124,9 +92,9 @@ export default class Home extends Component {
                         <img className="img-fluid"  src={img} alt="Testig Photo"/>
                     </div>
 
-                    <div className="col-md-6 ">
+                    <div className="col-md-6 text-center">
                         <h1>This the Show</h1>
-                    <h2>Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</h2>
+                    <h3>Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</h3>
                     </div>
 
                  
@@ -135,7 +103,7 @@ export default class Home extends Component {
                 <div className="row mt-2 text-center">
                     <div className="col-md-7 mt-3">
                        <h1>Hallo form me</h1>
-                    <h2>Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</h2>
+                    <h3>Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</h3>
                         
                     </div>
 
@@ -144,10 +112,49 @@ export default class Home extends Component {
                     
                     </div>
                 </div>
+{/*Started Carosel */}
+                <div id="carousel-example-1z" className="carousel slide carousel-fade" data-ride="carousel">
+
+                    <ol className="carousel-indicators">
+                        <li data-target="#carousel-example-1z" data-slide-to="0" className="active"></li>
+                        <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+                    </ol>
+
+                    <div className="carousel-inner mt-4" role="listbox" style={{height: "50vh"}}>
+
+                        <div className="carousel-item active">
+                            <img className="d-block w-100" src={caro1}
+                                alt="First slide" />
+                        </div>
+
+                        <div className="carousel-item">
+                            <img className="d-block w-100" src={caro2}
+                                alt="Second slide" />
+                        </div>
+
+                        <div className="carousel-item">
+                            <img className="d-block w-100" src={caro3}
+                                alt="Third slide" />
+                        </div>
+
+                    </div>
+
+                    <a className="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span className="sr-only">Previous</span>
+                    </a>
+                    <a className="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span className="sr-only">Next</span>
+                    </a>
+
+                </div>
+{/*end Carosel*/}
 
                 {/*Third Div 3*/}
      
-                <div className="row mt-2">
+                {/* <div className="row mt-2">
                     <div className=" col md-6 mt-2">
                         <img className="img-fluid" src={img2}/>
                     </div>
@@ -155,7 +162,7 @@ export default class Home extends Component {
                         <img className="img-fluid" src={img3}/>
                     </div>
 
-                </div>
+                </div> */}
                 </div>
                 <br />
                 <br />
@@ -198,90 +205,6 @@ export default class Home extends Component {
   </section>
                 {/*Befor Footer start*/}
 
-    {/* <section id="portfolio">
-    <div class="container-fluid p-0">
-      <div class="row no-gutters">
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="img/portfolio/fullsize/1.jpg">
-            <img class="img-fluid" src="img/portfolio/thumbnails/1.jpg" alt=""/>
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="img/portfolio/fullsize/2.jpg">
-            <img class="img-fluid" src="img/portfolio/thumbnails/2.jpg" alt=""/>
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="img/portfolio/fullsize/3.jpg">
-            <img class="img-fluid" src="img/portfolio/thumbnails/3.jpg" alt=""/>
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="img/portfolio/fullsize/4.jpg">
-            <img class="img-fluid" src="img/portfolio/thumbnails/4.jpg" alt=""/>
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="img/portfolio/fullsize/5.jpg">
-            <img class="img-fluid" src="img/portfolio/thumbnails/5.jpg" alt=""/>
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="img/portfolio/fullsize/6.jpg">
-            <img class="img-fluid" src="img/portfolio/thumbnails/6.jpg" alt=""/>
-            <div class="portfolio-box-caption p-3">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section> */}
                 {/*Befor Footer end*/}
                 {/* Cards Code ende 20,02,2020*/}
             </React.Fragment>
