@@ -11,7 +11,7 @@ export default function Chart() {
       { title: 'Item id', field: 'Id' },
       { title: 'Description', field: 'Description' },
       { title: 'Colour', field: 'Colour'},
-      {title: 'Birth Place',field: 'Size'},
+      {title: 'Size',field: 'Size'},
     ],
     data: [
       { Id: '2900', Description: 'Clothe', Colour: 'Blue', Size: 's' },
