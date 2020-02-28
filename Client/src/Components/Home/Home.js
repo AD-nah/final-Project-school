@@ -81,7 +81,7 @@ export default class Home extends Component {
             <h2 className="mb-5 ">hallo </h2>
             <a className="btn btn-light btn-xl" href="#">Download</a>
           </div>
-          <div  className="col-md-5 ">
+          <div  className="col-md-5 " >
             {/* <h1>Hallo from  the text</h1> */}
             <iframe className="img-fluid" width="560" height="315" src="//www.youtube.com/embed/_jmC9gOjLkI" frameborder="2" allowfullscreen></iframe>
           </div>
