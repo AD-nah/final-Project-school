@@ -28,8 +28,6 @@ import Chart from './Chart/Chart'
 import Favorites from './Favorites/Favorites'
 
 
-import { BackTop } from 'antd';
-
 
 
 class Navbar extends Component {
