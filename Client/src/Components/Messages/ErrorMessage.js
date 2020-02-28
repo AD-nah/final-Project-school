@@ -16,7 +16,7 @@ class ErrorMessage extends Component {
   render(){
     return (
       <div>
-         <ToastContainer autoClose={1500}/>
+         <ToastContainer autoClose={200}/>
       </div>
     )
   }

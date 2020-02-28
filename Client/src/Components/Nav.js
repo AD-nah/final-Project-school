@@ -25,6 +25,7 @@ import RegisterPage from './Pages/RegisterPage'
 
 import Profile from './Profile/Profile'
 import Chart from './Chart/Chart'
+import Favorites from './Favorites/Favorites'
 
 
 
@@ -65,7 +66,7 @@ class Navbar extends Component {
 
   render() {
     return (
-      <div>
+      <div >
         <MDBNavbar color="special-color" dark expand="md">
 
         {this.state.logoutSuccess &&  <SuccessMessage text = 'you are Logged Out'/> }
@@ -179,13 +180,18 @@ class Navbar extends Component {
                         <Link to="/chart"><strong>My-Chart</strong></Link>
                       </MDBDropdownItem>
 
+                      <MDBDropdownItem>
+                        <Link to="/favorite"><strong>Favorites</strong></Link>
+                      </MDBDropdownItem>
+
+
                     </MDBDropdownMenu>
                   </MDBDropdown>
                 </MDBNavItem>
               )}
 
               {this.props.isAuthenticated && (
-                <MDBBtn onClick={this.logoutHandler} className="w-60 p-2" color="white" >LogOut</MDBBtn>
+                <MDBBtn onClick={this.logoutHandler} className="w-60 p-2" color="white" >Logout</MDBBtn>
               )}
 
             </MDBNavbarNav>

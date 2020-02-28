@@ -19,6 +19,7 @@ import Container from "@material-ui/core/Container";
 // Import Antd  library
 import "antd/dist/antd.css";
 import { Menu, Icon, Popconfirm, message, Rate, Input } from "antd";
+import PlusCircleTwoTone from 'antd/es/icon'
 const { SubMenu } = Menu;
 const desc = ["Ugly", "Works", "Ok", "Very Good", "Beautiful"];
 const { Search } = Input;
@@ -221,9 +222,9 @@ export default class Her extends React.Component {
                         <hr />
 
                         <Typography gutterBottom variant="h8">
-                          <Typography variant="h6" component="h8">
-                            &#36;
-                          </Typography>
+                          <span>
+                                <i class="fas fa-euro-sign" style={{fontSize:"17px",marginLeft:"30px"}}></i>
+                          </span>
                         </Typography>
 
                         <CardActions>
@@ -238,10 +239,12 @@ export default class Her extends React.Component {
                             okText="Yes"
                             cancelText="No"
                           >
-                            <a href="#" style={{ fontSize: "15px" }}>
-                              Favorite +
+                            <a href="#" style={{ fontSize: "20px" }}>
+                                <i class="fas fa-heart"></i>
                             </a>
                           </Popconfirm>
+
+
 
                           <Popconfirm
                             title="Are you sure ?"
@@ -250,8 +253,8 @@ export default class Her extends React.Component {
                             okText="Yes"
                             cancelText="No"
                           >
-                            <a href="#" style={{ fontSize: "15px" }}>
-                              Chart +
+                            <a href="#" style={{ fontSize: "20px",marginLeft:"20px" }}>
+                                <i class="fas fa-cart-plus"></i>
                             </a>
                           </Popconfirm>
                         </CardActions>
