@@ -25,7 +25,7 @@ import RegisterPage from './Pages/RegisterPage'
 
 import Profile from './Profile/Profile'
 import Chart from './Chart/Chart'
-
+import Favotite from './Favorites/Favorites'
 
 
 
@@ -179,13 +179,18 @@ class Navbar extends Component {
                         <Link to="/chart"><strong>My-Chart</strong></Link>
                       </MDBDropdownItem>
 
+                      <MDBDropdownItem>
+                        <Link to="/favotite"><strong>My-Favotites</strong></Link>
+                      </MDBDropdownItem>
+
+
                     </MDBDropdownMenu>
                   </MDBDropdown>
                 </MDBNavItem>
               )}
 
               {this.props.isAuthenticated && (
-                <MDBBtn onClick={this.logoutHandler} className="w-60 p-2" color="white" >LogOut</MDBBtn>
+                <MDBBtn onClick={this.logoutHandler} className="w-60 p-2" color="white" >Logout</MDBBtn>
               )}
 
             </MDBNavbarNav>
