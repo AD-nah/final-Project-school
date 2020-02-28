@@ -155,7 +155,7 @@ export default class Her extends React.Component {
                     color="textPrimary"
                     gutterBottom
                   >
-                    Women's Album
+                    Men's Album
                   </Typography>
                   <Typography
                     variant="h5"
