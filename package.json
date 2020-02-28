@@ -20,6 +20,7 @@
   "dependencies": {
     "@material-ui/lab": "^4.0.0-alpha.44",
     "antd": "^3.26.12",
-    "material-table": "^1.57.2"
+    "material-table": "^1.57.2",
+    "material-ui": "^0.20.2"
   }
 }
