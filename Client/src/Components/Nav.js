@@ -25,7 +25,10 @@ import RegisterPage from './Pages/RegisterPage'
 
 import Profile from './Profile/Profile'
 import Chart from './Chart/Chart'
-import Favotite from './Favorites/Favorites'
+import Favorites from './Favorites/Favorites'
+
+
+import { BackTop } from 'antd';
 
 
 
@@ -65,7 +68,7 @@ class Navbar extends Component {
 
   render() {
     return (
-      <div>
+      <div >
         <MDBNavbar color="special-color" dark expand="md">
 
         {this.state.logoutSuccess &&  <SuccessMessage text = 'you are Logged Out'/> }
@@ -180,7 +183,7 @@ class Navbar extends Component {
                       </MDBDropdownItem>
 
                       <MDBDropdownItem>
-                        <Link to="/favotite"><strong>My-Favotites</strong></Link>
+                        <Link to="/favorite"><strong>Favorites</strong></Link>
                       </MDBDropdownItem>
 
 
