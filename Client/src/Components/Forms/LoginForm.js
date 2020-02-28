@@ -45,19 +45,19 @@ class LoginForm extends React.Component {
         this.setState({ loading: true })
 
         return this.props
-                        .submit(this.state.data).then((res) => {
+          .submit(this.state.data).then((res) => {
 
-                          console.log('auth data is successfully received (LoginForm.js)')
+            console.log('auth data is successfully received (LoginForm.js)')
 
-                          return this.setState({loading: false})
+            return this.setState({loading: false})
 
-                        }).catch((err) => { 
+          }).catch((err) => { 
 
-                            console.log('receiving auth data is failed (LoginForm.js) Server Error is: ', err)
+              console.log('receiving auth data is failed (LoginForm.js) Server Error is: ', err)
 
-                          return this.setState({ errors : err.response.data.globalErrors , loading: false })
+            return this.setState({ errors : err.response.data.globalErrors , loading: false })
 
-                        })
+          })
     }
   }
 
