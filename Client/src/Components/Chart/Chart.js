@@ -1,72 +1,142 @@
-import React, { Component } from 'react'
+import React from 'react';
+import MaterialTable from 'material-table';
+import Button from '@material-ui/core/Button/Button'
 
-export default class Chart extends Component {
-    render() {
-        return (
-            <div className="conrainer">
-                <table class="table">
-  <thead className="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
 
-<table className="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-              
-            </div>
-        )
-    }
+
+
+
+// import DropDown from ANTD Library
+import { Menu, Dropdown } from 'antd';
+
+
+
+
+
+export default function Chart() {
+  const [state, setState] = React.useState({
+    columns: [
+      { title: 'Item id', field: 'Id' },
+      { title: 'Description', field: 'Description' },
+      { title: 'Colour', field: 'Colour'},
+      {title: 'Size',field: 'Size'},
+    ],
+    data: [
+      { Id: '2900', Description: 'Clothe', Colour: 'Blue', Size: 's' },
+      {Id: '2800',Description: 'Shoe',Colour: 'Black',Size: 'm',}
+    ],
+  });
+
+
+
+  // Antd Dropdown Menu
+  const menu = (
+    <Menu style={{textAlign:"center"}}>
+      <Menu.Item >
+        <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+          Paybal
+        </a>
+      </Menu.Item>
+      <Menu.Item>
+        <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+          Visa
+        </a>
+      </Menu.Item>
+      <Menu.Item>
+        <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
+          Maestro
+        </a>
+      </Menu.Item>
+    </Menu>
+  );
+
+
+
+  return (
+    <React.Fragment>
+
+    <div>
+    <MaterialTable
+      title="Your Items"
+      columns={state.columns}
+      data={state.data}
+
+      editable={{
+        onRowDelete: oldData =>
+          new Promise(resolve => {
+            setTimeout(() => {
+              resolve();
+              setState(prevState => {
+                const data = [...prevState.data];
+                data.splice(data.indexOf(oldData), 1);
+                return { ...prevState, data };
+              });
+            }, 600);
+          }),
+      }}
+    />         
+    </div>
+
+    <div>
+        <Button variant="contained"  style={{position:"absolute",right:"10px",top:"350px",backgroundColor:"green"}}>
+            <Dropdown overlay={menu} >
+              <Button style={{color:"white"}}>Payment Methode</Button>
+            </Dropdown>
+        </Button>
+      </div>
+
+   
+
+    </React.Fragment>
+
+  );
 }
+
+
+
+
+
+
+
+
+
+
+
+// class OverlayVisible extends React.Component {
+//   state = {
+//     visible: false,
+//   };
+
+//   handleMenuClick = e => {
+//     if (e.key === '3') {
+//       this.setState({ visible: false });
+//     }
+//   };
+
+//   handleVisibleChange = flag => {
+//     this.setState({ visible: flag });
+//   };
+
+//   render() {
+//     const menu = (
+//       <Menu onClick={this.handleMenuClick}>
+//         <Menu.Item key="1">Clicking me will not close the menu.</Menu.Item>
+//         <Menu.Item key="2">Clicking me will not close the menu also.</Menu.Item>
+//         <Menu.Item key="3">Clicking me will close the menu</Menu.Item>
+//       </Menu>
+//     );
+//     return (
+//       <Dropdown
+//         overlay={menu}
+//         onVisibleChange={this.handleVisibleChange}
+//         visible={this.state.visible}
+//       >
+//         <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+//           Hover me <DownOutlined />
+//         </a>
+//       </Dropdown>
+//     );
+//   }
+// }
+  
+

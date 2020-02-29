@@ -11,6 +11,10 @@ import caro1 from './video/1.jpg';
 import caro2 from './video/2.jpg';
 import caro3 from './video/3.jpg';
 
+import { BackTop } from 'antd';
+
+
+
 
 export default class Home extends Component {
   render() {
@@ -73,16 +77,22 @@ export default class Home extends Component {
           </div>
         </section>
         {/*Section end*/}
+
+        
         {/*Bar start*/}
         <section className="bg-dark row page1-section text-white">
           <div className="col-md-6 container text-center">
             <h2 className="mb-5 ">hallo </h2>
             <a className="btn btn-light btn-xl" href="#">Download</a>
           </div>
-          <div  className="col-md-5 embed-responsive embed-responsive-16by9" >
-            {/* <h1>Hallo from  the text</h1> */}
-            <iframe className="col-md-10" width="560" height="315" src="//www.youtube.com/embed/_jmC9gOjLkI" frameborder="2" allowfullscreen></iframe>
+
+
+
+         
+          <div className="col-md-5 text-center">
+            <iframe className="col-md-10 embed-responsive embed-responsive-16by9" width="560" height="315" src="//www.youtube.com/embed/_jmC9gOjLkI" frameborder="2" allowfullscreen></iframe>
           </div>
+
         </section>
         {/*Bar end*/}
 
@@ -98,10 +108,9 @@ export default class Home extends Component {
               <h1>This the Show</h1>
               <h3>Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</h3>
             </div>
-
-
-
           </div>
+
+
           <div className="row mt-2 text-center">
             <div className="col-md-7 mt-5">
               <h1>Hallo form me</h1>
@@ -114,9 +123,25 @@ export default class Home extends Component {
 
             </div>
           </div>
-          {/*Started Carosel */}
 
-      
+
+
+
+
+         {/* Back to top btn */}
+         <div>
+                <BackTop>
+                
+                <i class="fas fa-chevron-circle-up" style={{color:"orange",fontSize:"40px"}}></i>
+                </BackTop>
+         </div>
+
+
+
+
+
+
+          {/*Started Carosel */}
             <div id="carousel-example-1z" className="carousel slide carousel-fade" data-ride="carousel">
 
               <ol className="carousel-indicators">
@@ -155,21 +180,13 @@ export default class Home extends Component {
 
             </div>
             {/*end Carosel*/}
-
-            {/*Third Div 3*/}
-
-            {/* <div className="row mt-2">
-                    <div className=" col md-6 mt-2">
-                        <img className="img-fluid" src={img2}/>
-                    </div>
-                    <div className="col md-6 mt-2">
-                        <img className="img-fluid" src={img3}/>
-                    </div>
-
-                </div> */}
           </div>
+
+
           <br />
           <br />
+
+
 
           <section class="page-section" id="services">
             <div class="container">
@@ -209,10 +226,11 @@ export default class Home extends Component {
           </section>
 
        
+
+
         {/*Befor Footer start*/}
 
         {/*Befor Footer end*/}
-        {/* Cards Code ende 20,02,2020*/}
       </React.Fragment>
     )
   }
