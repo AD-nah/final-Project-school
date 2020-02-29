@@ -11,6 +11,7 @@ class ErrorMessage extends Component {
 
   componentDidMount(){
     toast.error(this.props.text)
+  
   }
 
   render(){

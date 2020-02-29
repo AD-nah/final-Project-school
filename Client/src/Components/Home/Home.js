@@ -12,8 +12,6 @@ import caro2 from './video/2.jpg';
 import caro3 from './video/3.jpg';
 
 
-
-
 export default class Home extends Component {
   render() {
     return (
