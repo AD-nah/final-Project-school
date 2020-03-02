@@ -44,8 +44,10 @@ export default function Chart() {
 
   return (
     <React.Fragment>
+   <br/>
+   <br/>
 
-    <div>
+    <div className = 'container'>
     <MaterialTable
       title="Your Items"
       columns={state.columns}
@@ -66,8 +68,7 @@ export default function Chart() {
       }}
     />         
     </div>
-
-    <div>
+    <div className = 'container'>
         <Button variant="contained"  style={{position:"absolute",right:"10px",top:"350px",backgroundColor:"green"}}>
             <Dropdown overlay={menu} >
               <Button style={{color:"white"}}>Payment Methode</Button>
@@ -75,7 +76,9 @@ export default function Chart() {
         </Button>
       </div>
 
-   
+   <br/>
+   <br/>
+
 
     </React.Fragment>
 

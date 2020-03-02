@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Link} from 'react-router-dom';
 
 // ------------------------------------------------------------------
 
@@ -13,9 +14,6 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-//import Image from ' material-ui-image';
-
-import foto from '../../Home/video/3.jpg';
 
 // ----------------------------------------------------------------------
 
@@ -23,6 +21,7 @@ import foto from '../../Home/video/3.jpg';
 import "antd/dist/antd.css";
 import { Menu, Icon, Popconfirm, message, Rate, Input } from "antd";
 const { SubMenu } = Menu;
+
 const desc = ["Ugly", "Works", "Ok", "Very Good", "Beautiful"];
 const { Search } = Input;
 
@@ -74,14 +73,10 @@ const useStyles = makeStyles(theme => ({
     float: "left"
   }
 }));
-const cards   = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const cards      = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 let init_value   = [3, 3, 3, 3, 3, 3, 3, 3, 3]
 
-
-
-
-
-export default class Her extends React.Component {
+export default class Men extends React.Component {
   //for the rate stars
   state = {
     value: init_value
@@ -105,7 +100,8 @@ export default class Her extends React.Component {
       <React.Fragment>
         <CssBaseline />
 
-         <Grid container>
+        
+          <Grid container>
             <Grid item xs={12} sm={4} md={2}>
               <main>
                 <Menu
@@ -124,16 +120,25 @@ export default class Her extends React.Component {
                       </span>
                     }
                   >
-                    <Menu.Item key="1">
-                      <Icon type="skin" />
-                      Clothe
-                    </Menu.Item>
-                    <Menu.Item key="2">
-                      <Icon type="yuque" />
-                      Shoes
-                    </Menu.Item>
+                      
+                      <Menu.Item key="2">
+                            <Link  to="/women">
+                            <Icon type="yuque" />
+                            Women's
+                          
+                          </Link>
+                      </Menu.Item>
+
+                      <Menu.Item key="2">
+                            <Link  to="/men">
+                            <Icon type="yuque" />
+                            Men's
+                          </Link>
+                      </Menu.Item>
+
+
                   </SubMenu>
-                  <SubMenu
+                  {/* <SubMenu
                     key="sub2"
                     title={
                       <span>
@@ -144,15 +149,10 @@ export default class Her extends React.Component {
                   >
                     <Menu.Item key="5">Option 5</Menu.Item>
                     <Menu.Item key="6">Option 6</Menu.Item>
-                  </SubMenu>
+                  </SubMenu> */}
                 </Menu>
               </main>
             </Grid>
-
-
-
-
-
 
             <Grid item xs={12} sm={7} md={10}>
               {/* Hero unit */}
@@ -165,7 +165,7 @@ export default class Her extends React.Component {
                     color="textPrimary"
                     gutterBottom
                   >
-                    Women's Album
+                    Men's Album
                   </Typography>
                   <Typography
                     variant="h5"
@@ -195,23 +195,16 @@ export default class Her extends React.Component {
               </div>
               <Container className={useStyles.cardGrid} maxWidth="md">
                 {/* End hero unit */}
-
-
-
-
-
-
                 <Grid container spacing={4}>
+
                   {cards.map(card => (
                     <Grid item key={card} xs={12} sm={6} md={4}>
-                       
                       <Card className={useStyles.card}>
                         <CardMedia
                           className={useStyles.cardMedia}
-                         
-                      />
-                        {/* {<Image src="https://picsum.photos/id/1/200/300" />} */}
-                        <img src={foto}  />
+                          image="https://source.unsplash.com/random"
+                          title="Image title"
+                        />
                         <CardContent className={useStyles.cardContent}>
                           <Typography gutterBottom variant="h5" component="h2">
                             Heading
