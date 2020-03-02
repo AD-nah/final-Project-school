@@ -13,6 +13,9 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+//import Image from ' material-ui-image';
+
+import foto from '../../Home/video/3.jpg';
 
 // ----------------------------------------------------------------------
 
@@ -72,8 +75,12 @@ const useStyles = makeStyles(theme => ({
     float: "left"
   }
 }));
-const cards      = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const cards   = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 let init_value   = [3, 3, 3, 3, 3, 3, 3, 3, 3]
+
+
+
+
 
 export default class Her extends React.Component {
   //for the rate stars
@@ -99,8 +106,7 @@ export default class Her extends React.Component {
       <React.Fragment>
         <CssBaseline />
 
-        
-          <Grid container>
+         <Grid container>
             <Grid item xs={12} sm={4} md={2}>
               <main>
                 <Menu
@@ -144,6 +150,11 @@ export default class Her extends React.Component {
               </main>
             </Grid>
 
+
+
+
+
+
             <Grid item xs={12} sm={7} md={10}>
               {/* Hero unit */}
               <div className={useStyles.heroContent}>
@@ -185,15 +196,23 @@ export default class Her extends React.Component {
               </div>
               <Container className={useStyles.cardGrid} maxWidth="md">
                 {/* End hero unit */}
+
+
+
+
+
+
                 <Grid container spacing={4}>
                   {cards.map(card => (
                     <Grid item key={card} xs={12} sm={6} md={4}>
+                       
                       <Card className={useStyles.card}>
                         <CardMedia
                           className={useStyles.cardMedia}
-                          image="https://source.unsplash.com/random"
-                          title="Image title"
-                        />
+                         
+                      />
+                        {/* {<Image src="https://picsum.photos/id/1/200/300" />} */}
+                        <img src={foto}  />
                         <CardContent className={useStyles.cardContent}>
                           <Typography gutterBottom variant="h5" component="h2">
                             Heading

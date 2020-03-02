@@ -13,6 +13,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import foto from '../../Home/video/2.jpg'
 
 // ----------------------------------------------------------------------
 
@@ -191,9 +192,10 @@ export default class Her extends React.Component {
                       <Card className={useStyles.card}>
                         <CardMedia
                           className={useStyles.cardMedia}
-                          image="https://source.unsplash.com/random"
-                          title="Image title"
+                          // image="https://source.unsplash.com/random"
+                          // title="Image title"
                         />
+                        <img src={foto} />
                         <CardContent className={useStyles.cardContent}>
                           <Typography gutterBottom variant="h5" component="h2">
                             Heading
