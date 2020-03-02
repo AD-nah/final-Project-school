@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Link as RouterLink } from 'react-router-dom';
+
+import {Link} from 'react-router-dom';
 
 
 import Card from "@material-ui/core/Card";
@@ -16,11 +17,8 @@ import Button from '@material-ui/core/Button';
 
 // Import Antd  library
 import "antd/dist/antd.css";
-import { Menu, Icon, Popconfirm, message, Rate, Input } from "antd";
-
-
+import { Menu, Popconfirm, message, Rate, Input } from "antd";
 const { SubMenu } = Menu;
-
 const desc = ["Ugly", "Works", "Ok", "Very Good", "Beautiful"];
 const { Search } = Input;
 
@@ -129,18 +127,18 @@ export default class Men extends React.Component {
                     >
                       <Menu.ItemGroup >
                           <Menu.Item key="alipay">
-                            <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+                            <Link to="/women"> 
                             <i class="fas fa-venus" style={{fontSize:"20px"}}></i>
                                 <span style={{paddingLeft:"10px"}}>Women</span>
-                            </a>
+                            </Link>
                           </Menu.Item>
 
                           <Menu.Item key="alipay">
                            
-                            <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+                          <Link to="/men">
                                 <i class="fas fa-mars" style={{fontSize:"20px"}}></i>
                                 <span style={{paddingLeft:"10px"}}>Men</span>
-                            </a>
+                            </Link>
                           </Menu.Item>
 
                       </Menu.ItemGroup>

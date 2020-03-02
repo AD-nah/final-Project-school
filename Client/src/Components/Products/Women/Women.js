@@ -1,10 +1,8 @@
 import React, { Component } from "react";
+
 import {Link} from 'react-router-dom';
 
-// ------------------------------------------------------------------
 
-//MATERIAL-UI Library for React packages
-import Button from "@material-ui/core/Button/Button";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -14,13 +12,12 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-
+import Button from '@material-ui/core/Button';
 // ----------------------------------------------------------------------
 
 // Import Antd  library
 import "antd/dist/antd.css";
 import { Menu, Popconfirm, message, Rate, Input } from "antd";
-import {Icon} from 'antd/lib/icon'
 const { SubMenu } = Menu;
 const desc = ["Ugly", "Works", "Ok", "Very Good", "Beautiful"];
 const { Search } = Input;
@@ -76,6 +73,12 @@ const useStyles = makeStyles(theme => ({
 const cards      = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 let init_value   = [3, 3, 3, 3, 3, 3, 3, 3, 3]
 
+
+
+
+
+
+
 export default class Women extends React.Component {
   //for the rate stars
   state = {
@@ -90,6 +93,9 @@ export default class Women extends React.Component {
 
   handleClick = e => {
     console.log("click ", e);
+    this.setState({
+      current: e.key,
+    });
   };
 
   render() {
@@ -102,56 +108,52 @@ export default class Women extends React.Component {
 
         
           <Grid container>
-            <Grid item xs={12} sm={4} md={2}>
+            <Grid item xs={12} sm={4} md={2} style={{maxWidth:"130px"}}>
+
+
               <main>
-                <Menu
-                  onClick={this.handleClick}
-                  style={{ width: 180 }}
-                  defaultSelectedKeys={["1"]}
-                  defaultOpenKeys={["sub1"]}
-                  mode="inline"
-                >
-                  <SubMenu
-                    key="sub1"
-                    title={
-                      <span>
-                        <Icon type="search" />
-                        <span> Search </span>
-                      </span>
-                    }
-                  >
+                  <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
+                   
+                 
+                   
+                    <SubMenu
+                      title={
+
+                        <span className="submenu-title-wrapper" class="subMenu">
+                          <i class="fas fa-bars" style={{fontSize:"20px"}}></i>
+                          <span style={{fontSize:"15px",paddingLeft:"10px"}}>Menu</span>
+                        </span>
+                      }
+                    >
+                      <Menu.ItemGroup >
+                          <Menu.Item key="alipay">
+                            <Link to="/women"> 
+                            <i class="fas fa-venus" style={{fontSize:"20px"}}></i>
+                                <span style={{paddingLeft:"10px"}}>Women</span>
+                            </Link>
+                          </Menu.Item>
+
+                          <Menu.Item key="alipay">
+                           
+                          <Link to="/men">
+                                <i class="fas fa-mars" style={{fontSize:"20px"}}></i>
+                                <span style={{paddingLeft:"10px"}}>Men</span>
+                            </Link>
+                          </Menu.Item>
+
+                      </Menu.ItemGroup>
+
                     
-                    <Menu.Item key="2">
-                            <Link  to="/women">
-                            <Icon type="yuque" />
-                            Women's
-                          
-                          </Link>
-                      </Menu.Item>
 
-                      <Menu.Item key="2">
-                            <Link  to="/women">
-                            <Icon type="yuque" />
-                            Men's
-                          </Link>
-                      </Menu.Item>
+                    </SubMenu>
 
+                    
 
-                  </SubMenu>
-                  {/* <SubMenu
-                    key="sub2"
-                    title={
-                      <span>
-                        <Icon type="appstore" />
-                        <span>Else</span>
-                      </span>
-                    }
-                  >
-                    <Menu.Item key="5">Option 5</Menu.Item>
-                    <Menu.Item key="6">Option 6</Menu.Item>
-                  </SubMenu> */}
-                </Menu>
+                  </Menu>
               </main>
+
+
+
             </Grid>
 
             <Grid item xs={12} sm={7} md={10}>
@@ -196,6 +198,7 @@ export default class Women extends React.Component {
               <Container className={useStyles.cardGrid} maxWidth="md">
                 {/* End hero unit */}
                 <Grid container spacing={4}>
+
                   {cards.map(card => (
                     <Grid item key={card} xs={12} sm={6} md={4}>
                       <Card className={useStyles.card}>
