@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import {Link} from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 
-// ------------------------------------------------------------------
 
-//MATERIAL-UI Library for React packages
-import Button from "@material-ui/core/Button/Button";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -14,12 +11,14 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-
+import Button from '@material-ui/core/Button';
 // ----------------------------------------------------------------------
 
 // Import Antd  library
 import "antd/dist/antd.css";
 import { Menu, Icon, Popconfirm, message, Rate, Input } from "antd";
+
+
 const { SubMenu } = Menu;
 
 const desc = ["Ugly", "Works", "Ok", "Very Good", "Beautiful"];
@@ -76,6 +75,12 @@ const useStyles = makeStyles(theme => ({
 const cards      = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 let init_value   = [3, 3, 3, 3, 3, 3, 3, 3, 3]
 
+
+
+
+
+
+
 export default class Men extends React.Component {
   //for the rate stars
   state = {
@@ -90,6 +95,9 @@ export default class Men extends React.Component {
 
   handleClick = e => {
     console.log("click ", e);
+    this.setState({
+      current: e.key,
+    });
   };
 
   render() {
@@ -103,54 +111,46 @@ export default class Men extends React.Component {
         
           <Grid container>
             <Grid item xs={12} sm={4} md={2}>
+
+
               <main>
-                <Menu
-                  onClick={this.handleClick}
-                  style={{ width: 180 }}
-                  defaultSelectedKeys={["1"]}
-                  defaultOpenKeys={["sub1"]}
-                  mode="inline"
-                >
-                  <SubMenu
-                    key="sub1"
-                    title={
-                      <span>
-                        <Icon type="search" />
-                        <span> Search </span>
-                      </span>
-                    }
-                  >
-                      
-                      <Menu.Item key="2">
-                            <Link  to="/women">
-                            <Icon type="yuque" />
-                            Women's
-                          
-                          </Link>
-                      </Menu.Item>
+                  <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
+                   
+                 
+                   
+                    <SubMenu
+                      title={
+                        <span className="submenu-title-wrapper" class="subMenu">
+                          Navigation Submenu
+                        </span>
+                      }
+                    >
+                      <Menu.ItemGroup >
+                            <Menu.Item key="alipay">
+                            <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+                               Link
+                            </a>
+                          </Menu.Item>
 
-                      <Menu.Item key="2">
-                            <Link  to="/women">
-                            <Icon type="yuque" />
-                            Men's
-                          </Link>
-                      </Menu.Item>
+                          <Menu.Item key="alipay">
+                            <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+                               Link
+                            </a>
+                          </Menu.Item>
 
-                  </SubMenu>
-                  {/* <SubMenu
-                    key="sub2"
-                    title={
-                      <span>
-                        <Icon type="appstore" />
-                        <span>Else</span>
-                      </span>
-                    }
-                  >
-                    <Menu.Item key="5">Option 5</Menu.Item>
-                    <Menu.Item key="6">Option 6</Menu.Item>
-                  </SubMenu> */}
-                </Menu>
+                      </Menu.ItemGroup>
+
+                    
+
+                    </SubMenu>
+
+                    
+
+                  </Menu>
               </main>
+
+
+
             </Grid>
 
             <Grid item xs={12} sm={7} md={10}>
