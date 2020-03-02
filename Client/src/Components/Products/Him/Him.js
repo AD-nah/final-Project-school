@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import {Link} from 'react-router-dom';
 
 // ------------------------------------------------------------------
 
@@ -20,8 +19,8 @@ import Container from "@material-ui/core/Container";
 // Import Antd  library
 import "antd/dist/antd.css";
 import { Menu, Icon, Popconfirm, message, Rate, Input } from "antd";
+import PlusCircleTwoTone from 'antd/es/icon'
 const { SubMenu } = Menu;
-
 const desc = ["Ugly", "Works", "Ok", "Very Good", "Beautiful"];
 const { Search } = Input;
 
@@ -76,7 +75,7 @@ const useStyles = makeStyles(theme => ({
 const cards      = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 let init_value   = [3, 3, 3, 3, 3, 3, 3, 3, 3]
 
-export default class Men extends React.Component {
+export default class Her extends React.Component {
   //for the rate stars
   state = {
     value: init_value
@@ -120,24 +119,16 @@ export default class Men extends React.Component {
                       </span>
                     }
                   >
-                      
-                      <Menu.Item key="2">
-                            <Link  to="/women">
-                            <Icon type="yuque" />
-                            Women's
-                          
-                          </Link>
-                      </Menu.Item>
-
-                      <Menu.Item key="2">
-                            <Link  to="/women">
-                            <Icon type="yuque" />
-                            Men's
-                          </Link>
-                      </Menu.Item>
-
+                    <Menu.Item key="1">
+                      <Icon type="skin" />
+                      Clothe
+                    </Menu.Item>
+                    <Menu.Item key="2">
+                      <Icon type="yuque" />
+                      Shoes
+                    </Menu.Item>
                   </SubMenu>
-                  {/* <SubMenu
+                  <SubMenu
                     key="sub2"
                     title={
                       <span>
@@ -148,7 +139,7 @@ export default class Men extends React.Component {
                   >
                     <Menu.Item key="5">Option 5</Menu.Item>
                     <Menu.Item key="6">Option 6</Menu.Item>
-                  </SubMenu> */}
+                  </SubMenu>
                 </Menu>
               </main>
             </Grid>
@@ -195,7 +186,6 @@ export default class Men extends React.Component {
               <Container className={useStyles.cardGrid} maxWidth="md">
                 {/* End hero unit */}
                 <Grid container spacing={4}>
-
                   {cards.map(card => (
                     <Grid item key={card} xs={12} sm={6} md={4}>
                       <Card className={useStyles.card}>
