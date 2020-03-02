@@ -19,7 +19,8 @@ import Container from "@material-ui/core/Container";
 
 // Import Antd  library
 import "antd/dist/antd.css";
-import { Menu, Icon, Popconfirm, message, Rate, Input } from "antd";
+import { Menu, Popconfirm, message, Rate, Input } from "antd";
+import {Icon} from 'antd/lib/icon'
 const { SubMenu } = Menu;
 const desc = ["Ugly", "Works", "Ok", "Very Good", "Beautiful"];
 const { Search } = Input;
