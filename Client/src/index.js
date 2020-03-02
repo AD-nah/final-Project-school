@@ -32,8 +32,6 @@ if (localStorage.sCount) {
 }
 
 
-
-
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
