@@ -110,7 +110,7 @@ export default class Men extends React.Component {
 
         
           <Grid container>
-            <Grid item xs={12} sm={4} md={2}>
+            <Grid item xs={12} sm={4} md={2} style={{maxWidth:"130px"}}>
 
 
               <main>
@@ -120,21 +120,26 @@ export default class Men extends React.Component {
                    
                     <SubMenu
                       title={
+
                         <span className="submenu-title-wrapper" class="subMenu">
-                          Navigation Submenu
+                          <i class="fas fa-bars" style={{fontSize:"20px"}}></i>
+                          <span style={{fontSize:"15px",paddingLeft:"10px"}}>Menu</span>
                         </span>
                       }
                     >
                       <Menu.ItemGroup >
-                            <Menu.Item key="alipay">
+                          <Menu.Item key="alipay">
                             <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-                               Link
+                            <i class="fas fa-venus" style={{fontSize:"20px"}}></i>
+                                <span style={{paddingLeft:"10px"}}>Women</span>
                             </a>
                           </Menu.Item>
 
                           <Menu.Item key="alipay">
+                           
                             <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-                               Link
+                                <i class="fas fa-mars" style={{fontSize:"20px"}}></i>
+                                <span style={{paddingLeft:"10px"}}>Men</span>
                             </a>
                           </Menu.Item>
 
