@@ -16,7 +16,7 @@ import * as reduxActios from '../Redux/Actions/auth'
 
 import Home from './Home/Home'
 import Men from './Products/Men/Men'
-import Women from './Products/Women/Women'
+import Women from './Products/Women/Women';
 import News from './News/News'
 import About from './About/About'
 import LoginPage from './Pages/LoginPage'
@@ -94,6 +94,7 @@ class Navbar extends Component {
 
 
 
+
               <MDBNavItem>
                 <MDBNavLink className=" font-weight-bold" to='/news'>News</MDBNavLink>
               </MDBNavItem>
@@ -101,10 +102,27 @@ class Navbar extends Component {
 
 
               <MDBNavItem>
-                <MDBNavLink className=" font-weight-bold" to='/about'>About</MDBNavLink>
-              </MDBNavItem>
-              
+                <MDBDropdown >
+                  <MDBDropdownToggle nav caret>
+                    <div className="d-none d-md-inline font-weight-bold">More</div>
+                  </MDBDropdownToggle>
+                  <MDBDropdownMenu className="dropdown-default">
 
+                    <MDBDropdownItem >
+                    <Link className=" font-weight-bold" to="/about">About</Link>
+                    </MDBDropdownItem>
+
+                    <MDBDropdownItem >
+                    <Link className=" font-weight-bold" to="/#">Payment</Link>
+                    </MDBDropdownItem>
+
+                    <MDBDropdownItem >
+                    <Link className=" font-weight-bold" to="/#">Policy</Link>
+                    </MDBDropdownItem>
+
+                  </MDBDropdownMenu>
+                </MDBDropdown>
+              </MDBNavItem>
             </MDBNavbarNav>
             <MDBNavbarNav right>
 
@@ -153,7 +171,7 @@ class Navbar extends Component {
                       </MDBDropdownItem>
 
                       <MDBDropdownItem>
-                        <Link to="/favorites"><strong>Favorites</strong></Link>
+                        <Link to="/favorite"><strong>Favorites</strong></Link>
                       </MDBDropdownItem>
 
 
@@ -174,19 +192,16 @@ class Navbar extends Component {
 
 
         <Switch>
-          
           <Route exact path="/" component={Home} />
           <Route path="/home" component={Home} />
           <Route path="/about" component={About} />
-
           <Route path="/men" component={Men} />
           <Route path="/women" component={Women} />
-          
           <Route path="/news" component={News} />
           <Route path="/profile" component={Profile} />
           <Route path="/chart" component={Chart} />
-          <Route path="/favorites" component={Favorites} />
         </Switch>
+        
 
       </div>
     );

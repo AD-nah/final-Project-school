@@ -130,11 +130,12 @@ export default class Men extends React.Component {
                       </Menu.Item>
 
                       <Menu.Item key="2">
-                            <Link  to="/women">
+                            <Link  to="/men">
                             <Icon type="yuque" />
                             Men's
                           </Link>
                       </Menu.Item>
+
 
                   </SubMenu>
                   {/* <SubMenu

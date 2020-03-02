@@ -1,6 +1,8 @@
 import React from "react";
-import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
-import './footer.css'
+import { MDBCol, MDBContainer, MDBRow, MDBFooter} from "mdbreact";
+import './footer.css';
+// import Home from '../Home/Home';
+// import Products from '../Products/';
 
 const Footer = () => {
     return (
@@ -30,7 +32,7 @@ const Footer = () => {
                                 <a href="#!">Products</a>
                             </li>
                             <li className="list-unstyled">
-                                <a href="#!">News</a>
+                                <a href="#">News</a>
                             </li>
                            
                         </ul>
