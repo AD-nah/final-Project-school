@@ -13,9 +13,6 @@ import caro3 from './video/3.jpg';
 
 import { BackTop } from 'antd';
 
-
-
-
 export default class Home extends Component {
   render() {
     return (
@@ -135,10 +132,6 @@ export default class Home extends Component {
                 <i class="fas fa-chevron-circle-up" style={{color:"orange",fontSize:"40px"}}></i>
                 </BackTop>
          </div>
-
-
-
-
 
 
           {/*Started Carosel */}

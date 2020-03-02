@@ -25,7 +25,8 @@ import RegisterPage from './Pages/RegisterPage'
 
 import Profile from './Profile/Profile'
 import Chart from './Chart/Chart'
-import Favorites from './Favorites/Favorites'
+import Favorites from './Favorites/Favorites';
+
 
 
 

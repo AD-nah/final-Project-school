@@ -1,17 +1,9 @@
 import React from 'react';
 import MaterialTable from 'material-table';
-import Button from '@material-ui/core/Button/Button'
-
-
-
-
+import Button from '@material-ui/core/Button/Button';
 
 // import DropDown from ANTD Library
 import { Menu, Dropdown } from 'antd';
-
-
-
-
 
 export default function Chart() {
   const [state, setState] = React.useState({
@@ -49,8 +41,6 @@ export default function Chart() {
       </Menu.Item>
     </Menu>
   );
-
-
 
   return (
     <React.Fragment>
@@ -94,49 +84,4 @@ export default function Chart() {
 
 
 
-
-
-
-
-
-
-
-
-// class OverlayVisible extends React.Component {
-//   state = {
-//     visible: false,
-//   };
-
-//   handleMenuClick = e => {
-//     if (e.key === '3') {
-//       this.setState({ visible: false });
-//     }
-//   };
-
-//   handleVisibleChange = flag => {
-//     this.setState({ visible: flag });
-//   };
-
-//   render() {
-//     const menu = (
-//       <Menu onClick={this.handleMenuClick}>
-//         <Menu.Item key="1">Clicking me will not close the menu.</Menu.Item>
-//         <Menu.Item key="2">Clicking me will not close the menu also.</Menu.Item>
-//         <Menu.Item key="3">Clicking me will close the menu</Menu.Item>
-//       </Menu>
-//     );
-//     return (
-//       <Dropdown
-//         overlay={menu}
-//         onVisibleChange={this.handleVisibleChange}
-//         visible={this.state.visible}
-//       >
-//         <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-//           Hover me <DownOutlined />
-//         </a>
-//       </Dropdown>
-//     );
-//   }
-// }
-  
 
