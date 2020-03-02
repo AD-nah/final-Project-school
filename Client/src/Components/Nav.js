@@ -15,8 +15,8 @@ import { connect } from 'react-redux'
 import * as reduxActios from '../Redux/Actions/auth'
 
 import Home from './Home/Home'
-import Him from './Products/Him/Him'
-import Her from './Products/Her/Her';
+import Men from './Products/Men/Men'
+import Women from './Products/Women/Women'
 import News from './News/News'
 import About from './About/About'
 import LoginPage from './Pages/LoginPage'
@@ -87,21 +87,10 @@ class Navbar extends Component {
               </MDBNavItem>
 
 
-              {/* the products Dropdown */}
-              <MDBDropdown >
-                <MDBDropdownToggle nav caret>
-                  <div className="d-none d-md-inline  font-weight-bold">Products</div>
-                </MDBDropdownToggle>
-                <MDBDropdownMenu className="dropdown-default">
-                  <MDBDropdownItem>
-                    <Link  className=" font-weight-bold" to="/her">For Her </Link>
-                  </MDBDropdownItem>
-                  <MDBDropdownItem>
-                    <Link  className=" font-weight-bold" to="/him">For Him </Link>
-                  </MDBDropdownItem>
+              <MDBNavItem >
+                <MDBNavLink  className=" font-weight-bold" to='/men'>Products</MDBNavLink>
+              </MDBNavItem>
 
-                </MDBDropdownMenu>
-              </MDBDropdown>
 
 
 
@@ -112,27 +101,10 @@ class Navbar extends Component {
 
 
               <MDBNavItem>
-                <MDBDropdown >
-                  <MDBDropdownToggle nav caret>
-                    <div className="d-none d-md-inline font-weight-bold">More</div>
-                  </MDBDropdownToggle>
-                  <MDBDropdownMenu className="dropdown-default">
-
-                    <MDBDropdownItem >
-                    <Link className=" font-weight-bold" to="/about">About</Link>
-                    </MDBDropdownItem>
-
-                    <MDBDropdownItem >
-                    <Link className=" font-weight-bold" to="/#">Payment</Link>
-                    </MDBDropdownItem>
-
-                    <MDBDropdownItem >
-                    <Link className=" font-weight-bold" to="/#">Policy</Link>
-                    </MDBDropdownItem>
-
-                  </MDBDropdownMenu>
-                </MDBDropdown>
+                <MDBNavLink className=" font-weight-bold" to='/about'>About</MDBNavLink>
               </MDBNavItem>
+              
+
             </MDBNavbarNav>
             <MDBNavbarNav right>
 
@@ -181,7 +153,7 @@ class Navbar extends Component {
                       </MDBDropdownItem>
 
                       <MDBDropdownItem>
-                        <Link to="/favorite"><strong>Favorites</strong></Link>
+                        <Link to="/favorites"><strong>Favorites</strong></Link>
                       </MDBDropdownItem>
 
 
@@ -202,14 +174,18 @@ class Navbar extends Component {
 
 
         <Switch>
+          
           <Route exact path="/" component={Home} />
           <Route path="/home" component={Home} />
           <Route path="/about" component={About} />
-          <Route path="/him" component={Him} />
-          <Route path="/her" component={Her} />
+
+          <Route path="/men" component={Men} />
+          <Route path="/women" component={Women} />
+          
           <Route path="/news" component={News} />
           <Route path="/profile" component={Profile} />
           <Route path="/chart" component={Chart} />
+          <Route path="/favorites" component={Favorites} />
         </Switch>
 
       </div>
