@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import {Link} from 'react-router-dom';
 
 // ------------------------------------------------------------------
 
@@ -19,8 +19,9 @@ import Container from "@material-ui/core/Container";
 
 // Import Antd  library
 import "antd/dist/antd.css";
-import { Menu, Icon, Popconfirm, message, Rate, Input} from "antd";
+import { Menu, Icon, Popconfirm, message, Rate, Input } from "antd";
 const { SubMenu } = Menu;
+
 const desc = ["Ugly", "Works", "Ok", "Very Good", "Beautiful"];
 const { Search } = Input;
 
@@ -119,21 +120,23 @@ export default class Men extends React.Component {
                       </span>
                     }
                   >
-                   <Menu.Item key="1">
-                      <Icon type="skin" />
-                    <Link to="/Women">Women's</Link> 
                       
-                    </Menu.Item>
-                    <Menu.Item key="2">
-                      <Icon type="yuque" />
-                      
-                    <Link to="/men">Men's</Link> 
-                    </Menu.Item>
+                      <Menu.Item key="2">
+                            <Link  to="/women">
+                            <Icon type="yuque" />
+                            Women's
+                          
+                          </Link>
+                      </Menu.Item>
+
+                      <Menu.Item key="2">
+                            <Link  to="/women">
+                            <Icon type="yuque" />
+                            Men's
+                          </Link>
+                      </Menu.Item>
+
                   </SubMenu>
-
-            
-                    
-
                   {/* <SubMenu
                     key="sub2"
                     title={
