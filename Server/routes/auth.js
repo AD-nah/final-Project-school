@@ -6,24 +6,21 @@ router.post('/', (req, res) => {
 
     console.log(req.body)
     
-    User.findOne({email: req.body.userSignInData.email}).then(foundedUser => {
+     User.findOne({email: req.body.data.email}).then(foundedUser => {
 
-        if(foundedUser && foundedUser.isValidPassword(req.body.userSignInData.password)){
-
-            console.log('SERVER: ', req.body.userSignInData.email, 'logged in')
-
-            res.status(200).json({ userSignedInData: foundedUser.toAuthJSON()})
-
-        }else{
-
+        if(!foundedUser){
             res.status(400).json({ globalErrors: { authError: "Server: Account not found!" }});
+            
+        }else{
+            const generatedLogin = foundedUser.toAuthJSON()
+            foundedUser.saveCurrentJWTtoDB(generatedLogin.token)
+            foundedUser.saveLastLoggedInDate(Date.now())
+            foundedUser.save().then(recordSaved => {
+
+                res.status(200).json({ userSignedInData: generatedLogin})
+            })
+
         }
-    }).catch((err)=>{
-        console.log('hi',err);
     })
-
-    //res.status(400).json({ globalErrors : { authError: 'Account not found!' }});
-    //res.status(200).json({ userSignedInData : {email:'dsfdsf', token:'fsf'}})
-
 })
 module.exports = router

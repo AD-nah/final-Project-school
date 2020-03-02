@@ -3,25 +3,30 @@ import {
   MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
   MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBBtn, MDBModal, MDBModalHeader, MDBModalBody 
 } from "mdbreact";
-import { Switch, Route, Link } from 'react-router-dom';
-import Home from './Home/Home'
-import * as reduxActios from '../Redux/Actions/auth'
 
-import { connect } from 'react-redux'
 
-import Him from './Products/Him/Him'
-import Her from './Products/Her/Her';
-import News from './News/News'
-import Profile from './Profile/Profile'
-import About from './About/About'
-
-import LoginPage from './Pages/LoginPage'
-import RegisterPage from './Pages/RegisterPage'
-
-import Chart from './Chart/Chart'
 
 import  Logo  from '../../src/fire.svg';
 import SuccessMessage from './Messages/SuccessMessage'
+
+
+import { Switch, Route, Link , Redirect} from 'react-router-dom';
+import { connect } from 'react-redux'
+import * as reduxActios from '../Redux/Actions/auth'
+
+import Home from './Home/Home'
+import Men from './Products/Men/Men'
+import Women from './Products/Women/Women'
+import News from './News/News'
+import About from './About/About'
+import LoginPage from './Pages/LoginPage'
+import RegisterPage from './Pages/RegisterPage'
+
+
+import Profile from './Profile/Profile'
+import Chart from './Chart/Chart'
+import Favorites from './Favorites/Favorites'
+
 
 
 
@@ -30,40 +35,47 @@ class Navbar extends Component {
     isOpen: false,
     registerModal: false,
     loginModal: false,
-  };
-
-  toggleCollapse = () => {
-    this.setState({ isOpen: !this.state.isOpen });
+    logoutSuccess: false,
+    redirectSuccess:false
   }
 
-
-
-  // the toggle for the modal login and register 
+  toggleCollapse = () => {
+    this.setState({isOpen: !this.state.isOpen});
+  }
   registerToggle = () => {
     this.setState({
       registerModal: !this.state.registerModal
-    });
+    })
   }
   loginToggle = () => {
     this.setState({
       loginModal: !this.state.loginModal
-    });
-    console.log(this.state.loginModal)
+    })
+  }
+  logoutHandler = () => {
 
+    this.props.logoutAction().then(res => {
+      
+    this.setState({logoutSuccess: true, redirectSuccess: true})
+            
+    }).catch(err => {
+
+      console.log(err)
+    })
   }
 
   render() {
     return (
-      <div>
+      <div >
         <MDBNavbar color="special-color" dark expand="md">
 
-
-
+        {this.state.logoutSuccess &&  <SuccessMessage text = 'you are Logged Out'/> }
+        {this.props.isAuthenticated && (<SuccessMessage text = 'successfully loggedin'/>)} 
+        {this.state.redirectSuccess && <Redirect to = '/home'/>}
           
           <MDBNavbarBrand>
-          <img style={{width:"40px"}}   src={Logo} alt="Logo" />
-            <strong className="white-text font-weight-bold"> 
-            Scount</strong>
+          <img style={{width:"40px"}} src={Logo} alt="Logo"/>
+            <strong className="white-text font-weight-bold"> Scount</strong>
           </MDBNavbarBrand>
           <MDBNavbarToggler onClick={this.toggleCollapse} />
 
@@ -75,21 +87,10 @@ class Navbar extends Component {
               </MDBNavItem>
 
 
-              {/* the products Dropdown */}
-              <MDBDropdown >
-                <MDBDropdownToggle nav caret>
-                  <div className="d-none d-md-inline  font-weight-bold">Products</div>
-                </MDBDropdownToggle>
-                <MDBDropdownMenu className="dropdown-default">
-                  <MDBDropdownItem>
-                    <Link  className=" font-weight-bold" to="/her">For Her </Link>
-                  </MDBDropdownItem>
-                  <MDBDropdownItem>
-                    <Link  className=" font-weight-bold" to="/him">For Him </Link>
-                  </MDBDropdownItem>
+              <MDBNavItem >
+                <MDBNavLink  className=" font-weight-bold" to='/men'>Products</MDBNavLink>
+              </MDBNavItem>
 
-                </MDBDropdownMenu>
-              </MDBDropdown>
 
 
 
@@ -100,31 +101,12 @@ class Navbar extends Component {
 
 
               <MDBNavItem>
-                <MDBDropdown >
-                  <MDBDropdownToggle nav caret>
-                    <div className="d-none d-md-inline font-weight-bold">More</div>
-                  </MDBDropdownToggle>
-                  <MDBDropdownMenu className="dropdown-default">
-
-                    <MDBDropdownItem >
-                    <Link className=" font-weight-bold" to="/about">About</Link>
-                    </MDBDropdownItem>
-
-                    <MDBDropdownItem >
-                    <Link className=" font-weight-bold" to="/#">Payment</Link>
-                    </MDBDropdownItem>
-
-                    <MDBDropdownItem >
-                    <Link className=" font-weight-bold" to="/#">Policy</Link>
-                    </MDBDropdownItem>
-
-                  </MDBDropdownMenu>
-                </MDBDropdown>
+                <MDBNavLink className=" font-weight-bold" to='/about'>About</MDBNavLink>
               </MDBNavItem>
+              
+
             </MDBNavbarNav>
             <MDBNavbarNav right>
-
-
 
               {!this.props.isAuthenticated && ( 
                 <MDBBtn onClick={this.loginToggle} className="w-60 p-2" color="white" >Login</MDBBtn>
@@ -139,7 +121,7 @@ class Navbar extends Component {
               </MDBModal>
    
 
-              {!this.props.isAuthenticated && ( 
+              {!this.props.isAuthenticated && (
                 <MDBBtn onClick={this.registerToggle} className="w-60 p-2" color="white" >Register</MDBBtn>
               )}
 
@@ -147,14 +129,11 @@ class Navbar extends Component {
                 <MDBModalHeader toggle={this.registerToggle}>Please Register</MDBModalHeader>
                 <MDBModalBody>  
 
-                  <RegisterPage />
+                  <RegisterPage closeRegister = {this.registerToggle}/>
                 
                 </MDBModalBody>
               </MDBModal>
          
-
-
-              {this.props.isAuthenticated && ( <SuccessMessage text = 'you are successfully logedin'/> )}
 
               {this.props.isAuthenticated && (
                 <MDBNavItem>
@@ -173,13 +152,18 @@ class Navbar extends Component {
                         <Link to="/chart"><strong>My-Chart</strong></Link>
                       </MDBDropdownItem>
 
-                      <MDBDropdownItem >
-                        <button onClick = {() => this.props.logoutAction()}>Log-Out</button>
+                      <MDBDropdownItem>
+                        <Link to="/favorites"><strong>Favorites</strong></Link>
                       </MDBDropdownItem>
+
 
                     </MDBDropdownMenu>
                   </MDBDropdown>
                 </MDBNavItem>
+              )}
+
+              {this.props.isAuthenticated && (
+                <MDBBtn onClick={this.logoutHandler} className="w-60 p-2" color="white" >Logout</MDBBtn>
               )}
 
             </MDBNavbarNav>
@@ -190,14 +174,18 @@ class Navbar extends Component {
 
 
         <Switch>
+          
           <Route exact path="/" component={Home} />
           <Route path="/home" component={Home} />
-          <Route path="/profile" component={Profile} />
           <Route path="/about" component={About} />
-          <Route path="/him" component={Him} />
-          <Route path="/her" component={Her} />
+
+          <Route path="/men" component={Men} />
+          <Route path="/women" component={Women} />
+          
           <Route path="/news" component={News} />
+          <Route path="/profile" component={Profile} />
           <Route path="/chart" component={Chart} />
+          <Route path="/favorites" component={Favorites} />
         </Switch>
 
       </div>
@@ -244,5 +232,5 @@ const mapStateToProps = (state) =>{
   }
 }
 
- export default connect( mapStateToProps, {logoutAction: reduxActios.logoutAction})(Navbar)
+ export default connect( mapStateToProps, { logoutAction: reduxActios.logoutAction })(Navbar)
 //export default Navbar
