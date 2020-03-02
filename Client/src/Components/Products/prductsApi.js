@@ -65,7 +65,7 @@ const prductsApi =  [
         "price": 62.99
     },
 
-    //// Männer Kleidung
+    ////Männer Kleidung
     {
         "name":"Tommy Hilfiger Men's Jacket",
         "discrption":"WATERSTOP WATER RESISTANT. YACHT WINDBREAKER JACKET. EMBROIDERED FLAG & HILFIGER ON LEFT CHEST. PRINTED 'HILFIGER' ON BACK COLLAR. This jacket is",

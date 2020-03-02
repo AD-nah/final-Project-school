@@ -26,7 +26,7 @@ const Footer = () => {
                         <h5 className="font-weight-bold text-uppercase mt-2 mb-4">Links</h5>
                         <ul>
                             <li className="list-unstyled">
-                                <a href="#!">Home</a>
+                                <a href="#!">Policies</a>
                             </li>
                             <li className="list-unstyled">
                                 <a href="#!">Products</a>
@@ -52,7 +52,7 @@ const Footer = () => {
                
                     <li className="list-inline-item">
                         <a className="btn-floating btn-li mx-1">
-                                <i className="fab fa-github"></i>                        </a>
+                                <i className="fab fa-github"></i></a>
                     </li>
                 </ul>
                 {/* Social buttons  */}
