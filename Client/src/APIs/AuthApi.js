@@ -16,6 +16,12 @@ export default  {
 
             return axios.post('/api/register-req', { data }).then( response => response.data.userRegistered )
         }
+    },
+    ///News Api
+    newApi :{
+        getNews : (url)=>{
+            return axios.get(url)
+        }
     }
 }
 
