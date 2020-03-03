@@ -44,7 +44,7 @@ export default class Women extends React.Component {
                           <img className="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-2.jpg" />
                       </a>
                       <ul className="social">
-                         
+                      <li><a href="" className="fas fa-heart"></a></li>
                           <li><a href="" className="fa fa-shopping-bag"></a></li>
                           <li><a href="" className="fa fa-shopping-cart"></a></li>
                       </ul>
@@ -73,7 +73,7 @@ export default class Women extends React.Component {
                           <img className="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-4.jpg"/>
                       </a>
                       <ul className="social">
-                          
+                      <li><a href="" className="fas fa-heart"></a></li>
                           <li><a href="" className="fa fa-shopping-bag"></a></li>
                           <li><a href="" className="fa fa-shopping-cart"></a></li>
                       </ul>
@@ -99,7 +99,7 @@ export default class Women extends React.Component {
                           <img className="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-6.jpg" />
                       </a>
                       <ul className="social">
-                          
+                      <li><a href="" className="fas fa-heart"></a></li>
                           <li><a href="" className="fa fa-shopping-bag"></a></li>
                           <li><a href="" className="fa fa-shopping-cart"></a></li>
                       </ul>
@@ -128,7 +128,7 @@ export default class Women extends React.Component {
                           <img className="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-8.jpg"/>
                       </a>
                       <ul className="social">
-                         
+                      <li><a href="" className="fas fa-heart"></a></li>
                           <li><a href="" className="fa fa-shopping-bag"></a></li>
                           <li><a href="" className="fa fa-shopping-cart"></a></li>
                       </ul>

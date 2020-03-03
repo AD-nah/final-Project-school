@@ -43,14 +43,14 @@ export default class Men extends React.Component {
                                     <img className="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-2.jpg" />
                                 </a>
                                 <ul className="social">
-                                   
+                                <li><a href="" className="fas fa-heart"></a></li>
                                     <li><a href="" className="fa fa-shopping-bag"></a></li>
                                     <li><a href="" className="fa fa-shopping-cart"></a></li>
                                 </ul>
                                 <span className="product-new-label">New</span>
                             </div>
                             <div className="product-content">
-                                <h3 className="title"><a href="#">Men's Blazer</a></h3>
+                                <h3 className="title"><a href="#">Men's Blazer1</a></h3>
                                 <ul className="rating">
                                    
                                     <li className="fa fa-star"></li>
@@ -72,7 +72,7 @@ export default class Men extends React.Component {
                                     <img className="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-4.jpg"/>
                                 </a>
                                 <ul className="social">
-                                    
+                                <li><a href="" className="fas fa-heart"></a></li>
                                     <li><a href="" className="fa fa-shopping-bag"></a></li>
                                     <li><a href="" className="fa fa-shopping-cart"></a></li>
                                 </ul>
@@ -98,14 +98,14 @@ export default class Men extends React.Component {
                                     <img className="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-6.jpg" />
                                 </a>
                                 <ul className="social">
-                                    
+                                <li><a href="" className="fas fa-heart"></a></li>
                                     <li><a href="" className="fa fa-shopping-bag"></a></li>
                                     <li><a href="" className="fa fa-shopping-cart"></a></li>
                                 </ul>
                                 <span className="product-new-label">New</span>
                             </div>
                             <div className="product-content">
-                                <h3 className="title"><a href="#">Men's Blazer</a></h3>
+                                <h3 className="title"><a href="#">Men's Blazer2</a></h3>
                                 <ul className="rating">
                                     <li className="fa fa-star"></li>
                                     <li className="fa fa-star"></li>
@@ -127,14 +127,14 @@ export default class Men extends React.Component {
                                     <img className="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-8.jpg"/>
                                 </a>
                                 <ul className="social">
-                                   
-                                    <li><a href="" className="fa fa-shopping-bag"></a></li>
+                                <li><a href="" className="fas fa-heart"></a></li>
+                                <li><a href="" className="fas fa-heart"></a></li>
                                     <li><a href="" className="fa fa-shopping-cart"></a></li>
                                 </ul>
                                 <span className="product-new-label">New</span>
                             </div>
                             <div className="product-content">
-                                <h3 className="title"><a href="#">Men's Blazer</a></h3>
+                                <h3 className="title"><a href="#">Men's Blazer3</a></h3>
                                 <ul className="rating">
                                     <li className="fa fa-star"></li>
                                     <li className="fa fa-star"></li>
