@@ -1,26 +1,11 @@
-import React, { Component } from "react";
-
-import {Link} from 'react-router-dom';
+import React from "react";
 
 
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import Button from '@material-ui/core/Button';
 // ----------------------------------------------------------------------
 
 // Import Antd  library
 import "antd/dist/antd.css";
-import { Menu, Popconfirm, message, Rate, Input } from "antd";
-const { SubMenu } = Menu;
-const desc = ["Ugly", "Works", "Ok", "Very Good", "Beautiful"];
-const { Search } = Input;
+import {  Popconfirm, message} from "antd";
 
 // confirm on click or error on cancel
 function confirm(e) {
@@ -34,45 +19,6 @@ function cancel(e) {
 
 // --------------------------------------------------------------
 
-// Cards style from Material-ui
-const useStyles = makeStyles(theme => ({
-  icon: {
-    marginRight: theme.spacing(2)
-  },
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6)
-  },
-  heroButtons: {
-    marginTop: theme.spacing(4)
-  },
-  cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8)
-  },
-  card: {
-    height: "100%",
-    display: "flex",
-    flexDirection: "column"
-  },
-  cardMedia: {
-    paddingTop: "56.25%" // 16:9
-  },
-  cardContent: {
-    flexGrow: 1
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6)
-  },
-  side: {
-    maxWidth: "100px",
-    float: "left"
-  }
-}));
-const cards      = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-let init_value   = [3, 3, 3, 3, 3, 3, 3, 3, 3]
-
 
 
 
@@ -80,205 +26,136 @@ let init_value   = [3, 3, 3, 3, 3, 3, 3, 3, 3]
 
 
 export default class Women extends React.Component {
-  //for the rate stars
-  state = {
-    value: init_value
-  };
-  // for the  rate chages
-  handleChange = (id,newValue) => {
-    let tempValue = [...this.state.value]
-    tempValue[id-1] = newValue; 
-    this.setState({ value:tempValue });
-  };
-
-  handleClick = e => {
-    console.log("click ", e);
-    this.setState({
-      current: e.key,
-    });
-  };
+ 
 
   render() {
     // for the rates
-    const { value } = this.state;
 
     return (
-      <React.Fragment>
-        <CssBaseline />
-
-        
-          <Grid container>
-            <Grid item xs={12} sm={4} md={2} style={{maxWidth:"130px"}}>
-
-
-              <main>
-                  <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
-                   
-                 
-                   
-                    <SubMenu
-                      title={
-
-                        <span className="submenu-title-wrapper" class="subMenu">
-                          <i class="fas fa-bars" style={{fontSize:"20px"}}></i>
-                          <span style={{fontSize:"15px",paddingLeft:"10px"}}>Menu</span>
-                        </span>
-                      }
-                    >
-                      <Menu.ItemGroup >
-                          <Menu.Item key="alipay">
-                            <Link to="/women"> 
-                            <i class="fas fa-venus" style={{fontSize:"20px"}}></i>
-                                <span style={{paddingLeft:"10px"}}>Women</span>
-                            </Link>
-                          </Menu.Item>
-
-                          <Menu.Item key="alipay">
-                           
-                          <Link to="/men">
-                                <i class="fas fa-mars" style={{fontSize:"20px"}}></i>
-                                <span style={{paddingLeft:"10px"}}>Men</span>
-                            </Link>
-                          </Menu.Item>
-
-                      </Menu.ItemGroup>
-
-                    
-
-                    </SubMenu>
-
-                    
-
-                  </Menu>
-              </main>
-
-
-
-            </Grid>
-
-            <Grid item xs={12} sm={7} md={10}>
-              {/* Hero unit */}
-              <div className={useStyles.heroContent}>
-                <Container maxWidth="sm">
-                  <Typography
-                    component="h1"
-                    variant="h2"
-                    align="center"
-                    color="textPrimary"
-                    gutterBottom
-                  >
-                    Women's Album
-                  </Typography>
-                  <Typography
-                    variant="h5"
-                    align="center"
-                    color="textSecondary"
-                    paragraph
-                  >
-                    Something short and leading about the collection below—its
-                    contents, the creator, etc. Make it short and sweet, but not
-                    too short so folks don&apos;t simply skip over it entirely.
-                  </Typography>
-                  <div className={useStyles.heroButtons}>
-                    <Grid container spacing={2} justify="center">
-                      <Grid item>
-                        <Button variant="contained" color="primary">
-                          Main call to action
-                        </Button>
-                      </Grid>
-                      <Grid item>
-                        <Button variant="outlined" color="primary">
-                          Secondary action
-                        </Button>
-                      </Grid>
-                    </Grid>
+      <div className="container">
+      <h3 className="h3">Ladies Collection </h3>
+      
+      <div className="row">
+          <div className="col-md-3 col-sm-6">
+              <div className="product-grid7">
+                  <div className="product-image7">
+                      <a href="#">
+                          <img className="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-1.jpg"/>
+                          <img className="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-2.jpg" />
+                      </a>
+                      <ul className="social">
+                          <li><a href="" className="fa fa-search"></a></li>
+                          <li><a href="" className="fa fa-shopping-bag"></a></li>
+                          <li><a href="" className="fa fa-shopping-cart"></a></li>
+                      </ul>
+                      <span className="product-new-label">New</span>
                   </div>
-                </Container>
+                  <div className="product-content">
+                      <h3 className="title"><a href="#">Men's Blazer</a></h3>
+                      <ul className="rating">
+                          <li className="fa fa-star"></li>
+                          <li className="fa fa-star"></li>
+                          <li className="fa fa-star"></li>
+                          <li className="fa fa-star"></li>
+                          <li className="fa fa-star"></li>
+                      </ul>
+                      <div className="price">$15.00
+                          <span>$20.00</span>
+                      </div>
+                  </div>
               </div>
-              <Container className={useStyles.cardGrid} maxWidth="md">
-                {/* End hero unit */}
-                <Grid container spacing={4}>
+          </div>
+          <div className="col-md-3 col-sm-6">
+              <div className="product-grid7">
+                  <div className="product-image7">
+                      <a href="#">
+                          <img className="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-3.jpg"/>
+                          <img className="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-4.jpg"/>
+                      </a>
+                      <ul className="social">
+                          <li><a href="" className="fa fa-search"></a></li>
+                          <li><a href="" className="fa fa-shopping-bag"></a></li>
+                          <li><a href="" className="fa fa-shopping-cart"></a></li>
+                      </ul>
+                  </div>
+                  <div className="product-content">
+                      <h3 className="title"><a href="#">Women's White Shirt</a></h3>
+                      <ul className="rating">
+                          <li className="fa fa-star"></li>
+                          <li className="fa fa-star"></li>
+                          <li className="fa fa-star"></li>
+                          <li className="fa fa-star"></li>
+                          <li className="fa fa-star"></li>
+                      </ul>
+                      <div className="price">$15.00</div>
+                  </div>
+              </div>
+          </div>
+          <div className="col-md-3 col-sm-6">
+              <div className="product-grid7">
+                  <div className="product-image7">
+                      <a href="#">
+                          <img className="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-5.jpg" />
+                          <img className="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-6.jpg" />
+                      </a>
+                      <ul className="social">
+                          <li><a href="" className="fa fa-search"></a></li>
+                          <li><a href="" className="fa fa-shopping-bag"></a></li>
+                          <li><a href="" className="fa fa-shopping-cart"></a></li>
+                      </ul>
+                      <span className="product-new-label">New</span>
+                  </div>
+                  <div className="product-content">
+                      <h3 className="title"><a href="#">Men's Blazer</a></h3>
+                      <ul className="rating">
+                          <li className="fa fa-star"></li>
+                          <li className="fa fa-star"></li>
+                          <li className="fa fa-star"></li>
+                          <li className="fa fa-star"></li>
+                          <li className="fa fa-star"></li>
+                      </ul>
+                      <div className="price">$15.00
+                          <span>$20.00</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div className="col-md-3 col-sm-6">
+              <div className="product-grid7">
+                  <div className="product-image7">
+                      <a href="#">
+                          <img className="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-7.jpg"/>
+                          <img className="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-8.jpg"/>
+                      </a>
+                      <ul className="social">
+                          <li><a href="" className="fa fa-search"></a></li>
+                          <li><a href="" className="fa fa-shopping-bag"></a></li>
+                          <li><a href="" className="fa fa-shopping-cart"></a></li>
+                      </ul>
+                      <span className="product-new-label">New</span>
+                  </div>
+                  <div className="product-content">
+                      <h3 className="title"><a href="#">Men's Blazer</a></h3>
+                      <ul className="rating">
+                          <li className="fa fa-star"></li>
+                          <li className="fa fa-star"></li>
+                          <li className="fa fa-star"></li>
+                          <li className="fa fa-star"></li>
+                          <li className="fa fa-star"></li>
+                      </ul> 
+                      <div className="price">$15.00
+                          <span>$20.00</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  <div>
+</div>
 
-                  {cards.map(card => (
-                    <Grid item key={card} xs={12} sm={6} md={4}>
-                      <Card className={useStyles.card}>
-                        <CardMedia
-                          className={useStyles.cardMedia}
-                          image="https://source.unsplash.com/random"
-                          title="Image title"
-                        />
-                        <CardContent className={useStyles.cardContent}>
-                          <Typography gutterBottom variant="h5" component="h2">
-                            Heading
-                          </Typography>
-                          <Typography>
-                            This is a media card. You can use this section to
-                            describe the content.
-                          </Typography>
-                        </CardContent>
 
-                        <hr />
-                        <span>
-                          <Rate
-                            tooltips={desc}
-                            onChange={(newValue)=>this.handleChange(card,newValue)}
-                            value={value[card-1]}
-                          />
-                          {value ? (
-                            <span className="ant-rate-text">
-                              {desc[value - 1]}
-                            </span>
-                          ) : (
-                            ""
-                          )}
-                        </span>
-                        <hr />
-
-                        <Typography gutterBottom variant="h8">
-                          <span>
-                                <i class="fas fa-euro-sign" style={{fontSize:"17px",marginLeft:"30px"}}></i>
-                          </span>
-                        </Typography>
-
-                        <CardActions>
-                          <Button size="small" color="primary">
-                            View
-                          </Button>
-
-                          <Popconfirm
-                            title="Are you sure?"
-                            onConfirm={confirm}
-                            onCancel={cancel}
-                            okText="Yes"
-                            cancelText="No"
-                          >
-                            <a href="#" style={{ fontSize: "20px" }}>
-                                <i class="fas fa-heart"></i>
-                            </a>
-                          </Popconfirm>
-
-
-
-                          <Popconfirm
-                            title="Are you sure ?"
-                            onConfirm={confirm}
-                            onCancel={cancel}
-                            okText="Yes"
-                            cancelText="No"
-                          >
-                            <a href="#" style={{ fontSize: "20px",marginLeft:"20px" }}>
-                                <i class="fas fa-cart-plus"></i>
-                            </a>
-                          </Popconfirm>
-                        </CardActions>
-                      </Card>
-                    </Grid>
-                  ))}
-                </Grid>
-              </Container>
-            </Grid>
-          </Grid>
-      </React.Fragment>
+</div>              
+        
     );
   }
 }
