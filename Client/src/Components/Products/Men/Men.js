@@ -243,6 +243,8 @@ export default class Men extends React.Component {
                         <CardActions>
                           <Button size="small" color="primary">
                             View
+                            
+
                           </Button>
 
                           <Popconfirm
