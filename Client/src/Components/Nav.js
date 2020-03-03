@@ -4,11 +4,8 @@ import {
   MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBBtn, MDBModal, MDBModalHeader, MDBModalBody 
 } from "mdbreact";
 
-
-
 import  Logo  from '../../src/fire.svg';
 import SuccessMessage from './Messages/SuccessMessage'
-
 
 import { Switch, Route, Link , Redirect} from 'react-router-dom';
 import { connect } from 'react-redux'
@@ -22,13 +19,9 @@ import About from './About/About'
 import LoginPage from './Pages/LoginPage'
 import RegisterPage from './Pages/RegisterPage'
 
-
 import Profile from './Profile/Profile'
 import Chart from './Chart/Chart'
 import Favorites from './Favorites/Favorites';
-
-
-
 
 
 class Navbar extends Component {
@@ -65,7 +58,7 @@ class Navbar extends Component {
     })
   }
 
-  render() {
+  render(){
     return (
       <div >
         <MDBNavbar color="special-color" dark expand="md">
