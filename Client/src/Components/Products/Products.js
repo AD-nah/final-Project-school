@@ -8,10 +8,6 @@ import { MDBNav, MDBNavItem, MDBNavLink } from "mdbreact";
 export default class Products extends Component {
     render() {
         return (<>
-
-
-          
-
       
             <div>
 
