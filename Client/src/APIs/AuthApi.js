@@ -1,5 +1,4 @@
-import axios from 'axios'
-
+import axios from 'axios';
 
 export default  {
     user:{
@@ -18,7 +17,7 @@ export default  {
         }
     },
     ///News Api
-    newApi :{
+    newApi : {
         getNews : (url)=>{
             return axios.get(url)
         }
