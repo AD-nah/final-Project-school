@@ -16,6 +16,8 @@ import { BackTop } from 'antd';
 
 
 
+
+
 export default class Home extends Component {
   render() {
     return (
@@ -90,7 +92,7 @@ export default class Home extends Component {
 
          
           <div className="col-md-5 text-center">
-            <iframe className="col-md-10 embed-responsive embed-responsive-16by9" width="560" height="315" src="//www.youtube.com/embed/_jmC9gOjLkI" frameborder="2" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="//www.youtube.com/embed/_jmC9gOjLkI" frameborder="2" allowfullscreen></iframe>
           </div>
 
         </section>

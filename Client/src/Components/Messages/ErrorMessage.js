@@ -11,13 +11,12 @@ class ErrorMessage extends Component {
 
   componentDidMount(){
     toast.error(this.props.text)
-  
   }
 
   render(){
     return (
       <div>
-         <ToastContainer autoClose={200}/>
+         <ToastContainer autoClose={1200}/>
       </div>
     )
   }

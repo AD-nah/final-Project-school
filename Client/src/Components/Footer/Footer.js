@@ -1,8 +1,7 @@
 import React from "react";
-import { MDBCol, MDBContainer, MDBRow, MDBFooter} from "mdbreact";
-import './footer.css';
-// import Home from '../Home/Home';
-// import Products from '../Products/';
+import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
+import ContactUs from '../Forms/ContactUs'
+import './footer.css'
 
 const Footer = () => {
     return (
@@ -18,9 +17,7 @@ const Footer = () => {
                         
                     </MDBCol>
                     <MDBCol className="col-md-4  mx-auto text-center">
-                        <h5 className="font-weight-bold text-uppercase mt-3 mb-4 ">Contact Us</h5>
-                        <button className="btn btn-lg-5">Click Here to Cintact</button>
-                        
+                            <ContactUs/>
                     </MDBCol>
                     <MDBCol md="2" className="col-md-2 mx-auto text-center">
                         <h5 className="font-weight-bold text-uppercase mt-2 mb-4">Links</h5>
@@ -32,7 +29,7 @@ const Footer = () => {
                                 <a href="#!">Products</a>
                             </li>
                             <li className="list-unstyled">
-                                <a href="#">News</a>
+                                <a href="#!">News</a>
                             </li>
                            
                         </ul>
