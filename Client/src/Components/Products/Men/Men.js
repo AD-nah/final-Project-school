@@ -1,22 +1,21 @@
-import React, { Component } from "react";
-import {Link} from 'react-router-dom';
+import React from "react";
 
 
 // ----------------------------------------------------------------------
 
 // Import Antd  library
-import "antd/dist/antd.css";
-import {Popconfirm, message } from "antd";
+// import "antd/dist/antd.css";
+// import { Popconfirm , message } from "antd";
 
 // confirm on click or error on cancel
-function confirm(e) {
-  console.log(e);
-  message.success("Added successfuly..");
-}
-function cancel(e) {
-  console.log(e);
-  message.error("Item deleted..");
-}
+// function confirm(e) {
+//   console.log(e);
+//   message.success("Added successfuly..");
+// }
+// function cancel(e) {
+//   console.log(e);
+//   message.error("Item deleted..");
+// }
 // ----------------------------------------------------------------------
 
 
@@ -43,9 +42,9 @@ export default class Men extends React.Component {
                                     <img className="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-2.jpg" />
                                 </a>
                                 <ul className="social">
-                                    <li><a href="" className="fa fa-search"></a></li>
-                                    <li><a href="" className="fa fa-shopping-bag"></a></li>
-                                    <li><a href="" className="fa fa-shopping-cart"></a></li>
+                                    <li><a href="#" className="fa fa-search"></a></li>
+                                    <li><a href="#" className="fa fa-shopping-bag"></a></li>
+                                    <li><a href="#" className="fa fa-shopping-cart"></a></li>
                                 </ul>
                                 <span className="product-new-label">New</span>
                             </div>
@@ -72,9 +71,9 @@ export default class Men extends React.Component {
                                     <img className="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-4.jpg"/>
                                 </a>
                                 <ul className="social">
-                                    <li><a href="" className="fa fa-search"></a></li>
-                                    <li><a href="" className="fa fa-shopping-bag"></a></li>
-                                    <li><a href="" className="fa fa-shopping-cart"></a></li>
+                                    <li><a href="#" className="fa fa-search"></a></li>
+                                    <li><a href="#" className="fa fa-shopping-bag"></a></li>
+                                    <li><a href="#" className="fa fa-shopping-cart"></a></li>
                                 </ul>
                             </div>
                             <div className="product-content">
@@ -98,9 +97,9 @@ export default class Men extends React.Component {
                                     <img className="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-6.jpg" />
                                 </a>
                                 <ul className="social">
-                                    <li><a href="" className="fa fa-search"></a></li>
-                                    <li><a href="" className="fa fa-shopping-bag"></a></li>
-                                    <li><a href="" className="fa fa-shopping-cart"></a></li>
+                                    <li><a href="#" className="fa fa-search"></a></li>
+                                    <li><a href="#" className="fa fa-shopping-bag"></a></li>
+                                    <li><a href="#" className="fa fa-shopping-cart"></a></li>
                                 </ul>
                                 <span className="product-new-label">New</span>
                             </div>
@@ -127,9 +126,9 @@ export default class Men extends React.Component {
                                     <img className="pic-2" src="http://bestjquery.com/tutorial/product-grid/demo8/images/img-8.jpg"/>
                                 </a>
                                 <ul className="social">
-                                    <li><a href="" className="fa fa-search"></a></li>
-                                    <li><a href="" className="fa fa-shopping-bag"></a></li>
-                                    <li><a href="" className="fa fa-shopping-cart"></a></li>
+                                    <li><a href="#" className="fa fa-search"></a></li>
+                                    <li><a href="#" className="fa fa-shopping-bag"></a></li>
+                                    <li><a href="#" className="fa fa-shopping-cart"></a></li>
                                 </ul>
                                 <span className="product-new-label">New</span>
                             </div>

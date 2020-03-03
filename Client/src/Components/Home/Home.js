@@ -92,7 +92,7 @@ export default class Home extends Component {
 
          
           <div className="col-md-5 text-center">
-            <iframe width="560" height="315" src="//www.youtube.com/embed/_jmC9gOjLkI" frameborder="2" allowfullscreen></iframe>
+            <iframe title = 'title' width="560" height="315" src="//www.youtube.com/embed/_jmC9gOjLkI" frameborder="2" allowfullscreen></iframe>
           </div>
 
         </section>
