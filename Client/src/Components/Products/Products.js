@@ -1,6 +1,7 @@
 import React, { Component} from 'react'
 import Men from './Men/Men'
 import Women from './Women/Women'
+import Outfits from './Outfits/Outfits'
 import {Switch,Route, Link} from 'react-router-dom';
 import { MDBNav, MDBNavItem, MDBNavLink } from "mdbreact";
 
@@ -12,16 +13,19 @@ export default class Products extends Component {
             <div>
 
                 <MDBNav className="nav-tabs nav-fill">
+
+                    <MDBNavItem>
+                        <MDBNavLink to="/products/Outfits">Outfits</MDBNavLink>
+                    </MDBNavItem>
+
+
                     <MDBNavItem>
                         <MDBNavLink  to="/products/men">Men</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
                         <MDBNavLink to="/products/women">Women</MDBNavLink>
                     </MDBNavItem>
-                    <MDBNavItem>
-                        <MDBNavLink to="#!">Collections</MDBNavLink>
-                    </MDBNavItem>
-
+                   
                  
 
                     <MDBNavItem>
@@ -40,7 +44,8 @@ export default class Products extends Component {
 
             <div>
                 <Switch>
-                    <Route exact path="/products/men" component={Men}/>
+                <Route exact path="/products/outfits" component={Outfits}/>
+                    <Route  path="/products/men" component={Men}/>
                     <Route  path="/products/women" component={Women}/>
                 </Switch> 
             </div>         
