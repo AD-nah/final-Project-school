@@ -5,23 +5,40 @@ import kleidung2 from './newsPhoto/kleidung2.jpg';
 import kleidung3 from './newsPhoto/kleidung3.jpg';
 
 import api from '../../APIs/AuthApi';
-const newsURL = `http://newsapi.org/v2/everything?q=fashion&from=2020-02-03&sortBy=publishedAt&apiKey=54ab4e9ca5d94879a3f3c8b0995b4482`;
+
+       
+
+   
+
 
 export default class News extends Component {
     constructor(props) {
         super(props)
     
         this.state = {
+             newsURL : `http://newsapi.org/v2/everything?q=fashion&from=${this.formatDate(Date())}&sortBy=publishedAt&apiKey=54ab4e9ca5d94879a3f3c8b0995b4482`,
              news : [],
              isLoading : false
         }
     }
+    formatDate(date) {
+        var d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
     
+        if (month.length < 2) 
+            month = '0' + month;
+        if (day.length < 2) 
+            day = '0' + day;
+    
+        return [year, month, day].join('-');
+    }
     componentDidMount = async () => {
         this.setState({
             isLoading : true
         })
-        await api.newApi.getNews(newsURL).then(res => {
+        await api.newApi.getNews(this.state.newsURL).then(res => {
             this.setState({
                 news : res.data.articles,
                 isLoading : false
@@ -30,6 +47,8 @@ export default class News extends Component {
             console.log(err);
         })
     }
+
+      
     
     render() {
         console.log(this.state.news)

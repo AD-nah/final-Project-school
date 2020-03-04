@@ -21,7 +21,7 @@ import { BackTop } from 'antd';
 export default class Home extends Component {
   render() {
     return (
-      <React.Fragment>
+       <>
         <header >
           <div className="overlay"></div>
           <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
@@ -252,7 +252,7 @@ export default class Home extends Component {
         {/*Befor Footer start*/}
 
         {/*Befor Footer end*/}
-      </React.Fragment>
+     </>
     )
   }
 }
