@@ -28,7 +28,7 @@ class ContactUs extends Component {
   render() {
     return (
       <MDBContainer>
-        <MDBBtn class=" btn btn-warning" onClick={this.toggle}>Write us</MDBBtn>
+        <MDBBtn className=" btn btn-warning" onClick={this.toggle}>Write us</MDBBtn>
         <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
           <MDBModalHeader toggle={this.toggle}>Write Us..</MDBModalHeader>
           <MDBModalBody>

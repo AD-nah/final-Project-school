@@ -1,11 +1,11 @@
-import React, { Component,Fragment} from 'react'
+import React, { Component} from 'react'
 import Men from './Men/Men'
 import Women from './Women/Women'
 import {Switch,Route, Link} from 'react-router-dom';
 
-import "antd/dist/antd.css";
-import { Menu} from "antd";
-const { SubMenu } = Menu
+// import "antd/dist/antd.css";
+// import { Menu} from "antd";
+// const { SubMenu } = Menu
 
 
 export default class Products extends Component {
