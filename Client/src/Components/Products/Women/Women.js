@@ -106,9 +106,6 @@ class Women extends React.Component {
                     }) : 'Please wait ...' }
 
     
-
-
-    
                 </div>
             </div>                     
         );

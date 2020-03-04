@@ -3,6 +3,8 @@ import Men from './Men/Men'
 import Women from './Women/Women'
 import Outfits from './Outfits/Outfits'
 import {Switch,Route, Link} from 'react-router-dom';
+import {MDBNav, MDBNavLink, MDBNavItem} from "mdbreact"
+
 
 // import "antd/dist/antd.css";
 // import { Menu} from "antd";
