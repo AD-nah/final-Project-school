@@ -18,6 +18,8 @@ import master from './icons/master.png'
 
 import { BackTop } from 'antd';
 
+
+
 export default class Home extends Component {
   render() {
     return (
@@ -92,7 +94,7 @@ export default class Home extends Component {
 
          
           <div className="col-md-5 text-center">
-            <iframe className="col-md-10 embed-responsive embed-responsive-16by9" width="560" height="315" src="//www.youtube.com/embed/_jmC9gOjLkI" frameborder="2" allowfullscreen></iframe>
+            <iframe title = 'title' width="560" height="315" src="//www.youtube.com/embed/_jmC9gOjLkI" frameborder="2" allowfullscreen></iframe>
           </div>
 
         </section>
@@ -134,7 +136,7 @@ export default class Home extends Component {
          <div>
                 <BackTop>
                 
-                <i class="fas fa-chevron-circle-up" style={{color:"orange",fontSize:"40px"}}></i>
+                <i className="fas fa-chevron-circle-up" style={{color:"orange",fontSize:"40px"}}></i>
                 </BackTop>
          </div>
 
@@ -187,7 +189,7 @@ export default class Home extends Component {
 
 
           <section className="page-section" id="services">
-            <div className="container-fluid">
+            <div className="container">
               <div className="row">
                 <div className="col-lg-12 text-center">
                   <h2 className="section-heading text-uppercase">Services</h2>

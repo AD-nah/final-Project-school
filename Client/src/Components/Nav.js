@@ -12,8 +12,7 @@ import { connect } from 'react-redux'
 import * as reduxActios from '../Redux/Actions/auth'
 
 import Home from './Home/Home'
-import Men from './Products/Men/Men'
-import Women from './Products/Women/Women';
+import Products from './Products/Products'
 import News from './News/News'
 import About from './About/About'
 import LoginPage from './Pages/LoginPage'
@@ -82,9 +81,8 @@ class Navbar extends Component {
 
 
               <MDBNavItem >
-                <MDBNavLink  className=" font-weight-bold" to='/men'>Products</MDBNavLink>
+                <MDBNavLink  className=" font-weight-bold" to='/products'>Products</MDBNavLink>
               </MDBNavItem>
-
 
 
 
@@ -96,27 +94,10 @@ class Navbar extends Component {
 
 
               <MDBNavItem>
-                <MDBDropdown >
-                  <MDBDropdownToggle nav caret>
-                    <div className="d-none d-md-inline font-weight-bold">More</div>
-                  </MDBDropdownToggle>
-                  <MDBDropdownMenu className="dropdown-default">
-
-                    <MDBDropdownItem >
-                    <Link className=" font-weight-bold" to="/about">About</Link>
-                    </MDBDropdownItem>
-
-                    <MDBDropdownItem >
-                    <Link className=" font-weight-bold" to="/#">Payment</Link>
-                    </MDBDropdownItem>
-
-                    <MDBDropdownItem >
-                    <Link className=" font-weight-bold" to="/#">Policy</Link>
-                    </MDBDropdownItem>
-
-                  </MDBDropdownMenu>
-                </MDBDropdown>
+                <MDBNavLink className=" font-weight-bold" to='/about'>About</MDBNavLink>
               </MDBNavItem>
+              
+
             </MDBNavbarNav>
             <MDBNavbarNav right>
 
@@ -165,7 +146,7 @@ class Navbar extends Component {
                       </MDBDropdownItem>
 
                       <MDBDropdownItem>
-                        <Link to="/favorite"><strong>Favorites</strong></Link>
+                        <Link to="/favorites"><strong>Favorites</strong></Link>
                       </MDBDropdownItem>
 
 
@@ -186,53 +167,26 @@ class Navbar extends Component {
 
 
         <Switch>
+          
           <Route exact path="/" component={Home} />
           <Route path="/home" component={Home} />
           <Route path="/about" component={About} />
-          <Route path="/men" component={Men} />
-          <Route path="/women" component={Women} />
+
+          <Route path="/products" component={Products} />
+       
+          
           <Route path="/news" component={News} />
           <Route path="/profile" component={Profile} />
           <Route path="/chart" component={Chart} />
+          <Route path="/favorites" component={Favorites} />
         </Switch>
-        
 
       </div>
     );
   }
 }
 
-// function Example() {
-//   const [show, setShow] = useState(false);
 
-//   const handleClose = () => setShow(false);
-//   const handleShow = () => setShow(true);
-
-//   return (
-//     <>
-//       <Button variant="primary" onClick={handleShow}>
-//         Launch demo modal
-//       </Button>
-
-//       <Modal show={show} onHide={handleClose}>
-//         <Modal.Header closeButton>
-//           <Modal.Title>Modal heading</Modal.Title>
-//         </Modal.Header>
-//         <Modal.Body>     
-//                     <LoginPage />
-//         </Modal.Body>
-//         <Modal.Footer>
-//           <Button variant="secondary" onClick={handleClose}>
-//             Close
-//           </Button>
-//           <Button variant="primary" onClick={handleClose}>
-//             Save Changes
-//           </Button>
-//         </Modal.Footer>
-//       </Modal>
-//     </>
-//   );
-// }
 
 
 const mapStateToProps = (state) =>{
@@ -242,4 +196,3 @@ const mapStateToProps = (state) =>{
 }
 
  export default connect( mapStateToProps, { logoutAction: reduxActios.logoutAction })(Navbar)
-//export default Navbar
