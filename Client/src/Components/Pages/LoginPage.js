@@ -33,7 +33,7 @@ class LoginPage extends Component {
 
         return (
         <div>
-            {!this.state.redirect ? <LoginForm submit = {this.submit} /> : <Redirect to = '/her'/>}
+            {!this.state.redirect ? <LoginForm submit = {this.submit} /> : <Redirect to = '/products/women'/>}
         </div>
         )
     }

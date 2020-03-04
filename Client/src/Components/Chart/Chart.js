@@ -3,6 +3,7 @@ import MaterialTable from 'material-table';
 import Button from '@material-ui/core/Button/Button'
 
 
+import { connect } from 'react-redux'
 
 
 
@@ -13,7 +14,8 @@ import { Menu, Dropdown } from 'antd';
 
 
 
-export default function Chart() {
+ function Chart({item}) {
+   
   const [state, setState] = React.useState({
     columns: [
       { title: 'Item id', field: 'Id' },
@@ -24,10 +26,10 @@ export default function Chart() {
     data: [
       { Id: '2900', Description: 'Clothe', Colour: 'Blue', Size: 's' },
       {Id: '2800',Description: 'Shoe',Colour: 'Black',Size: 'm',}
-    ],
+    ]
   });
 
-
+console.log(item)
 
   // Antd Dropdown Menu
   const menu = (
@@ -92,7 +94,13 @@ export default function Chart() {
   );
 }
 
+function mapStateToProps(state){
+  return{
+    item:state.basketReducer
+  }
+}
 
+export default connect(mapStateToProps)(Chart)
 
 
 
