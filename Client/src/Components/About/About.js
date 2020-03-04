@@ -65,7 +65,7 @@ const About = () => {
               <MDBBtn tag="a" floating  className="mx-1 mb-0 btn-li">
                 <i  className="fab fa-linkedin-in"></i>
               </MDBBtn>
-              <MDBBtn  href='https://github.com/wisam450' tag="a" floating  className="mx-1 mb-0 btn-tw">
+              <MDBBtn  href='https://github.com/w' tag="a" floating  className="mx-1 mb-0 btn-tw">
                 <MDBIcon size="lg"  fab icon="github" />
               </MDBBtn>
               

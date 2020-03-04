@@ -8,18 +8,20 @@ import video1 from './video/almosa.mp4';
 import caro1 from './video/1.jpg';
 import caro2 from './video/2.jpg';
 import caro3 from './video/3.jpg';
+import paypal from './icons/paypal1.png';
+import visa from './icons/visa1.png';
+import master from './icons/master.png'
+
+
 
 import { BackTop } from 'antd';
-
-
-
 
 
 
 export default class Home extends Component {
   render() {
     return (
-      <React.Fragment>
+       <>
         <header >
           <div className="overlay"></div>
           <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
@@ -29,7 +31,7 @@ export default class Home extends Component {
           <div className="container h-100">
             <div className="d-flex h-100 text-center align-items-center">
               <div className="w-100 text-white">
-                <h1 className="display-3">Our Shop</h1>
+                <h1 className="display-3 text-muted">Our Shop</h1>
                 <p className="lead mb-0">Hallo Web Shop</p>
               </div>
             </div>
@@ -137,10 +139,6 @@ export default class Home extends Component {
          </div>
 
 
-
-
-
-
           {/*Started Carosel */}
             <div id="carousel-example-1z" className="carousel slide carousel-fade" data-ride="carousel">
 
@@ -224,14 +222,37 @@ export default class Home extends Component {
               </div>
             </div>
           </section>
+{/*Bayment start*/}
+        <div className="container row-md-12 mt-5">
+          <div className="col-md-12 text-center"><h1>Here You Can Bay</h1></div>
+          <div className="row text-center"><div className="col-md-4">
+            <a  href="http://www.paypal.com">
+            <img className="mt-3" src={paypal}/>
+            </a>
+          </div>
 
-       
+          <div className="col-md-4">
+            <a   href="#">
+              <img src={master}/>
+            </a>
+          </div>
+
+          <div className="col-md-4">
+            <a  href="#">
+              <img src={visa}/>
+             </a>
+          </div>
+          
+          </div>
+
+          
+        </div>
 
 
         {/*Befor Footer start*/}
 
         {/*Befor Footer end*/}
-      </React.Fragment>
+     </>
     )
   }
 }
