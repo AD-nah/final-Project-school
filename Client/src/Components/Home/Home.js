@@ -90,7 +90,7 @@ export default class Home extends Component {
 
          
           <div className="col-md-5 text-center">
-            <iframe width="560" height="315" src="//www.youtube.com/embed/_jmC9gOjLkI" frameborder="2" allowfullscreen></iframe>
+            <iframe title = 'title' width="560" height="315" src="//www.youtube.com/embed/_jmC9gOjLkI" frameborder="2" allowfullscreen></iframe>
           </div>
 
         </section>
@@ -132,7 +132,7 @@ export default class Home extends Component {
          <div>
                 <BackTop>
                 
-                <i class="fas fa-chevron-circle-up" style={{color:"orange",fontSize:"40px"}}></i>
+                <i className="fas fa-chevron-circle-up" style={{color:"orange",fontSize:"40px"}}></i>
                 </BackTop>
          </div>
 
@@ -188,38 +188,38 @@ export default class Home extends Component {
 
 
 
-          <section class="page-section" id="services">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-12 text-center">
-                  <h2 class="section-heading text-uppercase">Services</h2>
-                  <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <section className="page-section" id="services">
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-12 text-center">
+                  <h2 className="section-heading text-uppercase">Services</h2>
+                  <h3 className="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
               </div>
-              <div class="row text-center">
-                <div class="col-md-4">
-                  <span class="fa-stack fa-4x">
-                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+              <div className="row text-center">
+                <div className="col-md-4">
+                  <span className="fa-stack fa-4x">
+                    <i className="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i className="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
                   </span>
-                  <h4 class="service-heading">E-Commerce</h4>
-                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                  <h4 className="service-heading">E-Commerce</h4>
+                  <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                 </div>
-                <div class="col-md-4">
-                  <span class="fa-stack fa-4x">
-                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                <div className="col-md-4">
+                  <span className="fa-stack fa-4x">
+                    <i className="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i className="fas fa-laptop fa-stack-1x fa-inverse"></i>
                   </span>
-                  <h4 class="service-heading">Design</h4>
-                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                  <h4 className="service-heading">Design</h4>
+                  <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                 </div>
-                <div class="col-md-4">
-                  <span class="fa-stack fa-4x">
-                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                    <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                <div className="col-md-4">
+                  <span className="fa-stack fa-4x">
+                    <i className="fas fa-circle fa-stack-2x text-primary"></i>
+                    <i className="fas fa-lock fa-stack-1x fa-inverse"></i>
                   </span>
-                  <h4 class="service-heading">Web Security</h4>
-                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                  <h4 className="service-heading">Web Security</h4>
+                  <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                 </div>
               </div>
             </div>
