@@ -94,7 +94,7 @@ export default class Home extends Component {
 
          
           <div className="col-md-5 text-center">
-            <iframe title = 'title' width="560" height="315" src="//www.youtube.com/embed/_jmC9gOjLkI" frameborder="2" allowfullscreen></iframe>
+            <iframe className="col-md-10 embed-responsive embed-responsive-16by9" title = 'title' width="560" height="315" src="//www.youtube.com/embed/_jmC9gOjLkI" frameborder="2" allowfullscreen></iframe>
           </div>
 
         </section>
@@ -185,8 +185,6 @@ export default class Home extends Component {
 
           <br />
           <br />
-
-
 
           <section className="page-section" id="services">
             <div className="container">

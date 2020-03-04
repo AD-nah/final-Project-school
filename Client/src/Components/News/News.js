@@ -130,4 +130,4 @@ export default class News extends Component {
 
 // 54ab4e9ca5d94879a3f3c8b0995b4482 key for the Api
 
-// http://newsapi.org/v2/everything?q=bitcoin&from=2020-02-03&sortBy=publishedAt&apiKey=54ab4e9ca5d94879a3f3c8b0995b4482
+// http://newsapi.org/v2/everything?q=bitcoin&from=2020-02-04&sortBy=publishedAt&apiKey=54ab4e9ca5d94879a3f3c8b0995b4482
