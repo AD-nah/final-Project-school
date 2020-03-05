@@ -1,103 +1,87 @@
-import React from 'react';
-import MaterialTable from 'material-table';
-import Button from '@material-ui/core/Button/Button'
+import React, { Component } from 'react';
 
 
-import { connect } from 'react-redux'
-
-
-
-// import DropDown from ANTD Library
-import { Menu, Dropdown } from 'antd';
-
-
-
-
-
- function Chart({item}) {
+export default class Chart extends Component {
+  render() {
+    return (
+   <>
    
-  const [state, setState] = React.useState({
-    columns: [
-      { title: 'Item id', field: 'Id' },
-      { title: 'Description', field: 'Description' },
-      { title: 'Colour', field: 'Colour'},
-      {title: 'Size',field: 'Size'},
-    ],
-    data: [
-      { Id: '2900', Description: 'Clothe', Colour: 'Blue', Size: 's' },
-      {Id: '2800',Description: 'Shoe',Colour: 'Black',Size: 'm',}
-    ]
-  });
-
-console.log(item)
-
-  // Antd Dropdown Menu
-  const menu = (
-    <Menu style={{textAlign:"center"}}>
-      <Menu.Item >
-        <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
-          Paybal
-        </a>
-      </Menu.Item>
-      <Menu.Item>
-        <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
-          Visa
-        </a>
-      </Menu.Item>
-      <Menu.Item>
-        <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
-          Maestro
-        </a>
-      </Menu.Item>
-    </Menu>
-  );
-
-  return (
-    <React.Fragment>
-
-    <div>
-    <MaterialTable
-      title="Your Items"
-      columns={state.columns}
-      data={state.data}
-
-      editable={{
-        onRowDelete: oldData =>
-          new Promise(resolve => {
-            setTimeout(() => {
-              resolve();
-              setState(prevState => {
-                const data = [...prevState.data];
-                data.splice(data.indexOf(oldData), 1);
-                return { ...prevState, data };
-              });
-            }, 600);
-          }),
-      }}
-    />         
+  <div className=" col-md-12 card">
+  <h3 className="card-header text-center font-weight-bold text-uppercase py-4 ">MY Chart</h3>
+  <div className="container card-body ">
+    <div id="table" className="table-editable">
+      <span className="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
+            className="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
+       <table class="table table-bordered table-responsive-md table-striped text-center">
+       <thead>
+          <tr>
+            <th className="text-center">Photo og Product</th>
+            <th className="text-center">Name</th>
+            <th className="text-center">Description</th>
+        
+            <th className="text-center">Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="pt-3-half" contenteditable="true">
+              <img className="h-50" src="https://images-na.ssl-images-amazon.com/images/I/71fC2j2UA6L._AC_UY879_.jpg"/>
+            </td>
+            <td className="pt-3-half" contenteditable="true">30</td>
+            <td className="pt-3-half" contenteditable="true">Deepends</td>
+            
+      
+            <td>
+              <span className="table-remove"><button type="button"
+                  className="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+            </td>
+          </tr>
+      
+          <tr>
+            <td className="pt-3-half" contenteditable="true">
+              <img className="h-50" src="https://images-na.ssl-images-amazon.com/images/I/71VnhpacU3L._AC_UX679_.jpg"/>
+            </td>
+            <td className="pt-3-half" contenteditable="true">45</td>
+            <td className="pt-3-half" contenteditable="true">Insectus</td>
+         
+       
+            <td>
+              <span className="table-remove"><button type="button"
+                  className="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+            </td>
+          </tr>
+         
+          <tr>
+            <td className="pt-3-half" contenteditable="true">Guadalupe House</td>
+            <td className="pt-3-half" contenteditable="true">26</td>
+            <td className="pt-3-half" contenteditable="true">Isotronic</td>
+           
+            <td>
+              <span className="table-remove"><button type="button"
+                  className="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+            </td>
+          </tr>
+ 
+          <tr className="hide">
+            <td className="pt-3-half" contenteditable="true">Elisa Gallagher</td>
+            <td className="pt-3-half" contenteditable="true">31</td>
+            <td className="pt-3-half" contenteditable="true">Portica</td>
+        
+            <td>
+              <span className="table-remove"><button type="button"
+                  className="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
+</div>
+   </>
 
-    <div>
-        <Button variant="contained"  style={{position:"absolute",right:"10px",top:"350px",backgroundColor:"green"}}>
-            <Dropdown overlay={menu} >
-              <Button style={{color:"white"}}>Payment Methode</Button>
-            </Dropdown>
-        </Button>
-      </div>
-
-   
-
-    </React.Fragment>
-
-  );
-}
-
-function mapStateToProps(state){
-  return{
-    item:state.basketReducer
+    )
   }
 }
 
-export default connect(mapStateToProps)(Chart)
 
 
