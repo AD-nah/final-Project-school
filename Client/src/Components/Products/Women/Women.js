@@ -124,15 +124,7 @@ class Women extends React.Component {
                         </a>
 
                         <ul className="social">
-                          <li>
-                            <a
-                              onClick={() =>
-                                this.sendImagesToCarousel(item.images)
-                              }
-                              className="fas fa-expand-arrows-alt"
-                            ></a>
-                          </li>
-
+                          
                           <li onClick={() =>
                                 this.sendImagesToCarousel(item.images)
                               }>
@@ -216,7 +208,11 @@ class Women extends React.Component {
                 showIndicators={true}
                 className="z-depth-1"
               >
+
+
                 <MDBCarouselInner>
+
+
                   <MDBCarouselItem itemId="1">
                     <MDBView>
                       <img
@@ -226,11 +222,15 @@ class Women extends React.Component {
                       />
                       <MDBMask overlay="black-light" />
                     </MDBView>
+
                     <MDBCarouselCaption>
                       <h3 className="h3-responsive">Light mask</h3>
                       <p>First text</p>
                     </MDBCarouselCaption>
                   </MDBCarouselItem>
+
+
+
                   <MDBCarouselItem itemId="2">
                     <MDBView>
                       <img
@@ -245,6 +245,8 @@ class Women extends React.Component {
                       <p>Second text</p>
                     </MDBCarouselCaption>
                   </MDBCarouselItem>
+
+
                  
                 </MDBCarouselInner>
               </MDBCarousel>
@@ -254,7 +256,7 @@ class Women extends React.Component {
         </MDBModal>
       </MDBContainer>
     </div>
-    {/* images modal end here */}
+    {/*images modal end here */}
 
     </>);
   }
