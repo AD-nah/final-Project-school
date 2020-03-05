@@ -81,7 +81,7 @@ class Navbar extends Component {
 
 
               <MDBNavItem >
-                <MDBNavLink  className=" font-weight-bold" to='/products'>Products</MDBNavLink>
+                <MDBNavLink  className=" font-weight-bold" to='/products/women'>Products</MDBNavLink>
               </MDBNavItem>
 
 

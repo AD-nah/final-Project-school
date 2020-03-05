@@ -7,7 +7,10 @@ export default class Chart extends Component {
    <>
    
   <div className=" col-md-12 card">
+
   <h3 className="card-header text-center font-weight-bold text-uppercase py-4 ">MY Chart</h3>
+
+
   <div className="container card-body ">
     <div id="table" className="table-editable">
       <span className="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
@@ -25,7 +28,7 @@ export default class Chart extends Component {
         <tbody>
           <tr>
             <td className="pt-3-half" contenteditable="true">
-              <img className="h-50" src="https://images-na.ssl-images-amazon.com/images/I/71fC2j2UA6L._AC_UY879_.jpg"/>
+              <img style = {{width:'200px'}} className="h-50" src="https://images-na.ssl-images-amazon.com/images/I/71fC2j2UA6L._AC_UY879_.jpg"/>
             </td>
             <td className="pt-3-half" contenteditable="true">30</td>
             <td className="pt-3-half" contenteditable="true">Deepends</td>
@@ -39,7 +42,7 @@ export default class Chart extends Component {
       
           <tr>
             <td className="pt-3-half" contenteditable="true">
-              <img className="h-50" src="https://images-na.ssl-images-amazon.com/images/I/71VnhpacU3L._AC_UX679_.jpg"/>
+              <img style = {{width:'200px'}} className="h-50" src="https://images-na.ssl-images-amazon.com/images/I/71VnhpacU3L._AC_UX679_.jpg"/>
             </td>
             <td className="pt-3-half" contenteditable="true">45</td>
             <td className="pt-3-half" contenteditable="true">Insectus</td>
