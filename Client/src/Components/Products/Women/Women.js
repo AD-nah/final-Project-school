@@ -1,9 +1,37 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { addToBasketAction } from "../../../Redux/Actions/basket";
-import {Button, Modal} from 'react-bootstrap'
+import {
+  MDBContainer,
+  MDBBtn,
+  MDBModal,
+  MDBModalBody,
+  MDBCarousel,
+  MDBCarouselCaption,
+  MDBCarouselInner,
+  MDBCarouselItem,
+  MDBView,
+  MDBMask
+} from "mdbreact";
+
+// ----------------------------------
+
+{
+  /* DON'T DELETE IT PLEASE */
+}
+
+//                         {/* <h3 class="cost">
+//                         <span class="glyphicon glyphicon-usd"></span> 15.00{" "}
+//                         <small class="pre-cost">
+//                             <span class="glyphicon glyphicon-usd"></span> 20.00
+//                         </small>
+//                      </h3> */}
+
 // ----------------------------------------------------------------------
+{
+  /* DON'T DELETE IT PLEASE */
+}
 
 // Import Antd  library
 // import "antd/dist/antd.css";
@@ -28,10 +56,20 @@ class Women extends React.Component {
     this.state = {
       data: null,
       currentProduct: [],
-      currentArrayOfImages : null
+      currentArrayOfImages: null,
 
+      //images modal
+      modal13: false
     };
   }
+
+  // for the images modal
+  toggle = nr => () => {
+    let modalNumber = "modal" + nr;
+    this.setState({
+      [modalNumber]: !this.state[modalNumber]
+    });
+  };
 
   componentDidMount() {
     axios
@@ -41,13 +79,14 @@ class Women extends React.Component {
         this.setState({ data: product });
       });
   }
+
   setCurrentProduct(item) {
     this.props.addToBasketAction(item);
   }
 
-  sendImagesToCarousel(array){
-    console.log(array)
-    this.setState({currentArrayOfImages: array})
+  sendImagesToCarousel(array) {
+    console.log(array);
+    this.setState({ currentArrayOfImages: array });
   }
 
   starMaker(n) {
@@ -57,13 +96,11 @@ class Women extends React.Component {
     }
     return stars;
   }
-  render() {
-    return (
-      <div className="container">
-{/*     
-       {this.state.currentArrayOfImages && (<ImagesModal img= {this.state.currentArrayOfImages[0]} />)} */}
 
-       <Example/>
+  render() {
+    return (<>
+      <div className="container">
+      
 
         <h3 className="h3">Women's Collection</h3>
         <div className="row">
@@ -84,31 +121,36 @@ class Women extends React.Component {
                           <img className="pic-2" src={item.images[1]} />
                         </a>
 
-
                         <ul className="social">
-                        <li>
-                                <a
-                                  onClick={() => this.sendImagesToCarousel(item.images)}
-                                  className="fas fa-expand-arrows-alt" 
-                                  >
-                                </a>
+                          {/* <li>
+                            <a
+                              onClick={() =>
+                                this.sendImagesToCarousel(item.images)
+                              }
+                              className="fas fa-expand-arrows-alt"
+                            ></a>
+                          </li> */}
+
+                          <li>
+                            <a
+                              onClick={this.toggle(13)}
+                              className="fas fa-expand-arrows-alt"
+                            ></a>
                           </li>
 
-                            <li><a href="#" className="far fa-heart"></a></li>
-
-                            <li>
-                                <a
-                                  role="button"
-                                  tabIndex={0}
-                                  onClick={() => this.setCurrentProduct(item)}
-                                  className="fa fa-shopping-cart"
-                                >
-                                </a>
+                          <li>
+                            <a href="#" className="far fa-heart"></a>
                           </li>
 
-
+                          <li>
+                            <a
+                              role="button"
+                              tabIndex={0}
+                              onClick={() => this.setCurrentProduct(item)}
+                              className="fa fa-shopping-cart"
+                            ></a>
+                          </li>
                         </ul>
-
 
                         <span className="product-new-label">New</span>
                       </div>
@@ -131,149 +173,89 @@ class Women extends React.Component {
             : "Please wait ..."}
         </div>
       </div>
-    );
-  }
-}
 
 
 
 
 
-
-function Example() {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  return (
-    <>
-      <Button variant="primary" onClick={handleShow}> show </Button>
-
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-        </Modal.Header>
-        <Modal.Body>
-          Woohoo, you're reading this text in a modal!
-        </Modal.Body>
-      </Modal>
-    </>
-  );
-}
-
-
-
-class ImagesModal extends React.Component {
-  render() {
-    return (
+      // images nmodal
       <div>
-
-
+      <MDBContainer>
         <li>
-          <a href="#" className="fas fa-expand-arrows-alt" data-toggle="modal" data-target="#product_view">Modal</a>
+          <a
+            onClick={this.toggle(13)}
+            className="fas fa-expand-arrows-alt"
+          ></a>
         </li>
 
+        <MDBModal isOpen={this.state.modal13} toggle={this.toggle(13)}>
+          <MDBModalBody>
+            {/* modal carousel starthere */}
+            <MDBContainer>
+              <MDBCarousel
+                activeItem={1}
+                length={3}
+                showControls={true}
+                showIndicators={true}
+                className="z-depth-1"
+              >
+                <MDBCarouselInner>
+                  <MDBCarouselItem itemId="1">
+                    <MDBView>
+                      <img
+                        className="d-block w-100"
+                        src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
+                        alt="First slide"
+                      />
+                      <MDBMask overlay="black-light" />
+                    </MDBView>
+                    <MDBCarouselCaption>
+                      <h3 className="h3-responsive">Light mask</h3>
+                      <p>First text</p>
+                    </MDBCarouselCaption>
+                  </MDBCarouselItem>
+                  <MDBCarouselItem itemId="2">
+                    <MDBView>
+                      <img
+                        className="d-block w-100"
+                        src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
+                        alt="Second slide"
+                      />
+                      <MDBMask overlay="black-strong" />
+                    </MDBView>
+                    <MDBCarouselCaption>
+                      <h3 className="h3-responsive">Strong mask</h3>
+                      <p>Second text</p>
+                    </MDBCarouselCaption>
+                  </MDBCarouselItem>
+                  <MDBCarouselItem itemId="3">
+                    <MDBView>
+                      <img
+                        className="d-block w-100"
+                        src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg"
+                        alt="Third slide"
+                      />
+                      <MDBMask overlay="black-slight" />
+                    </MDBView>
+                    <MDBCarouselCaption>
+                      <h3 className="h3-responsive">Slight Mast</h3>
+                      <p>Third text</p>
+                    </MDBCarouselCaption>
+                  </MDBCarouselItem>
+                </MDBCarouselInner>
+              </MDBCarousel>
+            </MDBContainer>
+            {/* modal carousel end here */}
+          </MDBModalBody>
+        </MDBModal>
+      </MDBContainer>
+      {/* images modal end here */}
+    </div>
 
 
-        <div class="modal fade product_view" id="product_view">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-body">
-                <div class="row">
-                 
-
-
-                    <div class="col-md-12 product_img">
-                        <div id="demo" class="carousel slide" data-ride="carousel">
-                            <ul class="carousel-indicators" >
-                                <li
-                                data-target="#demo"
-                                data-slide-to="0"
-                                class="active"
-                                ></li>
-                                <li data-target="#demo" data-slide-to="1"></li>
-                                <li data-target="#demo" data-slide-to="2"></li>
-                            </ul>
-
-                            <div
-                                class="carousel-inner"
-                                
-                            >
-                                <div class="carousel-item active">
-
-                                <img
-                                    src= {this.props.img}
-                                    alt="Los Angeles"
-                                    width="1100"
-                                    height="500"
-                                />
-                                </div>
-{/* 
-                                <div class="carousel-item">
-                                <img
-                                    src=
-                                    alt="Chicago"
-                                    width="1100"
-                                    height="500"
-                                />
-                               
-                                </div>
-                                <div class="carousel-item">
-                                <img
-                                    src=
-                                    alt="New York"
-                                    width="1100"
-                                    height="500"
-                                />
-                                
-                                </div> */}
-                            </div>
-
-
-                            <a
-                                class="carousel-control-prev"
-                                href="#demo"
-                                data-slide="prev">
-                                    
-                                <i class="fas fa-backward" style={{fontSize:"40px",color:"white"}}></i>
-
-                            </a>
-                            <a
-                                class="carousel-control-next"
-                                href="#demo"
-                                data-slide="next"
-                            >
-                            <i class="fas fa-forward" style={{fontSize:"40px",color:"white"}}></i>
-                            </a>
-                        </div>
-                    </div>
-                    {/* DONT DELETE IT PLEASE */}
-                        {/* <h3 class="cost">
-                        <span class="glyphicon glyphicon-usd"></span> 15.00{" "}
-                        <small class="pre-cost">
-                            <span class="glyphicon glyphicon-usd"></span> 20.00
-                        </small>
-                     </h3> */}
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+    </>);
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
 export default connect(null, { addToBasketAction })(Women);
+
