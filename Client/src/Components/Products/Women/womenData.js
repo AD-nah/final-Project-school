@@ -71,8 +71,7 @@ const womens = [
       ]
     },
 
-    
-/// below is Not finsh
+
 
     {
       "name": "Onlcaviar L/S KNT Women's Pullover",
@@ -99,7 +98,7 @@ const womens = [
         17,
         10
       ],
-      "rating": 3,
+      "rating": 5,
   
       "colors": [
         "White",
@@ -142,7 +141,7 @@ const womens = [
         21,
         15
       ],
-      "rating": 3,
+      "rating": 4,
   
       "colors": [
         "red",
@@ -184,7 +183,7 @@ const womens = [
         39,
         22
       ],
-      "rating": 3,
+      "rating": 4,
   
       "colors": [
         "gray",
@@ -225,7 +224,7 @@ const womens = [
         23,
         14
       ],
-      "rating": 3,
+      "rating": 5,
   
       "colors": [
         "black",
@@ -267,7 +266,7 @@ const womens = [
         122,
         70
       ],
-      "rating": 3,
+      "rating": 5,
   
       "colors": [
         "orange",
@@ -308,12 +307,100 @@ const womens = [
         59,99,
         40
       ],
-      "rating": 3,
+      "rating": 4,
   
       "colors": [
         "rosa",
         "black",
         "gray"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    },
+
+
+
+    {
+      "name": "Bench New Slim Longline Bonded Women's Jacket",
+      "description": "Features: Style: Light Jacket, Parka Fit: Tailored Cut Hood: Hood with drawstring, Hood with contrasting lining Zip Closure: Full front zip, Zip with logo puller pockets: Side pockets Sleeve Sleeves: Ribbed embroidered emblem waistband: Adjustable waist",
+  
+      "images": {
+        "view": [
+
+          "https://images-na.ssl-images-amazon.com/images/I/8102%2BGJa0VL._AC_UY879_.jpg", // black jacket
+          ""
+
+
+
+         
+        ],
+
+        "black" : "https://images-na.ssl-images-amazon.com/images/I/81fAZRkVKeL._AC_UY879_.jpg",
+        "" : ""
+        
+      },
+  
+      "prices": [
+        70,99,
+        50
+      ],
+      "rating": 5,
+  
+      "colors": [
+      
+        "black",
+     
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    },
+
+
+
+    {
+      "name": "camel active women's jacket",
+      "description": "Wind and water-repellent material properties, as well as numerous functional details, make this quilted jacket from camel active an indispensable piece of clothing for autumn and winter.",
+  
+      "images": {
+        "view": [
+
+          "https://images-na.ssl-images-amazon.com/images/I/91Ab8pZZE7L._AC_UY879_.jpg", // red jacket
+          "https://images-na.ssl-images-amazon.com/images/I/81mNeifrijL._AC_UY879_.jpg" , // green Jacke
+          "https://images-na.ssl-images-amazon.com/images/I/81ya1F5AfkL._AC_UY879_.jpg", //dark blue jack         
+          "https://images-na.ssl-images-amazon.com/images/I/81lcG4lvPmL._AC_UY879_.jpg", //grey jacke
+
+
+         
+        ],
+
+        "red" : "https://images-na.ssl-images-amazon.com/images/I/81t3vkubc0L._AC_UY879_.jpg",
+        "green" : "https://images-na.ssl-images-amazon.com/images/I/81NgeMXPzuL._AC_UY879_.jpg",
+        "blue" : "https://images-na.ssl-images-amazon.com/images/I/81drsMal1bL._AC_UY879_.jpg",
+        "gray" : "https://images-na.ssl-images-amazon.com/images/I/81%2BATWOHzkL._AC_UY879_.jpg"
+        
+      },
+  
+      "prices": [
+        180,99,
+        120
+      ],
+      "rating": 5,
+  
+      "colors": [
+      
+        "red",
+        "green",
+        "blue",
+        "gray"
+     
       ],
       "sizes": [
         "S",
