@@ -57,7 +57,7 @@ class Women extends React.Component {
     this.state = {
       data: null,
       currentProduct: [],
-      currentArrayOfImages: null,
+      currentArrayOfImages: [],
 
       //images modal
       modal13: false
@@ -88,8 +88,8 @@ class Women extends React.Component {
   }
 
   sendImagesToCarousel(array) {
-    console.log(array);
-    this.setState({ currentArrayOfImages: array });
+    console.log(array[0].protoTypes);
+    this.setState({ currentArrayOfImages: array[0].protoTypes });
   }
 
   starMaker(n) {
@@ -110,29 +110,34 @@ class Women extends React.Component {
               ? this.state.data.map((item, index) => {
                   return (
                     <div key={index} className="col-md-3 col-sm-6">
-                      <div className="product-grid7">
-                        <div className="product-content">
+
+              
+                      <div className="product-grid7"> 
+                        
+                      <div className="product-content">
                           <h3 className="title">
                             <a href="#">{item.name}</a>
                           </h3>
-                        </div>
+                      </div>
+              
 
+                      <hr/>
                         <div className="product-image7">
                           <a href="#">
 
-                          <img className="pic-1" src={item.images[0]} />
-                          <img className="pic-2" src={item.images[1]} />
-
-
-                          {/* 
-                            <img
+                      
+                             <img
                               className="pic-1"
-                              src={item.images.protoTypes[0]}
+                              style={{maxHeight:"300px"}}
+                              src={item.images[0].protoTypes[0]}
                             />
-                            <img
+
+                           <img
                               className="pic-2"
-                              src={item.images.protoTypes[1]}
-                            /> */}
+                              src={item.images[0].protoTypes[1]}
+                           />  
+
+
                           </a>
 
                           <ul className="social">
@@ -163,10 +168,15 @@ class Women extends React.Component {
 
                           <span className="product-new-label">New</span>
                         </div>
+                        
+
                         <div className="product-content">
                           <h3 className="title">
                             <a href="#">{item.description}</a>
                           </h3>
+
+                        
+
                           <ul className="rating">
                             {this.starMaker(item.rating)}
                           </ul>
@@ -174,7 +184,10 @@ class Women extends React.Component {
                             {item.prices[0]}
                             <span>{item.prices[1]}</span>
                           </div>
+
+                          <hr/>
                         </div>
+
                       </div>
                     </div>
                   );
@@ -196,55 +209,46 @@ class Women extends React.Component {
         {/* // images modal */}
         <div>
           <MDBContainer>
-            <li>
-              <a
-                onClick={this.toggle(13)}
-                className="fas fa-expand-arrows-alt"
-              ></a>
-            </li>
-
-            <MDBModal isOpen={this.state.modal13} toggle={this.toggle(13)}>
-              <MDBModalBody>
+          
+            <MDBModal isOpen={this.state.modal13} toggle={this.toggle(13)} className="w-auto p-3">
+              <MDBModalBody >
                 {/* modal carousel starthere */}
                 <MDBContainer>
                   <MDBCarousel
                     activeItem={1}
-                    length={2}
+                    length={this.state.currentArrayOfImages.length}
                     showControls={true}
                     showIndicators={true}
                     className="z-depth-1"
                   >
                     <MDBCarouselInner>
-                      <MDBCarouselItem itemId="1">
-                        <MDBView>
-                          <img
-                            className="d-block w-180"
-                            src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
-                            alt="First slide"
-                          />
-                          <MDBMask overlay="black-light" />
-                        </MDBView>
 
-                        <MDBCarouselCaption>
-                          <h3 className="h3-responsive">Light mask</h3>
-                          <p>First text</p>
-                        </MDBCarouselCaption>
-                      </MDBCarouselItem>
+                      {this.state.currentArrayOfImages.length> 0?
 
-                      <MDBCarouselItem itemId="2">
-                        <MDBView>
-                          <img
-                            className="d-blockw-180"
-                            src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
-                            alt="Second slide"
-                          />
-                          <MDBMask overlay="black-strong" />
-                        </MDBView>
-                        <MDBCarouselCaption>
-                          <h3 className="h3-responsive">Strong mask</h3>
-                          <p>Second text</p>
-                        </MDBCarouselCaption>
-                      </MDBCarouselItem>
+                          this.state.currentArrayOfImages.map((item,index)=>{
+                              return (
+                                <MDBCarouselItem itemId={index+1}>
+                                  <MDBView>
+                                    <img
+                                      className="d-block"
+                                      style={{maxHeight:"550px"}}
+                                      src={item}
+                                      alt="First slide"
+                                    />
+                                    <MDBMask overlay="black-light" />
+                                  </MDBView>
+
+                                  {/* <MDBCarouselCaption>
+                                    <h3 className="h3-responsive">Light mask</h3>
+                                    <p>First text</p>
+                                  </MDBCarouselCaption> */}
+                                </MDBCarouselItem>
+                              )
+                          })
+                          :null
+                      }
+
+                      
                     </MDBCarouselInner>
                   </MDBCarousel>
                 </MDBContainer>
