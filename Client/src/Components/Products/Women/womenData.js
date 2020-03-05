@@ -291,9 +291,6 @@ const womens = [
         "https://images-na.ssl-images-amazon.com/images/I/61q3sEeo1bL._AC_UX679_.jpg", // black
         "https://images-na.ssl-images-amazon.com/images/I/81VL4zX3OOL._AC_UY879_.jpg"
 
-
-
-         
         ],
 
         "rosa" : "https://images-na.ssl-images-amazon.com/images/I/81zqwD5IIJL._AC_UY879_.jpg",
