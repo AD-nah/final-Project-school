@@ -67,9 +67,9 @@ export default class Men extends React.Component {
                             </div>
 
                             <div className="product-image7">
-                                <a href="#">
-                                    <img className="pic-1" src= {item.images[0]}/>
-                                    <img className="pic-2" src= {item.images[1]}/>
+                            <a style= {{height:'300px'}} href="#">
+                                <img className="pic-1" src={item.images.protoTypes[0]} />
+                                <img className="pic-2" src={item.images.protoTypes[1]} />
                                 </a>
                                 <ul className="social">
                                     <li><a href="#" className="fa fa-search"></a></li>

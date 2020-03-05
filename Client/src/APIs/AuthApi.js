@@ -1,5 +1,4 @@
-import axios from 'axios'
-
+import axios from 'axios';
 
 export default  {
     user:{
@@ -15,6 +14,12 @@ export default  {
         registerRequest:(data) => {
 
             return axios.post('/api/register-req', { data }).then( response => response.data.userRegistered )
+        }
+    },
+    ///News Api
+    newApi : {
+        getNews : (url)=>{
+            return axios.get(url)
         }
     }
 }
