@@ -1,280 +1,279 @@
-import React, { Component } from "react";
-import {Link} from 'react-router-dom';
-
-// ------------------------------------------------------------------
-
-//MATERIAL-UI Library for React packages
-import Button from "@material-ui/core/Button/Button";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-
+import React, {useState} from "react";
+import axios from "axios";
+import { connect } from "react-redux";
+import { addToBasketAction } from "../../../Redux/Actions/basket";
+import {Button, Modal} from 'react-bootstrap'
 // ----------------------------------------------------------------------
 
 // Import Antd  library
-import "antd/dist/antd.css";
-import { Menu, Icon, Popconfirm, message, Rate, Input } from "antd";
-const { SubMenu } = Menu;
-const desc = ["Ugly", "Works", "Ok", "Very Good", "Beautiful"];
-const { Search } = Input;
+// import "antd/dist/antd.css";
+// import {  Popconfirm, message} from "antd";
 
-// confirm on click or error on cancel
-function confirm(e) {
-  console.log(e);
-  message.success("Added successfuly..");
-}
-function cancel(e) {
-  console.log(e);
-  message.error("Item deleted..");
-}
+// // confirm on click or error on cancel
+// function confirm(e) {
+//   console.log(e);
+//   message.success("Added successfuly..");
+// }
+// function cancel(e) {
+//   console.log(e);
+//   message.error("Item deleted..");
+// }
 
 // --------------------------------------------------------------
 
-// Cards style from Material-ui
-const useStyles = makeStyles(theme => ({
-  icon: {
-    marginRight: theme.spacing(2)
-  },
-  heroContent: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6)
-  },
-  heroButtons: {
-    marginTop: theme.spacing(4)
-  },
-  cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8)
-  },
-  card: {
-    height: "100%",
-    display: "flex",
-    flexDirection: "column"
-  },
-  cardMedia: {
-    paddingTop: "56.25%" // 16:9
-  },
-  cardContent: {
-    flexGrow: 1
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6)
-  },
-  side: {
-    maxWidth: "100px",
-    float: "left"
+class Women extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: null,
+      currentProduct: [],
+      currentArrayOfImages : null
+
+    };
   }
-}));
-const cards      = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-let init_value   = [3, 3, 3, 3, 3, 3, 3, 3, 3]
 
-export default class Women extends React.Component {
-  //for the rate stars
-  state = {
-    value: init_value
-  };
-  // for the  rate chages
-  handleChange = (id,newValue) => {
-    let tempValue = [...this.state.value]
-    tempValue[id-1] = newValue; 
-    this.setState({ value:tempValue });
-  };
+  componentDidMount() {
+    axios
+      .get("/product/womens")
+      .then(res => res.data.women)
+      .then(product => {
+        this.setState({ data: product });
+      });
+  }
+  setCurrentProduct(item) {
+    this.props.addToBasketAction(item);
+    alert('added to Basket')      
 
-  handleClick = e => {
-    console.log("click ", e);
-  };
+  }
 
+  sendImagesToCarousel(array){
+    console.log(array)
+    this.setState({currentArrayOfImages: array})
+  }
+
+  starMaker(n) {
+    let stars = [];
+    for (let i = 0; i < n; i++) {
+      stars.push(<li className="fa fa-star"></li>);
+    }
+    return stars;
+  }
   render() {
-    // for the rates
-    const { value } = this.state;
-
     return (
-      <React.Fragment>
-        <CssBaseline />
+      <div className="container">
+{/*     
+       {this.state.currentArrayOfImages && (<ImagesModal img= {this.state.currentArrayOfImages[0]} />)} */}
 
-        
-          <Grid container>
-            <Grid item xs={12} sm={4} md={2}>
-              <main>
-                <Menu
-                  onClick={this.handleClick}
-                  style={{ width: 180 }}
-                  defaultSelectedKeys={["1"]}
-                  defaultOpenKeys={["sub1"]}
-                  mode="inline"
-                >
-                  <SubMenu
-                    key="sub1"
-                    title={
-                      <span>
-                        <Icon type="search" />
-                        <span> Search </span>
-                      </span>
-                    }
-                  >
-                    
-                    <Menu.Item key="2">
-                            <Link  to="/women">
-                            <Icon type="yuque" />
-                            Women's
+       <Example/>
+
+        <h3 className="h3">Women's Collection</h3>
+        <div className="row">
+          {this.state.data
+            ? this.state.data.map((item, index) => {
+                return (
+                  <div key={index}  className="col-md-3 col-sm-6">
+                    <div className="product-grid7">
+                      <div className="product-content">
+                        <h3 className="title">
+                          <a href="#">{item.name}</a>
+                        </h3>
+                      </div>
+
+                      <div className="product-image7">
+                        <a style= {{height:'300px'}} href="#">
+
+                          <img className="pic-1" src={item.images.protoTypes[0]}/>
+                          <img className="pic-2" src={item.images.protoTypes[1]}/>
                           
-                          </Link>
-                      </Menu.Item>
+                        </a>
 
-                      <Menu.Item key="2">
-                            <Link  to="/men">
-                            <Icon type="yuque" />
-                            Men's
-                          </Link>
-                      </Menu.Item>
+                        <ul className="social">
+                        <li>
+                                <a
+                                  onClick={() => this.sendImagesToCarousel(item.images)}
+                                  className="fas fa-expand-arrows-alt" 
+                                  >
+                                </a>
+                          </li>
 
+                            <li><a href="#" className="far fa-heart"></a></li>
 
-                  </SubMenu>
-                  {/* <SubMenu
-                    key="sub2"
-                    title={
-                      <span>
-                        <Icon type="appstore" />
-                        <span>Else</span>
-                      </span>
-                    }
-                  >
-                    <Menu.Item key="5">Option 5</Menu.Item>
-                    <Menu.Item key="6">Option 6</Menu.Item>
-                  </SubMenu> */}
-                </Menu>
-              </main>
-            </Grid>
+                            <li>
+                                <a
+                                  role="button"
+                                  tabIndex={0}
+                                  onClick={() => this.setCurrentProduct(item)}
+                                  className="fa fa-shopping-cart"
+                                >
+                                </a>
+                          </li>
+                        </ul>
 
-            <Grid item xs={12} sm={7} md={10}>
-              {/* Hero unit */}
-              <div className={useStyles.heroContent}>
-                <Container maxWidth="sm">
-                  <Typography
-                    component="h1"
-                    variant="h2"
-                    align="center"
-                    color="textPrimary"
-                    gutterBottom
-                  >
-                    Women's Album
-                  </Typography>
-                  <Typography
-                    variant="h5"
-                    align="center"
-                    color="textSecondary"
-                    paragraph
-                  >
-                    Something short and leading about the collection below—its
-                    contents, the creator, etc. Make it short and sweet, but not
-                    too short so folks don&apos;t simply skip over it entirely.
-                  </Typography>
-                  <div className={useStyles.heroButtons}>
-                    <Grid container spacing={2} justify="center">
-                      <Grid item>
-                        <Button variant="contained" color="primary">
-                          Main call to action
-                        </Button>
-                      </Grid>
-                      <Grid item>
-                        <Button variant="outlined" color="primary">
-                          Secondary action
-                        </Button>
-                      </Grid>
-                    </Grid>
+                        {/* <span className="product-new-label">New</span> */}
+                      </div>
+                      <div className="product-content">
+                        <h3 className="title">
+                          <a href="#">{item.description}</a>
+                        </h3>
+                        <ul className="rating">
+                          {this.starMaker(item.rating)}
+                        </ul>
+                        <div className="price">
+                          {item.prices[0]}
+                          <span>{item.prices[1]}</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </Container>
-              </div>
-              <Container className={useStyles.cardGrid} maxWidth="md">
-                {/* End hero unit */}
-                <Grid container spacing={4}>
-                  {cards.map(card => (
-                    <Grid item key={card} xs={12} sm={6} md={4}>
-                      <Card className={useStyles.card}>
-                        <CardMedia
-                          className={useStyles.cardMedia}
-                          image="https://source.unsplash.com/random"
-                          title="Image title"
-                        />
-                        <CardContent className={useStyles.cardContent}>
-                          <Typography gutterBottom variant="h5" component="h2">
-                            Heading
-                          </Typography>
-                          <Typography>
-                            This is a media card. You can use this section to
-                            describe the content.
-                          </Typography>
-                        </CardContent>
-
-                        <hr />
-                        <span>
-                          <Rate
-                            tooltips={desc}
-                            onChange={(newValue)=>this.handleChange(card,newValue)}
-                            value={value[card-1]}
-                          />
-                          {value ? (
-                            <span className="ant-rate-text">
-                              {desc[value - 1]}
-                            </span>
-                          ) : (
-                            ""
-                          )}
-                        </span>
-                        <hr />
-
-                        <Typography gutterBottom variant="h8">
-                          <span>
-                                <i class="fas fa-euro-sign" style={{fontSize:"17px",marginLeft:"30px"}}></i>
-                          </span>
-                        </Typography>
-
-                        <CardActions>
-                          <Button size="small" color="primary">
-                            View
-                          </Button>
-
-                          <Popconfirm
-                            title="Are you sure?"
-                            onConfirm={confirm}
-                            onCancel={cancel}
-                            okText="Yes"
-                            cancelText="No"
-                          >
-                            <a href="#" style={{ fontSize: "20px" }}>
-                                <i class="fas fa-heart"></i>
-                            </a>
-                          </Popconfirm>
-
-
-
-                          <Popconfirm
-                            title="Are you sure ?"
-                            onConfirm={confirm}
-                            onCancel={cancel}
-                            okText="Yes"
-                            cancelText="No"
-                          >
-                            <a href="#" style={{ fontSize: "20px",marginLeft:"20px" }}>
-                                <i class="fas fa-cart-plus"></i>
-                            </a>
-                          </Popconfirm>
-                        </CardActions>
-                      </Card>
-                    </Grid>
-                  ))}
-                </Grid>
-              </Container>
-            </Grid>
-          </Grid>
-      </React.Fragment>
+                );
+              })
+            : "Please wait ..."}
+        </div>
+      </div>
     );
   }
 }
+
+
+
+
+
+
+function Example() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  return (
+    <>
+      <Button variant="primary" onClick={handleShow}> show </Button>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+        </Modal.Header>
+        <Modal.Body>
+          Woohoo, you're reading this text in a modal!
+        </Modal.Body>
+      </Modal>
+    </>
+  );
+}
+
+
+
+class ImagesModal extends React.Component {
+  render() {
+    return (
+      <div>
+
+
+        <li>
+          <a href="#" className="fas fa-expand-arrows-alt" data-toggle="modal" data-target="#product_view">Modal</a>
+        </li>
+
+
+
+        <div class="modal fade product_view" id="product_view">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="row">
+                 
+
+
+                    <div class="col-md-12 product_img">
+                        <div id="demo" class="carousel slide" data-ride="carousel">
+                            <ul class="carousel-indicators" >
+                                <li
+                                data-target="#demo"
+                                data-slide-to="0"
+                                class="active"
+                                ></li>
+                                <li data-target="#demo" data-slide-to="1"></li>
+                                <li data-target="#demo" data-slide-to="2"></li>
+                            </ul>
+
+                            <div
+                                class="carousel-inner"
+                                
+                            >
+                                <div class="carousel-item active">
+
+                                <img
+                                    src= {this.props.img}
+                                    alt="Los Angeles"
+                                    width="1100"
+                                    height="500"
+                                />
+                                </div>
+{/* 
+                                <div class="carousel-item">
+                                <img
+                                    src=
+                                    alt="Chicago"
+                                    width="1100"
+                                    height="500"
+                                />
+                               
+                                </div>
+                                <div class="carousel-item">
+                                <img
+                                    src=
+                                    alt="New York"
+                                    width="1100"
+                                    height="500"
+                                />
+                                
+                                </div> */}
+                            </div>
+
+
+                            <a
+                                class="carousel-control-prev"
+                                href="#demo"
+                                data-slide="prev">
+                                    
+                                <i class="fas fa-backward" style={{fontSize:"40px",color:"white"}}></i>
+
+                            </a>
+                            <a
+                                class="carousel-control-next"
+                                href="#demo"
+                                data-slide="next"
+                            >
+                            <i class="fas fa-forward" style={{fontSize:"40px",color:"white"}}></i>
+                            </a>
+                        </div>
+                    </div>
+                    {/* DONT DELETE IT PLEASE */}
+                        {/* <h3 class="cost">
+                        <span class="glyphicon glyphicon-usd"></span> 15.00{" "}
+                        <small class="pre-cost">
+                            <span class="glyphicon glyphicon-usd"></span> 20.00
+                        </small>
+                     </h3> */}
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+export default connect(null, { addToBasketAction })(Women);
