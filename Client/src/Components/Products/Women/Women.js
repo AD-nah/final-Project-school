@@ -46,7 +46,8 @@ class Women extends React.Component {
 
     }
     setCurrentProduct(item){
-        this.props.addToBasketAction(item)        
+        this.props.addToBasketAction(item)  
+        alert('added to Basket')      
     }
 
 
@@ -87,7 +88,6 @@ class Women extends React.Component {
                                         <li>
                                             <a role="button" tabIndex={0} onClick = {() => this.setCurrentProduct(item)} className="fa fa-shopping-cart">B</a>
                                         </li>
-
                                     </ul>
                                     <span className="product-new-label">New</span>
                                 </div>
