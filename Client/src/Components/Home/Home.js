@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import img from '../../imgs/test.jpg';
 import img1 from '../../imgs/test1.jpg';
-// import img2 from '../../imgs/test2.jpg';
-// import img3 from '../../imgs/test3.jpg';
 import black from '../../imgs/black.jpg';
 import grau from '../../imgs/grau.jpg';
 import './home.css'
