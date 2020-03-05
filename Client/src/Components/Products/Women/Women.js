@@ -119,9 +119,9 @@ class Women extends React.Component {
 
                         <div className="product-image7">
                           <a href="#">
-                            
-                          {/*<img className="pic-1" src={item.images[0]} />
-                          <img className="pic-2" src={item.images[1]} /> */}
+
+                          <img className="pic-1" src={item.images[0]} />
+                          <img className="pic-2" src={item.images[1]} />
 
 
                           {/* 
