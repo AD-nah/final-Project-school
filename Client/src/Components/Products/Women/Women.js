@@ -43,6 +43,8 @@ class Women extends React.Component {
   }
   setCurrentProduct(item) {
     this.props.addToBasketAction(item);
+    alert('added to Basket')      
+
   }
 
   sendImagesToCarousel(array){
@@ -70,7 +72,7 @@ class Women extends React.Component {
           {this.state.data
             ? this.state.data.map((item, index) => {
                 return (
-                  <div key={index} className="col-md-3 col-sm-6">
+                  <div key={index}  className="col-md-3 col-sm-6">
                     <div className="product-grid7">
                       <div className="product-content">
                         <h3 className="title">
@@ -79,11 +81,12 @@ class Women extends React.Component {
                       </div>
 
                       <div className="product-image7">
-                        <a href="#">
-                          <img className="pic-1" src={item.images[0]} />
-                          <img className="pic-2" src={item.images[1]} />
-                        </a>
+                        <a style= {{height:'300px'}} href="#">
 
+                          <img className="pic-1" src={item.images.protoTypes[0]}/>
+                          <img className="pic-2" src={item.images.protoTypes[1]}/>
+                          
+                        </a>
 
                         <ul className="social">
                         <li>
@@ -105,12 +108,9 @@ class Women extends React.Component {
                                 >
                                 </a>
                           </li>
-
-
                         </ul>
 
-
-                        <span className="product-new-label">New</span>
+                        {/* <span className="product-new-label">New</span> */}
                       </div>
                       <div className="product-content">
                         <h3 className="title">
