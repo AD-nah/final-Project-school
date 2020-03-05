@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { BackTop } from 'antd';
+
 import axios from "axios";
 import { connect } from "react-redux";
 import { addToBasketAction } from "../../../Redux/Actions/basket";
@@ -32,6 +34,7 @@ import {
 {
   /* DON'T DELETE IT PLEASE */
 }
+
 
 // Import Antd  library
 // import "antd/dist/antd.css";
@@ -122,16 +125,18 @@ class Women extends React.Component {
                         </a>
 
                         <ul className="social">
-                          {/* <li>
+                          <li>
                             <a
                               onClick={() =>
                                 this.sendImagesToCarousel(item.images)
                               }
                               className="fas fa-expand-arrows-alt"
                             ></a>
-                          </li> */}
+                          </li>
 
-                          <li>
+                          <li onClick={() =>
+                                this.sendImagesToCarousel(item.images)
+                              }>
                             <a
                               onClick={this.toggle(13)}
                               className="fas fa-expand-arrows-alt"
@@ -176,9 +181,20 @@ class Women extends React.Component {
 
 
 
+          {/* Back to top btn */}
+         <div>
+                <BackTop>
+                
+                <i className="fas fa-chevron-circle-up" style={{color:"orange",fontSize:"40px"}}></i>
+                </BackTop>
+         </div>
 
 
-      // images nmodal
+
+
+     
+
+      {/* // images modal */}
       <div>
       <MDBContainer>
         <li>
