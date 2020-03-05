@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 import { addToBasketAction } from "../../../Redux/Actions/basket";
 import {
   MDBContainer,
-  MDBBtn,
   MDBModal,
   MDBModalBody,
   MDBCarousel,
@@ -89,6 +88,7 @@ class Women extends React.Component {
   sendImagesToCarousel(array) {
     console.log(array);
     this.setState({ currentArrayOfImages: array });
+   
   }
 
   starMaker(n) {
@@ -180,11 +180,13 @@ class Women extends React.Component {
 
 
 
+
+
           {/* Back to top btn */}
          <div>
                 <BackTop>
                 
-                <i className="fas fa-chevron-circle-up" style={{color:"orange",fontSize:"40px"}}></i>
+                <i className="fas fa-chevron-circle-up" style={{color:"orange",fontSize:"40px",}}></i>
                 </BackTop>
          </div>
 
@@ -209,7 +211,7 @@ class Women extends React.Component {
             <MDBContainer>
               <MDBCarousel
                 activeItem={1}
-                length={3}
+                length={2}
                 showControls={true}
                 showIndicators={true}
                 className="z-depth-1"
@@ -218,7 +220,7 @@ class Women extends React.Component {
                   <MDBCarouselItem itemId="1">
                     <MDBView>
                       <img
-                        className="d-block w-100"
+                        className="d-block w-180"
                         src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
                         alt="First slide"
                       />
@@ -232,7 +234,7 @@ class Women extends React.Component {
                   <MDBCarouselItem itemId="2">
                     <MDBView>
                       <img
-                        className="d-block w-100"
+                        className="d-blockw-180"
                         src="https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg"
                         alt="Second slide"
                       />
@@ -243,20 +245,7 @@ class Women extends React.Component {
                       <p>Second text</p>
                     </MDBCarouselCaption>
                   </MDBCarouselItem>
-                  <MDBCarouselItem itemId="3">
-                    <MDBView>
-                      <img
-                        className="d-block w-100"
-                        src="https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg"
-                        alt="Third slide"
-                      />
-                      <MDBMask overlay="black-slight" />
-                    </MDBView>
-                    <MDBCarouselCaption>
-                      <h3 className="h3-responsive">Slight Mast</h3>
-                      <p>Third text</p>
-                    </MDBCarouselCaption>
-                  </MDBCarouselItem>
+                 
                 </MDBCarouselInner>
               </MDBCarousel>
             </MDBContainer>
@@ -264,9 +253,8 @@ class Women extends React.Component {
           </MDBModalBody>
         </MDBModal>
       </MDBContainer>
-      {/* images modal end here */}
     </div>
-
+    {/* images modal end here */}
 
     </>);
   }
