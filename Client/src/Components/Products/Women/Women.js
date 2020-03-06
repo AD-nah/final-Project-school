@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BackTop } from "antd";
+import { WaveLoading } from 'react-loadingg';
 
 import axios from "axios";
 import { connect } from "react-redux";
@@ -32,25 +33,7 @@ import ImageZoomAnim from "../../../imgs/cadinfluencer1.jpg";
 //                      </h3> */}
 
 // ----------------------------------------------------------------------
-{
-  /* DON'T DELETE IT PLEASE */
-}
 
-// Import Antd  library
-// import "antd/dist/antd.css";
-// import {  Popconfirm, message} from "antd";
-
-// // confirm on click or error on cancel
-// function confirm(e) {
-//   console.log(e);
-//   message.success("Added successfuly..");
-// }
-// function cancel(e) {
-//   console.log(e);
-//   message.error("Item deleted..");
-// }
-
-// --------------------------------------------------------------
 
 class Women extends React.Component {
   constructor(props) {
@@ -108,6 +91,7 @@ class Women extends React.Component {
     return (
       <>
         <div className="container">
+          
           <h3 className="h3">Women's Collection</h3>
 
           <div className="row">
@@ -132,6 +116,8 @@ class Women extends React.Component {
           <div className="row">
             {this.state.data
               ? this.state.data.map((item, index) => {
+
+
                   return (
                     <div key={index} className="col-md-3 col-sm-6">
                       <div className="product-grid7">
@@ -199,6 +185,10 @@ class Women extends React.Component {
                             <span>{item.prices[1]}</span>
                           </div>
                             
+
+                           
+                              <img src={ImageZoomAnim} />
+                           
                           
 
                           <hr />
@@ -212,7 +202,7 @@ class Women extends React.Component {
 
                   );
                 })
-              : "Please wait ..."}
+              :  <div ><WaveLoading/></div>}
           </div>
         </div>
 
