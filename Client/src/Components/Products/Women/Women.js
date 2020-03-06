@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 import { BackTop } from "antd";
-<<<<<<< HEAD
-=======
-
->>>>>>> 748df5168f181d04ee9d375a71f260dd67347410
 import axios from "axios";
 import { connect } from "react-redux";
 import { addToBasketAction } from "../../../Redux/Actions/basket";
@@ -18,12 +14,6 @@ import {
   MDBView,
   MDBMask
 } from "mdbreact";
-<<<<<<< HEAD
-// ----------------------------------
-{
-  /* DON'T DELETE IT PLEASE */
-}
-=======
 
 // ----------------------------------
 
@@ -31,25 +21,16 @@ import {
   /* DON'T DELETE IT PLEASE */
 }
 
->>>>>>> 748df5168f181d04ee9d375a71f260dd67347410
 //                         {/* <h3 class="cost">
 //                         <span class="glyphicon glyphicon-usd"></span> 15.00{" "}
 //                         <small class="pre-cost">
 //                             <span class="glyphicon glyphicon-usd"></span> 20.00
 //                         </small>
 //                      </h3> */}
-<<<<<<< HEAD
-=======
-
->>>>>>> 748df5168f181d04ee9d375a71f260dd67347410
 // ----------------------------------------------------------------------
 {
   /* DON'T DELETE IT PLEASE */
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 748df5168f181d04ee9d375a71f260dd67347410
 // Import Antd  library
 // import "antd/dist/antd.css";
 // import {  Popconfirm, message} from "antd";
@@ -63,33 +44,19 @@ import {
 //   message.error("Item deleted..");
 // }
 // --------------------------------------------------------------
-<<<<<<< HEAD
-class Women extends React.Component {
-  constructor(props) {
-    super(props);
-=======
 
 class Women extends React.Component {
   constructor(props) {
     super(props);
 
->>>>>>> 748df5168f181d04ee9d375a71f260dd67347410
     this.state = {
       data: null,
       currentProduct: [],
       currentArrayOfImages: [],
-<<<<<<< HEAD
-=======
-
->>>>>>> 748df5168f181d04ee9d375a71f260dd67347410
       //images modal
       modal13: false
     };
   }
-<<<<<<< HEAD
-=======
-
->>>>>>> 748df5168f181d04ee9d375a71f260dd67347410
   // for the images modal
   toggle = nr => () => {
     let modalNumber = "modal" + nr;
@@ -97,10 +64,6 @@ class Women extends React.Component {
       [modalNumber]: !this.state[modalNumber]
     });
   };
-<<<<<<< HEAD
-=======
-
->>>>>>> 748df5168f181d04ee9d375a71f260dd67347410
   componentDidMount() {
     axios
       .get("/product/womens")
@@ -110,12 +73,6 @@ class Women extends React.Component {
         this.setState({ data: product });
       });
   }
-<<<<<<< HEAD
-  setCurrentProduct(item) {
-    this.props.addToBasketAction(item);
-    alert("Added to basket")
-  }
-=======
 
   setCurrentProduct(item) {
     this.props.addToBasketAction(item);
@@ -124,16 +81,12 @@ class Women extends React.Component {
 
   }
 
->>>>>>> 748df5168f181d04ee9d375a71f260dd67347410
   sendImagesToCarousel(array) {
-    console.log(array[0].protoTypes);
-    this.setState({ currentArrayOfImages: array[0].protoTypes });
+    console.log(array.protoTypes);
+    this.setState({ currentArrayOfImages: array.protoTypes });
   }
-<<<<<<< HEAD
-=======
 
   // to take a Number and convert it to Star
->>>>>>> 748df5168f181d04ee9d375a71f260dd67347410
   starMaker(n) {
     let stars = [];
     for (let i = 0; i < n; i++) {
@@ -141,16 +94,11 @@ class Women extends React.Component {
     }
     return stars;
   }
-<<<<<<< HEAD
-  render() {
-    return (
-=======
 
   render() {
     return (
 
 
->>>>>>> 748df5168f181d04ee9d375a71f260dd67347410
       <>
         <div className="container">
           <h3 className="h3">Women's Collection</h3>
@@ -158,28 +106,6 @@ class Women extends React.Component {
             {this.state.data
               ? this.state.data.map((item, index) => {
                   return (
-<<<<<<< HEAD
-                    <div key={index} className="col-md-3 col-sm-6 ">
-                      <div className="product-grid7 ">
-                        <div className="product-content ">
-                          <h3 className="title">
-                            <a href="#">{item.name}</a>
-                          </h3>
-                        </div>
-                        <div className="product-image7">
-                          <a href="#">
-                          {/* <img className="pic-1" src={item.images[0]} />
-                          <img className="pic-2" src={item.images[1]} /> */}
-                             <img
-                              className=" pic-1 " 
-                              src={item.images[0].protoTypes[0] }
-                            />
-                            <img
-                              className="pic-2"
-                              src={item.images[0].protoTypes[1]}
-                            />
-                          </a>
-=======
                     <div key={index} className="col-md-3 col-sm-6">
 
 
@@ -202,21 +128,20 @@ class Women extends React.Component {
 
                       
                              <img
-                              className="pic-1"
+                              className="pic-1 "
                               style={{maxHeight:"300px"}}
-                              src={item.images[0].protoTypes[0]}
+                              src={item.images.protoTypes[0]}
                             />
 
 
                            <img
                               className="pic-2"
-                              src={item.images[0].protoTypes[1]}
+                              src={item.images.protoTypes[1]}
                            />  
 
 
                           </a>
 
->>>>>>> 748df5168f181d04ee9d375a71f260dd67347410
                           <ul className="social">
                             <li
                               onClick={() =>
@@ -228,17 +153,11 @@ class Women extends React.Component {
                                 className="fas fa-expand-arrows-alt"
                               ></a>
                             </li>
-<<<<<<< HEAD
-                            <li>
-                              <a href="#" className="far fa-heart"></a>
-                            </li>
-=======
 
                             <li>
                               <a href="#" className="far fa-heart"></a>
                             </li>
 
->>>>>>> 748df5168f181d04ee9d375a71f260dd67347410
                             <li>
                               <a
                                 role="button"
@@ -248,22 +167,6 @@ class Women extends React.Component {
                               ></a>
                             </li>
                           </ul>
-<<<<<<< HEAD
-                          <span className="product-new-label">New</span>
-                        </div>
-                        <div className="product-content">
-                          <h3 className="title">
-                            <a href="#">{item.description}</a>
-                          </h3>
-                          <ul className="rating">
-                            {this.starMaker(item.rating)}
-                          </ul>
-                          <div className="price">
-                            {item.prices[0]}
-                            <span>{item.prices[1]}</span>
-                          </div>
-                        </div>
-=======
 
                           <span className="product-new-label">New</span>
 
@@ -288,7 +191,6 @@ class Women extends React.Component {
                           <hr/>
                         </div>
 
->>>>>>> 748df5168f181d04ee9d375a71f260dd67347410
                       </div>
                     </div>
                   );
@@ -296,10 +198,6 @@ class Women extends React.Component {
               : "Please wait ..."}
           </div>
         </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 748df5168f181d04ee9d375a71f260dd67347410
         {/* Back to top btn */}
         <div>
           <BackTop>
@@ -309,23 +207,11 @@ class Women extends React.Component {
             ></i>
           </BackTop>
         </div>
-<<<<<<< HEAD
-        {/* // images modal */}
-        <div>
-          <MDBContainer>
-            <li>
-              <a
-                onClick={this.toggle(13)}
-                className="fas fa-expand-arrows-alt"
-              ></a>
-            </li>
-=======
 
         {/* // images modal */}
         <div>
           <MDBContainer>
           
->>>>>>> 748df5168f181d04ee9d375a71f260dd67347410
             <MDBModal isOpen={this.state.modal13} toggle={this.toggle(13)} className="w-auto p-3">
               <MDBModalBody >
                 {/* modal carousel starthere */}
@@ -338,33 +224,21 @@ class Women extends React.Component {
                     className="z-depth-1"
                   >
                     <MDBCarouselInner>
-<<<<<<< HEAD
-                      {this.state.currentArrayOfImages.length> 0?
-=======
 
                       {this.state.currentArrayOfImages.length> 0?
 
->>>>>>> 748df5168f181d04ee9d375a71f260dd67347410
                           this.state.currentArrayOfImages.map((item,index)=>{
                               return (
                                 <MDBCarouselItem itemId={index+1}>
                                   <MDBView>
                                     <img
-<<<<<<< HEAD
-                                      className="d-block "
-=======
                                       className="d-block"
->>>>>>> 748df5168f181d04ee9d375a71f260dd67347410
                                       style={{maxHeight:"550px"}}
                                       src={item}
                                       alt="First slide"
                                     />
                                     <MDBMask overlay="black-light" />
                                   </MDBView>
-<<<<<<< HEAD
-=======
-
->>>>>>> 748df5168f181d04ee9d375a71f260dd67347410
                                   {/* <MDBCarouselCaption>
                                     <h3 className="h3-responsive">Light mask</h3>
                                     <p>First text</p>
@@ -374,11 +248,8 @@ class Women extends React.Component {
                           })
                           :null
                       }
-<<<<<<< HEAD
-=======
 
                       
->>>>>>> 748df5168f181d04ee9d375a71f260dd67347410
                     </MDBCarouselInner>
                   </MDBCarousel>
                 </MDBContainer>
@@ -392,10 +263,6 @@ class Women extends React.Component {
     );
   }
 }
-<<<<<<< HEAD
-export default connect(null, { addToBasketAction })(Women);
-=======
 
 
 export default connect(null, { addToBasketAction })(Women);
->>>>>>> 748df5168f181d04ee9d375a71f260dd67347410
