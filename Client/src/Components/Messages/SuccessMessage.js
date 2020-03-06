@@ -13,7 +13,7 @@ class SuccessMessage extends Component {
   render(){
     return (
       <div>
-        <ToastContainer style={{position:"absolute",left:"10px"}} autoClose={1200}/>
+        <ToastContainer style={{position:"absolute",left:"10px"}} autoClose={2000}/>
       </div>
     );
   }

@@ -22,12 +22,12 @@ import {
   /* DON'T DELETE IT PLEASE */
 }
 
-//                         {/* <h3 class="cost">
-//                         <span class="glyphicon glyphicon-usd"></span> 15.00{" "}
-//                         <small class="pre-cost">
-//                             <span class="glyphicon glyphicon-usd"></span> 20.00
-//                         </small>
-//                      </h3> */}
+//  {/* <h3 class="cost">
+//  <span class="glyphicon glyphicon-usd"></span> 15.00{" "}
+//  <small class="pre-cost">
+//      <span class="glyphicon glyphicon-usd"></span> 20.00
+//  </small>
+//  </h3> */}
 
 // ----------------------------------------------------------------------
 {
@@ -73,25 +73,21 @@ class Women extends React.Component {
   };
 
   componentDidMount() {
-    axios
-      .get("/product/womens")
-      .then(res => res.data.women)
-      .then(product => {
-        console.log(product)
-        this.setState({ data: product });
-      });
+      axios
+        .get("/product/womens")
+        .then(res => res.data.women)
+        .then(product => {
+          this.setState({ data: product });
+        });
   }
 
   setCurrentProduct(item) {
     this.props.addToBasketAction(item);
-
     alert('added to Basket')      
-
   }
 
   sendImagesToCarousel(array) {
-    console.log(array[0].protoTypes);
-    this.setState({ currentArrayOfImages: array[0].protoTypes });
+    this.setState({ currentArrayOfImages: array.protoTypes });
   }
 
   // to take a Number and convert it to Star
@@ -105,61 +101,32 @@ class Women extends React.Component {
 
   render() {
     return (
-
-
-      <>
+        <>
         <div className="container">
           <h3 className="h3">Women's Collection</h3>
           <div className="row">
-            {this.state.data
-              ? this.state.data.map((item, index) => {
+            {this.state.data ? this.state.data.map((item, index) => {
                   return (
                     <div key={index} className="col-md-3 col-sm-6">
-
-
-              
                       <div className="product-grid7"> 
-                        
-
+                      
                       <div className="product-content">
                           <h3 className="title">
                             <a href="#">{item.name}</a>
                           </h3>
                       </div>
 
-              
-
-
                       <hr/>
                         <div className="product-image7">
                           <a href="#">
-
-                      
-                             <img
-                              className="pic-1"
-                              style={{maxHeight:"300px"}}
-                              src={item.images[0].protoTypes[0]}
-                            />
-
-
-                           <img
-                              className="pic-2"
-                              src={item.images[0].protoTypes[1]}
-                           />  
-
-
+                             <img className="pic-1" style={{maxHeight:"300px"}} src={item.images.protoTypes[0]}/>
+                             <img className="pic-2" src={item.images.protoTypes[1]}/>  
                           </a>
 
                           <ul className="social">
-                            <li
-                              onClick={() =>
-                                this.sendImagesToCarousel(item.images)
-                              }
-                            >
-                              <a
-                                onClick={this.toggle(13)}
-                                className="fas fa-expand-arrows-alt"
-                              ></a>
+
+                            <li onClick={() =>  this.sendImagesToCarousel(item.images)}>
+                              <a onClick={this.toggle(13)} className="fas fa-expand-arrows-alt"></a>
                             </li>
 
                             <li>
@@ -167,43 +134,31 @@ class Women extends React.Component {
                             </li>
 
                             <li>
-                              <a
-                                role="button"
-                                tabIndex={0}
-                                onClick={() => this.setCurrentProduct(item)}
-                                className="fa fa-shopping-cart"
-                              ></a>
+                              <a role="button" tabIndex={0} onClick={() => this.setCurrentProduct(item)} className="fa fa-shopping-cart" ></a>
                             </li>
                           </ul>
-
-                          <span className="product-new-label">New</span>
-
                         </div>
                         
-
                         <div className="product-content">
-                          <h3 className="title">
-                            <a href="#">{item.description}</a>
-                          </h3>
 
-                        
+                          <h3 className="title"><a href="#">{item.description}</a> </h3>
+                          <ul className="rating"> {this.starMaker(item.rating)}</ul>
 
-                          <ul className="rating">
-                            {this.starMaker(item.rating)}
-                          </ul>
-                          <div className="price">
-                            {item.prices[0]}
+                          <div className="price">{item.prices[0]}
                             <span>{item.prices[1]}</span>
                           </div>
-
                           <hr/>
                         </div>
-
                       </div>
                     </div>
                   );
                 })
-              : "Please wait ..."}
+              : (
+                <blockquote class="blockquote text-center container-fluid">
+                  <p class="mb-0">WELCOME TO OUR SHOPPING PROJECT ...</p>
+                  <footer class="blockquote-footer">let's Start</footer>
+                </blockquote>
+              )}
           </div>
         </div>
 
@@ -223,6 +178,7 @@ class Women extends React.Component {
           
             <MDBModal isOpen={this.state.modal13} toggle={this.toggle(13)} className="w-auto p-3">
               <MDBModalBody >
+
                 {/* modal carousel starthere */}
                 <MDBContainer>
                   <MDBCarousel
@@ -233,12 +189,11 @@ class Women extends React.Component {
                     className="z-depth-1"
                   >
                     <MDBCarouselInner>
+                      {this.state.currentArrayOfImages.length > 0 ?
 
-                      {this.state.currentArrayOfImages.length> 0?
-
-                          this.state.currentArrayOfImages.map((item,index)=>{
+                          this.state.currentArrayOfImages.map((item, index)=>{
                               return (
-                                <MDBCarouselItem itemId={index+1}>
+                                <MDBCarouselItem itemId = { index + 1}>
                                   <MDBView>
                                     <img
                                       className="d-block"
@@ -256,14 +211,13 @@ class Women extends React.Component {
                                 </MDBCarouselItem>
                               )
                           })
-                          :null
+                          : null
                       }
-
-                      
                     </MDBCarouselInner>
                   </MDBCarousel>
                 </MDBContainer>
                 {/* modal carousel end here */}
+
               </MDBModalBody>
             </MDBModal>
           </MDBContainer>

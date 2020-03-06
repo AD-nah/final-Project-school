@@ -10,7 +10,7 @@ import SuccessMessage from './Messages/SuccessMessage'
 import { Switch, Route, Link , Redirect} from 'react-router-dom';
 import { connect } from 'react-redux'
 import * as reduxActios from '../Redux/Actions/auth'
-
+import {authMessagesHandler} from '../Redux/Actions/auth'
 import Home from './Home/Home'
 import Products from './Products/Products'
 import News from './News/News'
@@ -45,26 +45,31 @@ class Navbar extends Component {
       loginModal: !this.state.loginModal
     })
   }
+
   logoutHandler = () => {
 
-    this.props.logoutAction().then(res => {
-      
-    this.setState({logoutSuccess: true, redirectSuccess: true})
-            
-    }).catch(err => {
+    if(this.props.logoutAction()){
+      this.setState({logoutSuccess: true, redirectSuccess: true}) 
 
-      console.log(err)
-    })
+      // to reload the state after logout, that the state will ready for the next lougout, to redirect again!
+      setTimeout(()=>{
+        this.setState({logoutSuccess: false, redirectSuccess: false}) 
+      },1500)
+    }
   }
 
   render(){
     return (
       <div >
         <MDBNavbar color="special-color" dark expand="md">
+        {this.state.logoutSuccess &&  <SuccessMessage text = 'GoodBay'/> }
 
-        {this.state.logoutSuccess &&  <SuccessMessage text = 'you are Logged Out'/> }
-        {this.props.isAuthenticated && (<SuccessMessage text = 'successfully loggedin'/>)} 
-        {this.state.redirectSuccess && <Redirect to = '/home'/>}
+
+
+        {authMessagesHandler() === "registerdMessage" &&  (<SuccessMessage text = 'Welcome to Your Shop'/>)}
+        {authMessagesHandler() === "loggedinMessage" &&  (<SuccessMessage text = 'logged in'/>)}
+
+        {this.state.redirectSuccess && <Redirect to = '/'/>}
           
           <MDBNavbarBrand>
           <img style={{width:"40px"}} src={Logo} alt="Logo"/>
@@ -79,24 +84,17 @@ class Navbar extends Component {
                 <MDBNavLink  className=" font-weight-bold" to='/home'>Home</MDBNavLink>
               </MDBNavItem>
 
-
               <MDBNavItem >
                 <MDBNavLink  className=" font-weight-bold" to='/products/women'>Products</MDBNavLink>
               </MDBNavItem>
-
-
-
 
               <MDBNavItem>
                 <MDBNavLink className=" font-weight-bold" to='/news'>News</MDBNavLink>
               </MDBNavItem>
 
-
-
               <MDBNavItem>
                 <MDBNavLink className=" font-weight-bold" to='/about'>About</MDBNavLink>
               </MDBNavItem>
-              
 
             </MDBNavbarNav>
             <MDBNavbarNav right>

@@ -9,17 +9,23 @@ router.post('/', (req, res) => {
      User.findOne({email: req.body.data.email}).then(foundedUser => {
 
         if(!foundedUser){
-            res.status(400).json({ globalErrors: { authError: "Server: Account not found!" }});
+            res.status(400).json({ globalErrors: { authError: "Account not found" }});
             
         }else{
-            const generatedLogin = foundedUser.toAuthJSON()
-            foundedUser.saveCurrentJWTtoDB(generatedLogin.token)
-            foundedUser.saveLastLoggedInDate(Date.now())
-            foundedUser.save().then(recordSaved => {
+            
+            if(foundedUser.isValidPassword(req.body.data.password)){
 
-                res.status(200).json({ userSignedInData: generatedLogin})
-            })
+                const generatedLogin = foundedUser.toAuthJSON()
+                foundedUser.saveCurrentJWTtoDB(generatedLogin.token)
+                foundedUser.saveLastLoggedInDate(Date.now())
+                foundedUser.save().then(recordSaved => {
 
+                    res.status(200).json({ userSignedInData: generatedLogin})
+                })
+
+            }else{
+                res.status(400).json({ globalErrors: { authError: "Password is Incurrect!" }});
+            }
         }
     })
 })
