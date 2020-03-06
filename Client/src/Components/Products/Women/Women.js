@@ -1,5 +1,6 @@
 import React from "react";
 import { BackTop } from "antd";
+
 import { WaveLoading } from 'react-loadingg';
 
 import axios from "axios";
@@ -25,6 +26,7 @@ import SuccessMessage from '../../Messages/SuccessMessage'
   /* DON'T DELETE IT PLEASE */
 }
 
+
 //  {/* <h3 class="cost">
 //  <span class="glyphicon glyphicon-usd"></span> 15.00{" "}
 //  <small class="pre-cost">
@@ -48,7 +50,6 @@ class Women extends React.Component {
       modal13: false
     };
   }
-
   // for the images modal
   toggle = nr => () => {
     let modalNumber = "modal" + nr;
@@ -56,7 +57,6 @@ class Women extends React.Component {
       [modalNumber]: !this.state[modalNumber]
     });
   };
-
   componentDidMount() {
       axios
         .get("/product/womens")
@@ -65,7 +65,6 @@ class Women extends React.Component {
           this.setState({ data: product });
         });
   }
-
   setCurrentProduct(item) {
     this.props.addToBasketAction(item);
     this.setState({successMessage:true})
@@ -73,11 +72,9 @@ class Women extends React.Component {
       this.setState({successMessage:false})
     },500)
   }
-
   sendImagesToCarousel(array) {
     this.setState({ currentArrayOfImages: array.protoTypes });
   }
-
   // to take a Number and convert it to Star
   starMaker(n) {
     let stars = [];
@@ -130,6 +127,7 @@ class Women extends React.Component {
                         <hr />
                         <div className="product-image7">
                           <a href="#">
+
                             <img
                               className="pic-1"
                               style={{ maxHeight: "300px" }}
@@ -139,6 +137,7 @@ class Women extends React.Component {
                             <img
                               className="pic-2"
                               src={item.images.protoTypes[1]}
+
                             />
 
                           </a>
@@ -195,7 +194,6 @@ class Women extends React.Component {
 
           </div>
         </div>
-
         {/* Back to top btn */}
         <div>
           <BackTop>
@@ -241,6 +239,7 @@ class Women extends React.Component {
                                 </MDBView>
 
                                 {/* <MDBCarouselCaption>
+
 
                                     <h3 className="h3-responsive">Light mask</h3>
                                     <p>First text</p>
