@@ -90,8 +90,8 @@ class Women extends React.Component {
   }
 
   sendImagesToCarousel(array) {
-    console.log(array[0].protoTypes);
-    this.setState({ currentArrayOfImages: array[0].protoTypes });
+    console.log(array.protoTypes);
+    this.setState({ currentArrayOfImages: array.protoTypes });
   }
 
   // to take a Number and convert it to Star
@@ -138,13 +138,13 @@ class Women extends React.Component {
                              <img
                               className="pic-1"
                               style={{maxHeight:"300px"}}
-                              src={item.images[0].protoTypes[0]}
+                              src={item.images.protoTypes[0]}
                             />
 
 
                            <img
                               className="pic-2"
-                              src={item.images[0].protoTypes[1]}
+                              src={item.images.protoTypes[1]}
                            />  
 
 
@@ -192,6 +192,7 @@ class Women extends React.Component {
                             {this.starMaker(item.rating)}
                           </ul>
                           <div className="price">
+                              &#8364; 
                             {item.prices[0]}
                             <span>{item.prices[1]}</span>
                           </div>
