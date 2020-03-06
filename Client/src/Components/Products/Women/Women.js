@@ -198,11 +198,18 @@ class Women extends React.Component {
                             {item.prices[0]}
                             <span>{item.prices[1]}</span>
                           </div>
+                            
+                          
 
                           <hr />
                         </div>
                       </div>
+                    
                     </div>
+
+                   
+                   
+
                   );
                 })
               : "Please wait ..."}
