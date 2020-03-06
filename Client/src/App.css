@@ -254,6 +254,31 @@
 }
 
 
+        /* Why Scount word animation */
+                .whyScount{
+                        -webkit-animation: text-shadow-drop-center 2s infinite ;
+                                animation: text-shadow-drop-center 2s infinite ;
+                }
+              
 
-/* ImageZoom animation end */
+                @-webkit-keyframes text-shadow-drop-center {
+                        0% {
+                        text-shadow: 0 0 0 white;
+                        }
+                        100% {
+                        text-shadow: 0 0 20px white;
+                        }
+                }
+                @keyframes text-shadow-drop-center {
+                        0% {
+                        text-shadow: 0 0 0 wheat;
+                        }
+                        100% {
+                        text-shadow: 0 0 20px wheat;
+                        }
+                }
+      
+        /*why Scount WOrd end */
+
+/* Why scount Div animation end */
       

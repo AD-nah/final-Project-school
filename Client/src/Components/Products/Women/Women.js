@@ -112,7 +112,7 @@ class Women extends React.Component {
 
           <div className="row">
             <h4 class="wordCarousel">
-              <span>Why Scount ? </span>
+              <span className="whyScount">Why Scount ? </span>
               <div>
                 <ul class="flip4">
                   <li>Best Quality</li>
@@ -182,7 +182,7 @@ class Women extends React.Component {
                             </li>
                           </ul>
 
-                          <span className="product-new-label">New</span>
+                          {/* <span className="product-new-label">New</span> */}
                         </div>
 
                         <div className="product-content">
