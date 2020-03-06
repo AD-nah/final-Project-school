@@ -48,6 +48,7 @@ class Navbar extends Component {
 
   logoutHandler = () => {
 
+    // redirect to home Page when logoutAction() returned true! 
     if(this.props.logoutAction()){
       this.setState({logoutSuccess: true, redirectSuccess: true}) 
 
@@ -63,8 +64,6 @@ class Navbar extends Component {
       <div >
         <MDBNavbar color="special-color" dark expand="md">
         {this.state.logoutSuccess &&  <SuccessMessage text = 'GoodBay'/> }
-
-
 
         {authMessagesHandler() === "registerdMessage" &&  (<SuccessMessage text = 'Welcome to Your Shop'/>)}
         {authMessagesHandler() === "loggedinMessage" &&  (<SuccessMessage text = 'logged in'/>)}
@@ -111,7 +110,6 @@ class Navbar extends Component {
                 </MDBModalBody>
               </MDBModal>
    
-
               {!this.props.isAuthenticated && (
                 <MDBBtn onClick={this.registerToggle} className="w-60 p-2" color="white" >Register</MDBBtn>
               )}
@@ -124,7 +122,6 @@ class Navbar extends Component {
                 
                 </MDBModalBody>
               </MDBModal>
-         
 
               {this.props.isAuthenticated && (
                 <MDBNavItem>
@@ -138,7 +135,6 @@ class Navbar extends Component {
                         <Link to="/profile"><strong>Profile</strong></Link>
                       </MDBDropdownItem>
 
-
                       <MDBDropdownItem>
                         <Link to="/chart"><strong>My-Chart</strong></Link>
                       </MDBDropdownItem>
@@ -147,12 +143,10 @@ class Navbar extends Component {
                         <Link to="/favorites"><strong>Favorites</strong></Link>
                       </MDBDropdownItem>
 
-
                     </MDBDropdownMenu>
                   </MDBDropdown>
                 </MDBNavItem>
               )}
-
               {this.props.isAuthenticated && (
                 <MDBBtn onClick={this.logoutHandler} className="w-60 p-2" color="white" >Logout</MDBBtn>
               )}
@@ -162,17 +156,11 @@ class Navbar extends Component {
         
         </MDBNavbar>
 
-
-
         <Switch>
-          
           <Route exact path="/" component={Home} />
           <Route path="/home" component={Home} />
           <Route path="/about" component={About} />
-
           <Route path="/products" component={Products} />
-       
-          
           <Route path="/news" component={News} />
           <Route path="/profile" component={Profile} />
           <Route path="/chart" component={Chart} />
