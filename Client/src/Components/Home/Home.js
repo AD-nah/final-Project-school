@@ -26,7 +26,7 @@ export default class Home extends Component {
           <div className="overlay"></div>
           <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
 
-            <source src={video1} type="video/mp4" />
+            {/* <source src={video1} type="video/mp4" /> */}
           </video>
           <div className="container h-100">
             <div className="d-flex h-100 text-center align-items-center">
