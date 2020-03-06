@@ -23,11 +23,11 @@ const userSchema = new mongoose.Schema({
     lastLoggedinDate: {
       type: Date,
       required: false
-    },
+    }/* ,
     lastLoggedOutDate: {
       type: Date,
       required:false
-    }
+    } */
   },
   { timestamps: true }
 )
@@ -39,10 +39,10 @@ userSchema.methods.saveCurrentJWTtoDB = function saveCurrentJWTtoDB(token){
 userSchema.methods.saveLastLoggedInDate = function saveLastLoggedInDate(date){  
   this.lastLoggedinDate = date
 }
-userSchema.methods.saveLastLoggedOutDate = function saveLastLoggedOutDate(date){
-  this.loggedinToken = 'offline'  
-  this.lastLoggedOutDate = date
-}
+// userSchema.methods.saveLastLoggedOutDate = function saveLastLoggedOutDate(date){
+//   this.loggedinToken = 'offline'  
+//   this.lastLoggedOutDate = date
+// }
 userSchema.methods.isValidPassword = function isValidPassword(password) {
   return bcryptjs.compareSync(password, this.hashedPassword)
 }
