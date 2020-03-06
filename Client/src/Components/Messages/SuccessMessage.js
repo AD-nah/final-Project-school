@@ -30,7 +30,6 @@ class SuccessMessage extends Component {
   render(){
     return (
       <div>
-        {/* <ToastContainer style={{position:"absolute",left:"10px"}} autoClose={1200}/> */}
        <Popconfirm />
       </div>
     );
