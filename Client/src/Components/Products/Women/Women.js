@@ -94,6 +94,7 @@ class Women extends React.Component {
     this.setState({ currentArrayOfImages: array[0].protoTypes });
   }
 
+  // to take a Number and convert it to Star
   starMaker(n) {
     let stars = [];
     for (let i = 0; i < n; i++) {
@@ -105,6 +106,7 @@ class Women extends React.Component {
   render() {
     return (
 
+
       <>
         <div className="container">
           <h3 className="h3">Women's Collection</h3>
@@ -113,6 +115,7 @@ class Women extends React.Component {
               ? this.state.data.map((item, index) => {
                   return (
                     <div key={index} className="col-md-3 col-sm-6">
+
 
               
                       <div className="product-grid7"> 
@@ -123,6 +126,7 @@ class Women extends React.Component {
                             <a href="#">{item.name}</a>
                           </h3>
                       </div>
+
               
 
 
@@ -269,5 +273,6 @@ class Women extends React.Component {
     );
   }
 }
+
 
 export default connect(null, { addToBasketAction })(Women);
