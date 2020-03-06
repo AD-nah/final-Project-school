@@ -84,7 +84,9 @@ class Women extends React.Component {
 
   setCurrentProduct(item) {
     this.props.addToBasketAction(item);
-    alert("Added to basket")
+
+    alert('added to Basket')      
+
   }
 
   sendImagesToCarousel(array) {
@@ -102,6 +104,7 @@ class Women extends React.Component {
 
   render() {
     return (
+
       <>
         <div className="container">
           <h3 className="h3">Women's Collection</h3>
@@ -114,12 +117,14 @@ class Women extends React.Component {
               
                       <div className="product-grid7"> 
                         
+
                       <div className="product-content">
                           <h3 className="title">
                             <a href="#">{item.name}</a>
                           </h3>
                       </div>
               
+
 
                       <hr/>
                         <div className="product-image7">
@@ -131,6 +136,7 @@ class Women extends React.Component {
                               style={{maxHeight:"300px"}}
                               src={item.images[0].protoTypes[0]}
                             />
+
 
                            <img
                               className="pic-2"
@@ -167,6 +173,7 @@ class Women extends React.Component {
                           </ul>
 
                           <span className="product-new-label">New</span>
+
                         </div>
                         
 

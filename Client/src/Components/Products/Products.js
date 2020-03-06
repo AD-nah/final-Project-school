@@ -20,18 +20,18 @@ export default class Products extends Component {
                 <MDBNav className="nav-tabs nav-fill">
 
                     <MDBNavItem>
-                        <MDBNavLink to="/products/Outfits">Outfits</MDBNavLink>
-                    </MDBNavItem>
-
-
-                    <MDBNavItem>
-                        <MDBNavLink  to="/products/men">Men</MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                        <MDBNavLink to="/products/women">Women</MDBNavLink>
+                        <MDBNavLink to="/products/women">Women's</MDBNavLink>
                     </MDBNavItem>
                    
+
+
+                    <MDBNavItem>
+                        <MDBNavLink  to="/products/men">Men's</MDBNavLink>
+                    </MDBNavItem>
                  
+                    <MDBNavItem>
+                        <MDBNavLink to="/products/Outfits">Outfits</MDBNavLink>
+                    </MDBNavItem>
 
                     <MDBNavItem>
                     <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
