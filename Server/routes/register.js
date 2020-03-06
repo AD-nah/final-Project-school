@@ -9,7 +9,7 @@ router.post('/',  (req, res) => {
 
     User.findOne({email:req.body.data.email}).then(foundedUser => {
         if(foundedUser){
-            res.status(404).json({errors : {registerError :'Please Register with another Email'}})
+            res.status(404).json({errors : {registerError :'Email is Already Exist..'}})
         }else{
             const newUser = new User({ email : req.body.data.email })
             newUser.setPassword(req.body.data.password)
