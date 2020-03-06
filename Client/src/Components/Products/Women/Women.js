@@ -52,6 +52,7 @@ class Women extends React.Component {
     this.setState({currentArrayOfImages: array})
   }
 
+  // to take a Number and convert it to Star
   starMaker(n) {
     let stars = [];
     for (let i = 0; i < n; i++) {
@@ -62,15 +63,9 @@ class Women extends React.Component {
   render() {
     return (
       <div className="container">
-{/*     
-       {this.state.currentArrayOfImages && (<ImagesModal img= {this.state.currentArrayOfImages[0]} />)} */}
-
-       <Example/>
-
         <h3 className="h3">Women's Collection</h3>
         <div className="row">
-          {this.state.data
-            ? this.state.data.map((item, index) => {
+          {this.state.data ? this.state.data.map((item, index) => {
                 return (
                   <div key={index}  className="col-md-3 col-sm-6">
                     <div className="product-grid7">
@@ -87,7 +82,6 @@ class Women extends React.Component {
                           <img className="pic-2" src={item.images.protoTypes[1]}/>
                           
                         </a>
-
                         <ul className="social">
                         <li>
                                 <a
@@ -134,146 +128,4 @@ class Women extends React.Component {
     );
   }
 }
-
-
-
-
-
-
-function Example() {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  return (
-    <>
-      <Button variant="primary" onClick={handleShow}> show </Button>
-
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-        </Modal.Header>
-        <Modal.Body>
-          Woohoo, you're reading this text in a modal!
-        </Modal.Body>
-      </Modal>
-    </>
-  );
-}
-
-
-
-class ImagesModal extends React.Component {
-  render() {
-    return (
-      <div>
-
-
-        <li>
-          <a href="#" className="fas fa-expand-arrows-alt" data-toggle="modal" data-target="#product_view">Modal</a>
-        </li>
-
-
-
-        <div class="modal fade product_view" id="product_view">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-body">
-                <div class="row">
-                 
-
-
-                    <div class="col-md-12 product_img">
-                        <div id="demo" class="carousel slide" data-ride="carousel">
-                            <ul class="carousel-indicators" >
-                                <li
-                                data-target="#demo"
-                                data-slide-to="0"
-                                class="active"
-                                ></li>
-                                <li data-target="#demo" data-slide-to="1"></li>
-                                <li data-target="#demo" data-slide-to="2"></li>
-                            </ul>
-
-                            <div
-                                class="carousel-inner"
-                                
-                            >
-                                <div class="carousel-item active">
-
-                                <img
-                                    src= {this.props.img}
-                                    alt="Los Angeles"
-                                    width="1100"
-                                    height="500"
-                                />
-                                </div>
-{/* 
-                                <div class="carousel-item">
-                                <img
-                                    src=
-                                    alt="Chicago"
-                                    width="1100"
-                                    height="500"
-                                />
-                               
-                                </div>
-                                <div class="carousel-item">
-                                <img
-                                    src=
-                                    alt="New York"
-                                    width="1100"
-                                    height="500"
-                                />
-                                
-                                </div> */}
-                            </div>
-
-
-                            <a
-                                class="carousel-control-prev"
-                                href="#demo"
-                                data-slide="prev">
-                                    
-                                <i class="fas fa-backward" style={{fontSize:"40px",color:"white"}}></i>
-
-                            </a>
-                            <a
-                                class="carousel-control-next"
-                                href="#demo"
-                                data-slide="next"
-                            >
-                            <i class="fas fa-forward" style={{fontSize:"40px",color:"white"}}></i>
-                            </a>
-                        </div>
-                    </div>
-                    {/* DONT DELETE IT PLEASE */}
-                        {/* <h3 class="cost">
-                        <span class="glyphicon glyphicon-usd"></span> 15.00{" "}
-                        <small class="pre-cost">
-                            <span class="glyphicon glyphicon-usd"></span> 20.00
-                        </small>
-                     </h3> */}
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
 export default connect(null, { addToBasketAction })(Women);
