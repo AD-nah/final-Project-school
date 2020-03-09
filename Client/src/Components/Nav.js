@@ -126,11 +126,19 @@ class Navbar extends Component {
               </MDBNavItem>
 
             </MDBNavbarNav>
+
+
+
+
             <MDBNavbarNav right>
 
               {!this.props.isAuthenticated && ( 
                 <MDBBtn onClick={this.loginToggle} className="w-60 p-2" color="white" >Login</MDBBtn>
               )}
+
+
+
+
               <MDBModal isOpen={this.state.loginModal} toggle={this.loginToggle}>
                 <MDBModalHeader toggle={this.loginToggle}>Please Login</MDBModalHeader>
                 <MDBModalBody>
@@ -141,11 +149,20 @@ class Navbar extends Component {
               </MDBModal>
    
 
+
+
+
+
+
               {!this.props.isAuthenticated && (
                 <MDBBtn onClick={this.registerToggle} className="w-60 p-2" color="white" >Register</MDBBtn>
               )}
 
-              <MDBModal isOpen={this.state.registerModal} toggle={this.registerToggle}>
+
+
+
+
+              <MDBModal isOpen={this.state.registerModal} toggle={this.registerToggle} size="lg">
                 <MDBModalHeader toggle={this.registerToggle}>Please Register</MDBModalHeader>
                 <MDBModalBody>  
 
@@ -155,7 +172,10 @@ class Navbar extends Component {
               </MDBModal>
          
 
+
+
               {this.props.isAuthenticated && (
+
                 <MDBNavItem>
                   <MDBDropdown>
                     <MDBDropdownToggle className="w-78 p-2" caret color="white">
@@ -182,14 +202,17 @@ class Navbar extends Component {
                 </MDBNavItem>
               )}
 
+
+
               {this.props.isAuthenticated && (
                 <MDBBtn onClick={this.logoutHandler} className="w-60 p-2" color="white" >Logout</MDBBtn>
               )}
 
             </MDBNavbarNav>
           </MDBCollapse>
-        
+      
         </MDBNavbar>
+
 
 
 
