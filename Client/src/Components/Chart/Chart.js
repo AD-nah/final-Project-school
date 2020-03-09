@@ -44,11 +44,11 @@ class Chart extends Component {
   
         
         {/*if the chart is empty show this code , if not then show the product*/}
-        <div className="container">
+        <div>
           {console.log('products :', this.state.products)}
           {(!this.state.products || this.state.products.length === 0) &&
             (
-              <div>
+              <div className="container">
                 <div className="mt-3 alert alert-warning" role="alert">
                   <h4 className="alert-heading">No products in your Basket!</h4>
                   <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
@@ -82,16 +82,16 @@ class Chart extends Component {
           {this.state.products && this.state.products.map((item, index) => {
             return (
 
-
-              <div className="row mb-3 mt-3">
-                <div className="col-md-4 text-center"> {/* bg-success*/}
+              <div className="container-fluid col-lg-12">
+              <div className="row mb-3 m-5">
+                <div className="col-md-3 text-center"> {/* bg-success*/}
                   <h3></h3>
                   <img style={{ height: '40vh', width: "15vw" }} src={item.images.protoTypes[0]} className="img-fluid img-thumbnail" alt="Sheep" />
 
 
                 </div>
                 {/*des and Price*/}
-                <div className="col-md-4 text-center "> {/*bg-info*/}
+                <div className="col-md-3 text-center "> {/*bg-info*/}
                   <div className="col">
 
                     <div className="col">
@@ -118,7 +118,7 @@ class Chart extends Component {
                 </div>
                 {/*des and Price*/}
 
-                <div className="col-md-4 text-center"> {/*bg-danger*/}
+                <div className="col-md-3 text-center"> {/*bg-danger*/}
 
                   <div className="col">
                     <h2>Stars</h2>
@@ -149,7 +149,21 @@ class Chart extends Component {
                   </div>
                 
                 </div>
+{/*total start*/}
+                <div className="col-md-2 m-2" style={{backgroundColor: "#DADADA", height:"40vh"}}>
+                <h3 className="font-weight-bold mt-3">Total</h3>
+
+                <span className="mt-3">subtotal <span className="float-right">34,99$</span></span>
+
+                <h5 className="font-weight-bold mt-3">Total (VAT included) <h5 className="float-right">34$</h5></h5>
+
                 
+              <button className="text-center btn btn-warning m-5" >Cack To Chart</button>
+
+                </div>
+                {/*total end*/}
+              </div>
+
               </div>
 
               
