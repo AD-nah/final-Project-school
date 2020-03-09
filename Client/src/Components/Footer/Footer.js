@@ -5,8 +5,8 @@ import './footer.css'
 
 const Footer = () => {
     return (
-        <MDBFooter className="page-footer stylish-color-dark pt-4">
-            <MDBContainer fluid className="container text-center text-md-left">
+        <MDBFooter className="page-footer stylish-color-dark pt-4 ">{/*fixed-bottom*/}
+            <MDBContainer fluid className="container text-center text-md-left ">
                 <MDBRow>
                     <MDBCol className="col-md-4 mx-auto text-center">
                         <h5 className="font-weight-bold text-uppercase mt-3 mb-4">Footer Content</h5>
