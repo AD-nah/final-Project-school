@@ -37,7 +37,23 @@ class Chart extends Component {
     return (
       <>
         <h3 className="card-header text-center font-weight-bold text-uppercase py-4 ">MY Chart</h3>
+        {/*if the chart is empty show this code , if not then show the product*/}
         <div className="container">
+          {console.log('products :',this.state.products)}
+        {(!this.state.products || this.state.products.length === 0 ) && 
+          (          
+
+          <div className="mt-3 alert alert-warning" role="alert">
+            <h4 className="alert-heading">No products in your Basket!</h4>
+            <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+            <hr />
+            <p className="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+          </div>
+
+        
+
+
+        )  }
           {this.state.products && this.state.products.map((item, index) => {
             return (
 
@@ -55,7 +71,7 @@ class Chart extends Component {
 
                     <div className="col">
                       <h1>Name</h1>
-                      <p>{item.name}</p>
+                      <p className="font-weight-bold">{item.name}</p>
 
 
                     </div>
@@ -67,7 +83,7 @@ class Chart extends Component {
 
                   <span className="table-remove"><button type="button"
                     onClick={this.delete.bind(this, item)}
-                    className="btn btn-danger btn-rounded btn-sm my-0 bg-info w-25">Delete</button></span>
+                    className="btn btn-info btn-rounded btn-sm my-0  w-25">Delete</button></span>
                   {/* <div className="col">
                 <h1>Price</h1>
                 <span>$66</span>
@@ -77,7 +93,7 @@ class Chart extends Component {
                 </div>
                 {/*des and Price*/}
 
-                <div className="col-md-4 text-center "> {/*bg-danger*/}
+                <div className="col-md-4 text-center"> {/*bg-danger*/}
 
                   <div className="col">
                     <h2>Stars</h2>
@@ -88,7 +104,7 @@ class Chart extends Component {
                   
                   <div className="col mt-5">
                     <h2>Price</h2>
-                    <h3 className="text-danger ">{item.prices}$</h3>
+                    <h3 className="text-danger font-weight-bold">{item.prices}$</h3>
 
                     <select style={{ height: "30px", width: "100px", backgroundColor: "#FCC400" }} className="mr-2 md-form colorful-select dropdown-primary">
                       <option value="1">color 1</option>                           <option value="2">color 2</option>                          <option value="3">color 3</option>                           <option value="4">color 4</option>
