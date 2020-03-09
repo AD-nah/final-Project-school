@@ -85,15 +85,12 @@ class Navbar extends Component {
 
   render(){
 
-   const specialCaseNavbarStyles = {
-      WebkitBoxOrient: "horizontal",
-      flexDirection: "row"
-    };
+  
 
     return (
       <div >
        
-        <MDBNavbar color="special-color" dark expand="md" double expand="md" fixed="top" scrolling>
+        <MDBNavbar color="special-color" dark expand="md"  fixed="top" scrolling>
         {this.state.logoutSuccess &&  <SuccessMessage text = 'Good Bey'/> }
 
 
