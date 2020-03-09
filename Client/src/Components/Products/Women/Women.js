@@ -194,10 +194,8 @@ class Women extends React.Component {
         {/* Back to top btn */}
         <div>
           <BackTop>
-            <i
-              className="fas fa-chevron-circle-up"
-              style={{ color: "orange", fontSize: "40px" }}
-            ></i>
+          <i className="fas fa-angle-double-up" style={{color:"orange",fontSize:"40px"}}></i>
+               
           </BackTop>
         </div>
 
