@@ -129,14 +129,18 @@ class Women extends React.Component {
                         </div>
 
                         <hr />
-                        <div className="product-image7">
-                          <a href="#">
 
-                            <img
-                              className="pic-1"
-                              style={{ maxHeight: "300px" }}
-                              src={item.images.protoTypes[0]}
-                            />
+                        
+                        <div className="product-image7">
+                        <li onClick={()=>this.sendImagesToCarousel(item.images)}>
+                          <a  onClick={this.toggle(13)}>
+
+                          
+                                 <img
+                                  className="pic-1"
+                                  style={{ maxHeight: "300px" }}
+                                  src={item.images.protoTypes[0]}/>
+                       
 
                             <img
                               className="pic-2"
@@ -145,6 +149,9 @@ class Women extends React.Component {
                             />
 
                           </a>
+                          </li>
+
+
 
                           <ul className="social">
 
@@ -178,8 +185,8 @@ class Women extends React.Component {
                             
 
                            
-                              <img src={ImageZoomAnim} />
-                           
+                              {/* <img src={ImageZoomAnim} />
+                            */}
                           
 
                           <hr />
