@@ -18,7 +18,7 @@ import {
   MDBMask
 } from "mdbreact";
 
-import ImageZoomAnim from "../../../imgs/cadinfluencer1.jpg";
+//import ImageZoomAnim from "../../../imgs/cadinfluencer1.jpg";
 
 // ----------------------------------
 
@@ -178,7 +178,7 @@ class Women extends React.Component {
                             
 
                            
-                              <img src={ImageZoomAnim} />
+                              {/* <img src={ImageZoomAnim} /> */}
                            
                           
 
