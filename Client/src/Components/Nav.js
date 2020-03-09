@@ -23,14 +23,39 @@ import Chart from './Chart/Chart'
 import Favorites from './Favorites/Favorites';
 
 
+
 class Navbar extends Component {
   state = {
     isOpen: false,
     registerModal: false,
     loginModal: false,
     logoutSuccess: false,
-    redirectSuccess:false
+    redirectSuccess:false,
+
+    // shrink om scroling
+    breakWidth: 1700,
+      windowWidth: 0
   }
+
+
+  // handle the navbar resize on scroll
+  componentDidMount() {
+    this.handleResize();
+    window.addEventListener("resize", this.handleResize);
+  }
+
+// handle the navbar resize on scroll
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize);
+  }
+
+// handle the navbar resize on scroll
+  handleResize = () =>
+  this.setState({
+    windowWidth: window.innerWidth
+  });
+
+
 
   toggleCollapse = () => {
     this.setState({isOpen: !this.state.isOpen});
@@ -59,9 +84,16 @@ class Navbar extends Component {
   }
 
   render(){
+
+   const specialCaseNavbarStyles = {
+      WebkitBoxOrient: "horizontal",
+      flexDirection: "row"
+    };
+
     return (
       <div >
-        <MDBNavbar color="special-color" dark expand="md">
+       
+        <MDBNavbar color="special-color" dark expand="md" double expand="md" fixed="top" scrolling>
         {this.state.logoutSuccess &&  <SuccessMessage text = 'Good Bey'/> }
 
 
