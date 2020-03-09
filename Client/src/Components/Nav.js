@@ -62,7 +62,7 @@ class Navbar extends Component {
     return (
       <div >
         <MDBNavbar color="special-color" dark expand="md">
-        {this.state.logoutSuccess &&  <SuccessMessage text = 'GoodBay'/> }
+        {this.state.logoutSuccess &&  <SuccessMessage text = 'Good Bey'/> }
 
 
 
