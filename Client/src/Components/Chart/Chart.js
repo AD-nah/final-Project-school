@@ -1,6 +1,9 @@
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import empty from './images/emptyb.png';
+import paypal from './images/paypal.png';
+import basket from './images/basket.png';
+
 
 class Chart extends Component {
   constructor(props) {
@@ -13,7 +16,7 @@ class Chart extends Component {
 
   // to remove duplicated items, thats come from the redux Store, and then save it inside the Compoment's state 
   componentDidMount() {
-    this.setState({ products: this.props.item.filter((item, index) => this.props.item.indexOf(item) === index)})
+    this.setState({ products: this.props.item.filter((item, index) => this.props.item.indexOf(item) === index) })
   }
 
   // to take a Number and convert it to Star
@@ -36,29 +39,51 @@ class Chart extends Component {
 
     return (
       <>
-        <h3 className="card-header text-center font-weight-bold text-uppercase py-4 ">MY Chart</h3>
+      
+        <h3 className="card-header text-center font-weight-bold text-uppercase py-4 "><img className="float-right " src={basket}/>MY Chart </h3>
+  
+        
         {/*if the chart is empty show this code , if not then show the product*/}
         <div className="container">
-          {console.log('products :',this.state.products)}
-        {(!this.state.products || this.state.products.length === 0 ) && 
-          (          
+          {console.log('products :', this.state.products)}
+          {(!this.state.products || this.state.products.length === 0) &&
+            (
+              <div>
+                <div className="mt-3 alert alert-warning" role="alert">
+                  <h4 className="alert-heading">No products in your Basket!</h4>
+                  <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                  <hr />
+                  <p className="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
 
-          <div className="mt-3 alert alert-warning" role="alert">
-            <h4 className="alert-heading">No products in your Basket!</h4>
-            <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
-            <hr />
-            <p className="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
-          </div>
+                </div>
+                <hr />
+                <div className="container row">
+                  <div className="col-md-6" >
+                    <img className="img-fluid" src={empty} style={{ height: "50vh" }} />
+                  </div>
 
-        
+                  <div className="col-md-6 text-center">
+                    <h1>Your Basket is empty </h1>
+               
+                    <button  type="button"
+                      className="btn btn-info btn-rounded btn-sm my-0 ">Go back to Product</button>
+
+                  </div>
+
+                </div>
+
+              </div>
 
 
-        )  }
+
+
+
+            )}
           {this.state.products && this.state.products.map((item, index) => {
             return (
 
 
-              <div className="row mb-3 mt-3" style={{backgroundColor:"#F0ECDF"}}>
+              <div className="row mb-3 mt-3">
                 <div className="col-md-4 text-center"> {/* bg-success*/}
                   <h3></h3>
                   <img style={{ height: '40vh', width: "15vw" }} src={item.images.protoTypes[0]} className="img-fluid img-thumbnail" alt="Sheep" />
@@ -70,12 +95,12 @@ class Chart extends Component {
                   <div className="col">
 
                     <div className="col">
-                      <h1>Name</h1>
+                      {/* <h1>Name</h1> */}
                       <p className="font-weight-bold">{item.name}</p>
 
 
                     </div>
-                    <hr/>
+                    <hr />
                     <h3 className="mt-5">Descreption</h3>
                     <p style={{ fontSize: "1rem" }}>{item.description}</p>
 
@@ -101,7 +126,7 @@ class Chart extends Component {
 
 
                   </div>
-                  
+
                   <div className="col mt-5">
                     <h2>Price</h2>
                     <h3 className="text-danger font-weight-bold">{item.prices}$</h3>
@@ -117,11 +142,17 @@ class Chart extends Component {
 
                     </select>
 
-
+                  <div className="">
+                    <h2>Payment</h2>
+                    <img src={paypal} />
                   </div>
-
+                  </div>
+                
                 </div>
+                
               </div>
+
+              
 
 
 
@@ -303,7 +334,7 @@ export default connect(mapStateToProps)(Chart)
 //                       <tr>
 //                         <td className="pt-3-half" contenteditable="true" style={{width:"40vw"}}>
 //                           <img style={{ height: '40vh', width: "15vw" }} src={item.images.protoTypes[0]} className="img-fluid img-thumbnail" alt="Sheep" />
-                            
+
 //                           <select className=" md-form colorful-select dropdown-primary bg-danger w-50 h-100">
 //                             <option value="1">color 1</option>                           <option value="2">color 2</option>                          <option value="3">color 3</option>                           <option value="4">color 4</option>
 //                           </select>
@@ -315,7 +346,7 @@ export default connect(mapStateToProps)(Chart)
 
 //                           </select>
 //                         </td>
-                        
+
 
 //                         <td className="pt-3-half" contenteditable="true">{item.name}</td>
 //                         <td className="pt-3-half" contenteditable="true">{item.description}</td>
