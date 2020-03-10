@@ -1,88 +1,84 @@
 import React from "react";
-import { MDBContainer, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBModalFooter } from 'mdbreact';
+import {
+  MDBContainer,
+  MDBCol,
+  MDBInput,
+  MDBBtn,
+  MDBIcon,
+  MDBModalFooter
+} from "mdbreact";
 //import { toast } from "react-toastify";
 
-
-
-import Validator from 'validator'
-import ErrorMessage from '../Messages/ErrorMessage'
+import Validator from "validator";
+import ErrorMessage from "../Messages/ErrorMessage";
 
 //Loading Spinner
-import { SemipolarLoading } from 'react-loadingg';
-
-
-
-
+import { SemipolarLoading } from "react-loadingg";
 
 class RegisterForm extends React.Component {
   constructor(props) {
-    super(props)
-  
+    super(props);
+
     this.state = {
-      data:{
-          email:'ahmad.alnahlawi@icloud.com',
-          password:'asdf1234'
+      data: {
+        email: "ahmad.alnahlawi@icloud.com",
+        password: "asdf1234"
       },
       loading: false,
-      errors:{}
-      }
-    }
-
-    onChange = (e) => this.setState({
-      data:{
-          ...this.state.data, 
-          [e.target.name] :e.target.value
-      }
-    })
-
-  onSubmit = (e) =>{
-    e.preventDefault()
-    const errors = this.validate( this.state.data ) // do not do enything else if we have errors 
-    this.setState({ errors })
-
-    if(Object.keys(errors).length === 0){
-
-        this.setState({ loading: true })
-
-        return this.props
-                        .submit(this.state.data).then((res) => {
-
-                          console.log('auth data is successfully received (RegisterForm.js)')
-
-                          return this.setState({loading: false})
-
-                        }).catch((err) => { 
-
-                            console.log('receiving auth data is failed (RegisterForm.js) Server Error is: ', err)
-
-                          return this.setState({ errors : err.response.data.errors , loading: false })
-
-                        })
-    }
+      errors: {}
+    };
   }
 
-  validate = (data) =>{
+  onChange = e =>
+    this.setState({
+      data: {
+        ...this.state.data,
+        [e.target.name]: e.target.value
+      }
+    });
 
-    const errors = {}; // the errors var will be empty if we don`t have errors 
-    if(!Validator.isEmail(data.email)) errors.email = 'Email is required';
-    if(!data.password ) errors.password = 'Password is required';  
+  onSubmit = e => {
+    e.preventDefault();
+    const errors = this.validate(this.state.data); // do not do enything else if we have errors
+    this.setState({ errors });
+
+    if (Object.keys(errors).length === 0) {
+      this.setState({ loading: true });
+
+      return this.props
+        .submit(this.state.data)
+        .then(res => {
+          console.log("auth data is successfully received (RegisterForm.js)");
+
+          return this.setState({ loading: false });
+        })
+        .catch(err => {
+          console.log(
+            "receiving auth data is failed (RegisterForm.js) Server Error is: ",
+            err
+          );
+
+          return this.setState({
+            errors: err.response.data.errors,
+            loading: false
+          });
+        });
+    }
+  };
+
+  validate = data => {
+    const errors = {}; // the errors var will be empty if we don`t have errors
+    if (!Validator.isEmail(data.email)) errors.email = "Email is required";
+    if (!data.password) errors.password = "Password is required";
 
     return errors;
-  }
+  };
 
-  
-  render(){
+  render() {
     return (
-      <MDBContainer>
-        
-          <MDBCol  className= ' w-100 ' lg>
-              <form onSubmit = { this.onSubmit }>
-             
-             
-              {this.state.loading && <SemipolarLoading  />}
-              {this.state.errors.registerError && <ErrorMessage text ={this.state.errors.registerError} />}
-
-                <MDBInput
+      <MDBContainer>          <MDBCol  className= ' w-100 ' lg>
+              <form onSubmit = { this.onSubmit }>              {this.state.loading && <SemipolarLoading  />}
+              {this.state.errors.registerError && <ErrorMessage text ={this.state.errors.registerError} />}                <MDBInput
                 className='text-dark'
                   label="Your email"
                   type="email"
@@ -90,32 +86,21 @@ class RegisterForm extends React.Component {
                   success=""
                   name = 'email'
                   onChange = {this.onChange}
-                  value = {this.state.data.email} 
+                  value = {this.state.data.email}
                 />
-                  <br/>
-                 
-
-                {this.state.errors.email &&  <ErrorMessage text ={this.state.errors.email}/>}
-                
-                <MDBInput
+                  <br/>                {this.state.errors.email &&  <ErrorMessage text ={this.state.errors.email}/>}                <MDBInput
                    className='text-dark'
                   label="Your password"
                   type="password"
                   name = 'password'
                   onChange = {this.onChange}
-                  value = {this.state.data.password} 
-                />
-
-                {this.state.errors.password &&  <ErrorMessage text = {this.state.errors.password}/>}
-
-                <p className="font-small blue-text d-flex justify-content-end pb-3">
+                  value = {this.state.data.password}
+                />                {this.state.errors.password &&  <ErrorMessage text = {this.state.errors.password}/>}                <p className="font-small blue-text d-flex justify-content-end pb-3">
                   Forgot
                   <a href="#!" className="blue-text ml-1">
                     Password?
                   </a>
-                </p>
-
-                <div className="text-center mb-3">
+                </p>                <div className="text-center mb-3">
                   <MDBBtn
                     type="submit"
                     gradient="blue"
@@ -125,15 +110,7 @@ class RegisterForm extends React.Component {
                     Register
                   </MDBBtn>
                 </div>
-              </form>
-
-
-
-
-
-                <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
-
-                  or Login in with:
+              </form>                <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">                  or Login in with:
                 </p>
                 <div className="row my-3 d-flex justify-content-center">
                   <MDBBtn
@@ -160,9 +137,7 @@ class RegisterForm extends React.Component {
                   >
                     <MDBIcon fab icon="google-plus-g" className="blue-text" />
                   </MDBBtn>
-                </div>
-            
-              <MDBModalFooter className="mx-5 pt-3 mb-1">
+                </div>              <MDBModalFooter className="mx-5 pt-3 mb-1">
                 <p className="font-small grey-text d-flex justify-content-end">
                   Not a member?
                   <a href="#!" className="blue-text ml-1">
@@ -170,10 +145,10 @@ class RegisterForm extends React.Component {
                   </a>
                 </p>
               </MDBModalFooter>
-          </MDBCol>      
+          </MDBCol>
       </MDBContainer>
-    )
+    );
   }
-} 
+}
 
 export default RegisterForm;
