@@ -19,7 +19,7 @@ import LoginPage from './Pages/LoginPage'
 import RegisterPage from './Pages/RegisterPage'
 
 import Profile from './Profile/Profile'
-import Chart from './Chart/Chart'
+import Basket from './Basket/Basket'
 import Favorites from './Favorites/Favorites';
 
 
@@ -73,6 +73,7 @@ class Navbar extends Component {
 
   logoutHandler = () => {
 
+    // redirect to home Page when logoutAction() returned true! 
     if(this.props.logoutAction()){
       this.setState({logoutSuccess: true, redirectSuccess: true}) 
 
@@ -90,10 +91,8 @@ class Navbar extends Component {
     return (
       <div >
        
-        <MDBNavbar color="special-color" dark expand="md"  fixed="top" scrolling>
+        <MDBNavbar color="special-color" dark expand="md"   scrolling>
         {this.state.logoutSuccess &&  <SuccessMessage text = 'Good Bey'/> }
-
-
 
         {authMessagesHandler() === "registerdMessage" &&  (<SuccessMessage text = 'Welcome to Your Shop'/>)}
         {authMessagesHandler() === "loggedinMessage" &&  (<SuccessMessage text = 'logged in'/>)}
@@ -114,7 +113,7 @@ class Navbar extends Component {
               </MDBNavItem>
 
               <MDBNavItem >
-                <MDBNavLink  className=" font-weight-bold" to='/products'>Products</MDBNavLink>
+                <MDBNavLink  className=" font-weight-bold" to='/products/women'>Products</MDBNavLink>
               </MDBNavItem>
 
               <MDBNavItem>
@@ -170,7 +169,6 @@ class Navbar extends Component {
                 
                 </MDBModalBody>
               </MDBModal>
-         
 
 
 
@@ -187,15 +185,13 @@ class Navbar extends Component {
                         <Link to="/profile"><strong>Profile</strong></Link>
                       </MDBDropdownItem>
 
-
                       <MDBDropdownItem>
-                        <Link to="/chart"><strong>My-Chart</strong></Link>
+                        <Link to="/basket"><strong>My-Basket</strong></Link>
                       </MDBDropdownItem>
 
                       <MDBDropdownItem>
                         <Link to="/favorites"><strong>Favorites</strong></Link>
                       </MDBDropdownItem>
-
 
                     </MDBDropdownMenu>
                   </MDBDropdown>
@@ -217,17 +213,13 @@ class Navbar extends Component {
 
 
         <Switch>
-          
           <Route exact path="/" component={Home} />
           <Route path="/home" component={Home} />
           <Route path="/about" component={About} />
-
           <Route path="/products" component={Products} />
-       
-          
           <Route path="/news" component={News} />
           <Route path="/profile" component={Profile} />
-          <Route path="/chart" component={Chart} />
+          <Route path="/basket" component={Basket} />
           <Route path="/favorites" component={Favorites} />
         </Switch>
 
@@ -241,7 +233,7 @@ class Navbar extends Component {
 
 const mapStateToProps = (state) =>{
   return{
-    isAuthenticated:  !!state.userReducer.token
+    isAuthenticated:  state.userReducer.token
   }
 }
 

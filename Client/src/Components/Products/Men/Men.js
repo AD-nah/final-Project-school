@@ -1,6 +1,6 @@
 import React from "react";
-import axios from 'axios'
-
+import { fetchMenProducts } from '../../../Redux/Actions/products'
+import { connect } from "react-redux";
 // ----------------------------------------------------------------------
 
 // Import Antd  library
@@ -22,7 +22,7 @@ import axios from 'axios'
 
 
 
-export default class Men extends React.Component {
+class Men extends React.Component {
   constructor(props) {
       super(props)
   
@@ -34,9 +34,8 @@ export default class Men extends React.Component {
 
 
   componentDidMount(){
-  
-    axios.get('/product/mens').then(res => res.data.mens).then(product => {
-        this.setState({data : product})
+    this.props.fetchMenProducts().then(res => {
+        this.setState({data: this.props.getMenProducts.menProducts})
     })
   }
 
@@ -49,7 +48,6 @@ export default class Men extends React.Component {
 }
   render() {
     return (
-       
        <div className="container">
             <h3 className="h3">Women's Collection </h3>
             <div className="row">
@@ -103,3 +101,10 @@ export default class Men extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        getMenProducts : state.productReducer
+    }
+}
+export default connect(mapStateToProps, {fetchMenProducts})(Men)
