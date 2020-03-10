@@ -47,9 +47,8 @@ class Chart extends Component {
         
         {/*if the chart is empty show this code , if not then show the product*/}
         <div className="container">
-          {console.log('products :', this.state.products)}
-          {(!this.state.products || this.state.products.length === 0) &&
-            (
+          {(!this.state.products || this.state.products.length === 0) && (
+
               <div>
                 <div className="mt-3 alert alert-warning" role="alert">
                   <h4 className="alert-heading">No products in your Basket!</h4>
@@ -63,51 +62,35 @@ class Chart extends Component {
                   <div className="col-md-6" >
                     <img className="img-fluid" src={empty} style={{ height: "50vh" }} />
                   </div>
-
                   <div className="col-md-6 text-center">
                     <h1>Your Basket is empty </h1>
-               
+    
                     <button  type="button"
                       className="btn btn-info btn-rounded btn-sm my-0 ">Go back to Product</button>
-
                   </div>
-
                 </div>
-
               </div>
+          )}
 
-
-
-
-
-            )}
           {this.state.products && this.state.products.map((item, index) => {
+
             return (
-
-
-              <div className="row mb-3 mt-3">
+              <div key = {index} className="row mb-3 mt-3">
                 <div className="col-md-4 text-center"> {/* bg-success*/}
                   <h3></h3>
                   <img style={{ height: '40vh', width: "15vw" }} src={item.images.protoTypes[0]} className="img-fluid img-thumbnail" alt="Sheep" />
-
-
                 </div>
                 {/*des and Price*/}
                 <div className="col-md-4 text-center "> {/*bg-info*/}
                   <div className="col">
-
                     <div className="col">
                       {/* <h1>Name</h1> */}
                       <p className="font-weight-bold">{item.name}</p>
-
-
                     </div>
                     <hr />
                     <h3 className="mt-5">Descreption</h3>
                     <p style={{ fontSize: "1rem" }}>{item.description}</p>
-
                   </div>
-
                   <span className="table-remove"><button type="button"
                     onClick={this.delete.bind(this, item)}
                     className="btn btn-info btn-rounded btn-sm my-0  w-25">Delete</button></span>
@@ -131,17 +114,20 @@ class Chart extends Component {
 
                   <div className="col mt-5">
                     <h2>Price</h2>
-                    <h3 className="text-danger font-weight-bold">{item.prices}$</h3>
+                    <h3 className="text-danger font-weight-bold">{item.prices[0]}$</h3>
 
                     <select style={{ height: "30px", width: "100px", backgroundColor: "#FCC400" }} className="mr-2 md-form colorful-select dropdown-primary">
-                      <option value="1">color 1</option>                           <option value="2">color 2</option>                          <option value="3">color 3</option>                           <option value="4">color 4</option>
+                        <option value="1">color 1</option>
+                        <option value="2">color 2</option>
+                        <option value="3">color 3</option>
+                        <option value="4">color 4</option>
                     </select>
+
                     <select style={{ height: "30px", width: "100px", backgroundColor: "#FCC400" }} className=" md-form  dropdown-primary ">
                       <option value="1">Size 1</option>
                       <option value="2">Size 2</option>
                       <option value="3">Size 3</option>
                       <option value="4">Size 4</option>
-
                     </select>
 
                   <div className="">
