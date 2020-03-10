@@ -91,7 +91,7 @@ class Navbar extends Component {
     return (
       <div >
        
-        <MDBNavbar color="special-color" dark expand="md"  fixed="top" scrolling>
+        <MDBNavbar color="special-color" dark expand="md"   scrolling>
         {this.state.logoutSuccess &&  <SuccessMessage text = 'Good Bey'/> }
 
         {authMessagesHandler() === "registerdMessage" &&  (<SuccessMessage text = 'Welcome to Your Shop'/>)}
