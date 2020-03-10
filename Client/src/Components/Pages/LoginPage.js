@@ -32,11 +32,11 @@ class LoginPage extends Component {
 
     render() {
 
-        return (
-        <div>
-            {!this.state.redirect ? <LoginForm submit = {this.submit} /> : <Redirect to = '/products/women'/>}
-        </div>
-        )
+    return (
+    <div>
+    {!this.state.redirect ? <LoginForm submit = {this.submit} /> : <Redirect to = '/home'/>}
+    </div>
+    )
     }
 }
 
