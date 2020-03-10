@@ -88,7 +88,7 @@ class Women extends React.Component {
         <div className="container">
           <h3 className="h3">Women's Collection</h3>
 
-          <div >
+          <div>
             <h4 class="wordCarousel">
               <span className="whyScount">Why Scount ? </span>
               <div>
@@ -177,8 +177,6 @@ class Women extends React.Component {
 
                         {/* <img src={ImageZoomAnim} />
                          */}
-
-
                       </div>
                     </div>
                   </div>
@@ -194,8 +192,10 @@ class Women extends React.Component {
         {/* Back to top btn */}
         <div>
           <BackTop>
-          <i className="fas fa-angle-double-up" style={{color:"black",fontSize:"40px"}}></i>
-               
+            <i
+              className="fas fa-angle-double-up"
+              style={{ color: "black", fontSize: "40px" }}
+            ></i>
           </BackTop>
         </div>
 

@@ -163,7 +163,7 @@ class Navbar extends Component {
 
 
               <MDBModal isOpen={this.state.registerModal} toggle={this.registerToggle} size="lg">
-                <MDBModalHeader toggle={this.registerToggle}>Please Register</MDBModalHeader>
+                <MDBModalHeader toggle={this.registerToggle}></MDBModalHeader>
                 <MDBModalBody>  
 
                   <RegisterPage closeRegister = {this.registerToggle}/>
