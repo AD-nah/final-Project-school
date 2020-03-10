@@ -11,7 +11,6 @@ import {
   MDBModal,
   MDBModalBody,
   MDBCarousel,
-  MDBCarouselCaption,
   MDBCarouselInner,
   MDBCarouselItem,
   MDBView,
@@ -86,7 +85,7 @@ class Women extends React.Component {
     return (
       <>
         <div className="container">
-          <h3 className="h3">Women's Collection</h3>
+      
 
           <div>
             <h4 class="wordCarousel">
@@ -102,12 +101,13 @@ class Women extends React.Component {
             </h4>
           </div>
 
-          <div className="space-ten"></div>
+        
+    
 
           <div className="row">
             {this.state.data ? (
               this.state.data.map((item, index) => {
-                return (
+                return (<>
                   <div key={index} className="col-md-3 col-sm-6">
                     <div className="product-grid7">
                       <div className="product-content">
@@ -115,8 +115,6 @@ class Women extends React.Component {
                           <a href="#">{item.name}</a>
                         </h3>
                       </div>
-
-                      <hr />
 
                       <div className="product-image7">
                         <li
@@ -128,6 +126,9 @@ class Women extends React.Component {
                               style={{ maxHeight: "300px" }}
                               src={item.images.protoTypes[0]}
                             />
+
+
+
 
                             <img
                               className="pic-2"
@@ -179,11 +180,16 @@ class Women extends React.Component {
                          */}
                       </div>
                     </div>
+                       <div className="space-ten"></div>
+                      <div className="space-ten"></div>
+                      <div className="space-ten"></div>
+                
                   </div>
-                );
+                </>);
               })
             ) : (
-              <div>
+              <div style={{height:"200px",width:"400px",textAlign:"center",position:"relative",top:"50px",left:"350px"}}>
+                <span style={{fontSize:"25px",fontWeight:"10px"}}>Loading Products Chill ... </span>
                 <WaveLoading />
               </div>
             )}
