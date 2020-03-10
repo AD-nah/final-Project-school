@@ -102,6 +102,7 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import Axios from 'axios'
 class Chart extends Component {
 
   constructor(props) {
@@ -114,7 +115,9 @@ class Chart extends Component {
 
   // to remove duplicated items, thats come from the redux Store, and then save it inside the Compoment's state 
   componentDidMount() {
-    this.setState({ products: this.props.item.filter((item, index) => this.props.item.indexOf(item) === index) })
+    setTimeout(()=> {
+      this.setState({ products: this.props.item.filter((item, index) => this.props.item.indexOf(item) === index) })
+    },100)
   }
 
   // to take a Number and convert it to Star
@@ -146,10 +149,9 @@ class Chart extends Component {
               <table class="table table-bordered table-responsive-md table-striped text-center">
                 <thead>
                   <tr>
-                    <th >Photo og Product</th>
+                    <th >Photo Product</th>
                     <th >Name</th>
                     <th >Description</th>
-
                     <th >Charts</th>
                     <th >Price</th>
                     <th >Delete</th>
@@ -159,11 +161,14 @@ class Chart extends Component {
                   {this.state.products && this.state.products.map((item, index) => {
                     return (
                       <tr>
-                        <td className="pt-3-half" contenteditable="true">
+                        <td className="pt-6-half" contenteditable="true">
                           <img style={{ height: '180px', width: "180px" }} src={item.images.protoTypes[0]} className="img-fluid img-thumbnail" alt="Sheep" />
 
                           <select className=" md-form colorful-select dropdown-primary bg-danger w-50 h-100">
-                            <option value="1">color 1</option>                           <option value="2">color 2</option>                          <option value="3">color 3</option>                           <option value="4">color 4</option>
+                            <option value="1">color 1</option>
+                            <option value="2">color 2</option>
+                            <option value="3">color 3</option>
+                            <option value="4">color 4</option>
                           </select>
                           <select className=" md-form  dropdown-primary bg-danger w-50 h-100">
                             <option value="1">Size 1</option>
@@ -177,8 +182,7 @@ class Chart extends Component {
 
                         <td className="pt-3-half" contenteditable="true">{item.name}</td>
                         <td className="pt-3-half" contenteditable="true">{item.description}</td>
-                        <td className
-                          ="w-25">{this.starMaker(item.rating)}</td>
+                        <td className="w-25">{this.starMaker(item.rating)}</td>
                         <td>{item.prices}$</td>
                         <td>
                           <span className="table-remove"><button type="button" onClick={this.delete.bind(this, item)}
