@@ -82,7 +82,7 @@ class Chart extends Component {
           {this.state.products && this.state.products.map((item, index) => {
             return (
 
-              <div className="container-fluid col-lg-12">
+              <div className="container-fluid col-lg-12 border border-dark">
               <div className="row mb-3 m-5">
                 <div className="col-md-3 text-center"> {/* bg-success*/}
                   <h3></h3>
