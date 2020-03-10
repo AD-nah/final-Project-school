@@ -84,11 +84,11 @@ class Women extends React.Component {
   render() {
     return (
       <>
-        <div className="container">
-      
+        <div className="container" style={{maxWidth:"100%"}}>
 
-          <div>
-            <h4 class="wordCarousel">
+
+          <div className="container" style={{height:"200px "}}>
+            <h4 class="wordCarousel" style={{height:"100px "}}>
               <span className="whyScount">Why Scount ? </span>
               <div>
                 <ul class="flip4">
@@ -123,7 +123,7 @@ class Women extends React.Component {
                           <a onClick={this.toggle(13)}>
                             <img
                               className="pic-1"
-                              style={{ maxHeight: "300px" }}
+                              style={{ maxHeight: "400px" }}
                               src={item.images.protoTypes[0]}
                             />
 
@@ -188,13 +188,23 @@ class Women extends React.Component {
                 </>);
               })
             ) : (
-              <div style={{height:"200px",width:"400px",textAlign:"center",position:"relative",top:"50px",left:"350px"}}>
-                <span style={{fontSize:"25px",fontWeight:"10px"}}>Loading Products Chill ... </span>
-                <WaveLoading />
+              <div style={{height:"500px",width:"400px",textAlign:"center",position:"relative",top:"50px",left:"350px"}}>
+                <span style={{fontSize:"25px",fontWeight:"10px"}}>Loading Products Chill ...
+                <WaveLoading /> </span>
+                
               </div>
             )}
+
+
+
           </div>
         </div>
+
+
+
+
+
+
         {/* Back to top btn */}
         <div>
           <BackTop>
@@ -204,6 +214,11 @@ class Women extends React.Component {
             ></i>
           </BackTop>
         </div>
+
+
+
+
+
 
         {/* // images modal */}
         <div>
