@@ -15,9 +15,9 @@ export default class Products extends Component {
     render() {
         return (<>
       
-            <div style={{padding:"40px",margin:"40px"}} >
+            <div style={{padding:"40px",margin:"40px",fontSize:"20px"}} >
 
-                <MDBNav className="nav-tabs nav-fill ">
+                <MDBNav className="nav-fill ">
 
                     <MDBNavItem>
                         <MDBNavLink className="text-dark" to="/products/women">Women's</MDBNavLink>
@@ -40,12 +40,9 @@ export default class Products extends Component {
                             aria-label="Search" />
                     </form>
                     </MDBNavItem>
-
-                
                 </MDBNav>
 
             </div>
-                 
 
             <div>
                 <Switch>
