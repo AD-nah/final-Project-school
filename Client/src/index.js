@@ -35,7 +35,7 @@ import {userLoggedIn} from './Redux/Actions/auth'
 ReactDOM.render(
   <BrowserRouter>
       <Provider store = {store}>
-          <App />
+          <App/>
       </Provider>
   </BrowserRouter>, document.getElementById('root')
 )
