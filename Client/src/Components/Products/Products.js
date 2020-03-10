@@ -15,7 +15,7 @@ export default class Products extends Component {
     render() {
         return (<>
       
-            <div>
+            <div style={{padding:"40px",margin:"40px"}}>
 
                 <MDBNav className="nav-tabs nav-fill">
 

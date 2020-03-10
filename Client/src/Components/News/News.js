@@ -9,8 +9,6 @@ import api from '../../APIs/AuthApi';
        
 
    
-
-
 export default class News extends Component {
     constructor(props) {
         super(props)
@@ -109,7 +107,8 @@ export default class News extends Component {
                             <div>
                                     <BackTop>
                                     
-                                    <i className="fas fa-chevron-circle-up" style={{color:"orange",fontSize:"40px"}}></i>
+                                    <i className="fas fa-angle-double-up" style={{color:"orange",fontSize:"40px"}}></i>
+               
                                     </BackTop>
                             </div>
 

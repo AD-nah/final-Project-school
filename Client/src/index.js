@@ -40,7 +40,7 @@ export default store
 ReactDOM.render(
   <BrowserRouter>
       <Provider store = {store}>
-          <App />
+          <App/>
       </Provider>
   </BrowserRouter>, document.getElementById('root')
 )

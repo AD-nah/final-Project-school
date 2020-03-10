@@ -177,5 +177,5 @@ class LoginForm extends React.Component {
   }
 } 
 
-// SuccessMessage
+
 export default LoginForm;
