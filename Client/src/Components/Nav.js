@@ -90,8 +90,8 @@ class Navbar extends Component {
     return (
       <div >
        
-        <MDBNavbar color="special-color" dark expand="md"  fixed="top" scrolling>
-        {this.state.logoutSuccess &&  <SuccessMessage text = 'Good Bey'/> }
+        <MDBNavbar style={{backgroundColor:"orangeRed"}} dark expand="md"  fixed="top" scrolling>
+        {this.state.logoutSuccess &&  <SuccessMessage  text = 'Good Bey'/> }
 
 
 
@@ -100,9 +100,9 @@ class Navbar extends Component {
 
         {this.state.redirectSuccess && <Redirect to = '/'/>}
           
-          <MDBNavbarBrand>
+          <MDBNavbarBrand >
           <img style={{width:"40px"}} src={Logo} alt="Logo"/>
-            <strong className="white-text font-weight-bold"> Scount</strong>
+            <strong className="white-text font-weight-bold " > Scount</strong>
           </MDBNavbarBrand>
           <MDBNavbarToggler onClick={this.toggleCollapse} />
 
