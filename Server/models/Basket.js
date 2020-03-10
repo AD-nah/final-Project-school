@@ -1,3 +1,24 @@
+// const mongoose = require('mongoose')
+
+// const basketSchema = mongoose.Schema({
+//       user_ID: {
+//         type: mongoose.Schema.Types.ObjectId,
+//         ref: 'users'
+//       },
+//       basket : {
+//         type : Array,
+//         required: false
+//       }
+// })
+
+// module.exports = mongoose.model("Basket", basketSchema);
+
+
+
+
+
+
+
 const mongoose = require('mongoose')
 
 const basketSchema = mongoose.Schema({
@@ -33,10 +54,6 @@ const basketSchema = mongoose.Schema({
       colors: {
         type: Array,
         required: false
-      },
-      sizes:{
-        type: Array,
-        required:false
       }
 })
 
