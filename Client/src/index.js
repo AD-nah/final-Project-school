@@ -5,10 +5,10 @@ import App from './App'
 import * as serviceWorker from './serviceWorker'
  import { BrowserRouter } from 'react-router-dom'
 
- import '@fortawesome/fontawesome-free/css/all.min.css';
- import 'bootstrap-css-only/css/bootstrap.min.css';
- import 'mdbreact/dist/css/mdb.css';
-
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bootstrap-css-only/css/bootstrap.min.css';
+import 'mdbreact/dist/css/mdb.css';
+import axios from 'axios'
 
 
 //errors packages also using redux packages
@@ -19,19 +19,24 @@ import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import combineReducers from './Redux/combineReducers'
 import {userLoggedIn} from './Redux/Actions/auth'
+import {addedToBasket} from './Redux/Actions/basket'
 
-
- const store = createStore(combineReducers, composeWithDevTools(applyMiddleware(thunk)))
+const store = createStore(combineReducers, composeWithDevTools(applyMiddleware(thunk)))
 
  // save login on reload
- if (localStorage.sCount){
-   const user = {
-     token: localStorage.sCount
-   }
-    store.dispatch(userLoggedIn(user))
- }
+if (localStorage.sCount){
+  const user = { token: localStorage.sCount }
+  store.dispatch(userLoggedIn(user))
+}
 
 
+axios.get('/api/basket/get-basket').then(res => {
+  // console.log(res.data.basket)
+  store.dispatch(addedToBasket(res.data.basket))
+})
+
+
+export default store
 ReactDOM.render(
   <BrowserRouter>
       <Provider store = {store}>

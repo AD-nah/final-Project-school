@@ -55,7 +55,7 @@ export const authMessagesHandler = () => {
     if(loggedinMessage){
         return "loggedinMessage"
     }else if(registerdMessage) {
-        return 'registerdMessage'
+        return "registerdMessage"
     }else{
         return null
     }
