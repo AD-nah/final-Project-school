@@ -5,7 +5,6 @@ import {
   MDBInput,
   MDBBtn,
   MDBIcon,
-  MDBModalFooter
 } from "mdbreact";
 //import { toast } from "react-toastify";
 
@@ -14,6 +13,12 @@ import ErrorMessage from "../Messages/ErrorMessage";
 
 //Loading Spinner
 import { SemipolarLoading } from "react-loadingg";
+
+
+
+
+
+
 
 class RegisterForm extends React.Component {
   constructor(props) {
@@ -76,79 +81,174 @@ class RegisterForm extends React.Component {
 
   render() {
     return (
-      <MDBContainer>          <MDBCol  className= ' w-100 ' lg>
-              <form onSubmit = { this.onSubmit }>              {this.state.loading && <SemipolarLoading  />}
-              {this.state.errors.registerError && <ErrorMessage text ={this.state.errors.registerError} />}                <MDBInput
-                className='text-dark'
-                  label="Your email"
-                  type="email"
-                  validate
-                  success=""
-                  name = 'email'
-                  onChange = {this.onChange}
-                  value = {this.state.data.email}
-                />
-                  <br/>                {this.state.errors.email &&  <ErrorMessage text ={this.state.errors.email}/>}                <MDBInput
-                   className='text-dark'
-                  label="Your password"
-                  type="password"
-                  name = 'password'
-                  onChange = {this.onChange}
-                  value = {this.state.data.password}
-                />                {this.state.errors.password &&  <ErrorMessage text = {this.state.errors.password}/>}                <p className="font-small blue-text d-flex justify-content-end pb-3">
-                  Forgot
-                  <a href="#!" className="blue-text ml-1">
-                    Password?
-                  </a>
-                </p>                <div className="text-center mb-3">
-                  <MDBBtn
-                    type="submit"
-                    gradient="blue"
-                    rounded
-                    className="btn-block z-depth-1a"
-                  >
-                    Register
-                  </MDBBtn>
-                </div>
-              </form>                <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">                  or Login in with:
-                </p>
-                <div className="row my-3 d-flex justify-content-center">
-                  <MDBBtn
-                    type="button"
-                    color="white"
-                    rounded
-                    className="mr-md-3 z-depth-1a"
-                  >
-                    <MDBIcon fab icon="facebook-f" className="blue-text text-center" />
-                  </MDBBtn>
-                  <MDBBtn
-                    type="button"
-                    color="white"
-                    rounded
-                    className="mr-md-3 z-depth-1a"
-                  >
-                    <MDBIcon fab icon="twitter" className="blue-text" />
-                  </MDBBtn>
-                  <MDBBtn
-                    type="button"
-                    color="white"
-                    rounded
-                    className="z-depth-1a"
-                  >
-                    <MDBIcon fab icon="google-plus-g" className="blue-text" />
-                  </MDBBtn>
-                </div>              <MDBModalFooter className="mx-5 pt-3 mb-1">
-                <p className="font-small grey-text d-flex justify-content-end">
-                  Not a member?
-                  <a href="#!" className="blue-text ml-1">
-                    Sign Up
-                  </a>
-                </p>
-              </MDBModalFooter>
-          </MDBCol>
-      </MDBContainer>
+      <div class="container regFormContainer">
+      <form className="regFormContainer" onSubmit={this.onSubmit}>
+        <div class="row" >
+          <div class="col-md-6">
+            {this.state.loading && <SemipolarLoading />}
+            {this.state.errors.registerError && (
+              <ErrorMessage text={this.state.errors.registerError} />
+            )}
+
+            <MDBInput
+              className="text-dark"
+              label="Name"
+              type="text"
+              validate
+            />
+
+            <MDBInput
+              className="text-dark"
+              label="Family Name"
+              type="text"
+              validate
+            />
+
+            <MDBInput
+              className="text-dark"
+              label="Your email"
+              type="email"
+              validate
+              success=""
+              name="email"
+              onChange={this.onChange}
+              value={this.state.data.email}
+            />
+
+            {this.state.errors.email && (
+              <ErrorMessage text={this.state.errors.email} />
+            )}
+
+            <MDBInput
+              className="text-dark"
+              label="Your password"
+              type="password"
+              name="password"
+              onChange={this.onChange}
+              value={this.state.data.password}
+            />
+
+            <MDBInput
+              className="text-dark"
+              label="Confirm password"
+              type="password"
+              onChange={this.onChange}
+              value={this.state.data.password}
+            />
+
+            {this.state.errors.password && (
+              <ErrorMessage text={this.state.errors.password} />
+            )}
+
+
+        </div>
+
+        {/* ---------------second form-------------- */}
+
+        <div class="col">
+          {" "}
+           
+            <MDBInput
+              className="text-dark"
+              label="Country"
+              type="text"
+              validate
+            />
+
+            <MDBInput
+              className="text-dark"
+              label="City"
+              type="text"
+              validate
+            />
+
+            <MDBInput
+              className="text-dark"
+              label="Plz/Zip"
+              type="number"
+              validate
+              success=""
+              name="email"
+             
+            />
+
+         
+
+            <MDBInput
+              className="text-dark"
+              label="Your Address"
+              type="text"
+            
+            />
+
+            <MDBInput
+              className="text-black"
+              label="Phone Number"
+              type="Number"
+          
+            />
+        </div>
+      </div>
+
+      <div className="text-center mb-3">
+              <MDBBtn
+                type="submit"
+                gradient="blue"
+                rounded
+                className=" z-depth-1a"
+              >
+                Register
+              </MDBBtn>
+            </div>
+
+          <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
+            Register with:
+          </p>
+
+          <div className="row my-3 d-flex justify-content-center">
+            <MDBBtn
+              type="button"
+              color="white"
+              rounded
+              className="mr-md-3 z-depth-1a"
+            >
+              <MDBIcon
+                fab
+                icon="facebook-f"
+                className="blue-text text-center"
+              />
+            </MDBBtn>
+            <MDBBtn
+              type="button"
+              color="white"
+              rounded
+              className="mr-md-3 z-depth-1a"
+            >
+              <MDBIcon fab icon="twitter" className="blue-text" />
+            </MDBBtn>
+            <MDBBtn
+              type="button"
+              color="white"
+              rounded
+              className="z-depth-1a"
+            >
+              <MDBIcon fab icon="google-plus-g" className="blue-text" />
+            </MDBBtn>
+          </div>
+    </form>
+    </div>
+  
     );
   }
 }
 
 export default RegisterForm;
+
+
+
+// <div class="container">
+//   <div class="row">
+//     <div class="col">Column</div>
+//     <div class="col">Column</div>
+//   </div>
+// </div>
