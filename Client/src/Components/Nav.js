@@ -32,7 +32,7 @@ import LoginPage from "./Pages/LoginPage";
 import RegisterPage from "./Pages/RegisterPage";
 
 import Profile from "./Profile/Profile";
-import Chart from "./Chart/Chart";
+import Basket from "./Basket/Basket";
 import Favorites from "./Favorites/Favorites";
 
 
@@ -232,7 +232,7 @@ class Navbar extends Component {
                       </MDBDropdownItem>
 
                       <MDBDropdownItem>
-                        <Link to="/chart">
+                        <Link to="/basket">
                           <strong>My-Chart</strong>
                         </Link>
 

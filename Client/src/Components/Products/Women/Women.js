@@ -73,9 +73,9 @@ class Women extends React.Component {
   }
   /// add the Favorites to the basket
   addingFavorits(item) {
-    this.props.addToBasketAction(item);
+   // this.props.addToBasketAction(item);
 
-    alert("added to Favorites");
+   // alert("added to Favorites");
   }
 
   sendImagesToCarousel(array) {
@@ -185,6 +185,7 @@ class Women extends React.Component {
                         <ul className="rating">
                           {this.starMaker(item.rating)}
                         </ul>
+
                         <div className="price">
                           &#8364;
                           {item.prices[0]}
@@ -193,7 +194,6 @@ class Women extends React.Component {
 
                         {/* <img src={ImageZoomAnim} />
                          */}
-
                       </div>
                     </div>
                        <div className="space-ten"></div>
