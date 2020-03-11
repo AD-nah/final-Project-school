@@ -17,7 +17,7 @@ import {
   MDBModalBody
 } from "mdbreact";
 
-import Logo from "../../src/fire.svg";
+import Logo from "../../src/hot-deal.svg";
 import SuccessMessage from "./Messages/SuccessMessage";
 
 import { Switch, Route, Link, Redirect } from "react-router-dom";
@@ -45,28 +45,10 @@ class Navbar extends Component {
     loginModal: false,
     logoutSuccess: false,
     redirectSuccess: false,
-
-    // shrink om scroling
-    breakWidth: 1700,
-    windowWidth: 0
+    NavbarClass: "navbarTop"
   };
 
-  // handle the navbar resize on scroll
-  componentDidMount() {
-    this.handleResize();
-    window.addEventListener("resize", this.handleResize);
-  }
 
-  // handle the navbar resize on scroll
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.handleResize);
-  }
-
-  // handle the navbar resize on scroll
-  handleResize = () =>
-    this.setState({
-      windowWidth: window.innerWidth
-    });
 
   toggleCollapse = () => {
     this.setState({ isOpen: !this.state.isOpen });
@@ -93,11 +75,31 @@ class Navbar extends Component {
     }
   };
 
+
+
+
+  scrollFunction = () => {
+
+    console.log(this.state.NavbarClass)
+    if (window.scrollY > 80) {
+
+      this.setState({ NavbarClass: "navbarDown" })
+
+    } else {
+      this.setState({ NavbarClass: "navbarTop" })
+    }
+  }
+
+
+
   render() {
+
+    window.onscroll = () => { this.scrollFunction() };
+
     return (
       <div>
-       
-        <MDBNavbar style={{ backgroundColor: "orangeRed" }} dark expand="md">
+
+        <MDBNavbar className={`${this.state.NavbarClass} navbar_header`} dark expand="md">
           {this.state.logoutSuccess && <SuccessMessage text="Good Bey" />}
 
           {authMessagesHandler() === "registerdMessage" && (
@@ -153,13 +155,15 @@ class Navbar extends Component {
 
             <MDBNavbarNav right>
               {!this.props.isAuthenticated && (
-                <MDBBtn
+
+                <button
+                  class="btn-5"
+
                   onClick={this.loginToggle}
-                  className="w-60 p-2"
-                  color="white"
                 >
+
                   Login
-                </MDBBtn>
+                </button>
               )}
 
               <MDBModal
@@ -167,21 +171,26 @@ class Navbar extends Component {
                 toggle={this.loginToggle}
               >
                 <MDBModalHeader toggle={this.loginToggle}>
-                  Please Login
+                  {/* Please Login */}
                 </MDBModalHeader>
                 <MDBModalBody>
                   <LoginPage closeLogin={this.loginToggle} />
                 </MDBModalBody>
               </MDBModal>
 
+
+
+
+
               {!this.props.isAuthenticated && (
-                <MDBBtn
+                <button
+                  class=" btn-5"
+
                   onClick={this.registerToggle}
-                  className="w-60 p-2"
-                  color="white"
                 >
+
                   Register
-                </MDBBtn>
+                </button>
               )}
 
               <MDBModal
@@ -194,6 +203,15 @@ class Navbar extends Component {
                   <RegisterPage closeRegister={this.registerToggle} />
                 </MDBModalBody>
               </MDBModal>
+
+
+
+
+
+
+
+
+
 
               {this.props.isAuthenticated && (
                 <MDBNavItem>
@@ -224,6 +242,13 @@ class Navbar extends Component {
                 </MDBNavItem>
               )}
 
+
+
+
+
+
+
+
               {this.props.isAuthenticated && (
                 <MDBBtn
                   onClick={this.logoutHandler}
@@ -233,6 +258,8 @@ class Navbar extends Component {
                   Logout
                 </MDBBtn>
               )}
+
+
             </MDBNavbarNav>
           </MDBCollapse>
         </MDBNavbar>

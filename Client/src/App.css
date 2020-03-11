@@ -1,3 +1,73 @@
+/* Nav bar style start */
+
+
+.navbarDown{
+  padding: 10px 10px !important;
+  font-size: 15px;
+
+}
+
+.navbarTop{
+  padding: 35px 10px !important;
+  font-size: 35px;
+}
+ 
+.navbar_header {
+  background-color: #1a1110;
+  transition: 0.4s;
+  position: fixed !important;
+  width: 100%;
+  top: 0;
+  z-index: 99;
+}
+
+.navbar_header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.navbar_header #logo {
+  font-size: 35px;
+  font-weight: bold;
+  transition: 0.4s;
+}
+
+
+
+
+
+@media screen and (max-width: 580px) {
+  .navbar_header {
+    padding: 20px 10px !important;
+  }
+  .navbar_header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+} 
+
+/* Navbar Style  end */
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* the Products Css start here */
 
 h3.h3 {
@@ -25,7 +95,7 @@ h3.h3 {
 }
 .product-grid7 .product-image7 img {
   width: 100%;
-  height: auto;
+  height: 400px;
 }
 .product-grid7 .pic-1 {
   opacity: 1;
@@ -58,7 +128,7 @@ h3.h3 {
 }
 .product-grid7 .social li a {
   color: #fff;
-  background-color: #333;
+  background-color: rgb(248, 150, 112);
   font-size: 16px;
   line-height: 40px;
   text-align: center;
@@ -71,7 +141,7 @@ h3.h3 {
 }
 .product-grid7 .social li a:hover {
   color: #fff;
-  background-color: #78e08f;
+  background-color: #ff650b;
 }
 .product-grid7 .product-new-label {
   color: #fff;
@@ -104,7 +174,7 @@ h3.h3 {
   color: #78e08f;
 }
 .product-grid7 .rating {
-  color: #78e08f;
+  color: #f7df07;
   font-size: 12px;
   padding: 0;
   margin: 0 0 10px;
@@ -152,7 +222,7 @@ h3.h3 {
 /* ImageZoom animation */
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300|Oswald);
 .wordCarousel {
-  background-color: rgb(0, 0, 0);
+  background-color: rgba(223, 85, 43, 0.836);
   padding: 20px;
   margin: 5px;
   width: 100%;
@@ -373,7 +443,7 @@ h3.h3 {
       0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
   }
 }
-/*why Scount WOrd end */
+
 
 /* Why scount Div animation end */
 
@@ -387,36 +457,14 @@ h3.h3 {
 
 
 
-
-
-/* btn Hover styles start */
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
-
-
-/* .btn_custom {
-  color: #fff;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 45px;
-  margin: 0 0 2em;
-  max-width: 160px;
-  position: relative;
-  text-decoration: none;
-  text-transform: uppercase;
-  width: 100%;
-} */
-
-.btn_custom:hover {
-  text-decoration: none;
+.btn-2_custom {
+  letter-spacing: 0;
 }
-
-
 
 .btn-2_custom:hover,
 .btn-2_custom:active {
-  letter-spacing: 4px;
- 
+  letter-spacing: 5px;
 }
 
 .btn-2_custom:after,
@@ -451,11 +499,89 @@ h3.h3 {
 }
 
 
-/* btn Hoer Styles end */
+
+
+.btn-3_custom:after,
+.btn-3_custom:before {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 1px solid rgb(0, 0, 0);
+  bottom: 0px;
+  content: " ";
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  -webkit-transition: all 280ms ease-in-out;
+  transition: all 280ms ease-in-out;
+  width: 0;
+  opacity: 0;
+}
+
+.btn-3_custom:hover:after,
+.btn-3_custom:hover:before {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-color: rgb(0, 0, 0);
+  -webkit-transition: width 350ms ease-in-out;
+  transition: width 350ms ease-in-out;
+  width: 35%;
+  opacity: 1;
+}
+
+.btn-3_custom:hover:before {
+  bottom: auto;
+  top: 0;
+  width: 35%;
+}
+
+
+
+
+
+/* btn Hover styles start */
+
+.btn-5 {
+  padding: 10px;
+  margin: 10px;
+  color: rgb(3, 3, 3);
+  cursor: pointer;
+  display: block;
+  font-size:16px;
+  font-weight: 400;
+
+  
+  max-width: 160px; 
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100%; 
+  border: 0 solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+  outline: 1px solid;
+  outline-color: rgba(255, 255, 255, .5);
+  outline-offset: 0px;
+  text-shadow: none;
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+} 
+
+.btn-5:hover {
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  color: whitesmoke;
+  text-shadow: 1px 1px 2px #427388; 
+}
+
+
+
+
+
 
 
 /* Classes Register Form*/
-.regFormContainer{
+.regFormContainer {
   width: 80%;
-  margin:0 auto;
+  margin: 0 auto;
 }
+
