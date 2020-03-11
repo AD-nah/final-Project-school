@@ -37,7 +37,6 @@ import Favorites from "./Favorites/Favorites";
 
 
 
-
 class Navbar extends Component {
   state = {
     isOpen: false,
@@ -65,8 +64,11 @@ class Navbar extends Component {
   };
 
   logoutHandler = () => {
-    if (this.props.logoutAction()) {
-      this.setState({ logoutSuccess: true, redirectSuccess: true });
+
+
+    // redirect to home Page when logoutAction() returned true! 
+    if(this.props.logoutAction()){
+      this.setState({logoutSuccess: true, redirectSuccess: true}) 
 
       // to reload the state after logout, that the state will ready for the next lougout, to redirect again!
       setTimeout(() => {
@@ -111,6 +113,7 @@ class Navbar extends Component {
 
           {this.state.redirectSuccess && <Redirect to="/" />}
 
+
           <MDBNavbarBrand>
             <img style={{ width: "40px" }} src={Logo} alt="Logo" />
             <strong className="white-text font-weight-bold "> Scount</strong>
@@ -129,6 +132,7 @@ class Navbar extends Component {
                 <MDBNavLink className="btn-2_custom font-weight-bold" to="/products">
                   Products
                 </MDBNavLink>
+
               </MDBNavItem>
 
               <MDBNavItem>
@@ -213,6 +217,7 @@ class Navbar extends Component {
 
 
 
+
               {this.props.isAuthenticated && (
                 <MDBNavItem>
                   <MDBDropdown>
@@ -230,6 +235,7 @@ class Navbar extends Component {
                         <Link to="/chart">
                           <strong>My-Chart</strong>
                         </Link>
+
                       </MDBDropdownItem>
 
                       <MDBDropdownItem>
@@ -237,6 +243,7 @@ class Navbar extends Component {
                           <strong>Favorites</strong>
                         </Link>
                       </MDBDropdownItem>
+
                     </MDBDropdownMenu>
                   </MDBDropdown>
                 </MDBNavItem>
@@ -274,12 +281,11 @@ class Navbar extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/home" component={Home} />
           <Route path="/about" component={About} />
-
           <Route path="/products" component={Products} />
 
           <Route path="/news" component={News} />
           <Route path="/profile" component={Profile} />
-          <Route path="/chart" component={Chart} />
+          <Route path="/basket" component={Basket} />
           <Route path="/favorites" component={Favorites} />
         </Switch>
       </div>
@@ -296,7 +302,6 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
   logoutAction: reduxActios.logoutAction
 })(Navbar);
-
 
 
 

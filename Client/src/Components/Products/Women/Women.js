@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { BackTop } from "antd";
 
 import { WaveLoading } from "react-loadingg";
 
-import axios from "axios";
+import { fetchWomenProducts } from '../../../Redux/Actions/products'
 import { connect } from "react-redux";
 import { addToBasketAction } from "../../../Redux/Actions/basket";
 import {
@@ -16,8 +16,8 @@ import {
   MDBView,
   MDBMask
 } from "mdbreact";
-
-//import ImageZoomAnim from "../../../imgs/cadinfluencer1.jpg";
+import SuccessMessage from '../../Messages/SuccessMessage'
+// import ImageZoomAnim from "../../../imgs/cadinfluencer1.jpg";
 
 // ----------------------------------
 
@@ -35,6 +35,7 @@ import {
 // ----------------------------------------------------------------------
 
 class Women extends React.Component {
+
   constructor(props) {
     super(props);
 
@@ -42,36 +43,44 @@ class Women extends React.Component {
       data: null,
       currentProduct: [],
       currentArrayOfImages: [],
+      successMessage: false,
       //images modal
       modal13: false
     };
   }
-  // for the images modal
+
+    componentDidMount() {
+        this.props.fetchWomenProducts().then(res => {
+          this.setState({data: this.props.getWomenProducts.womenProducts})
+        })
+    }
+
+ // for the images modal
   toggle = nr => () => {
     let modalNumber = "modal" + nr;
     this.setState({
       [modalNumber]: !this.state[modalNumber]
     });
   };
-  componentDidMount() {
-    axios
-      .get("/product/womens")
-      .then(res => res.data.women)
-      .then(product => {
-        this.setState({ data: product });
-      });
-  }
 
   setCurrentProduct(item) {
     this.props.addToBasketAction(item);
+    this.setState({successMessage:true});
 
-    alert("added to Basket");
+    setTimeout(()=>{
+      this.setState({successMessage:false});
+    },100);
+  }
+  /// add the Favorites to the basket
+  addingFavorits(item) {
+    this.props.addToBasketAction(item);
+
+    alert("added to Favorites");
   }
 
   sendImagesToCarousel(array) {
     this.setState({ currentArrayOfImages: array.protoTypes });
-  }
-
+  };
   // to take a Number and convert it to Star
   starMaker(n) {
     let stars = [];
@@ -90,6 +99,7 @@ class Women extends React.Component {
           <div className="container" style={{height:"200px "}}>
             <h4 class="wordCarousel" style={{height:"100px "}}>
               <span className="whyScount">Why Scount ? </span>
+
               <div>
                 <ul class="flip4">
                   <li>Best Quality</li>
@@ -151,7 +161,11 @@ class Women extends React.Component {
                           </li>
 
                           <li>
-                            <a href="#" className="far fa-heart"></a>
+                            <a href="#" className="far fa-heart" 
+                             role="button"
+                             tabIndex={1}
+                             onClick={() => this.addingFavorits(item)}
+                            ></a>
                           </li>
 
                           <li>
@@ -179,6 +193,7 @@ class Women extends React.Component {
 
                         {/* <img src={ImageZoomAnim} />
                          */}
+
                       </div>
                     </div>
                        <div className="space-ten"></div>
@@ -278,4 +293,10 @@ class Women extends React.Component {
   }
 }
 
-export default connect(null, { addToBasketAction })(Women);
+const  mapStateToProps = (state) => {
+  return {
+    getWomenProducts: state.productReducer
+  }
+}
+
+export default connect(mapStateToProps, {addToBasketAction,  fetchWomenProducts })(Women);

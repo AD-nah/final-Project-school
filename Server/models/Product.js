@@ -34,12 +34,8 @@ const productSchema = new mongoose.Schema({
   colors: {
     type: Array,
     required: false
-  },
-  sizes:{
-    type: Array,
-    required:false
   }
-},
+}
 )
 
 module.exports = mongoose.model("Product", productSchema);
