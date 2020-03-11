@@ -49,20 +49,20 @@ userSchema.methods.isValidPassword = function isValidPassword(password) {
 
 userSchema.methods.toAuthJSON = function toAuthJSON() {
   return {
-    email: this.email,
-    //confirmed: this.confirmed,
-    token: this.generateJWT()
+    token: this.generateJWT(),
   }
 }
 
 userSchema.methods.generateJWT = function generateJWT() {
   return jwt.sign({
+      userID: this._id,
       email: this.email,
       //confirmed: this.confirmed
     },
     process.env.JWT_SECRET
   )
 }
+
 userSchema.methods.setPassword = function setPassword(password){
   this.hashedPassword = bcryptjs.hashSync(password, 10)
 }
