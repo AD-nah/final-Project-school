@@ -393,7 +393,7 @@ h3.h3 {
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
 
 
-.btn_custom {
+/* .btn_custom {
   color: #fff;
   cursor: pointer;
   font-size: 16px;
@@ -405,7 +405,7 @@ h3.h3 {
   text-decoration: none;
   text-transform: uppercase;
   width: 100%;
-}
+} */
 
 .btn_custom:hover {
   text-decoration: none;
@@ -415,7 +415,7 @@ h3.h3 {
 
 .btn-2_custom:hover,
 .btn-2_custom:active {
-  letter-spacing: 1px;
+  letter-spacing: 4px;
  
 }
 

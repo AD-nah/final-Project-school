@@ -35,6 +35,9 @@ import Profile from "./Profile/Profile";
 import Chart from "./Chart/Chart";
 import Favorites from "./Favorites/Favorites";
 
+
+
+
 class Navbar extends Component {
   state = {
     isOpen: false,
@@ -93,6 +96,7 @@ class Navbar extends Component {
   render() {
     return (
       <div>
+       
         <MDBNavbar style={{ backgroundColor: "orangeRed" }} dark expand="md">
           {this.state.logoutSuccess && <SuccessMessage text="Good Bey" />}
 
@@ -114,38 +118,38 @@ class Navbar extends Component {
           <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
             <MDBNavbarNav left>
               <MDBNavItem>
-                <MDBNavLink className="btn_custom btn-2_custom font-weight-bold" to="/home">
+                <MDBNavLink className=" btn-2_custom font-weight-bold" to="/home">
                   Home
                 </MDBNavLink>
               </MDBNavItem>
 
               <MDBNavItem>
-                <MDBNavLink className="btn_custom btn-2_custom font-weight-bold" to="/products">
+                <MDBNavLink className="btn-2_custom font-weight-bold" to="/products">
                   Products
                 </MDBNavLink>
               </MDBNavItem>
 
               <MDBNavItem>
-                <MDBNavLink className="btn_custom btn-2_custom font-weight-bold" to="/news">
+                <MDBNavLink className=" btn-2_custom font-weight-bold" to="/news">
                   News
                 </MDBNavLink>
               </MDBNavItem>
 
               <MDBNavItem>
-                <MDBNavLink className="btn_custom btn-2_custom font-weight-bold" to="/about">
+                <MDBNavLink className=" btn-2_custom font-weight-bold" to="/about">
                   About
                 </MDBNavLink>
               </MDBNavItem>
 
 
-            
+
 
             </MDBNavbarNav>
 
 
-           
-        
-            
+
+
+
 
             <MDBNavbarNav right>
               {!this.props.isAuthenticated && (
@@ -234,8 +238,8 @@ class Navbar extends Component {
         </MDBNavbar>
 
 
-                   
-          
+
+
 
 
 
