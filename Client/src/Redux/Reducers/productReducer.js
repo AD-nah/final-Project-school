@@ -1,5 +1,6 @@
 import {FETCH_MEN_PRODUCTS} from '../types'
 import {FETCH_WOMEN_PRODUCTS} from '../types'
+import { USER_LIGGED_OUT_TYPE } from '../types'
 
 let initialState = {
     menProducts   : null,
@@ -17,6 +18,15 @@ export default function productReducer (state = initialState, action = {}){
         case FETCH_MEN_PRODUCTS:
             state.menProducts = action.menProducts
         return state
+
+        case USER_LIGGED_OUT_TYPE:
+            
+            return {
+                menProducts   : null,
+                womenProducts : null
+            } 
+                
+
         default:
             return state
     }

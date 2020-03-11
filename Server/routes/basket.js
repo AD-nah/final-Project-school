@@ -4,65 +4,30 @@ const Basket = require('../models/Basket');
 const male =  '5e5d1d5a03249d2ee09ce758';
 const female = '5e5d1d8303249d2ee09ce759';
 
+router.post('/get-basket', async (req, res, next) => { 
+    console.log(req.body)
+    const { userID } = req.body
 
-router.get('/get-basket',  (req, res, next) => { 
-    
-    const basket =  Basket.find({product_type: female}, function (err, docs) {
+    const findInBasket = await Basket.findOne({user_ID: userID})
+        if(findInBasket){
 
-        res.json({basket: docs});
-    })
+            res.json({basket: findInBasket.basket});
+        }else{
+            res.status(404).json({err:'basket not found'})
+        }
 })
 
-router.post('/save-to-basket', (req, res, next)=> {
-    
-    const { name, description, images, rating, prices, colors, sizes} = req.body.item
-        
-    if(req.body.item.product_type === male){
+router.post('/save-to-basket', async (req, res, next)=> {
 
-        const maleProduct = new Basket({
+    const { userID, item } = req.body
 
-            product_type: male,
-            name: name,
-            description: description,
-            images: images,
-            prices: prices,
-            rating: rating,
-            sizes:  sizes,
-            colors: colors
-        });
+    const findBasketAndUpdate = await Basket.findOneAndUpdate({ user_ID: userID }, { $push: { basket : item }})
 
-        maleProduct.save().then( newRecord => {
-            const mens =  Basket.find({product_type: male}, function (err, docs) {
-
-                res.json({items: docs});
-            })
-        });
-    };
-
-    if(req.body.item.product_type === female){
-
-        const maleProduct = new Basket({
-        
-                product_type: female,
-                name: name,
-                description: description,
-                images: images,
-                prices: prices,
-                rating: rating,
-                sizes:  sizes,
-                colors: colors
-        });
-
-        maleProduct.save().then(newRecord => {
-
-            const women =  Basket.find({product_type: female}, function (err, docs) {
-
-                res.json({items: docs});
-
-            })
-        });
-    };
-
+        if(findBasketAndUpdate){
+            res.json({items: findBasketAndUpdate.basket});
+        }else{
+            res.status(404).json({err:'basket not found'})
+        }
 })
 
 

@@ -1,5 +1,5 @@
 import {ADD_TO_BASKET} from '../types'
-
+import { USER_LIGGED_OUT_TYPE } from '../types'
 export default function basketReducer (state = [], action = {}){
 
     switch(action.type){
@@ -12,7 +12,8 @@ export default function basketReducer (state = [], action = {}){
 
 
             return  action.items;
-                
+        case USER_LIGGED_OUT_TYPE:
+            return {} 
                 
         default:
 

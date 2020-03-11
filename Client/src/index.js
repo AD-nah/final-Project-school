@@ -19,21 +19,22 @@ import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import combineReducers from './Redux/combineReducers'
 import {userLoggedIn} from './Redux/Actions/auth'
-import {addedToBasket} from './Redux/Actions/basket'
-
+//import decode from 'jwt-decode'
 const store = createStore(combineReducers, composeWithDevTools(applyMiddleware(thunk)))
 
- // save login on reload
+
 if (localStorage.sCount){
+
+
+ // const payload  = decode(localStorage.sCount);
+    
   const user = { token: localStorage.sCount }
   store.dispatch(userLoggedIn(user))
+
+
 }
 
 
-axios.get('/api/basket/get-basket').then(res => {
-  // console.log(res.data.basket)
-  store.dispatch(addedToBasket(res.data.basket))
-})
 
 
 export default store
