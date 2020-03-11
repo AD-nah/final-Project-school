@@ -6,24 +6,20 @@ import {Switch,Route} from 'react-router-dom';
 import {MDBNav, MDBNavLink, MDBNavItem} from "mdbreact"
 
 
-// import "antd/dist/antd.css";
-// import { Menu} from "antd";
-// const { SubMenu } = Menu
 
 
 export default class Products extends Component {
     render() {
         return (<>
       
-            <div style={{padding:"40px",margin:"40px",fontSize:"20px"}} >
+            <div style={{padding:"75px",margin:"75px",fontSize:"20px"}} >
 
                 <MDBNav className="nav-fill ">
 
                     <MDBNavItem>
-                        <MDBNavLink className="text-dark" to="/products/women">Women's</MDBNavLink>
+                        <MDBNavLink className="text-dark  btn-3_custom" to="/products/women">Women's</MDBNavLink>
                     </MDBNavItem>
                    
-
 
                     <MDBNavItem>
                         <MDBNavLink className="text-dark" to="/products/men">Men's</MDBNavLink>

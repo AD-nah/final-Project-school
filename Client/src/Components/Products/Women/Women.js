@@ -132,6 +132,7 @@ class Women extends React.Component {
 
                             <img
                               className="pic-2"
+                              
                               src={item.images.protoTypes[1]}
                             />
                           </a>
