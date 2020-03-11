@@ -72,6 +72,13 @@ class Women extends React.Component {
       this.setState({successMessage:false});
     },100);
   }
+  /// add the Favorites to the basket
+  addingFavorits(item) {
+    this.props.addToBasketAction(item);
+
+    alert("added to Favorites");
+  }
+
   sendImagesToCarousel(array) {
     this.setState({ currentArrayOfImages: array.protoTypes });
   };
@@ -153,7 +160,11 @@ class Women extends React.Component {
                           </li>
 
                           <li>
-                            <a href="#" className="far fa-heart"></a>
+                            <a href="#" className="far fa-heart" 
+                             role="button"
+                             tabIndex={1}
+                             onClick={() => this.addingFavorits(item)}
+                            ></a>
                           </li>
 
                           <li>
@@ -182,26 +193,7 @@ class Women extends React.Component {
                         {/* <img src={ImageZoomAnim} />
                          */}
 
-                        <div className="product-content">
-
-                          <ul className="rating">
-                            {this.starMaker(item.rating)}
-                          </ul>
-                          <div className="price">
-                            &#8364;
-                            {item.prices[0]}
-                            <span>{item.prices[1]}</span>
-                          </div>
-                            
-
-                           
-                              {/* <img src={ImageZoomAnim} /> */}
-                           
-                          
-
-                          <hr />
-
-                        </div>
+                 
 
                       </div>
                     </div>

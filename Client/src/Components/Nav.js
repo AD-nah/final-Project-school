@@ -19,7 +19,7 @@ import LoginPage from './Pages/LoginPage'
 import RegisterPage from './Pages/RegisterPage'
 
 import Profile from './Profile/Profile'
-import Chart from './Chart/Chart'
+import Basket from './Basket/Basket'
 import Favorites from './Favorites/Favorites';
 
 
@@ -186,7 +186,7 @@ class Navbar extends Component {
                       </MDBDropdownItem>
 
                       <MDBDropdownItem>
-                        <Link to="/chart"><strong>My-Chart</strong></Link>
+                        <Link to="/basket"><strong>My-Basket</strong></Link>
                       </MDBDropdownItem>
 
                       <MDBDropdownItem>
@@ -219,7 +219,7 @@ class Navbar extends Component {
           <Route path="/products" component={Products} />
           <Route path="/news" component={News} />
           <Route path="/profile" component={Profile} />
-          <Route path="/chart" component={Chart} />
+          <Route path="/basket" component={Basket} />
           <Route path="/favorites" component={Favorites} />
         </Switch>
 
