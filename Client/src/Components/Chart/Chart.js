@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import empty from './images/emptyb.png';
 import paypal from './images/paypal.png';
 import basket from './images/basket.png';
-
+import {fetchBasket} from '../../Redux/Actions/basket'
 
 class Chart extends Component {
   constructor(props) {
@@ -16,9 +16,9 @@ class Chart extends Component {
 
   // to remove duplicated items, thats come from the redux Store, and then save it inside the Compoment's state 
   componentDidMount() {
-    setTimeout(()=> {
+    this.props.fetchBasket().then(res => {
       this.setState({ products: this.props.item.filter((item, index) => this.props.item.indexOf(item) === index) })
-    },100)
+    })
   }
 
   // to take a Number and convert it to Star
@@ -152,4 +152,4 @@ const mapStateToProps = (state) => {
     item: state.basketReducer
   }
 }
-export default connect(mapStateToProps)(Chart)
+export default connect(mapStateToProps, {fetchBasket})(Chart)
