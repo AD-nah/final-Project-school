@@ -9,10 +9,13 @@ export const addedToBasket = (items) => {
 }
 
 export const  addToBasketAction = (item) => (dispatch) => {
-
     api.basket.saveToBasketRequest(item).then(items => {
-
         dispatch(addedToBasket(items));
     })
-    // dispatch(addedToBasket(item))
+}
+
+export const fetchBasket = () => (dispatch) => {
+   return api.basket.getBasketRequest().then(items => {
+        dispatch(addedToBasket(items))
+    })
 }
