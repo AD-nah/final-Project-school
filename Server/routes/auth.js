@@ -4,7 +4,6 @@ const User = require('../models/User')
 
 router.post('/', (req, res) => {
 
-    console.log(req.body)
     
      User.findOne({email: req.body.data.email}).then(foundedUser => {
 
@@ -19,6 +18,8 @@ router.post('/', (req, res) => {
                 foundedUser.saveCurrentJWTtoDB(generatedLogin.token)
                 foundedUser.saveLastLoggedInDate(Date.now())
                 foundedUser.save().then(recordSaved => {
+
+                    console.log(foundedUser._id)
 
                     res.status(200).json({ userSignedInData: generatedLogin})
                 })
