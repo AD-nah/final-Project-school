@@ -6,8 +6,8 @@ var server = express();
 
 require('dotenv').config('./.env')
 
-// require('mongoose').connect(process.env.SERVER_DB_URI_CLOUD, { 
-    require('mongoose').connect(process.env.SERVER_DB_URI_LOCAL, { 
+ require('mongoose').connect(process.env.SERVER_DB_URI_CLOUD, { 
+  //  require('mongoose').connect(process.env.SERVER_DB_URI_LOCAL, { 
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     useCreateIndex: true,
