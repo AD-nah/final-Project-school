@@ -11,7 +11,6 @@ import {
   MDBModal,
   MDBModalBody,
   MDBCarousel,
-  MDBCarouselCaption,
   MDBCarouselInner,
   MDBCarouselItem,
   MDBView,
@@ -72,6 +71,13 @@ class Women extends React.Component {
       this.setState({successMessage:false});
     },100);
   }
+  /// add the Favorites to the basket
+  addingFavorits(item) {
+   // this.props.addToBasketAction(item);
+
+   // alert("added to Favorites");
+  }
+
   sendImagesToCarousel(array) {
     this.setState({ currentArrayOfImages: array.protoTypes });
   };
@@ -86,15 +92,14 @@ class Women extends React.Component {
 
   render() {
     return (
+      <>
+        <div className="container" style={{maxWidth:"100%"}}>
 
-        <>
-        {this.state.successMessage && ( <SuccessMessage text = 'added to Basket'/> )}
-        <div className="container">
-          <h3 className="h3">Women's Collection</h3>
 
-          <div >
-            <h4 class="wordCarousel">
-              <span className="whyScount">Why Scount ?</span>
+          <div className="container" style={{height:"200px "}}>
+            <h4 class="wordCarousel" style={{height:"100px "}}>
+              <span className="whyScount">Why Scount ? </span>
+
               <div>
                 <ul class="flip4">
                   <li>Best Quality</li>
@@ -106,12 +111,13 @@ class Women extends React.Component {
             </h4>
           </div>
 
-          <div className="space-ten"></div>
+        
+    
 
           <div className="row">
             {this.state.data ? (
               this.state.data.map((item, index) => {
-                return (
+                return (<>
                   <div key={index} className="col-md-3 col-sm-6">
                     <div className="product-grid7">
                       <div className="product-content">
@@ -120,8 +126,6 @@ class Women extends React.Component {
                         </h3>
                       </div>
 
-                      <hr />
-
                       <div className="product-image7">
                         <li
                           onClick={() => this.sendImagesToCarousel(item.images)}
@@ -129,12 +133,16 @@ class Women extends React.Component {
                           <a onClick={this.toggle(13)}>
                             <img
                               className="pic-1"
-                              style={{ maxHeight: "300px" }}
+                              style={{ maxHeight: "400px" }}
                               src={item.images.protoTypes[0]}
                             />
 
+
+
+
                             <img
                               className="pic-2"
+                              
                               src={item.images.protoTypes[1]}
                             />
                           </a>
@@ -153,7 +161,11 @@ class Women extends React.Component {
                           </li>
 
                           <li>
-                            <a href="#" className="far fa-heart"></a>
+                            <a href="#" className="far fa-heart" 
+                             role="button"
+                             tabIndex={1}
+                             onClick={() => this.addingFavorits(item)}
+                            ></a>
                           </li>
 
                           <li>
@@ -184,23 +196,45 @@ class Women extends React.Component {
                          */}
                       </div>
                     </div>
+                       <div className="space-ten"></div>
+                      <div className="space-ten"></div>
+                      <div className="space-ten"></div>
+                
                   </div>
-                );
+                </>);
               })
             ) : (
-              <div>
-                <WaveLoading />
+              <div style={{height:"500px",width:"400px",textAlign:"center",position:"relative",top:"50px",left:"350px"}}>
+                <span style={{fontSize:"25px",fontWeight:"10px"}}>Loading Products Chill ...
+                <WaveLoading /> </span>
+                
               </div>
             )}
+
+
+
           </div>
         </div>
+
+
+
+
+
+
         {/* Back to top btn */}
         <div>
           <BackTop>
-          <i className="fas fa-angle-double-up" style={{color:"black",fontSize:"40px"}}></i>
-               
+            <i
+              className="fas fa-angle-double-up"
+              style={{ color: "black", fontSize: "40px" }}
+            ></i>
           </BackTop>
         </div>
+
+
+
+
+
 
         {/* // images modal */}
         <div>

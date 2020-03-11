@@ -27,7 +27,7 @@ class RegisterPage extends Component {
     render() {
         return (
             <div>
-                {!this.state.redirect ? <RegisterForm submit = {this.submit} /> : <Redirect to = '/products/women'/>}
+                {!this.state.redirect ? <RegisterForm submit = {this.submit} /> : <Redirect to = '/products'/>}
             </div>
         )
     }

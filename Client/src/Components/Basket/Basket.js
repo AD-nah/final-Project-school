@@ -3,7 +3,12 @@ import { connect } from 'react-redux';
 import empty from './images/emptyb.png';
 import paypal from './images/paypal.png';
 import basket from './images/basket.png';
+import master from './images/master.png';
+import visa from './images/visa.png';
 import {fetchBasket} from '../../Redux/Actions/basket'
+
+
+
 
 class Chart extends Component {
   constructor(props) {
@@ -74,14 +79,16 @@ class Chart extends Component {
 
           {this.state.products && this.state.products.map((item, index) => {
 
-            return (
-              <div key = {index} className="row mb-3 mt-3">
-                <div className="col-md-4 text-center"> {/* bg-success*/}
+            return ( 
+
+              <div className="container-fluid col-lg-12 border border-dark">
+              <div className="row mb-3 m-5">
+                <div className="col-md-3 text-center"> {/* bg-success*/}
                   <h3></h3>
                   <img style={{ height: '40vh', width: "15vw" }} src={item.images.protoTypes[0]} className="img-fluid img-thumbnail" alt="Sheep" />
                 </div>
                 {/*des and Price*/}
-                <div className="col-md-4 text-center "> {/*bg-info*/}
+                <div className="col-md-3 text-center "> {/*bg-info*/}
                   <div className="col">
                     <div className="col">
                       {/* <h1>Name</h1> */}
@@ -103,7 +110,7 @@ class Chart extends Component {
                 </div>
                 {/*des and Price*/}
 
-                <div className="col-md-4 text-center"> {/*bg-danger*/}
+                <div className="col-md-3 text-center"> {/*bg-danger*/}
 
                   <div className="col">
                     <h2>Stars</h2>
@@ -130,14 +137,37 @@ class Chart extends Component {
                       <option value="4">Size 4</option>
                     </select>
 
-                  <div className="">
-                    <h2>Payment</h2>
-                    <img src={paypal} />
-                  </div>
+                 
                   </div>
                 
                 </div>
+{/*total start*/}
+                <div className="col-md-2 m-2" style={{backgroundColor: "#DADADA", height:"40vh"}}>
+                <h3 className="font-weight-bold mt-3">Total</h3>
+
+             
+
+                <h5 className="font-weight-bold mt-5">Subtotal<h5 className="float-right">34$</h5></h5>
+
                 
+                    <h2 className="mt-3">Payment</h2>
+                    <div className="row mt-3">
+                    <a href="#">
+                    <img className="img-fluid col-sm-2" src={paypal} />
+                    </a>
+                    <a href="#">
+                    <img className="img-fluid col-sm-2" src={master} />
+                    </a>
+                    <a href="#">
+                    <img className="img-fluid col-sm-2" src={visa} />
+                    </a>
+                  </div>
+        
+
+                </div>
+                {/*total end*/}
+              </div>
+
               </div>
             )
           })}
