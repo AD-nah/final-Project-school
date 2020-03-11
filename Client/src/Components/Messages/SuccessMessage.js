@@ -1,19 +1,29 @@
 
 import React, { Component } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// import { ToastContainer, toast } from 'react-toastify';
+
+// Import Antd  library
+import "antd/dist/antd.css";
+import {  Popconfirm, message} from "antd";
+
+// confirm on click or error on cancel
+// function confirm(e) {
+//   console.log(e);
+//   message.success("Added successfuly..");
+// }
 
 class SuccessMessage extends Component {
-
-
   componentDidMount(){
-    toast.success(this.props.text)
+    message.success(this.props.text)
+    // toast.success(this.props.text)
   }
 
   render(){
     return (
       <div>
-        <ToastContainer style={{position:"absolute",left:"10px"}} autoClose={1200}/>
+         {/* <ToastContainer autoClose={1500}/> */}
+       <Popconfirm />
       </div>
     );
   }

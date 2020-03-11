@@ -26,7 +26,7 @@ export default class Home extends Component {
           <div className="overlay"></div>
           <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
 
-            <source src={video1} type="video/mp4" />
+            {/* <source src={video1} type="video/mp4" /> */}
           </video>
           <div className="container h-100">
             <div className="d-flex h-100 text-center align-items-center">
@@ -92,7 +92,7 @@ export default class Home extends Component {
 
          
           <div className="col-md-5 text-center">
-            <iframe title = 'title' width="560" height="315" src="//www.youtube.com/embed/_jmC9gOjLkI" frameborder="2" allowfullscreen></iframe>
+            <iframe className="col-md-10 embed-responsive embed-responsive-16by9" title = 'title' width="560" height="315" src="//www.youtube.com/embed/_jmC9gOjLkI" frameborder="2" allowfullscreen></iframe>
           </div>
 
         </section>
@@ -134,7 +134,8 @@ export default class Home extends Component {
          <div>
                 <BackTop>
                 
-                <i className="fas fa-chevron-circle-up" style={{color:"orange",fontSize:"40px"}}></i>
+                <i className="fas fa-angle-double-up" style={{color:"orange",fontSize:"40px"}}></i>
+               
                 </BackTop>
          </div>
 
@@ -183,8 +184,6 @@ export default class Home extends Component {
 
           <br />
           <br />
-
-
 
           <section className="page-section" id="services">
             <div className="container">

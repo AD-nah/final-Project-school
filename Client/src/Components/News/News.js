@@ -3,14 +3,12 @@ import kleidung from './newsPhoto/kleidung.jpg';
 import kleidung1 from './newsPhoto/kleidung1.jpg';
 import kleidung2 from './newsPhoto/kleidung2.jpg';
 import kleidung3 from './newsPhoto/kleidung3.jpg';
-
+import { BackTop } from 'antd';
 import api from '../../APIs/AuthApi';
 
        
 
    
-
-
 export default class News extends Component {
     constructor(props) {
         super(props)
@@ -102,6 +100,18 @@ export default class News extends Component {
                             </div>
 
                         </div>
+
+
+
+                            {/* Back to top btn */}
+                            <div>
+                                    <BackTop>
+                                    
+                                    <i className="fas fa-angle-double-up" style={{color:"orange",fontSize:"40px"}}></i>
+               
+                                    </BackTop>
+                            </div>
+
                         
                         <a className="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
                        
@@ -130,4 +140,4 @@ export default class News extends Component {
 
 // 54ab4e9ca5d94879a3f3c8b0995b4482 key for the Api
 
-// http://newsapi.org/v2/everything?q=bitcoin&from=2020-02-03&sortBy=publishedAt&apiKey=54ab4e9ca5d94879a3f3c8b0995b4482
+// http://newsapi.org/v2/everything?q=bitcoin&from=2020-02-04&sortBy=publishedAt&apiKey=54ab4e9ca5d94879a3f3c8b0995b4482

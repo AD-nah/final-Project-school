@@ -6,11 +6,12 @@ export default function basketReducer (state = [], action = {}){
 
         case ADD_TO_BASKET:
 
-            let products = [...state]
-                products.push(action.item)
+            // let products = [...state]
+            // products.push(action.item)
 
-                return  products
-                // {...state},{...action.item}
+
+
+            return  action.items;
                 
                 
         default:

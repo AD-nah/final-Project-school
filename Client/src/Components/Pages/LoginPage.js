@@ -4,6 +4,10 @@ import PropTypes from 'prop-types'
 import LoginForm from '../Forms/LoginForm'
 import {connect} from 'react-redux'
 import * as reduxActions from '../../Redux/Actions/auth'
+
+
+
+
 class LoginPage extends Component {
     constructor(props) {
         super(props)
@@ -19,23 +23,20 @@ class LoginPage extends Component {
               
            return this.props.loginAction(data).then((res) => {
 
-            
                this.setState({redirect: true})
                
-              this.props.closeLogin()
-               
-               
+              this.props.closeLogin()   
             })
 
     }
 
     render() {
 
-        return (
-        <div>
-            {!this.state.redirect ? <LoginForm submit = {this.submit} /> : <Redirect to = '/products/women'/>}
-        </div>
-        )
+    return (
+    <div>
+    {!this.state.redirect ? <LoginForm submit = {this.submit} /> : <Redirect to = '/home'/>}
+    </div>
+    )
     }
 }
 
