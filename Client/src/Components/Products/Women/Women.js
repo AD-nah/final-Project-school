@@ -189,8 +189,8 @@ class Women extends React.Component {
                 </>);
               })
             ) : (
-              <div style={{height:"500px",width:"400px",textAlign:"center",position:"relative",top:"50px",left:"350px"}}>
-                <span style={{fontSize:"25px",fontWeight:"10px"}}>Loading Products Chill ...
+              <div style={{height:"300px",width:"400px",textAlign:"center",position:"relative",top:"50px",left:"320px"}}>
+                <span style={{fontSize:"20px",fontWeight:"700"}}>Loading just a second...
                 <WaveLoading /> </span>
                 
               </div>
