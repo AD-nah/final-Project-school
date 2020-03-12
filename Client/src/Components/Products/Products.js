@@ -22,11 +22,11 @@ export default class Products extends Component {
                    
 
                     <MDBNavItem>
-                        <MDBNavLink className="text-dark" to="/products/men">Men's</MDBNavLink>
+                        <MDBNavLink className="text-dark btn-3_custom" to="/products/men">Men's</MDBNavLink>
                     </MDBNavItem>
                  
                     <MDBNavItem>
-                        <MDBNavLink className="text-dark" to="/products/Outfits">Outfits</MDBNavLink>
+                        <MDBNavLink className="text-dark btn-3_custom" to="/products/Outfits">Outfits</MDBNavLink>
                     </MDBNavItem>
 
                     <MDBNavItem>
