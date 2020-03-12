@@ -23,9 +23,7 @@ export default class Home extends Component {
     return (
        <>
 
-        <div style={{height:"150px"}}>
-          
-        </div>
+        
 
         <header>
           <div className="overlay"></div>

@@ -22,14 +22,14 @@ body{
 
 /* Nav bar style start */
 .navbarDown{
-  padding: 10px 10px !important;
-  font-size: 10px !important;
+  padding: 6px 6px !important;
+  font-size: 5px !important;
   opacity: 0.8;
 
 }
 
 .navbarTop{
-  padding: 35px 10px !important;
+  padding: 20px 10px !important;
   font-size: 35px;
 }
  
