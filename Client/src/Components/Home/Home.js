@@ -23,7 +23,7 @@ export default class Home extends Component {
     return (
        <>
 
-        <div style={{height:"150px"}}>
+        <div /*  style={{height:"150px"}} */>
           
         </div>
 

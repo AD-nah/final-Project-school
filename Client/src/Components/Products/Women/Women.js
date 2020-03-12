@@ -93,6 +93,8 @@ class Women extends React.Component {
   render() {
     return (
       <>
+
+        {this.state.successMessage && <SuccessMessage text = 'added to Basket'/>}
         <div className="container" style={{maxWidth:"100%"}}>
 
 
@@ -171,7 +173,6 @@ class Women extends React.Component {
                           <li>
                             <a
                               role="button"
-                              tabIndex={0}
                               onClick={() => this.setCurrentProduct(item)}
                               className="fa fa-shopping-cart"
                             ></a>
