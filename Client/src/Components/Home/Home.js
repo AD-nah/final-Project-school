@@ -22,17 +22,22 @@ export default class Home extends Component {
   render() {
     return (
        <>
-        <header >
+
+        <div style={{height:"150px"}}>
+          
+        </div>
+
+        <header>
           <div className="overlay"></div>
           <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
 
-            {/* <source src={video1} type="video/mp4" /> */}
+            <source src={video1} type="video/mp4" />
           </video>
           <div className="container h-100">
             <div className="d-flex h-100 text-center align-items-center">
               <div className="w-100 text-white">
                 <h1 className="display-3 text-muted">Our Shop</h1>
-                <p className="lead mb-0">Hallo Web Shop</p>
+                <p className="lead mb-0">Hallo Web-Shop</p>
               </div>
             </div>
           </div>
@@ -248,9 +253,7 @@ export default class Home extends Component {
         </div>
 
 
-        {/*Befor Footer start*/}
-
-        {/*Befor Footer end*/}
+     
      </>
     )
   }

@@ -4,6 +4,53 @@ const Product = require('../models/Product');
 const male =  '5e5d1d5a03249d2ee09ce758';
 const female = '5e5d1d8303249d2ee09ce759';
 
+
+// womens.forEach( (async item => {
+
+//    const newProduce = await new Product({
+
+//     product_type: female,
+
+//     name: item.name,
+//     description: item.description,
+
+//     images: item.images,
+//     prices: item.prices,
+//     rating: item.rating,
+//     colors:item.colors,
+//     sizes:item.sizes
+//   })
+
+//   newProduce.save()
+
+// }))
+
+// men.forEach( (async item => {
+
+//   const newProduce = await new Product({
+
+//    product_type: male,
+
+//    name: item.name,
+//    description: item.description,
+
+//    images: item.images,
+//    prices: item.prices,
+//    rating: item.rating,
+//    sizes:item.sizes
+//  })
+
+//  newProduce.save()
+
+// }))
+
+
+
+
+
+module.exports = router;
+
+
 let womens = [
   {
     "name": "Boxystyle Strickpullover",
@@ -579,46 +626,5 @@ const men = [
   },
 ]
 
-// womens.forEach( (async item => {
-
-//    const newProduce = await new Product({
-
-//     product_type: female,
-
-//     name: item.name,
-//     description: item.description,
-
-//     images: item.images,
-//     prices: item.prices,
-//     rating: item.rating,
-//     colors:item.colors,
-//     sizes:item.sizes
-//   })
-
-//   newProduce.save()
-
-// }))
-
-// men.forEach( (async item => {
-
-//   const newProduce = await new Product({
-
-//    product_type: male,
-
-//    name: item.name,
-//    description: item.description,
-
-//    images: item.images,
-//    prices: item.prices,
-//    rating: item.rating,
-//    sizes:item.sizes
-//  })
-
-//  newProduce.save()
-
-// }))
-
-
-module.exports = router;
 
 

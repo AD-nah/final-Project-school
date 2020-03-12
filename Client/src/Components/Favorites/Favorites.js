@@ -10,7 +10,7 @@ class Favorits extends Component {
     super(props)
     this.state = {
       // from the Redux
-      products: null,
+      products : null,
     }
   }
 
