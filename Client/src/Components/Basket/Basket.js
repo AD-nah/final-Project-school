@@ -71,8 +71,7 @@ class Chart extends Component {
                   <div className="col-md-6 text-center">
                     <h1>Your Basket is empty </h1>
                
-                    <button  type="button"
-                      className="btn btn-info btn-rounded btn-sm my-0 ">Go back to Product</button>
+                    <button className="btn btn-info btn-lg" type="button">Go back to Product</button>
 
                   </div>
 
@@ -153,7 +152,7 @@ class Chart extends Component {
                 
                 </div>
 {/*total start*/}
-                <div className="col-md-2 m-2" style={{backgroundColor: "#DADADA", height:"40vh"}}>
+                <div className="col-md-2 m-2 " style={{backgroundColor: "#DADADA", height:"40vh"}}>
                 <h3 className="font-weight-bold mt-3">Total</h3>
 
              

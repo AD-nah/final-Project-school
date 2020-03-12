@@ -141,7 +141,7 @@ export default class Home extends Component {
 
 
           {/*Started Carosel */}
-            <div id="carousel-example-1z" className="carousel slide carousel-fade" data-ride="carousel">
+            {/* <div id="carousel-example-1z" className="carousel slide carousel-fade" data-ride="carousel">
 
               <ol className="carousel-indicators">
                 <li data-target="#carousel-example-1z" data-slide-to="0" className="active"></li>
@@ -177,7 +177,7 @@ export default class Home extends Component {
                 <span className="sr-only">Next</span>
               </a>
 
-            </div>
+            </div> */}
             {/*end Carosel*/}
           </div>
 

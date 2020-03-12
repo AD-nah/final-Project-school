@@ -11,7 +11,7 @@ import {
   MDBModal,
   MDBModalBody,
   MDBCarousel,
-  MDBCarouselCaption,
+  MDBCarouselCaption, 
   MDBCarouselInner,
   MDBCarouselItem,
   MDBView,
