@@ -23,7 +23,7 @@ export default class Home extends Component {
     return (
        <>
 
-        
+
 
         <header>
           <div className="overlay"></div>
