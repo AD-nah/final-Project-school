@@ -67,8 +67,8 @@ class Navbar extends Component {
 
 
     // redirect to home Page when logoutAction() returned true! 
-    if(this.props.logoutAction()){
-      this.setState({logoutSuccess: true, redirectSuccess: true}) 
+    if (this.props.logoutAction()) {
+      this.setState({ logoutSuccess: true, redirectSuccess: true })
 
       // to reload the state after logout, that the state will ready for the next lougout, to redirect again!
       setTimeout(() => {
@@ -98,8 +98,11 @@ class Navbar extends Component {
     
     // window.onscroll = () => { this.scrollFunction() };
 
-    return (
-      <div>
+    return (<>
+      <div style={{ maxHeight: "130px" }}>
+
+        <MDBNavbar className={`${this.state.NavbarClass} navbar_header`} dark expand="md">
+
           {this.state.logoutSuccess && <SuccessMessage text="Good Bey" />}
 
           {authMessagesHandler() === "registerdMessage" && (
@@ -116,9 +119,12 @@ class Navbar extends Component {
 
 
           <MDBNavbarBrand>
-            <img style={{ width: "40px" }} src={Logo} alt="Logo" />
-            <strong className="white-text font-weight-bold "> Scount</strong>
-          </MDBNavbarBrand>
+            <img className="logo" src={Logo} alt="Logo" />
+            <strong className="scount white-text font-weight-bold "> Scount</strong>
+
+          
+
+          </MDBNavbarBrand >
           <MDBNavbarToggler onClick={this.toggleCollapse} />
 
           <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
@@ -193,7 +199,6 @@ class Navbar extends Component {
 
                   onClick={this.registerToggle}
                 >
-
                   Register
                 </button>
               )}
@@ -270,13 +275,13 @@ class Navbar extends Component {
 
             </MDBNavbarNav>
           </MDBCollapse>
-        </MDBNavbar>
+        </MDBNavbar >
 
 
+      </div >
 
 
-
-
+      <div>
 
         <Switch>
           <Route exact path="/" component={Home} />
@@ -290,7 +295,7 @@ class Navbar extends Component {
           <Route path="/favorites" component={Favorites} />
         </Switch>
       </div>
-    );
+    </>);
   }
 }
 

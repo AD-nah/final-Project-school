@@ -1,14 +1,35 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* logo style */
+.logo{
+  width: 50px;
+}
+
+.scount{
+  font-size:25px;
+}
+
+
+body{
+  padding-top: 75px;
+}
+
+
 /* Nav bar style start */
-
-
 .navbarDown{
-  padding: 10px 10px !important;
-  font-size: 15px;
+  padding: 6px 6px !important;
+  font-size: 5px !important;
+  opacity: 0.8;
 
 }
 
 .navbarTop{
-  padding: 35px 10px !important;
+  padding: 20px 10px !important;
   font-size: 35px;
 }
  
@@ -550,7 +571,7 @@ h3.h3 {
   color: rgb(3, 3, 3);
   cursor: pointer;
   display: block;
-  font-size:14px;
+  font-size:12px;
   font-weight: 400;
 
   
@@ -575,6 +596,7 @@ h3.h3 {
   outline-offset: 15px;
   color: whitesmoke;
   text-shadow: 1px 1px 2px #427388; 
+  font-family:  Tahoma;
 }
 
 

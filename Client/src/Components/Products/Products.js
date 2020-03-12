@@ -12,7 +12,7 @@ export default class Products extends Component {
     render() {
         return (<>
       
-            <div style={{padding:"75px",margin:"75px",fontSize:"20px"}} >
+            <div style={{fontSize:"20px"}} >
 
                 <MDBNav className="nav-fill ">
 
@@ -37,6 +37,21 @@ export default class Products extends Component {
                     </form>
                     </MDBNavItem>
                 </MDBNav>
+
+<ul class="nav flex-column">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </li>
+</ul>
 
             </div>
 
