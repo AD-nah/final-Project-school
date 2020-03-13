@@ -68,11 +68,8 @@ class Navbar extends Component {
 
 
   scrollFunction = () => {
-
     if (window.scrollY > 10) {
-
       this.setState({ NavbarClass: "navbarDown" })
-
     } else {
       this.setState({ NavbarClass: "navbarTop" })
     }
