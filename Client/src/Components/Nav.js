@@ -80,23 +80,23 @@ class Navbar extends Component {
 
 
 
-  // scrollFunction = () => {
+  scrollFunction = () => {
 
-  //   if (window.scrollY > 10) {
+    if (window.scrollY > 10) {
 
-  //     this.setState({ NavbarClass: "navbarDown" })
+      this.setState({ NavbarClass: "navbarDown" })
 
-  //   } else {
-  //     this.setState({ NavbarClass: "navbarTop" })
-  //   }
-  // }
+    } else {
+      this.setState({ NavbarClass: "navbarTop" })
+    }
+  }
 
 
  
 
   render() {
     
-    // window.onscroll = () => { this.scrollFunction() };
+    window.onscroll = () => { this.scrollFunction() };
 
     return (<>
       <div style={{ maxHeight: "130px" }}>
@@ -112,8 +112,8 @@ class Navbar extends Component {
             <SuccessMessage text="logged in" />
           )}
 
-        {/* <MDBNavbar className={`${this.state.NavbarClass} navbar_header`} dark expand="md"> */}
-        <MDBNavbar color="black" fixed="top" dark expand="md">
+        <MDBNavbar className={`${this.state.NavbarClass} navbar_header`} dark expand="md" />
+        {/* <MDBNavbar color="black" fixed="top" dark expand="md"> */}
 
           {this.state.redirectSuccess && <Redirect to="/" />}
 
@@ -313,7 +313,7 @@ export default connect(mapStateToProps, {
 
 
 
-{/* <a
+ {/* <a
 href="https://twitter.comCollection of Button Hover Effects/Dave_Conner"
 class="btn btn-1"
 >
@@ -328,6 +328,6 @@ Hover
 <a href="https://twitter.com/Dave_Conner" class="btn btn-2">
 Hover
 </a>
- */}
+  */}
 
 
