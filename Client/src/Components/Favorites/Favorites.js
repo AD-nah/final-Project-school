@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import empty from './images/emptyb.png';
 import paypal from './images/paypal.png';
 import basket from './images/basket.png';
-
+import { fetchFavorite } from '../../Redux/Actions/favorite' 
 
 class Favorits extends Component {
   constructor(props) {
@@ -16,7 +16,9 @@ class Favorits extends Component {
 
   // to remove duplicated items, thats come from the redux Store, and then save it inside the Compoment's state 
   componentDidMount() {
-    this.setState({ products: this.props.item.filter((item, index) => this.props.item.indexOf(item) === index) })
+    this.props.fetchFavorite().then(res => {
+      this.setState({ products: this.props.item.filter((item, index) => this.props.item.indexOf(item) === index) })
+    })
   }
 
   // to take a Number and convert it to Star
@@ -162,10 +164,10 @@ class Favorits extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    item: state.basketReducer
+    item: state.favoriteReducer
   }
 }
-export default connect(mapStateToProps)(Favorits)
+export default connect(mapStateToProps, {fetchFavorite})(Favorits)
 
 
 

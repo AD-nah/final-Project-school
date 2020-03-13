@@ -41,6 +41,7 @@ server.use('/api/register-post', require('./routes/register'))
 ////////  Save item to basket and send the hole basket to the client ///////
 server.use('/api/product', require('./routes/product'));
 server.use('/api/basket', require('./routes/basket'));
+server.use('/api/favorite', require('./routes/favorite'));
 
 
 module.exports = server;

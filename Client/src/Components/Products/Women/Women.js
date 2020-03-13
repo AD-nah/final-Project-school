@@ -6,6 +6,7 @@ import { WaveLoading } from "react-loadingg";
 import { fetchWomenProducts } from '../../../Redux/Actions/products'
 import { connect } from "react-redux";
 import { addToBasketAction } from "../../../Redux/Actions/basket";
+import { addToFavoriteAction } from '../../../Redux/Actions/favorite'
 import {
   MDBContainer,
   MDBModal,
@@ -73,9 +74,10 @@ class Women extends React.Component {
   }
   /// add the Favorites to the basket
   addToFavorite(item) {
-   // this.props.addToBasketAction(item);
 
-   // alert("added to Favorites");
+   this.props.addToFavoriteAction(item);
+
+    alert("added to Favorites");
   }
 
   sendImagesToCarousel(array) {
@@ -304,4 +306,4 @@ const  mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, {addToBasketAction,  fetchWomenProducts })(Women);
+export default connect(mapStateToProps, {addToBasketAction, addToFavoriteAction, fetchWomenProducts })(Women);
