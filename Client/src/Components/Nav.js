@@ -75,10 +75,11 @@ class Navbar extends Component {
 
     window.onscroll = () => { this.scrollFunction() };
 
-    return (<>
-      <div  >
+    return (
+    <>
+      <div>
 
-        <nav  className={`${this.state.NavbarClass} navbar_header navbar navbar-expand-lg`}>
+        <nav  className={`${this.state.NavbarClass} navbar_header navbar navbar-expand-lg`} style = {{height:'55px'}}>
           {this.state.logoutSuccess && <SuccessMessage text="Good Bey" />}
 
           {authMessagesHandler() === "registerdMessage" && (
@@ -105,6 +106,7 @@ class Navbar extends Component {
           </button>
 
           <div className="collapse navbar-collapse " id="navbarSupportedContent">
+            
             <ul className="navbar-nav mr-auto ">
               <li className="nav-item ">
 
