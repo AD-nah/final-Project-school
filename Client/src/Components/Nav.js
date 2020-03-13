@@ -80,28 +80,29 @@ class Navbar extends Component {
 
 
 
-  scrollFunction = () => {
+  // scrollFunction = () => {
 
-    console.log(this.state.NavbarClass)
-    if (window.scrollY > 80) {
+  //   if (window.scrollY > 10) {
 
-      this.setState({ NavbarClass: "navbarDown" })
+  //     this.setState({ NavbarClass: "navbarDown" })
 
-    } else {
-      this.setState({ NavbarClass: "navbarTop" })
-    }
-  }
+  //   } else {
+  //     this.setState({ NavbarClass: "navbarTop" })
+  //   }
+  // }
 
 
+ 
 
   render() {
-
-    window.onscroll = () => { this.scrollFunction() };
+    
+    // window.onscroll = () => { this.scrollFunction() };
 
     return (<>
       <div style={{ maxHeight: "130px" }}>
 
         <MDBNavbar className={`${this.state.NavbarClass} navbar_header`} dark expand="md">
+
           {this.state.logoutSuccess && <SuccessMessage text="Good Bey" />}
 
           {authMessagesHandler() === "registerdMessage" && (
@@ -110,6 +111,9 @@ class Navbar extends Component {
           {authMessagesHandler() === "loggedinMessage" && (
             <SuccessMessage text="logged in" />
           )}
+
+        {/* <MDBNavbar className={`${this.state.NavbarClass} navbar_header`} dark expand="md"> */}
+        <MDBNavbar color="black" fixed="top" dark expand="md">
 
           {this.state.redirectSuccess && <Redirect to="/" />}
 
@@ -132,7 +136,7 @@ class Navbar extends Component {
               </MDBNavItem>
 
               <MDBNavItem>
-                <MDBNavLink className="btn-2_custom font-weight-bold" to="/products">
+                <MDBNavLink className="btn-2_custom font-weight-bold" to="/products/women">
                   Products
                 </MDBNavLink>
 
@@ -235,7 +239,7 @@ class Navbar extends Component {
 
                       <MDBDropdownItem>
                         <Link to="/basket">
-                          <strong>My-Chart</strong>
+                          <strong>My-Basket</strong>
                         </Link>
 
                       </MDBDropdownItem>
