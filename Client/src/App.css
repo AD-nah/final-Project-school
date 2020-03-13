@@ -11,26 +11,40 @@
 }
 
 .scount{
-  font-size:25px;
+  font-size:30px !important;
+  color: #ffffff !important;
+font-weight: 900;
 }
 
 
 body{
-  padding-top: 75px;
+  padding-top: 30px;
 }
 
 
 /* Nav bar style start */
+
+
+
+
+.navbar-toggler-icon,.navbar-toggler{
+  color: white !important;
+  padding-right: 10px;
+  margin-right: 10px;
+  font-weight: 700;
+}
+
 .navbarDown{
   padding: 6px 6px !important;
-  font-size: 5px !important;
+  font-size: 15px !important;
   opacity: 0.8;
 
 }
 
+
 .navbarTop{
   padding: 20px 10px !important;
-  font-size: 35px;
+  font-size: 20px !important;
 }
  
 .navbar_header {
@@ -44,36 +58,14 @@ body{
 
 .navbar_header a {
   float: left;
-  color: black;
+  color: white;
   text-align: center;
   padding: 12px;
   text-decoration: none;
-  font-size: 18px; 
   line-height: 25px;
   border-radius: 4px;
 }
 
-.navbar_header #logo {
-  font-size: 35px;
-  font-weight: bold;
-  transition: 0.4s;
-}
-
-
-
-
-
-@media screen and (max-width: 580px) {
-  .navbar_header {
-    padding: 20px 10px !important;
-  }
-  .navbar_header a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-
-} 
 
 /* Navbar Style  end */
 
@@ -479,17 +471,17 @@ h3.h3 {
 
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
-.btn-2_custom {
-  letter-spacing: 0;
+
+
+.collapse .navbar-nav li > a:hover,
+.collapse .navbar-nav li > a:active {
+  letter-spacing: 5px ;
+  color: white;
+ 
 }
 
-.btn-2_custom:hover,
-.btn-2_custom:active {
-  letter-spacing: 5px;
-}
-
-.btn-2_custom:after,
-.btn-2_custom:before {
+.collapse .navbar-nav li > a:hover:after,
+.collapse .navbar-nav li > a:hover:before {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   border: 1px solid rgba(255, 255, 255, 0);
@@ -503,8 +495,8 @@ h3.h3 {
   width: 0;
 }
 
-.btn-2_custom:hover:after,
-.btn-2_custom:hover:before {
+.collapse .navbar-nav li > a:hover:after,
+.collapse .navbar-nav li > a:hover:before {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   border-color: #fff;
@@ -513,7 +505,7 @@ h3.h3 {
   width: 70%;
 }
 
-.btn-2_custom:hover:before {
+.collapse .navbar-nav li > a:hover:before {
   bottom: auto;
   top: 0;
   width: 70%;
