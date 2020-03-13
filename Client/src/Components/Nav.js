@@ -112,8 +112,6 @@ class Navbar extends Component {
             <SuccessMessage text="logged in" />
           )}
 
-        {/* <MDBNavbar className={`${this.state.NavbarClass} navbar_header`} dark expand="md"> */}
-        <MDBNavbar color="black" fixed="top" dark expand="md">
 
           {this.state.redirectSuccess && <Redirect to="/" />}
 
