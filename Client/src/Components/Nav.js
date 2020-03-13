@@ -1,25 +1,13 @@
 import React, { Component } from "react";
 import {
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarNav,
-  MDBNavItem,
-  MDBNavLink,
-  MDBNavbarToggler,
-  MDBCollapse,
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-  MDBDropdownItem,
-  MDBBtn,
   MDBModal,
   MDBModalHeader,
   MDBModalBody
 } from "mdbreact";
 
-import Logo from "../../src/hot-deal.svg";
+// import Logo from "../../src/hot-deal.svg";
 import SuccessMessage from "./Messages/SuccessMessage";
-
+import Logo from '../imgs/hot-deal.svg'
 import { Switch, Route, Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import * as reduxActios from "../Redux/Actions/auth";
@@ -34,7 +22,6 @@ import RegisterPage from "./Pages/RegisterPage";
 import Profile from "./Profile/Profile";
 import Basket from "./Basket/Basket";
 import Favorites from "./Favorites/Favorites";
-
 
 
 class Navbar extends Component {
@@ -52,6 +39,8 @@ class Navbar extends Component {
   toggleCollapse = () => {
     this.setState({ isOpen: !this.state.isOpen });
   };
+
+
   registerToggle = () => {
     this.setState({
       registerModal: !this.state.registerModal
@@ -64,8 +53,6 @@ class Navbar extends Component {
   };
 
   logoutHandler = () => {
-
-
     // redirect to home Page when logoutAction() returned true! 
     if (this.props.logoutAction()) {
       this.setState({ logoutSuccess: true, redirectSuccess: true })
@@ -80,129 +67,101 @@ class Navbar extends Component {
 
 
 
-  // scrollFunction = () => {
-
-  //   if (window.scrollY > 10) {
-
-  //     this.setState({ NavbarClass: "navbarDown" })
-
-  //   } else {
-  //     this.setState({ NavbarClass: "navbarTop" })
-  //   }
-  // }
+  scrollFunction = () => {
+    if (window.scrollY > 10) {
+      this.setState({ NavbarClass: "navbarDown" })
+    } else {
+      this.setState({ NavbarClass: "navbarTop" })
+    }
+  }
 
 
- 
+
 
   render() {
-    
-    // window.onscroll = () => { this.scrollFunction() };
+
+    window.onscroll = () => { this.scrollFunction() };
 
     return (<>
-      <div style={{ maxHeight: "130px" }}>
+      <div  >
 
-        <MDBNavbar className={`${this.state.NavbarClass} navbar_header`} dark expand="md">
-
+        <nav  className={`${this.state.NavbarClass} navbar_header navbar navbar-expand-lg`}>
           {this.state.logoutSuccess && <SuccessMessage text="Good Bey" />}
 
           {authMessagesHandler() === "registerdMessage" && (
-            <SuccessMessage text="Welcome to Your Shop" />
+            <SuccessMessage text="Happy Shoping" />
           )}
           {authMessagesHandler() === "loggedinMessage" && (
             <SuccessMessage text="logged in" />
           )}
-
-        {/* <MDBNavbar className={`${this.state.NavbarClass} navbar_header`} dark expand="md"> */}
-        <MDBNavbar color="black" fixed="top" dark expand="md">
-
           {this.state.redirectSuccess && <Redirect to="/" />}
 
 
-          <MDBNavbarBrand>
-            <img className="logo" src={Logo} alt="Logo" />
-            <strong className="scount white-text font-weight-bold "> Scount</strong>
 
+
+
+        <div >
+        <img className="logo " style={{display:"flex",float:"left"}} src={Logo} alt="Logo" />
+        <a className="navbar-brand scount" href="#"> Scount</a>
+       
           
+        </div>
 
-          </MDBNavbarBrand >
-          <MDBNavbarToggler onClick={this.toggleCollapse} />
+          <button className="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon ">Menu</span>
+          </button>
 
-          <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
-            <MDBNavbarNav left>
-              <MDBNavItem>
-                <MDBNavLink className=" btn-2_custom font-weight-bold" to="/home">
+          <div className="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul className="navbar-nav mr-auto ">
+              <li className="nav-item ">
+
+                <Link exact to="/home" >
                   Home
-                </MDBNavLink>
-              </MDBNavItem>
+                 </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/products/women" >
+                  Poducts
+                </Link>
+              </li>
 
-              <MDBNavItem>
-                <MDBNavLink className="btn-2_custom font-weight-bold" to="/products/women">
-                  Products
-                </MDBNavLink>
-
-              </MDBNavItem>
-
-              <MDBNavItem>
-                <MDBNavLink className=" btn-2_custom font-weight-bold" to="/news">
+              <li className="nav-item btn-2_custom">
+               
+                <Link to="/news" >
                   News
-                </MDBNavLink>
-              </MDBNavItem>
-
-              <MDBNavItem>
-                <MDBNavLink className=" btn-2_custom font-weight-bold" to="/about">
-                  About
-                </MDBNavLink>
-              </MDBNavItem>
-
-
-
-
-            </MDBNavbarNav>
+                </Link>
+              </li>
+              <li className="nav-item">
+           
+                <Link to="/about" >
+                  about
+                </Link>
+              </li>
+            </ul>
 
 
 
 
+              {/* login btn auth with modal */}
+                {!this.props.isAuthenticated && (<button class="btn-5 " onClick={this.loginToggle}>Login</button>)}
 
-
-            <MDBNavbarNav right>
-              {!this.props.isAuthenticated && (
-
-                <button
-                  class="btn-5"
-
-                  onClick={this.loginToggle}
+                <MDBModal isOpen={this.state.loginModal}
+                  toggle={this.loginToggle}
                 >
-
-                  Login
-                </button>
-              )}
-
-              <MDBModal
-                isOpen={this.state.loginModal}
-                toggle={this.loginToggle}
-              >
-                <MDBModalHeader toggle={this.loginToggle}>
-                  {/* Please Login */}
-                </MDBModalHeader>
-                <MDBModalBody>
-                  <LoginPage closeLogin={this.loginToggle} />
-                </MDBModalBody>
-              </MDBModal>
+                  <MDBModalHeader toggle={this.loginToggle}>
+                    {/* Please Login */}
+                  </MDBModalHeader>
+                  <MDBModalBody>
+                    <LoginPage closeLogin={this.loginToggle} />
+                  </MDBModalBody>
+                </MDBModal>
+            
 
 
 
 
-
-              {!this.props.isAuthenticated && (
-                <button
-                  class=" btn-5"
-
-                  onClick={this.registerToggle}
-                >
-                  Register
-                </button>
-              )}
-
+              {/* Register auth and Modal */}
+              {!this.props.isAuthenticated && (<button class=" btn-5  my-2 my-sm-0" onClick={this.registerToggle}>Register</button>)}
               <MDBModal
                 isOpen={this.state.registerModal}
                 toggle={this.registerToggle}
@@ -217,71 +176,45 @@ class Navbar extends Component {
 
 
 
-
-
-
-
-
-
-
+              {/* Acoount Dropdown Authentication */}
               {this.props.isAuthenticated && (
-                <MDBNavItem>
-                  <MDBDropdown>
-                    <MDBDropdownToggle className="w-78 p-2" caret color="white">
-                      Account
-                    </MDBDropdownToggle>
-                    <MDBDropdownMenu>
-                      <MDBDropdownItem>
-                        <Link to="/profile">
-                          <strong>Profile</strong>
-                        </Link>
-                      </MDBDropdownItem>
+                <div class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Account
+                    </a>
+                  <div class="dropdown-menu flex-column" aria-labelledby="navbarDropdown">
+                  <a>
+                    <Link to="/profile">
+                      <strong>Profile</strong>
+                    </Link>
+                  </a>
 
-                      <MDBDropdownItem>
-                        <Link to="/basket">
-                          <strong>My-Basket</strong>
-                        </Link>
+                  <a>
+                    <Link class="dropdown-item" to="/basket">
+                      <strong>My-Basket</strong>
+                    </Link>
+                  </a>
 
-                      </MDBDropdownItem>
-
-                      <MDBDropdownItem>
-                        <Link to="/favorites">
-                          <strong>Favorites</strong>
-                        </Link>
-                      </MDBDropdownItem>
-
-                    </MDBDropdownMenu>
-                  </MDBDropdown>
-                </MDBNavItem>
+                  <a>
+                  <Link to="/favorites">
+                      <strong>Favorites</strong>
+                    </Link>
+                  </a>
+                  
+                  </div>
+                </div>
               )}
 
 
+              {/* logout handler auth */}
+              {this.props.isAuthenticated && (<button class="btn-5 my-2 my-sm-0" onClick={this.logoutHandler}>Logout</button>)}
 
-
-
-
-
-
-              {this.props.isAuthenticated && (
-                <MDBBtn
-                  onClick={this.logoutHandler}
-                  className="w-60 p-2"
-                  color="white"
-                >
-                  Logout
-                </MDBBtn>
-              )}
-
-
-            </MDBNavbarNav>
-          </MDBCollapse>
-        </MDBNavbar >
-
-
-      </div >
-
-
+          
+          </div>
+        </nav>
+      </div>
       <div>
+
 
         <Switch>
           <Route exact path="/" component={Home} />
@@ -308,26 +241,3 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
   logoutAction: reduxActios.logoutAction
 })(Navbar);
-
-
-
-
-
-{/* <a
-href="https://twitter.comCollection of Button Hover Effects/Dave_Conner"
-class="btn btn-1"
->
-<svg>
-  <rect x="0" y="0" fill="none" width="100%" height="100%" />
-</svg>
-Hover
-</a>
-
-
-
-<a href="https://twitter.com/Dave_Conner" class="btn btn-2">
-Hover
-</a>
- */}
-
-

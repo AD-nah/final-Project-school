@@ -1,7 +1,6 @@
 import React from "react";
 import {
-  MDBContainer,
-  MDBCol,
+
   MDBInput,
   MDBBtn,
   MDBIcon,
@@ -26,8 +25,8 @@ class RegisterForm extends React.Component {
 
     this.state = {
       data: {
-        email: "ahmad.alnahlawi@icloud.com",
-        password: "asdf1234"
+        email: "",
+        password: ""
       },
       loading: false,
       errors: {}
@@ -133,7 +132,6 @@ class RegisterForm extends React.Component {
               label="Confirm password"
               type="password"
               onChange={this.onChange}
-              value={this.state.data.password}
             />
 
             {this.state.errors.password && (
