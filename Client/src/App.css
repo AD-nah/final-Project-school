@@ -25,7 +25,9 @@ body{
 /* Nav bar style start */
 
 
-
+.nav-item a:hover{
+color: white !important;
+}
 
 .navbar-toggler-icon,.navbar-toggler{
   color: white !important;
@@ -65,6 +67,7 @@ body{
   line-height: 25px;
   border-radius: 4px;
 }
+
 
 
 /* Navbar Style  end */
