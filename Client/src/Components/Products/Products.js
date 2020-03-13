@@ -3,7 +3,7 @@ import Men from './Men/Men'
 import Women from './Women/Women'
 import Outfits from './Outfits/Outfits'
 import {Switch,Route} from 'react-router-dom';
-import {MDBNav, MDBNavLink, MDBNavItem} from "mdbreact"
+import {MDBNav, MDBNavLink, MDBNavItem} from "mdbreact";
 
 
 
