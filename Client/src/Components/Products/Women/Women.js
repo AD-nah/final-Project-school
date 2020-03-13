@@ -72,7 +72,7 @@ class Women extends React.Component {
     },100);
   }
   /// add the Favorites to the basket
-  addingFavorits(item) {
+  addToFavorite(item) {
    // this.props.addToBasketAction(item);
 
    // alert("added to Favorites");
@@ -166,7 +166,7 @@ class Women extends React.Component {
                             <a href="#" className="far fa-heart" 
                              role="button"
                              tabIndex={1}
-                             onClick={() => this.addingFavorits(item)}
+                             onClick={() => this.addToFavorite(item)}
                             ></a>
                           </li>
                             {this.props.isAuthenticated && (
