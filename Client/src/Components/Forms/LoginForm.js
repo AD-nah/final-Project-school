@@ -20,8 +20,8 @@ class LoginForm extends React.Component {
   
     this.state = {
       data:{
-          email:'ahmad.alnahlawi@icloud.com',
-          password:'asdf1234'
+          email:'',
+          password:''
       },
       loading: false,
       errors:{}
@@ -75,7 +75,7 @@ class LoginForm extends React.Component {
     return (
       <MDBContainer>
         
-          <MDBCol  className= ' w-100 ' lg>
+          <MDBCol className= ' w-100 ' lg>
               <form onSubmit = { this.onSubmit }>
              
              
