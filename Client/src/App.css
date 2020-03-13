@@ -475,7 +475,7 @@ h3.h3 {
 
 .collapse .navbar-nav li > a:hover,
 .collapse .navbar-nav li > a:active {
-  letter-spacing: 5px ;
+  letter-spacing: 3px ;
   color: white;
  
 }
