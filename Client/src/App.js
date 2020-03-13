@@ -5,7 +5,7 @@ import Footer from "./Components/Footer/Footer"
 export default class App extends Component {
   render() {
     return (
-        <div  className="App" style = {{marginTop:'68px'}}>
+        <div  className="App" style = {{marginTop: '35px'}} >
           <Nav/>
           
           <Footer/>

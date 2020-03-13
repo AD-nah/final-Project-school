@@ -63,7 +63,7 @@ class Women extends React.Component {
     });
   };
 
-  setCurrentProduct(item) {
+  addToBasket(item) {
     this.props.addToBasketAction(item);
     this.setState({successMessage:true});
 
@@ -72,7 +72,7 @@ class Women extends React.Component {
     },100);
   }
   /// add the Favorites to the basket
-  addingFavorits(item) {
+  addToFavorite(item) {
    // this.props.addToBasketAction(item);
 
    // alert("added to Favorites");
@@ -166,17 +166,18 @@ class Women extends React.Component {
                             <a href="#" className="far fa-heart" 
                              role="button"
                              tabIndex={1}
-                             onClick={() => this.addingFavorits(item)}
+                             onClick={() => this.addToFavorite(item)}
                             ></a>
                           </li>
-
-                          <li>
-                            <a
-                              role="button"
-                              onClick={() => this.setCurrentProduct(item)}
-                              className="fa fa-shopping-cart"
-                            ></a>
-                          </li>
+                            {this.props.isAuthenticated && (
+                              <li>
+                                <a
+                                  role="button"
+                                  onClick={() => this.addToBasket(item)}
+                                  className="fa fa-shopping-cart"
+                                ></a>
+                              </li>
+                            )}
                         </ul>
 
                         {/* <span className="product-new-label">New</span> */}
@@ -296,8 +297,11 @@ class Women extends React.Component {
 
 const  mapStateToProps = (state) => {
   return {
-    getWomenProducts: state.productReducer
+    getWomenProducts: state.productReducer,
+    isAuthenticated: state.userReducer.token
+
   }
 }
+
 
 export default connect(mapStateToProps, {addToBasketAction,  fetchWomenProducts })(Women);
