@@ -45,7 +45,6 @@ class Favorits extends Component {
         
         {/*if the chart is empty show this code , if not then show the product*/}
        
-          {console.log('products :', this.state.products)}
           {(!this.state.products || this.state.products.length === 0) &&
             (
               <div className="container">

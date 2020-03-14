@@ -20,11 +20,13 @@ router.post('/',  (req, res) => {
             newUser.saveCurrentJWTtoDB(generatedLogin.token)
 
             const newBasket = new Basket({
-                user_ID : newUser._id
+                user_ID : newUser._id,
+                basket_owner: newUser.email
             }).save()
 
             const newFavorite = new Favorite({
-                user_ID: newUser._id
+                user_ID: newUser._id,
+                favorite_owner: newUser.email
             }).save()
 
             newUser.save().then(recordSaved => {

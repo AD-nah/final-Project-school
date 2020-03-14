@@ -10,6 +10,10 @@ const basketSchema = mongoose.Schema({
       basket : {
         type : Array,
         required: false
+      },
+      basket_owner:{
+        type:String,
+        required:true
       }
 })
 

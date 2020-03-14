@@ -12,6 +12,10 @@ const favoriteSchema = mongoose.Schema({
       favorite : {
         type : Array,
         required: false
+      },
+      favorite_owner:{
+        type:String,
+        required:true
       }
 })
 
