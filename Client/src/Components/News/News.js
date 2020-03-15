@@ -129,7 +129,7 @@ export default class News extends Component {
 
                 </div>
                 {/*news Started*/}
-                <div className="container">
+                <div className="container" style={{width:"50vw"}}>
                     {news1}
 
                 </div>

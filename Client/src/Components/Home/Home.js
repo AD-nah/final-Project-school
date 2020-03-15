@@ -101,30 +101,33 @@ export default class Home extends Component {
         </section>
         {/*Bar end*/}
 
-        <div className="container-fluid">
-          <div className="row mt-2">
+        <div className="container-fluid " style={{backgroundColor:"#ebebeb"}}>
+          <div className="row m-5 p-2" >
             <div className="col-md-6 col-lg-6 ">
 
 
               <img className="img-fluid" src={img} alt="Testig Photo" />
             </div>
 
-            <div className="col-md-6 text-center mt-5">
+            <div className="col-md-3 mt-3" >
               <h1>This the Show</h1>
-              <h3>Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</h3>
+              <h5>Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</h5>
             </div>
           </div>
 
 
-          <div className="row mt-2 text-center">
-            <div className="col-md-7 mt-5">
-              <h1>Hallo form me</h1>
-              <h3>Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</h3>
+          <div className="row m-5 p-2" >
+            <div className="col-md-3 m-2">
+              <h1 >Hallo form me</h1>
+              <h5>Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</h5>
+
+            </div>
+            <div className="col-md-3">
 
             </div>
 
             <div className="col-md-5">
-              <img className="rounded-circle img-fluid" src={img1} alt="Testig Photo" />
+              <img className="img-fluid" src={img1} alt="Testig Photo" />
 
             </div>
           </div>

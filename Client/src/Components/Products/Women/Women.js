@@ -95,7 +95,7 @@ class Women extends React.Component {
       <>
 
         {this.state.successMessage && <SuccessMessage text = 'added to Basket'/>}
-        <div className="container" style={{maxWidth:"100%"}}>
+        <div className="container" >
 
 
           <div className="container" style={{height:"200px "}}>
