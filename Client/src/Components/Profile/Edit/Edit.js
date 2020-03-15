@@ -197,7 +197,7 @@ class Edit extends React.Component {
                 rounded
                 className=" z-depth-1a"
               >
-                Register
+                Edit
               </MDBBtn>
             </div>
 
