@@ -38,8 +38,12 @@ class Sell extends React.Component {
             $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
         }
         return (
-            <div class="container regFormContainer font-weight-bold">
-                <form onSubmit={(e) => this._handleSubmit(e)}>
+            <div class="container-fluid row regFormContainer font-weight-bold">
+                <div className="imgPreview row-md-2">
+                            {$imagePreview}
+                        </div>
+                <div className="col-md-8">
+                <form  onSubmit={(e) => this._handleSubmit(e)}>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Product Name</label>
                         <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="your name" />
@@ -74,9 +78,9 @@ class Sell extends React.Component {
 
 
                 </form>
-                <div className="imgPreview">
-                            {$imagePreview}
-                        </div>
+                </div>
+
+                
             </div>
 
         );
