@@ -5,9 +5,9 @@ import black from '../../imgs/black.jpg';
 import grau from '../../imgs/grau.jpg';
 import './home.css'
 import video1 from './video/almosa.mp4';
-import caro1 from './video/1.jpg';
-import caro2 from './video/2.jpg';
-import caro3 from './video/3.jpg';
+import caro1 from './imgCarousel/d-women4.jpg';
+import caro2 from './imgCarousel/d-men1.jpg';
+import caro3 from './imgCarousel/d-women1.jpg';
 import paypal from './icons/paypal1.png';
 import visa from './icons/visa1.png';
 import master from './icons/master.png'
