@@ -21,10 +21,56 @@ import { BackTop } from 'antd';
 export default class Home extends Component {
   render() {
     return (
-       <>
+      <>
+
+
+        {/*Started Carosel */}
+        <div id="carousel-example-1z" className="carousel slide carousel-fade" data-ride="carousel">
+
+          <ol className="carousel-indicators">
+            <li data-target="#carousel-example-1z" data-slide-to="0" className="active"></li>
+            <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+            <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+          </ol>
+
+          <div className="carousel-inner mt-4" role="listbox" style={{ height: "50vh" }}>
+
+            <div className="carousel-item active">
+              <img className="d-block w-100" src={caro1}
+                alt="First slide" />
+            </div>
+
+            <div className="carousel-item">
+              <img className="d-block w-100" src={caro2}
+                alt="Second slide" />
+            </div>
+
+            <div className="carousel-item">
+              <img className="d-block w-100" src={caro3}
+                alt="Third slide" />
+            </div>
+
+          </div>
+
+          <a className="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="sr-only">Previous</span>
+          </a>
+          <a className="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="sr-only">Next</span>
+          </a>
+
+        </div>
+        {/*end Carosel*/}
 
 
 
+
+
+
+
+        {/* 
         <header>
           <div className="overlay"></div>
           <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
@@ -39,7 +85,7 @@ export default class Home extends Component {
               </div>
             </div>
           </div>
-        </header>
+        </header> */}
 
         <br />
         <br />
@@ -83,7 +129,7 @@ export default class Home extends Component {
         </section>
         {/*Section end*/}
 
-        
+
         {/*Bar start*/}
         <section className="bg-dark row page1-section text-white">
           <div className="col-md-6 container text-center">
@@ -93,9 +139,9 @@ export default class Home extends Component {
 
 
 
-         
+
           <div className="col-md-5 text-center">
-            <iframe className="col-md-10 embed-responsive embed-responsive-16by9" title = 'title' width="560" height="315" src="//www.youtube.com/embed/_jmC9gOjLkI" frameborder="2" allowfullscreen></iframe>
+            <iframe className="col-md-10 embed-responsive embed-responsive-16by9" title='title' width="560" height="315" src="//www.youtube.com/embed/_jmC9gOjLkI" frameborder="2" allowfullscreen></iframe>
           </div>
 
         </section>
@@ -130,129 +176,87 @@ export default class Home extends Component {
           </div>
 
 
+          {/* Back to top btn */}
+          <div>
+            <BackTop>
 
+              <i className="fas fa-angle-double-up" style={{ color: "orange", fontSize: "40px" }}></i>
 
-
-         {/* Back to top btn */}
-         <div>
-                <BackTop>
-                
-                <i className="fas fa-angle-double-up" style={{color:"orange",fontSize:"40px"}}></i>
-               
-                </BackTop>
-         </div>
-
-
-          {/*Started Carosel */}
-            <div id="carousel-example-1z" className="carousel slide carousel-fade" data-ride="carousel">
-
-              <ol className="carousel-indicators">
-                <li data-target="#carousel-example-1z" data-slide-to="0" className="active"></li>
-                <li data-target="#carousel-example-1z" data-slide-to="1"></li>
-                <li data-target="#carousel-example-1z" data-slide-to="2"></li>
-              </ol>
-
-              <div className="carousel-inner mt-4" role="listbox" style={{ height: "50vh" }}>
-
-                <div className="carousel-item active">
-                  <img className="d-block w-100" src={caro1}
-                    alt="First slide" />
-                </div>
-
-                <div className="carousel-item">
-                  <img className="d-block w-100" src={caro2}
-                    alt="Second slide" />
-                </div>
-
-                <div className="carousel-item">
-                  <img className="d-block w-100" src={caro3}
-                    alt="Third slide" />
-                </div>
-
-              </div>
-
-              <a className="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span className="sr-only">Previous</span>
-              </a>
-              <a className="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                <span className="sr-only">Next</span>
-              </a>
-
-            </div>
-            {/*end Carosel*/}
+            </BackTop>
           </div>
 
 
-          <br />
-          <br />
-
-          <section className="page-section" id="services">
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-12 text-center">
-                  <h2 className="section-heading text-uppercase">Services</h2>
-                  <h3 className="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-                </div>
-              </div>
-              <div className="row text-center">
-                <div className="col-md-4">
-                  <span className="fa-stack fa-4x">
-                    <i className="fas fa-circle fa-stack-2x text-primary"></i>
-                    <i className="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                  </span>
-                  <h4 className="service-heading">E-Commerce</h4>
-                  <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-                <div className="col-md-4">
-                  <span className="fa-stack fa-4x">
-                    <i className="fas fa-circle fa-stack-2x text-primary"></i>
-                    <i className="fas fa-laptop fa-stack-1x fa-inverse"></i>
-                  </span>
-                  <h4 className="service-heading">Design</h4>
-                  <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-                <div className="col-md-4">
-                  <span className="fa-stack fa-4x">
-                    <i className="fas fa-circle fa-stack-2x text-primary"></i>
-                    <i className="fas fa-lock fa-stack-1x fa-inverse"></i>
-                  </span>
-                  <h4 className="service-heading">Web Security</h4>
-                  <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-{/*Bayment start*/}
-        <div className="container row-md-12 mt-5">
-          <div className="col-md-12 text-center"><h1>Here You Can Bay</h1></div>
-          <div className="row text-center"><div className="col-md-4">
-            <a  href="http://www.paypal.com">
-            <img className="mt-3" src={paypal}/>
-            </a>
-          </div>
-
-          <div className="col-md-4">
-            <a   href="#">
-              <img src={master}/>
-            </a>
-          </div>
-
-          <div className="col-md-4">
-            <a  href="#">
-              <img src={visa}/>
-             </a>
-          </div>
-          
-          </div>
-
-          
         </div>
 
 
-     
-     </>
+        <br />
+        <br />
+
+        <section className="page-section" id="services">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-12 text-center">
+                <h2 className="section-heading text-uppercase">Services</h2>
+                <h3 className="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+              </div>
+            </div>
+            <div className="row text-center">
+              <div className="col-md-4">
+                <span className="fa-stack fa-4x">
+                  <i className="fas fa-circle fa-stack-2x text-primary"></i>
+                  <i className="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 className="service-heading">E-Commerce</h4>
+                <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+              </div>
+              <div className="col-md-4">
+                <span className="fa-stack fa-4x">
+                  <i className="fas fa-circle fa-stack-2x text-primary"></i>
+                  <i className="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 className="service-heading">Design</h4>
+                <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+              </div>
+              <div className="col-md-4">
+                <span className="fa-stack fa-4x">
+                  <i className="fas fa-circle fa-stack-2x text-primary"></i>
+                  <i className="fas fa-lock fa-stack-1x fa-inverse"></i>
+                </span>
+                <h4 className="service-heading">Web Security</h4>
+                <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/*Bayment start*/}
+        <div className="container row-md-12 mt-5">
+          <div className="col-md-12 text-center"><h1>Here You Can Bay</h1></div>
+          <div className="row text-center"><div className="col-md-4">
+            <a href="http://www.paypal.com">
+              <img className="mt-3" src={paypal} />
+            </a>
+          </div>
+
+            <div className="col-md-4">
+              <a href="#">
+                <img src={master} />
+              </a>
+            </div>
+
+            <div className="col-md-4">
+              <a href="#">
+                <img src={visa} />
+              </a>
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+
+      </>
     )
   }
 }
