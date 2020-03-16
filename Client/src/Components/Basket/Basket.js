@@ -6,23 +6,36 @@ import basket from './images/basket.png';
 import master from './images/master.png';
 import visa from './images/visa.png';
 import {fetchBasket} from '../../Redux/Actions/basket'
-
-
+import { removeFromBasketAction } from '../../Redux/Actions/basket'
+import SuccessMessage from '../Messages/SuccessMessage'
 class Chart extends Component {
   constructor(props) {
     super(props)
     this.state = {
       // from the Redux
       products: null,
+      removedFromBasket: false,
+      removedFromBasketMessage: '',
       total : 0
     }
   }
 
   // to remove duplicated items, thats come from the redux Store, and then save it inside the Compoment's state 
   componentDidMount() {
-    this.props.fetchBasket().then(res => {
-      this.setState({ products: this.props.item.filter((item, index) => this.props.item.indexOf(item) === index) })
-    })
+
+    this.props.fetchBasket().then(() => {
+      
+          const filteredArr = this.props.item.reduce((acc, current) => {
+            const x = acc.find(item => item._id === current._id);
+            if (!x) {
+              return acc.concat([current]);
+            } else {
+              return acc;
+            }
+          }, []);
+
+          this.setState({ products: filteredArr })
+     })
   }
 
   // to take a Number and convert it to Star
@@ -36,22 +49,39 @@ class Chart extends Component {
 
   // remove items
   delete(item) {
-    this.setState(prevState => ({
-      products: prevState.products.filter(el => el != item)
-    }))
+
+     removeFromBasketAction(item).then(res => {
+       
+      this.setState(prevState => ({
+          products: prevState.products.filter(el => el._id !== item._id),
+          removedFromBasket: prevState.removedFromBasket = true,
+          removedFromBasketMessage: prevState.removedFromBasketMessage = res
+      }))
+       setTimeout(()=> {
+          this.setState({removedFromBasket:false})
+       },200)
+
+     }).catch((res) => {
+       this.setState({removedFromBasket: true, removedFromBasketMessage: res})
+       setTimeout(()=> {
+        this.setState({removedFromBasket:false})
+     },200)
+     })
   }
 
   render() {
     return (
       <div className = 'container-fluid'>
-        <h3 className="card-header text-center font-weight-bold text-uppercase py-4 "><img className="float-right " src={basket}/>MY Basket </h3>
+
+        {this.state.removedFromBasket && (<SuccessMessage text = {this.state.removedFromBasketMessage} />)}
+
+        <h3 className="card-header text-center font-weight-bold text-uppercase py-4 "><img className="float-right " src={basket}/>your Basket </h3>
         <br/>
 
         <div className=" row">
             {/*if the chart is empty show this code , if not then show the product*/}
               {(!this.state.products || this.state.products.length === 0) && (
                 <div className="col-9 container">
-
                   <div>
                     <div className="mt-3 alert alert-warning" role="alert">
                       <h4 className="alert-heading">No products in your Basket!</h4>

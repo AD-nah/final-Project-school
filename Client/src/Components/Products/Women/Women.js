@@ -44,7 +44,9 @@ class Women extends React.Component {
       data: null,
       currentProduct: [],
       currentArrayOfImages: [],
-      successMessage: false,
+      addedToBasketMessage: false,
+      alreadyInBasket : false,
+      alreadyInBasketMessage :'',
       //images modal
       modal13: false
     };
@@ -65,12 +67,26 @@ class Women extends React.Component {
   };
 
   addToBasket(item) {
-    this.props.addToBasketAction(item);
-    this.setState({successMessage:true});
 
+    this.props.addToBasketAction(item).then(res => {
+
+    this.setState({addedToBasketMessage:true});
     setTimeout(()=>{
-      this.setState({successMessage:false});
+      this.setState({addedToBasketMessage:false});
     },100);
+
+    })//.catch(res => {
+    //   console.log(res)
+    //   this.setState({
+    //     alreadyInBasket : true,
+    //     alreadyInBasketMessage : res
+    //   })
+    //   setTimeout(()=>{
+    //     this.setState({alreadyInBasket:false});
+    //   },100);
+    // })
+
+
   }
   /// add the Favorites to the basket
   addToFavorite(item) {
@@ -96,7 +112,8 @@ class Women extends React.Component {
     return (
       <>
 
-        {this.state.successMessage && <SuccessMessage text = 'added to Basket'/>}
+        {this.state.addedToBasketMessage && <SuccessMessage text = 'added to Basket'/>}
+        {this.state.alreadyInBasket && (<SuccessMessage text = {this.state.alreadyInBasketMessage}/>)}
         <div className="container" style={{maxWidth:"100%"}}>
 
 
