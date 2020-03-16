@@ -3,11 +3,18 @@ import img from '../../imgs/test.jpg';
 import img1 from '../../imgs/test1.jpg';
 import black from '../../imgs/black.jpg';
 import grau from '../../imgs/grau.jpg';
-import './home.css'
+import './home.css';
+
 import video1 from './video/almosa.mp4';
 import caro1 from './imgCarousel/d-women4.jpg';
-import caro2 from './imgCarousel/d-men1.jpg';
+import caro2 from './imgCarousel/d-men1.jpeg';
 import caro3 from './imgCarousel/d-women1.jpg';
+import caro4 from './imgCarousel/d-men2.jpg';
+import caro5 from './imgCarousel/d-men3.jpg';
+import caro6 from './imgCarousel/d-women3.jpg';
+
+
+
 import paypal from './icons/paypal1.png';
 import visa from './icons/visa1.png';
 import master from './icons/master.png'
@@ -31,24 +38,45 @@ export default class Home extends Component {
             <li data-target="#carousel-example-1z" data-slide-to="0" className="active"></li>
             <li data-target="#carousel-example-1z" data-slide-to="1"></li>
             <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+            <li data-target="#carousel-example-1z" data-slide-to="3"></li>
+            <li data-target="#carousel-example-1z" data-slide-to="4"></li>
+            <li data-target="#carousel-example-1z" data-slide-to="5"></li>
           </ol>
 
-          <div className="carousel-inner mt-4" role="listbox" style={{ height: "50vh" }}>
+          <div className="carousel-inner mt-4" role="listbox" style={{ height: "55vh" }}>
 
             <div className="carousel-item active">
-              <img className="d-block w-100" src={caro1}
+              <img className="d-block w-100 carouselimag" src={caro1}
                 alt="First slide" />
             </div>
 
             <div className="carousel-item">
-              <img className="d-block w-100" src={caro2}
+              <img className="d-block w-100 carouselimag" src={caro2}
                 alt="Second slide" />
             </div>
 
             <div className="carousel-item">
-              <img className="d-block w-100" src={caro3}
+              <img className="d-block w-100 carouselimag" src={caro3}
                 alt="Third slide" />
             </div>
+            
+            <div className="carousel-item ">
+              <img className="d-block w-100 carouselimag" src={caro4}
+                alt="Forth slide" />
+            </div>
+
+
+            <div className="carousel-item ">
+              <img className="d-block w-100 carouselimag" src={caro5}
+                alt="Fifth slide" />
+            </div>
+
+
+            <div className="carousel-item ">
+              <img className="d-block w-100 carouselimag" src={caro6}
+                alt="Sixth slide" />
+            </div>
+
 
           </div>
 
