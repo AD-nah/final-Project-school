@@ -7,7 +7,7 @@
 
 /* logo style */
 .logo{
-  width: 50px;
+  width: 45px;
 }
 
 .scount{
@@ -25,7 +25,7 @@ body{
 /* Nav bar style start */
 
 
-.nav-item a:hover{
+.nav-item > a:hover{
 color: white !important;
 }
 
@@ -39,7 +39,7 @@ color: white !important;
 .navbarDown{
   padding: 6px 6px !important;
   font-size: 15px !important;
-  opacity: 0.8;
+  opacity: 0.5;
 
 }
 
