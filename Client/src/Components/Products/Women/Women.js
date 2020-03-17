@@ -93,15 +93,12 @@ class Women extends React.Component {
   render() {
     return (
       <>
-
         {this.state.successMessage && <SuccessMessage text = 'added to Basket'/>}
-        <div className="container" style={{maxWidth:"100%"}}>
+        <div className="container">
 
 
-          <div className="container" style={{height:"200px "}}>
-            <h4 class="wordCarousel" style={{height:"100px "}}>
+            <div class="wordCarousel">
               <span className="whyScount">Why Scount ? </span>
-
               <div>
                 <ul class="flip4">
                   <li>Best Quality</li>
@@ -110,8 +107,8 @@ class Women extends React.Component {
                   <li>Satisfiction </li>
                 </ul>
               </div>
-            </h4>
-          </div>
+            </div>
+         
 
         
     
@@ -197,18 +194,14 @@ class Women extends React.Component {
                          */}
                       </div>
                     </div>
-                       <div className="space-ten"></div>
-                      <div className="space-ten"></div>
-                      <div className="space-ten"></div>
-                
                   </div>
                 </>);
               })
-            ) : (
-              <div style={{height:"500px",width:"400px",textAlign:"center",position:"relative",top:"50px",left:"350px"}}>
-                <span style={{fontSize:"25px",fontWeight:"10px"}}>Loading Products Chill ...
-                <WaveLoading /> </span>
-                
+            ) :  (
+              <div style={{height:"350px",width:"200px",textAlign:"center",position:"relative",left:"40%"}}>
+                <span style={{fontSize:"20px",fontWeight:"700"}}>Loading ...
+                <WaveLoading/>
+                 </span>
               </div>
             )}
 
