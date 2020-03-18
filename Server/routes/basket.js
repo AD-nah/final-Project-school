@@ -9,6 +9,7 @@ router.post('/get-basket', async (req, res, next) => {
     const { userID } = req.body
 
     const findInBasket = await Basket.findOne({user_ID: userID})
+    console.log(findInBasket)
         if(findInBasket){
 
             res.json({basket: findInBasket.basket});
@@ -22,7 +23,7 @@ router.post('/save-to-basket', async (req, res, next)=> {
     const { userID, item } = req.body
 
     const findBasketAndUpdate = await Basket.findOneAndUpdate({ user_ID: userID }, { $push: { basket : item }})
-
+        console.log(findBasketAndUpdate)
         if(findBasketAndUpdate){
             res.json({items: findBasketAndUpdate.basket});
         }else{

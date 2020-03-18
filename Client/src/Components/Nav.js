@@ -49,7 +49,7 @@ class Navbar extends Component {
   loginToggle = () => {
     this.setState({
       loginModal: !this.state.loginModal
-    });
+    }); 
   };
 
   logoutHandler = () => {

@@ -4,7 +4,7 @@ import img from '../../imgs/test.jpg';
 import dressbox from './Boxes images/women with dressbox.jpg';
 import './home.css';
 
-import video from './video/Bread&ButterRecap.mp4';
+//import video from './video/Bread&ButterRecap.mp4';
 import caro1 from './imgCarousel/d-women4.jpg';
 import caro2 from './imgCarousel/d-men1.jpeg';
 import caro3 from './imgCarousel/d-women1.jpg';
@@ -293,7 +293,7 @@ export default class Home extends Component {
                 <div className="p-5">
                   <header >
                     <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-                      <source src={video} type="video/mp4" />
+                      <source /*  src={video} */ type="video/mp4" />
                     </video>
 
                   </header>
@@ -318,8 +318,8 @@ export default class Home extends Component {
 
 
 
-        <div className="container-fluid">
-          <div className="row mt-2">
+        <div className="container-fluid " style={{backgroundColor:"#ebebeb"}}>
+          <div className="row m-5 p-2" >
             <div className="col-md-6 col-lg-6 ">
               <img className="img-fluid" src={img} alt="Testig Photo" />
             </div>
