@@ -78,6 +78,13 @@ CREATE TABLE `Products` (
   `productDescription` varchar(255)
 );
 
+CREATE TABLE `Main_Products` (
+  `productId` int PRIMARY KEY AUTO_INCREMENT,
+  `productType` varchar(255),
+  `productName` varchar(255),
+  `productDescription` varchar(255)
+);
+
 CREATE TABLE `Images` (
   `productId` int,
   `Images` varchar(255)
