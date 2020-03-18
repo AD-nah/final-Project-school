@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,Link } from 'react';
 import { connect } from 'react-redux';
 import empty from './images/emptyb.png';
 import paypal from './images/paypal.png';
@@ -55,7 +55,7 @@ class Chart extends Component {
 
   render() {
     return (
-      <div className='container-fluid'>
+      <div className='container-fluid' >
         <h3 className="card-header text-center font-weight-bold text-uppercase py-4 "><img className="float-right " src={basket} />MY Basket </h3>
         <br />
 
@@ -67,19 +67,15 @@ class Chart extends Component {
               <div>
                 <div className="mt-3 alert alert-warning" role="alert">
                   <h4 className="alert-heading">No products in your Basket!</h4>
-                  <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
-                  <hr />
-                  <p className="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                 
+                 
                 </div>
 
-                <hr />
                 <div className="container row">
                   <div className="col-md-6" >
                     <img className="img-fluid" src={empty} style={{ height: "50vh" }} />
                   </div>
                   <div className="col-md-6 text-center">
-                    <h1>Your Basket is empty </h1>
-
                     <button type="button"
                       className="btn btn-info btn-rounded btn-sm my-0 ">Go back to Product</button>
                   </div>
