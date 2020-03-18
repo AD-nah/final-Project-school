@@ -298,7 +298,7 @@ const secondHand = [
     ],
     "blue":"https://marketplace-images.asos.com/user/df8fe003-4ab0-405c-af00-5cb9e15a405f_large.jpg"
 
-  },
+  },   
 
   "prices": [
     10,
