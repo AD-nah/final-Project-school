@@ -63,7 +63,7 @@ class Women extends React.Component {
     });
   };
 
-  addToBasket(item) {
+  setCurrentProduct(item) {
     this.props.addToBasketAction(item);
     this.setState({successMessage:true});
 
@@ -72,7 +72,7 @@ class Women extends React.Component {
     },100);
   }
   /// add the Favorites to the basket
-  addToFavorite(item) {
+  addingFavorits(item) {
    // this.props.addToBasketAction(item);
 
    // alert("added to Favorites");
@@ -93,15 +93,11 @@ class Women extends React.Component {
   render() {
     return (
       <>
-
         {this.state.successMessage && <SuccessMessage text = 'added to Basket'/>}
-        <div className="container" style={{maxWidth:"100%"}}>
-
-
-          <div className="container" style={{height:"200px "}}>
-            <h4 class="wordCarousel" style={{height:"100px "}}>
+        <div className="container">
+          <div className="row">
+          <div class="wordCarousel">
               <span className="whyScount">Why Scount ? </span>
-
               <div>
                 <ul class="flip4">
                   <li>Best Quality</li>
@@ -110,17 +106,13 @@ class Women extends React.Component {
                   <li>Satisfiction </li>
                 </ul>
               </div>
-            </h4>
-          </div>
+            </div>
+         
 
-        
-    
-
-          <div className="row">
             {this.state.data ? (
               this.state.data.map((item, index) => {
                 return (<>
-                  <div key={index} className="col-md-3 col-sm-6">
+                  <div key={index} className="col-lg-4 col-md-4 col-sm-6">
                     <div className="product-grid7">
                       <div className="product-content">
                         <h3 className="title">
@@ -166,18 +158,17 @@ class Women extends React.Component {
                             <a href="#" className="far fa-heart" 
                              role="button"
                              tabIndex={1}
-                             onClick={() => this.addToFavorite(item)}
+                             onClick={() => this.addingFavorits(item)}
                             ></a>
                           </li>
-                            {this.props.isAuthenticated && (
-                              <li>
-                                <a
-                                  role="button"
-                                  onClick={() => this.addToBasket(item)}
-                                  className="fa fa-shopping-cart"
-                                ></a>
-                              </li>
-                            )}
+
+                          <li>
+                            <a
+                              role="button"
+                              onClick={() => this.setCurrentProduct(item)}
+                              className="fa fa-shopping-cart"
+                            ></a>
+                          </li>
                         </ul>
 
                         {/* <span className="product-new-label">New</span> */}
@@ -198,18 +189,14 @@ class Women extends React.Component {
                          */}
                       </div>
                     </div>
-                       <div className="space-ten"></div>
-                      <div className="space-ten"></div>
-                      <div className="space-ten"></div>
-                
                   </div>
                 </>);
               })
-            ) : (
-              <div style={{height:"500px",width:"400px",textAlign:"center",position:"relative",top:"50px",left:"350px"}}>
-                <span style={{fontSize:"25px",fontWeight:"10px"}}>Loading Products Chill ...
-                <WaveLoading /> </span>
-                
+            ) :  (
+              <div style={{height:"350px",width:"200px",textAlign:"center",position:"relative",left:"40%"}}>
+                <span style={{fontSize:"20px",fontWeight:"700"}}>Loading ...
+                <WaveLoading/>
+                 </span>
               </div>
             )}
 
@@ -297,11 +284,8 @@ class Women extends React.Component {
 
 const  mapStateToProps = (state) => {
   return {
-    getWomenProducts: state.productReducer,
-    isAuthenticated: state.userReducer.token
-
+    getWomenProducts: state.productReducer
   }
 }
-
 
 export default connect(mapStateToProps, {addToBasketAction,  fetchWomenProducts })(Women);
