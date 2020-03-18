@@ -33,13 +33,15 @@ class Sell extends React.Component {
         let { imagePreviewUrl } = this.state;
         let $imagePreview = null;
         if (imagePreviewUrl) {
-            $imagePreview = (<img src={imagePreviewUrl} />);
+            $imagePreview = (<img className="halloImage m-2" src={imagePreviewUrl} style={{width:"20vw", height:"40vh"}}/>);
         } else {
             $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
+            
         }
+
         return (
             <div class="container-fluid row regFormContainer font-weight-bold">
-                <div className="imgPreview row-md-2">
+                <div className=" row-md-2">
                             {$imagePreview}
                         </div>
                 <div className="col-md-8">
@@ -58,11 +60,7 @@ class Sell extends React.Component {
                         <label for="exampleFormControlTextarea1">Write your product description</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
-                    {/* <div class="form-group">
-                        <label for="exampleFormControlFile1">Uploade Photos</label>
-                        <input type="file" class="form-control-file" accept="image/*" onClick={this.chooseF}/>
-                        <button onClick={this.chooseF}>Choose file</button>                        
-                    </div> */}
+                 
 
                    
                       
