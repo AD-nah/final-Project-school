@@ -59,10 +59,10 @@ class Chart extends Component {
         <h3 className="card-header text-center font-weight-bold text-uppercase py-4 "><img className="float-right " src={basket} />MY Basket </h3>
         <br />
 
-        <div className=" row">
+        <div className=" row" style={{marginBottom:'300px'}}>
           {/*if the chart is empty show this code , if not then show the product*/}
           {(!this.state.products || this.state.products.length === 0) && (
-            <div className="col-9 container">
+            <div className="col-9 container" >
 
               <div>
                 <div className="mt-3 alert alert-warning" role="alert">
