@@ -95,9 +95,8 @@ class Women extends React.Component {
       <>
         {this.state.successMessage && <SuccessMessage text = 'added to Basket'/>}
         <div className="container">
-
-
-            <div class="wordCarousel">
+          <div className="row">
+          <div class="wordCarousel">
               <span className="whyScount">Why Scount ? </span>
               <div>
                 <ul class="flip4">
@@ -110,14 +109,10 @@ class Women extends React.Component {
             </div>
          
 
-        
-    
-
-          <div className="row">
             {this.state.data ? (
               this.state.data.map((item, index) => {
                 return (<>
-                  <div key={index} className="col-md-3 col-sm-6">
+                  <div key={index} className="col-lg-4 col-md-4 col-sm-6">
                     <div className="product-grid7">
                       <div className="product-content">
                         <h3 className="title">

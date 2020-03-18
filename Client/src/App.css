@@ -235,7 +235,10 @@ h3.h3 {
 }
 /* Products  modal end */
 
-/* ImageZoom animation */
+
+
+
+/* Why scount words flip animation */
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300|Oswald);
 .wordCarousel {
   background-color: rgba(223, 85, 43, 0.836);
@@ -612,6 +615,8 @@ h3.h3 {
   width: 150px;
   background-color: rgba(100, 98, 98, 0.603);
   position: fixed;
+  top: 150px;
+  z-index: 2;
 
 }
 .sidebar a {
@@ -642,39 +647,3 @@ h3.h3 {
     float: none;
   }
 }
-/* ----------------- */
-/* 
-
-
-.btn-3_custom:after,
-.btn-3_custom:before {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border: 1px solid rgb(0, 0, 0);
-  bottom: 0px;
-  content: " ";
-  display: block;
-  margin: 0 auto;
-  position: relative;
-  -webkit-transition: all 280ms ease-in-out;
-  transition: all 280ms ease-in-out;
-  width: 0;
-  opacity: 0;
-}
-
-.btn-3_custom:hover:after,
-.btn-3_custom:hover:before {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border-color: rgb(0, 0, 0);
-  -webkit-transition: width 350ms ease-in-out;
-  transition: width 350ms ease-in-out;
-  width: 35%;
-  opacity: 1;
-}
-
-.btn-3_custom:hover:before {
-  bottom: auto;
-  top: 0;
-  width: 35%;
-} */
