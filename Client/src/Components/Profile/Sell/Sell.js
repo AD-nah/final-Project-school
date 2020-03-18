@@ -40,19 +40,23 @@ class Sell extends React.Component {
         }
 
         return (
-            <div class="container-fluid row regFormContainer font-weight-bold">
+            <div class="container regFormContainer font-weight-bold">
+                <div className="row ">
+                <div className="row-md-2">
+
+                </div>
                 <div className=" row-md-2">
                             {$imagePreview}
                         </div>
-                <div className="col-md-8">
+                <div className="col-md-6 ml-5">
                 <form  onSubmit={(e) => this._handleSubmit(e)}>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Product Name</label>
-                        <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="your name" />
+                        <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="product name" />
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Price</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="your email" />
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Inter your Price" />
 
                     </div>
 
@@ -64,7 +68,7 @@ class Sell extends React.Component {
 
                    
                       
-                            <input className="fileInput"
+                            <input className="fileInput" style={{backgroundColor:"#a1a8a5"}}
                                 type="file"
                                 onChange={(e) => this._handleImageChange(e)} />
                             {/* <button className="submitButton"
@@ -76,6 +80,7 @@ class Sell extends React.Component {
 
 
                 </form>
+                </div>
                 </div>
 
                 
