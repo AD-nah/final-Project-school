@@ -3,23 +3,22 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var server = express();
-
 require('dotenv').config('./.env')
+var pool = require('./mySql')
 
- //require('mongoose').connect(process.env.SERVER_DB_URI_LOCAL, { 
-      require('mongoose').connect(process.env.SERVER_DB_URI_CLOUD, { 
+
+//require('mongoose').connect(process.env.SERVER_DB_URI_LOCAL, { 
+require('mongoose').connect(process.env.SERVER_DB_URI_CLOUD, { 
         
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: true,
-    
-
 }, ( err, res ) => {
     if( err ){ 
         console.log('database connecton Error: ', err )
     }else{
-        console.log('Connected:',[res.name, res.host, res.user])
+        // console.log('Connected:',[res.name, res.host, res.user])
     }
 })
 
