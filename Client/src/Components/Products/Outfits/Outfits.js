@@ -24,17 +24,39 @@ function cancel(e) {
 
 
 export default class Outfits extends React.Component {
-  
+
 
   render() {
 
 
     return (
-       
+
        <div className="container">
-           Outfits
+           Second-Hand
          </div>              
-                      
+
     );
   }
 }
+
+
+// import React, { Component } from 'react';
+// import './secondhand.css';
+
+// export default class Outfits extends React.Component {
+//   render() {
+//     return (
+//       <div className="container">
+//         <div className="overlay-slide col-md-12">
+//           <img src="https://via.placeholder.com/220x280" />
+//           <div>
+//             <h2>Awesome Title</h2>
+//             <p>This hover effect is totally awesome.</p>
+//           </div>
+
+//         </div>
+
+//       </div>
+//     )
+//   }
+// }
