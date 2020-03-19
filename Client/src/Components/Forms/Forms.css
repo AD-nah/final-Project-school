@@ -68,14 +68,23 @@
     border-color: #8bc34a
 }
 
-.forgotpassword{
+.forgotpassword span{
     font-size: 18px;
-    color: rgb(85, 84, 84);
+    color: gray;
+}
+
+.forgotpassword span:hover{
+    color: cornflowerblue !important;
+    cursor: pointer;
 }
 
 .rememberMe {
     position: relative;
     bottom: 4px;
-    color: rgb(85, 84, 84);
+    color: gray;
     font-size: 18px;
+}
+
+.rememberMe:hover {
+color: cornflowerblue;
 }

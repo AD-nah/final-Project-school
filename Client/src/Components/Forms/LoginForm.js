@@ -5,10 +5,12 @@ import { MDBContainer, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBModalFooter } from 
 
 import Validator from 'validator'
 import ErrorMessage from '../Messages/ErrorMessage'
+import ForgotPasswordForm  from './ForgotPasswordForm'
+
 
 //Loading Spinner
 import { SemipolarLoading } from 'react-loadingg';
-import './LoginForm.css'
+import './Forms.css'
 
 
 
@@ -94,6 +96,7 @@ class LoginForm extends React.Component {
             />
 
 
+
             {this.state.errors.email && <ErrorMessage text={this.state.errors.email} />}
 
             <MDBInput
@@ -108,17 +111,21 @@ class LoginForm extends React.Component {
             {this.state.errors.password && <ErrorMessage text={this.state.errors.password} />}
 
 
+            <ForgotPasswordForm/>
+
+
             <div className="text-center mb-3">
               <MDBBtn
+              color="elegant"
+                outline
                 type="submit"
-                gradient="blue"
                 rounded
                 className="btn z-depth-1a"
               >
                 Login
                   </MDBBtn>
-            </div>
 
+            </div>
 
 
 
@@ -129,6 +136,8 @@ class LoginForm extends React.Component {
                 <span class="success"></span>
               </label>
             </div>
+
+
 
           </form>
 
@@ -149,21 +158,14 @@ class LoginForm extends React.Component {
             >
               <MDBIcon fab icon="facebook-f" className="blue-text text-center" />
             </MDBBtn>
-            <MDBBtn
-              type="button"
-              color="white"
-              rounded
-              className="mr-md-3 z-depth-1a"
-            >
-              <MDBIcon fab icon="twitter" className="blue-text" />
-            </MDBBtn>
+          
             <MDBBtn
               type="button"
               color="white"
               rounded
               className="z-depth-1a"
             >
-              <MDBIcon fab icon="google-plus-g" className="blue-text" />
+              <MDBIcon fab icon="google-plus-g" className="red-text" />
             </MDBBtn>
           </div>
         </MDBCol>
@@ -214,7 +216,7 @@ export default LoginForm;
 
 <br />
 
-<div className="d-flex justify-content-end "> <button type="submit" class="btn btn-outline-primary   ">Login</button></div>
+<div className="d-flex justify-content-end "> <button type="submit" class="btn btn-primary   ">Login</button></div>
 
 <div>
   <span className="rememberMe" style={{ fontSize: "16px" }}>Remember me</span>
