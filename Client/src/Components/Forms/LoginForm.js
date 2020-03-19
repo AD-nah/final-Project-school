@@ -92,7 +92,6 @@ class LoginForm extends React.Component {
               onChange={this.onChange}
               value={this.state.data.email}
             />
-            <br />
 
 
             {this.state.errors.email && <ErrorMessage text={this.state.errors.email} />}
@@ -108,12 +107,6 @@ class LoginForm extends React.Component {
 
             {this.state.errors.password && <ErrorMessage text={this.state.errors.password} />}
 
-            <p className="font-small blue-text d-flex justify-content-end pb-3">
-              <a href="#!" className="blue-text ml-1">
-                Forgot
-                Password?
-                  </a>
-            </p>
 
             <div className="text-center mb-3">
               <MDBBtn
@@ -124,10 +117,22 @@ class LoginForm extends React.Component {
               >
                 Login
                   </MDBBtn>
+            </div>
 
+
+
+
+            <div>
+              <span className="rememberMe" >Remember me</span>
+              <label class="checkbox">
+                <input type="checkbox" />
+                <span class="success"></span>
+              </label>
             </div>
 
           </form>
+
+
 
 
 
@@ -209,7 +214,7 @@ export default LoginForm;
 
 <br />
 
-<div className="d-flex justify-content-end "> <button type="submit" class="btn btn-primary   ">Login</button></div>
+<div className="d-flex justify-content-end "> <button type="submit" class="btn btn-outline-primary   ">Login</button></div>
 
 <div>
   <span className="rememberMe" style={{ fontSize: "16px" }}>Remember me</span>

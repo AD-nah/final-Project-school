@@ -68,8 +68,14 @@
     border-color: #8bc34a
 }
 
+.forgotpassword{
+    font-size: 18px;
+    color: rgb(85, 84, 84);
+}
+
 .rememberMe {
     position: relative;
     bottom: 4px;
-    color: rgb(135, 135, 243);
+    color: rgb(85, 84, 84);
+    font-size: 18px;
 }
