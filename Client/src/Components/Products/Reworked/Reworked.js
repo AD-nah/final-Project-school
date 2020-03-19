@@ -96,17 +96,10 @@ class Women extends React.Component {
         {this.state.successMessage && <SuccessMessage text = 'added to Basket'/>}
         <div className="container">
           <div className="row">
+
           <div class="wordCarousel">
-              <span className="whyScount">Why Scount ? </span>
-              <div>
-                <ul class="flip4">
-                  <li>Best Quality</li>
-                  <li>New Trends</li>
-                  <li>Free Shipping</li>
-                  <li>Satisfiction </li>
-                </ul>
-              </div>
-            </div>
+            <h1>Hello from reworked HomePage</h1>
+          </div>
          
 
             {this.state.data ? (
