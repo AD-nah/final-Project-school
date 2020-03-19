@@ -1,11 +1,9 @@
-import React, { Component } from 'react'
-import Men from './Men/Men'
-import Women from './Women/Women'
-import Reworked from './Reworked/Reworked'
+import React, { Component } from 'react';
+import Men from './Men/Men';
+import Women from './Women/Women';
+import Reworked from './Reworked/Reworked';
 import { Switch, Route } from 'react-router-dom';
-import { MDBNav, MDBNavLink, MDBNavItem } from "mdbreact"
-
-
+import { MDBNav, MDBNavLink, MDBNavItem } from "mdbreact";
 
 
 export default class Products extends Component {

@@ -11,9 +11,9 @@ import {MDBNav, MDBNavLink, MDBNavItem} from "mdbreact";
 export default class Profile extends Component {
 
     render() {
-        return (<>
+        return (<> 
       
-            <div style={{padding:"75px",fontSize:"20px" , backgroundColor:"#ebebeb"}} >
+            <div className="sidebar" >
 
                 <MDBNav className="nav-fill " >
 
@@ -36,8 +36,8 @@ export default class Profile extends Component {
 
             <div>
                 <Switch>
-                    <Route  path="/profile/edit" component={Edit}/>
-                    <Route  path="/profile/sell" component={Sell}/>
+                    <Route  path="/profile/edit"   component={Edit}/>
+                    <Route  path="/profile/sell"   component={Sell}/>
                     <Route  path="/profile/bought" component={Bought}/>
                 </Switch> 
             </div>         
