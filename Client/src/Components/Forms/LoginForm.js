@@ -5,10 +5,12 @@ import { MDBContainer, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBModalFooter } from 
 
 import Validator from 'validator'
 import ErrorMessage from '../Messages/ErrorMessage'
+import ForgotPasswordForm  from './ForgotPasswordForm'
+
 
 //Loading Spinner
 import { SemipolarLoading } from 'react-loadingg';
-import './LoginForm.css'
+import './Forms.css'
 
 
 
@@ -92,7 +94,7 @@ class LoginForm extends React.Component {
               onChange={this.onChange}
               value={this.state.data.email}
             />
-            <br />
+
 
 
             {this.state.errors.email && <ErrorMessage text={this.state.errors.email} />}
@@ -108,35 +110,34 @@ class LoginForm extends React.Component {
 
             {this.state.errors.password && <ErrorMessage text={this.state.errors.password} />}
 
-            <p className="font-small blue-text d-flex justify-content-end pb-3">
-              <a href="#!" className="blue-text ml-1">
-                Forgot
-                Password?
-                  </a>
-            </p>
+
+            <ForgotPasswordForm/>
+
 
             <div className="text-center mb-3">
               <MDBBtn
+              color="elegant"
+                outline
                 type="submit"
-                gradient="blue"
                 rounded
-                className="btn-block z-depth-1a"
+                className="btn z-depth-1a"
               >
                 Login
                   </MDBBtn>
 
             </div>
-           
-           
+
+
+
             <div>
-              <span className="rememberMe" style={{fontSize:"18px"}}>Remember me</span>
+              <span className="rememberMe" >Remember me</span>
               <label class="checkbox">
                 <input type="checkbox" />
                 <span class="success"></span>
               </label>
             </div>
-              
-  
+
+
 
           </form>
 
@@ -144,49 +145,33 @@ class LoginForm extends React.Component {
 
 
 
-            <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
+          <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
 
-              or Login in with:
+            or Login in with:
                 </p>
-            <div className="row my-3 d-flex justify-content-center">
-              <MDBBtn
-                type="button"
-                color="white"
-                rounded
-                className="mr-md-3 z-depth-1a"
-              >
-                <MDBIcon fab icon="facebook-f" className="blue-text text-center" />
-              </MDBBtn>
-              <MDBBtn
-                type="button"
-                color="white"
-                rounded
-                className="mr-md-3 z-depth-1a"
-              >
-                <MDBIcon fab icon="twitter" className="blue-text" />
-              </MDBBtn>
-              <MDBBtn
-                type="button"
-                color="white"
-                rounded
-                className="z-depth-1a"
-              >
-                <MDBIcon fab icon="google-plus-g" className="blue-text" />
-              </MDBBtn>
-            </div>
-
-            <MDBModalFooter className="mx-5 pt-3 mb-1">
-              <p className="font-small grey-text d-flex justify-content-end">
-                Not a member?
-                  <a href="#!" className="blue-text ml-1">
-                  Sign Up
-                  </a>
-              </p>
-            </MDBModalFooter>
+          <div className="row my-3 d-flex justify-content-center">
+            <MDBBtn
+              type="button"
+              color="white"
+              rounded
+              className="mr-md-3 z-depth-1a"
+            >
+              <MDBIcon fab icon="facebook-f" className="blue-text text-center" />
+            </MDBBtn>
+          
+            <MDBBtn
+              type="button"
+              color="white"
+              rounded
+              className="z-depth-1a"
+            >
+              <MDBIcon fab icon="google-plus-g" className="red-text" />
+            </MDBBtn>
+          </div>
         </MDBCol>
 
       </MDBContainer>
-   </> )
+    </>)
   }
 }
 
@@ -198,38 +183,45 @@ export default LoginForm;
 
 
 
-        // remember me chick box and save it inside the browser as local storage
-
-        // const rmCheck = document.getElementById("rememberMe"),
-        //     emailInput = document.getElementById("email");
-
-        // if (localStorage.checkbox && localStorage.checkbox !== "") {
-        //   rmCheck.setAttribute("checked", "checked");
-        //   emailInput.value = localStorage.username;
-        // } else {
-        //   rmCheck.removeAttribute("checked");
-        //   emailInput.value = "";
-        // }
-
-        // function lsRememberMe() {
-        //   if (rmCheck.checked && emailInput.value !== "") {
-        //     localStorage.username = emailInput.value;
-        //     localStorage.checkbox = rmCheck.value;
-        //   } else {
-        //     localStorage.username = "";
-        //     localStorage.checkbox = "";
-        //   }
-        // }
 
 
 
 
+//------------please dont delete it----------- 
+{/* <form onSubmit={this.onSubmit}>
 
-        {/* <form>
-  <label for="email">Email</label>
-  <input type="email" id="email">
-  <label for="pass">Password</label>
-  <input type="password">
-  <input type="checkbox" value="lsRememberMe" id="rememberMe"> <label for="rememberMe">Remember me</label>
-  <input type="submit" value="Login" onclick="lsRememberMe()">
+{this.state.loading && <SemipolarLoading />}
+{this.state.errors.authError && <ErrorMessage text={this.state.errors.authError} />}
+
+<div class="form-group">
+  <input type="email"   validate class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onChange={this.onChange}
+    value={this.state.data.email} />
+  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  {this.state.errors.email && <ErrorMessage text={this.state.errors.email} />}
+</div>
+<div class="form-group">
+  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" onChange={this.onChange}
+    value={this.state.data.password} />
+</div>
+
+
+{this.state.errors.password && <ErrorMessage text={this.state.errors.password} />}
+
+<div>
+  <a href="#!" className="blue-text font-small float-right">
+    Forgot
+    Password?
+  </a>
+</div>
+
+<br />
+
+<div className="d-flex justify-content-end "> <button type="submit" class="btn btn-primary   ">Login</button></div>
+
+<div>
+  <span className="rememberMe" style={{ fontSize: "16px" }}>Remember me</span>
+  <label class="checkbox">
+    <input type="checkbox" />
+    <span class="success"></span>
+  </label></div>
 </form> */}
