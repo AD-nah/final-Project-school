@@ -406,7 +406,7 @@ class Home extends Component {
                     <div class="row">
 
                       <div class="col-12 col-md d-flex align-items-center justify-content-center">
-                      {this.state.men.length > 0 ?
+                        {this.state.men.length > 0 ?
                           <img
                             className="pic-1"
                             style={{ maxHeight: "360px" }}
@@ -419,7 +419,7 @@ class Home extends Component {
                       </div>
 
                       <div class="col-12 col-md d-flex align-items-center justify-content-center">
-                      {this.state.men.length > 0 ?
+                        {this.state.men.length > 0 ?
                           <img
                             className="pic-1"
                             style={{ maxHeight: "360px" }}
@@ -432,7 +432,7 @@ class Home extends Component {
                       </div>
 
                       <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
-                      {this.state.men.length > 0 ?
+                        {this.state.men.length > 0 ?
                           <img
                             className="pic-1"
                             style={{ maxHeight: "350px" }}
@@ -578,38 +578,22 @@ class Home extends Component {
         <br />
         <br />
 
-
-
-
-
-        {/*Payment start*/}
-        <div className="container row-md-12 mt-5">
-          <div className="col-md-12 text-center"><h1>Here You Can Bay</h1></div>
-          <div className="row text-center"><div className="col-md-4">
-            <a href="http://www.paypal.com">
-              <img className="mt-3" src={paypal} />
-            </a>
-          </div>
-
-            <div className="col-md-4">
-              <a href="#">
-                <img src={master} />
-              </a>
-            </div>
-
-            <div className="col-md-4">
-              <a href="#">
-                <img src={visa} />
-              </a>
-            </div>
-
-          </div>
-
-
+        {/* payment cards */}
+        <div class="credit-cards" style={{ textAlign: "center", width: "100%", padding: "5px", margin: "5px" }} >
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_visa.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_master.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_paypal.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_unionpay.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_linepay.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_tw_711_pay.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_tw_fm_pay.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_taishin.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_amex.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_ecpay.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_jcb.png" />
         </div>
 
-
-
+        <br />
       </>
     )
   }
