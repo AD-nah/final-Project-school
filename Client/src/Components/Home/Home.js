@@ -128,6 +128,8 @@ class Home extends Component {
         <br />
         <br />
 
+
+        {/*PLEASE DON'T DELETE IT   */}
         {/*Section start*/}
         {/* <section className='section-1'>
           <div className="container col-lg-12 ">
@@ -360,16 +362,43 @@ class Home extends Component {
                     <div class="row">
 
                       <div class="col-12 col-md d-flex align-items-center justify-content-center">
-                        First Pic
-                    </div>
+                        {this.state.men.length > 0 ?
+                          <img
+                            className="pic-1"
+                            style={{ maxHeight: "360px" }}
+                            src={this.state.men[0].images.protoTypes[0]}
+                          />
+
+                          :
+                          <h1>Loading image...</h1>
+                        }
+                      </div>
 
                       <div class="col-12 col-md d-flex align-items-center justify-content-center">
-                        Second Pic
-                    </div>
+                        {this.state.men.length > 0 ?
+                          <img
+                            className="pic-1"
+                            style={{ maxHeight: "360px" }}
+                            src={this.state.men[1].images.protoTypes[0]}
+                          />
+
+                          :
+                          <h1>Loading image...</h1>
+                        }
+                      </div>
 
                       <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
-                        Third Pic
-                    </div>
+                        {this.state.men.length > 0 ?
+                          <img
+                            className="pic-1"
+                            style={{ maxHeight: "360px" }}
+                            src={this.state.men[2].images.protoTypes[0]}
+                          />
+
+                          :
+                          <h1>Loading image...</h1>
+                        }
+                      </div>
                     </div>
                   </div>
 
@@ -377,15 +406,42 @@ class Home extends Component {
                     <div class="row">
 
                       <div class="col-12 col-md d-flex align-items-center justify-content-center">
-                        Forth Pic
+                      {this.state.men.length > 0 ?
+                          <img
+                            className="pic-1"
+                            style={{ maxHeight: "360px" }}
+                            src={this.state.men[3].images.protoTypes[0]}
+                          />
+
+                          :
+                          <h1>Loading image...</h1>
+                        }
                       </div>
 
                       <div class="col-12 col-md d-flex align-items-center justify-content-center">
-                        Fifth Pic
+                      {this.state.men.length > 0 ?
+                          <img
+                            className="pic-1"
+                            style={{ maxHeight: "360px" }}
+                            src={this.state.men[4].images.protoTypes[0]}
+                          />
+
+                          :
+                          <h1>Loading image...</h1>
+                        }
                       </div>
 
                       <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
-                        Sixth Pic
+                      {this.state.men.length > 0 ?
+                          <img
+                            className="pic-1"
+                            style={{ maxHeight: "350px" }}
+                            src={this.state.men[5].images.protoTypes[0]}
+                          />
+
+                          :
+                          <h1>Loading image...</h1>
+                        }
                       </div>
 
                     </div>
@@ -424,11 +480,11 @@ class Home extends Component {
             </div>
 
             <div className="col-md-6 text-center mt-5">
-            <h2 className="display-5">– Got talent to Rework?<br/> Scount is your right PLace to share your skills </h2>
-                  <p >“Fashion is not something that exists in dresses only. Fashion is in the sky, in the street, fashion has to do with ideas”</p>
-                  <a href="#" class="btn-join">
-                    Register now  <i class="fas fa-chevron-right"></i>
-                  </a>
+              <h2 className="display-5">– Got talent to Rework?<br /> Scount is your right PLace to share your skills </h2>
+              <p >“Fashion is not something that exists in dresses only. Fashion is in the sky, in the street, fashion has to do with ideas”</p>
+              <a href="#" class="btn-join">
+                Register now  <i class="fas fa-chevron-right"></i>
+              </a>
             </div>
           </div>
         </div>
