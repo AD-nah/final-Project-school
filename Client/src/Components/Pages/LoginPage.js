@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import LoginForm from '../Forms/LoginForm'
 import {connect} from 'react-redux'
 import * as reduxActions from '../../Redux/Actions/auth'
+// import * as reduxActions from '../../Redux/Actions/auth'
 
 
 
@@ -34,7 +35,7 @@ class LoginPage extends Component {
 
     return (
     <div>
-    {!this.state.redirect ? <LoginForm submit = {this.submit} /> : <Redirect to = '/home'/>}
+    {!this.state.redirect ? <LoginForm submit = {this.submit} /> : <Redirect to = '/news'/>}
     </div>
     )
     }

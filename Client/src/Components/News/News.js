@@ -12,7 +12,7 @@ import api from '../../APIs/AuthApi';
 export default class News extends Component {
     constructor(props) {
         super(props)
-    
+        
         this.state = {
              newsURL : `http://newsapi.org/v2/everything?q=fashion&from=${this.formatDate(Date())}&sortBy=publishedAt&apiKey=54ab4e9ca5d94879a3f3c8b0995b4482`,
              news : [],
@@ -129,7 +129,7 @@ export default class News extends Component {
 
                 </div>
                 {/*news Started*/}
-                <div className="container">
+                <div className="container" style={{width:"50vw"}}>
                     {news1}
 
                 </div>
