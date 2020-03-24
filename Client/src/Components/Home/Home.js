@@ -1,14 +1,13 @@
 import React, { Component, Link } from 'react';
-import img from '../../imgs/test.jpg';
+import ReworkedImg from './Boxes images/wailorWorkShop.jpg';
 import { fetchWomenProducts } from '../../Redux/Actions/products'
 import { fetchMenProducts } from '../../Redux/Actions/products'
 import { connect } from "react-redux";
 
 
-import dressbox from './Boxes images/women with dressbox.jpg';
 import './home.css';
 
-//import video from './video/Bread&ButterRecap.mp4';
+import video from './video/GUSTFashionEditorial .mp4';
 import caro1 from './imgCarousel/d-women4.jpg';
 import caro2 from './imgCarousel/d-men1.jpeg';
 import caro3 from './imgCarousel/d-women1.jpg';
@@ -30,26 +29,26 @@ import { BackTop } from 'antd';
 
 
 
- class Home extends Component {
+class Home extends Component {
 
   constructor(props) {
     super(props)
-  
+
     this.state = {
-       women:[],
-       men:[]
+      women: [],
+      men: []
     }
   }
-  
+
   componentDidMount() {
     this.props.fetchWomenProducts().then(res => {
-      this.setState({women: this.props.getWomenProducts.womenProducts})
+      this.setState({ women: this.props.getWomenProducts.womenProducts })
     })
 
     this.props.fetchMenProducts().then(res => {
-      this.setState({men: this.props.getMenProducts.menProducts})
+      this.setState({ men: this.props.getMenProducts.menProducts })
     })
-}
+  }
 
 
 
@@ -129,8 +128,10 @@ import { BackTop } from 'antd';
         <br />
         <br />
 
+
+        {/*PLEASE DON'T DELETE IT   */}
         {/*Section start*/}
-        <section className='section-1'>
+        {/* <section className='section-1'>
           <div className="container col-lg-12 ">
             <div className="row align-items-center">
               <div className="col-lg-6 order-lg-2">
@@ -149,7 +150,38 @@ import { BackTop } from 'antd';
               </div>
             </div>
           </div>
+        </section> */}
+
+
+
+
+        {/* video Header */}
+        <section className='section-2'>
+          <div className="container col-lg-12 ">
+            <div className="row align-items-center">
+              <div className="col-lg-6 order-lg-2">
+
+                <header >
+                  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+                    <source src={video} type="video/mp4" />
+                  </video>
+
+                </header>
+
+              </div>
+              <div className="col-lg-6 order-lg-1">
+                <div className="p-5">
+                  <h2 className="display-5">– Daily style watch Our favourite looks for you</h2>
+                  <p >“Fashion is not something that exists in dresses only. Fashion is in the sky, in the street, fashion has to do with ideas, the way we live, what is happening.”</p>
+                  <a href="#" class="btn-join">
+                    Discover More <i class="fas fa-chevron-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
+
 
 
 
@@ -177,43 +209,43 @@ import { BackTop } from 'antd';
                     <div class="row">
 
                       <div class="col-12 col-md d-flex align-items-center justify-content-center">
-                      {this.state.women.length > 0?
-                            <img
+                        {this.state.women.length > 0 ?
+                          <img
                             className="pic-1"
                             style={{ maxHeight: "400px" }}
                             src={this.state.women[0].images.protoTypes[0]}
                           />
-                    
-                      :
-                      <h1>Loading image...</h1>
-                    }
-                    </div>
+
+                          :
+                          <h1>Loading image...</h1>
+                        }
+                      </div>
 
                       <div class="col-12 col-md d-flex align-items-center justify-content-center">
-                      {this.state.women.length > 0?
-                            <img
+                        {this.state.women.length > 0 ?
+                          <img
                             className="pic-1"
                             style={{ maxHeight: "400px" }}
                             src={this.state.women[1].images.protoTypes[0]}
                           />
-                    
-                      :
-                      <h1>Loading iamge...</h1>
-                    }
-                    </div>
+
+                          :
+                          <h1>Loading iamge...</h1>
+                        }
+                      </div>
 
                       <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
-                      {this.state.women.length > 0?
-                            <img
+                        {this.state.women.length > 0 ?
+                          <img
                             className="pic-1"
                             style={{ maxHeight: "400px" }}
                             src={this.state.women[2].images.protoTypes[0]}
                           />
-                    
-                      :
-                      <h1>Loading iamge...</h1>
-                    }
-                    </div>
+
+                          :
+                          <h1>Loading iamge...</h1>
+                        }
+                      </div>
                     </div>
                   </div>
 
@@ -221,42 +253,42 @@ import { BackTop } from 'antd';
                     <div class="row">
 
                       <div class="col-12 col-md d-flex align-items-center justify-content-center">
-                      {this.state.women.length > 0?
-                            <img
+                        {this.state.women.length > 0 ?
+                          <img
                             className="pic-1"
                             style={{ maxHeight: "400px" }}
                             src={this.state.women[3].images.protoTypes[0]}
                           />
-                    
-                      :
-                      <h1>Loading iamge...</h1>
-                    }
+
+                          :
+                          <h1>Loading iamge...</h1>
+                        }
                       </div>
 
                       <div class="col-12 col-md d-flex align-items-center justify-content-center">
-                      {this.state.women.length > 0?
-                            <img
+                        {this.state.women.length > 0 ?
+                          <img
                             className="pic-1"
                             style={{ maxHeight: "400px" }}
                             src={this.state.women[4].images.protoTypes[0]}
                           />
-                    
-                      :
-                      <h1>Loading iamge...</h1>
-                    }
+
+                          :
+                          <h1>Loading iamge...</h1>
+                        }
                       </div>
 
                       <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
-                      {this.state.women.length > 0?
-                            <img
+                        {this.state.women.length > 0 ?
+                          <img
                             className="pic-1"
                             style={{ maxHeight: "400px" }}
                             src={this.state.women[5].images.protoTypes[0]}
                           />
-                    
-                      :
-                      <h1>Loading</h1>
-                    }
+
+                          :
+                          <h1>Loading</h1>
+                        }
                       </div>
 
                     </div>
@@ -279,12 +311,30 @@ import { BackTop } from 'antd';
 
 
         <div className="menBox">
+          <div className="row">
+            <div className="col-md-4 col-lg-6 ">
 
-          <div className="col-md-6 text-center mt-5">
-            <h1>This the Show</h1>
-            <h3>Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. .</h3>
+              <header className="oceanheader">
+                <video autoPlay playsinline muted loop preload poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/oceanshot.jpg">
+                  <source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ocean-small.webm" />
+                  <source src="http://thenewcode.com/assets/videos/ocean-small.mp4" />
+                </video>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 285 80" preserveAspectRatio="xMidYMid slice">
+                  <defs>
+                    <mask id="mask" x="0" y="0" width="100%" height="100%" >
+                      <rect x="0" y="0" width="100%" height="100%" />
+                      <text x="88" y="30">old Classic  but</text>
+                      <text x="88" y="50">fellin fantastic</text>
+                    </mask>
+                  </defs>
+                  <rect x="0" y="0" width="80%" height="80%" />
+                </svg>
+              </header>
+            </div>
           </div>
         </div>
+
+
 
 
 
@@ -306,6 +356,171 @@ import { BackTop } from 'antd';
 
             <div class="col-10">
               <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="row">
+
+                      <div class="col-12 col-md d-flex align-items-center justify-content-center">
+                        {this.state.men.length > 0 ?
+                          <img
+                            className="pic-1"
+                            style={{ maxHeight: "360px" }}
+                            src={this.state.men[0].images.protoTypes[0]}
+                          />
+
+                          :
+                          <h1>Loading image...</h1>
+                        }
+                      </div>
+
+                      <div class="col-12 col-md d-flex align-items-center justify-content-center">
+                        {this.state.men.length > 0 ?
+                          <img
+                            className="pic-1"
+                            style={{ maxHeight: "360px" }}
+                            src={this.state.men[1].images.protoTypes[0]}
+                          />
+
+                          :
+                          <h1>Loading image...</h1>
+                        }
+                      </div>
+
+                      <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
+                        {this.state.men.length > 0 ?
+                          <img
+                            className="pic-1"
+                            style={{ maxHeight: "360px" }}
+                            src={this.state.men[2].images.protoTypes[0]}
+                          />
+
+                          :
+                          <h1>Loading image...</h1>
+                        }
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="carousel-item">
+                    <div class="row">
+
+                      <div class="col-12 col-md d-flex align-items-center justify-content-center">
+                        {this.state.men.length > 0 ?
+                          <img
+                            className="pic-1"
+                            style={{ maxHeight: "360px" }}
+                            src={this.state.men[3].images.protoTypes[0]}
+                          />
+
+                          :
+                          <h1>Loading image...</h1>
+                        }
+                      </div>
+
+                      <div class="col-12 col-md d-flex align-items-center justify-content-center">
+                        {this.state.men.length > 0 ?
+                          <img
+                            className="pic-1"
+                            style={{ maxHeight: "360px" }}
+                            src={this.state.men[4].images.protoTypes[0]}
+                          />
+
+                          :
+                          <h1>Loading image...</h1>
+                        }
+                      </div>
+
+                      <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
+                        {this.state.men.length > 0 ?
+                          <img
+                            className="pic-1"
+                            style={{ maxHeight: "350px" }}
+                            src={this.state.men[5].images.protoTypes[0]}
+                          />
+
+                          :
+                          <h1>Loading image...</h1>
+                        }
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-1 d-flex align-items-center justify-content-center"><a href="#carouselExampleIndicators2" data-slide="next">
+              <div class="carousel-nav-icon">
+                <i class="far fa-arrow-alt-circle-right" style={{ fontSize: '50px', color: "black", opacity: '0.5' }}></i>
+              </div>
+            </a>
+            </div>
+
+          </div>
+        </div >
+        {/*Products men Carousel end */}
+
+
+
+
+
+
+
+
+
+
+
+
+        <div className="container section-2">
+          <div className="row">
+
+            <div className="col-md-6 col-lg-6 ">
+              <img className="img-fluid" src={ReworkedImg} alt="Testig Photo" />
+            </div>
+
+            <div className="col-md-6 text-center mt-5">
+              <h2 className="display-5">– Got talent to Rework?<br /> Scount is your right PLace to share your skills </h2>
+              <p >“Fashion is not something that exists in dresses only. Fashion is in the sky, in the street, fashion has to do with ideas”</p>
+              <a href="#" class="btn-join">
+                Register now  <i class="fas fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+        {/* Back to top btn */}
+        <div>
+          <BackTop>
+            <i className="fas fa-angle-double-up" style={{ color: "orange", fontSize: "40px" }}></i>
+          </BackTop>
+        </div>
+
+
+
+        {/*Products Second Hand Carousel  */}
+        <div class="my-5 text-center container">
+          <div class="Secondhandbox" >
+            <p className='heartbeat'> Reworked</p>
+          </div>
+          <div class="row d-flex align-items-center">
+            <div class="col-1 d-flex align-items-center justify-content-center">
+              <a href="#carouselExampleIndicators3" role="button" data-slide="prev">
+                <div class="carousel-nav-icon">
+                  <i class="far fa-arrow-alt-circle-left" style={{ fontSize: '50px', color: "black", opacity: '0.5' }}></i>
+                </div>
+              </a>
+            </div>
+
+            <div class="col-10">
+              <div id="carouselExampleIndicators3" class="carousel slide" data-ride="carousel">
 
                 <div class="carousel-inner">
                   <div class="carousel-item active">
@@ -346,7 +561,7 @@ import { BackTop } from 'antd';
               </div>
             </div>
 
-            <div class="col-1 d-flex align-items-center justify-content-center"><a href="#carouselExampleIndicators2" data-slide="next">
+            <div class="col-1 d-flex align-items-center justify-content-center"><a href="#carouselExampleIndicators3" data-slide="next">
               <div class="carousel-nav-icon">
                 <i class="far fa-arrow-alt-circle-right" style={{ fontSize: '50px', color: "black", opacity: '0.5' }}></i>
               </div>
@@ -355,192 +570,42 @@ import { BackTop } from 'antd';
 
           </div>
         </div >
-        {/*Products men Carousel end */}
+        {/*Products SecondHand Carousel end */}
 
 
-
-
-
-
-
-        {/* video Header */}
-
-        <section className='section-2'>
-          <div className="container col-lg-12 ">
-            <div className="row align-items-center">
-              <div className="col-lg-6 order-lg-2">
-                <div className="p-5">
-                  <header >
-                    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-                      <source /*  src={video} */ type="video/mp4" />
-                    </video>
-
-                  </header>
-                </div>
-              </div>
-              <div className="col-lg-6 order-lg-1">
-                <div className="p-5">
-                  <h2 className="display-5">– Daily style watchOur favourite looks for you</h2>
-                  <p >“ Three unique women. One collection of simple, easy wardrobe basics that fits their (life)styles.”</p>
-                  <a href="#" class="btn-join">
-                    Discover More <i class="fas fa-chevron-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-
-
-
-
-
-
-        <div className="container-fluid " style={{backgroundColor:"#ebebeb"}}>
-          <div className="row m-5 p-2" >
-            <div className="col-md-6 col-lg-6 ">
-              <img className="img-fluid" src={img} alt="Testig Photo" />
-            </div>
-
-
-
-            <div className="col-md-6 text-center mt-5">
-              <h1>This the Show</h1>
-              <h3>Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. .</h3>
-            </div>
-          </div>
-
-
-
-
-
-
-          {/*Products Second Hand Carousel  */}
-          <div class="my-5 text-center container">
-            <div class="Secondhandbox" >
-              <p className='heartbeat'> Reworked</p>
-            </div>
-            <div class="row d-flex align-items-center">
-              <div class="col-1 d-flex align-items-center justify-content-center">
-                <a href="#carouselExampleIndicators3" role="button" data-slide="prev">
-                  <div class="carousel-nav-icon">
-                    <i class="far fa-arrow-alt-circle-left" style={{ fontSize: '50px', color: "black", opacity: '0.5' }}></i>
-                  </div>
-                </a>
-              </div>
-
-              <div class="col-10">
-                <div id="carouselExampleIndicators3" class="carousel slide" data-ride="carousel">
-
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <div class="row">
-
-                        <div class="col-12 col-md d-flex align-items-center justify-content-center">
-                          First Pic
-                    </div>
-
-                        <div class="col-12 col-md d-flex align-items-center justify-content-center">
-                          Second Pic
-                    </div>
-
-                        <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
-                          Third Pic
-                    </div>
-                      </div>
-                    </div>
-
-                    <div class="carousel-item">
-                      <div class="row">
-
-                        <div class="col-12 col-md d-flex align-items-center justify-content-center">
-                          Forth Pic
-                      </div>
-
-                        <div class="col-12 col-md d-flex align-items-center justify-content-center">
-                          Fifth Pic
-                      </div>
-
-                        <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
-                          Sixth Pic
-                      </div>
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-1 d-flex align-items-center justify-content-center"><a href="#carouselExampleIndicators3" data-slide="next">
-                <div class="carousel-nav-icon">
-                  <i class="far fa-arrow-alt-circle-right" style={{ fontSize: '50px', color: "black", opacity: '0.5' }}></i>
-                </div>
-              </a>
-              </div>
-
-            </div>
-          </div >
-          {/*Products SecondHand Carousel end */}
-
-
-
-
-
-
-          {/* Back to top btn */}
-          <div>
-            <BackTop>
-              <i className="fas fa-angle-double-up" style={{ color: "orange", fontSize: "40px" }}></i>
-            </BackTop>
-          </div>
-        </div>
 
 
         <br />
         <br />
 
-
-        {/*Payment start*/}
-        <div className="container row-md-12 mt-5">
-          <div className="col-md-12 text-center"><h1>Here You Can Bay</h1></div>
-          <div className="row text-center"><div className="col-md-4">
-            <a href="http://www.paypal.com">
-              <img className="mt-3" src={paypal} />
-            </a>
-          </div>
-
-            <div className="col-md-4">
-              <a href="#">
-                <img src={master} />
-              </a>
-            </div>
-
-            <div className="col-md-4">
-              <a href="#">
-                <img src={visa} />
-              </a>
-            </div>
-
-          </div>
-
-
+        {/* payment cards */}
+        <div class="credit-cards" style={{ textAlign: "center", width: "100%", padding: "5px", margin: "5px" }} >
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_visa.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_master.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_paypal.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_unionpay.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_linepay.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_tw_711_pay.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_tw_fm_pay.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_taishin.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_amex.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_ecpay.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_jcb.png" />
         </div>
 
-
-
+        <br />
       </>
     )
   }
 }
 
 
-const  mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
   return {
     getWomenProducts: state.productReducer,
-    getMenProducts : state.productReducer
+    getMenProducts: state.productReducer
 
   }
 }
 
-export default connect(mapStateToProps, {fetchMenProducts, fetchWomenProducts })(Home);
+export default connect(mapStateToProps, { fetchMenProducts, fetchWomenProducts })(Home);

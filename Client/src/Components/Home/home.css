@@ -23,12 +23,11 @@
 
 
 
-
-
 /* video section */
 header {
     position: relative;
-    height: 50vh;
+    height: 100%;
+    width: 100%;
     min-height: 22rem;
   }
   
@@ -36,6 +35,7 @@ header {
     position: relative;
     width: 100%;
     height: 100%; 
+    margin: 5px;
   }
 
 .section-2{
@@ -87,7 +87,6 @@ header {
 /*WomenBox with dress caption text in the middle  */
 .bg-text {
   background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
   color: white;
   font-weight: bold;
   border: 3px solid #f1f1f1;
@@ -105,7 +104,6 @@ header {
 /* women and men shop header style */
 .womenbox,.menbox ,.Secondhandbox{
   background-color: rgb(0,0,0); /* Fallback color */
-
   color: white;
   font-weight: bold;
   border: 3px solid #f1f1f1;
@@ -119,7 +117,7 @@ header {
 }
 
 .my-5{
-  background: lavender;
+  background:  rgba(255, 228, 196, 0.74);;
 }
 
 

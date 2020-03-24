@@ -25,8 +25,18 @@ class RegisterForm extends React.Component {
 
     this.state = {
       data: {
+        firstName: "",
+        lastName: "",
+
         email: "",
-        password: ""
+        userPassword: "",
+
+        country:"",
+        city:"",
+        postCode:"",
+        userAddress:"",
+        phoneNumber: '',
+        birthDate: ''
       },
       loading: false,
       errors: {}
@@ -73,7 +83,7 @@ class RegisterForm extends React.Component {
   validate = data => {
     const errors = {}; // the errors var will be empty if we don`t have errors
     if (!Validator.isEmail(data.email)) errors.email = "Email is required";
-    if (!data.password) errors.password = "Password is required";
+    if (!data.userPassword) errors.userPassword = "Password is required";
 
     return errors;
   };
@@ -94,6 +104,9 @@ class RegisterForm extends React.Component {
               label="Name"
               type="text"
               validate
+              name='firstName'
+              onChange={this.onChange}
+              value={this.state.data.firstName}
             />
 
             <MDBInput
@@ -101,6 +114,9 @@ class RegisterForm extends React.Component {
               label="Family Name"
               type="text"
               validate
+              name='lastName'
+              onChange={this.onChange}
+              value={this.state.data.lastName}
             />
 
             <MDBInput
@@ -122,20 +138,20 @@ class RegisterForm extends React.Component {
               className="text-dark"
               label="Your password"
               type="password"
-              name="password"
+              name="userPassword"
               onChange={this.onChange}
-              value={this.state.data.password}
+              value={this.state.data.userPassword}
             />
 
             <MDBInput
               className="text-dark"
               label="Confirm password"
               type="password"
-              onChange={this.onChange}
+              //onChange={this.onChange}
             />
 
-            {this.state.errors.password && (
-              <ErrorMessage text={this.state.errors.password} />
+            {this.state.errors.userPassword && (
+              <ErrorMessage text={this.state.errors.userPassword} />
             )}
 
 
@@ -151,6 +167,9 @@ class RegisterForm extends React.Component {
               label="Country"
               type="text"
               validate
+              name='country'
+              onChange={this.onChange}
+              value={this.state.data.country}
             />
 
             <MDBInput
@@ -158,16 +177,19 @@ class RegisterForm extends React.Component {
               label="City"
               type="text"
               validate
+              name='city'
+              onChange={this.onChange}
+              value={this.state.data.city}
             />
 
             <MDBInput
               className="text-dark"
-              label="Plz/Zip"
-              type="number"
+              label="Post Code"
+              type="text"
               validate
-              success=""
-              name="email"
-             
+              name="postCode"
+              onChange={this.onChange}
+              value={this.state.data.postCode}
             />
 
          
@@ -176,14 +198,27 @@ class RegisterForm extends React.Component {
               className="text-dark"
               label="Your Address"
               type="text"
-            
+              name='userAddress'
+              onChange={this.onChange}
+              value={this.state.data.userAddress}
             />
 
             <MDBInput
               className="text-black"
               label="Phone Number"
-              type="Number"
-          
+              type="text"
+              name='phoneNumber'
+              onChange={this.onChange}
+              value={this.state.data.phoneNumber}
+            />
+
+            <MDBInput
+              className="text-black"
+              label="Birth Date"
+              type="date"
+              name='birthDate'
+              onChange={this.onChange}
+              value={this.state.data.birthDate}
             />
         </div>
       </div>
@@ -191,7 +226,8 @@ class RegisterForm extends React.Component {
       <div className="text-center mb-3">
               <MDBBtn
                 type="submit"
-                gradient="blue"
+                color="elegant"
+                outline
                 rounded
                 className=" z-depth-1a"
               >
@@ -216,21 +252,14 @@ class RegisterForm extends React.Component {
                 className="blue-text text-center"
               />
             </MDBBtn>
-            <MDBBtn
-              type="button"
-              color="white"
-              rounded
-              className="mr-md-3 z-depth-1a"
-            >
-              <MDBIcon fab icon="twitter" className="blue-text" />
-            </MDBBtn>
+         
             <MDBBtn
               type="button"
               color="white"
               rounded
               className="z-depth-1a"
             >
-              <MDBIcon fab icon="google-plus-g" className="blue-text" />
+              <MDBIcon fab icon="google-plus-g" className="red-text " />
             </MDBBtn>
           </div>
     </form>
@@ -241,12 +270,3 @@ class RegisterForm extends React.Component {
 }
 
 export default RegisterForm;
-
-
-
-// <div class="container">
-//   <div class="row">
-//     <div class="col">Column</div>
-//     <div class="col">Column</div>
-//   </div>
-// </div>
