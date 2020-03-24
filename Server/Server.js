@@ -4,7 +4,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var server = express();
 require('dotenv').config('./.env')
-var pool = require('./mySql')
+// var pool = require('./mySql')
 
 
 //require('mongoose').connect(process.env.SERVER_DB_URI_LOCAL, { 
@@ -18,7 +18,7 @@ require('mongoose').connect(process.env.SERVER_DB_URI_CLOUD, {
     if( err ){ 
         console.log('database connecton Error: ', err )
     }else{
-        // console.log('Connected:',[res.name, res.host, res.user])
+         console.log('Connected to mongo:',[res.name, res.user])
     }
 })
 

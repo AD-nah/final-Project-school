@@ -1,13 +1,14 @@
 var mysql      = require('mysql');
 
-
 var pool = mysql.createPool({
-   // connectionLimit:15,
-    host:"localhost",
-    user:"root",
-    password:"",
-    database:"fpDB"
-})
+    // connectionLimit:15,
+     host:"localhost",
+     user:"root",
+     password:"",
+     database:"fpDB"
+ })
+
+
 
 
 pool.getConnection((err, connnection) => {
