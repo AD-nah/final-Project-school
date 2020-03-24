@@ -1,80 +1,85 @@
-
-
-
-
-
-
-
-
-
-
-
-import React, { Component } from 'react';
-import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBRow, MDBCol, MDBIcon, MDBInput } from 'mdbreact';
-
-
+import React, { Component } from "react";
 
 class ContactUs extends Component {
-  state = {
-    modal: false
-  }
-
-  toggle = () => {
-    this.setState({
-      modal: !this.state.modal
-    });
-  }
-
   render() {
     return (
-      <MDBContainer>
-        {/* <MDBBtn className=" btn  deep-orange" onClick={this.toggle}>Write us</MDBBtn> */}
-        <button
-          class="btn-5" onClick={this.toggle}>Ask  Me</button>
+      <form>
+        <div>
+          <span
+            data-toggle="modal"
+            data-target="#exampleModal"
+            className="far fa-envelope fa-2x"
+          ></span>
 
-        <MDBModal isOpen={this.state.modal} toggle={this.toggle}>
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
 
-          <MDBModalBody>
-
-            {/* start the modal body */}
-            <MDBRow>
-              <MDBCol md="10">
-                <form>
-                  <div className="grey-text">
-                    <MDBInput label="Your name" group type="text" validate error="wrong"
-                      success="right" />
-                    <MDBInput label="Your email" group type="email" validate error="wrong"
-                      success="right" />
-                    <MDBInput label="Subject" group type="text" validate error="wrong" success="right" />
-                    <MDBInput type="textarea" rows="2" label="Your message" />
-                  </div>
-
-                </form>
-              </MDBCol>
-            </MDBRow>
-
-
-          </MDBModalBody>
-
-
-          <MDBModalFooter>
-
-            <MDBBtn color="danger" onClick={this.toggle}>Close</MDBBtn>
-            <div className="text-center">
-              <MDBBtn outline color="warning">
-                Send
-                  <MDBIcon far icon="paper-plane" className="ml-1" />
-              </MDBBtn>
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    New message
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <input
+                        type="name"
+                        class="form-control"
+                        id="recipient-name"
+                        placeholder="Name"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="recipient-name"
+                        placeholder="Email"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <textarea
+                        class="form-control"
+                        id="message-text"
+                        placeholder="your message..."
+                      ></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    data-dismiss="modal"
+                    className="btn btn-outline-dark"
+                  >
+                    Close
+                  </button>
+                  <button type="button" className="btn btn-outline-success">
+                    Send message
+                  </button>
+                </div>
+              </div>
             </div>
-
-          </MDBModalFooter>
-
-        </MDBModal>
-      </MDBContainer>
+          </div>
+        </div>
+      </form>
     );
   }
 }
-
-
 
 export default ContactUs;

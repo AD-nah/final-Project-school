@@ -128,6 +128,8 @@ class Home extends Component {
         <br />
         <br />
 
+
+        {/*PLEASE DON'T DELETE IT   */}
         {/*Section start*/}
         {/* <section className='section-1'>
           <div className="container col-lg-12 ">
@@ -360,16 +362,43 @@ class Home extends Component {
                     <div class="row">
 
                       <div class="col-12 col-md d-flex align-items-center justify-content-center">
-                        First Pic
-                    </div>
+                        {this.state.men.length > 0 ?
+                          <img
+                            className="pic-1"
+                            style={{ maxHeight: "360px" }}
+                            src={this.state.men[0].images.protoTypes[0]}
+                          />
+
+                          :
+                          <h1>Loading image...</h1>
+                        }
+                      </div>
 
                       <div class="col-12 col-md d-flex align-items-center justify-content-center">
-                        Second Pic
-                    </div>
+                        {this.state.men.length > 0 ?
+                          <img
+                            className="pic-1"
+                            style={{ maxHeight: "360px" }}
+                            src={this.state.men[1].images.protoTypes[0]}
+                          />
+
+                          :
+                          <h1>Loading image...</h1>
+                        }
+                      </div>
 
                       <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
-                        Third Pic
-                    </div>
+                        {this.state.men.length > 0 ?
+                          <img
+                            className="pic-1"
+                            style={{ maxHeight: "360px" }}
+                            src={this.state.men[2].images.protoTypes[0]}
+                          />
+
+                          :
+                          <h1>Loading image...</h1>
+                        }
+                      </div>
                     </div>
                   </div>
 
@@ -377,15 +406,42 @@ class Home extends Component {
                     <div class="row">
 
                       <div class="col-12 col-md d-flex align-items-center justify-content-center">
-                        Forth Pic
+                        {this.state.men.length > 0 ?
+                          <img
+                            className="pic-1"
+                            style={{ maxHeight: "360px" }}
+                            src={this.state.men[3].images.protoTypes[0]}
+                          />
+
+                          :
+                          <h1>Loading image...</h1>
+                        }
                       </div>
 
                       <div class="col-12 col-md d-flex align-items-center justify-content-center">
-                        Fifth Pic
+                        {this.state.men.length > 0 ?
+                          <img
+                            className="pic-1"
+                            style={{ maxHeight: "360px" }}
+                            src={this.state.men[4].images.protoTypes[0]}
+                          />
+
+                          :
+                          <h1>Loading image...</h1>
+                        }
                       </div>
 
                       <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
-                        Sixth Pic
+                        {this.state.men.length > 0 ?
+                          <img
+                            className="pic-1"
+                            style={{ maxHeight: "350px" }}
+                            src={this.state.men[5].images.protoTypes[0]}
+                          />
+
+                          :
+                          <h1>Loading image...</h1>
+                        }
                       </div>
 
                     </div>
@@ -424,11 +480,11 @@ class Home extends Component {
             </div>
 
             <div className="col-md-6 text-center mt-5">
-            <h2 className="display-5">– Got talent to Rework?<br/> Scount is your right PLace to share your skills </h2>
-                  <p >“Fashion is not something that exists in dresses only. Fashion is in the sky, in the street, fashion has to do with ideas”</p>
-                  <a href="#" class="btn-join">
-                    Register now  <i class="fas fa-chevron-right"></i>
-                  </a>
+              <h2 className="display-5">– Got talent to Rework?<br /> Scount is your right PLace to share your skills </h2>
+              <p >“Fashion is not something that exists in dresses only. Fashion is in the sky, in the street, fashion has to do with ideas”</p>
+              <a href="#" class="btn-join">
+                Register now  <i class="fas fa-chevron-right"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -522,38 +578,22 @@ class Home extends Component {
         <br />
         <br />
 
-
-
-
-
-        {/*Payment start*/}
-        <div className="container row-md-12 mt-5">
-          <div className="col-md-12 text-center"><h1>Here You Can Bay</h1></div>
-          <div className="row text-center"><div className="col-md-4">
-            <a href="http://www.paypal.com">
-              <img className="mt-3" src={paypal} />
-            </a>
-          </div>
-
-            <div className="col-md-4">
-              <a href="#">
-                <img src={master} />
-              </a>
-            </div>
-
-            <div className="col-md-4">
-              <a href="#">
-                <img src={visa} />
-              </a>
-            </div>
-
-          </div>
-
-
+        {/* payment cards */}
+        <div class="credit-cards" style={{ textAlign: "center", width: "100%", padding: "5px", margin: "5px" }} >
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_visa.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_master.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_paypal.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_unionpay.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_linepay.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_tw_711_pay.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_tw_fm_pay.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_taishin.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_amex.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_ecpay.png" />
+          <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_jcb.png" />
         </div>
 
-
-
+        <br />
       </>
     )
   }
