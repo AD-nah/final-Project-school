@@ -1,4 +1,4 @@
-import React, { Component,Link } from 'react';
+import React, { Component, Link } from 'react';
 import { connect } from 'react-redux';
 import empty from './images/emptyb.png';
 import paypal from './images/paypal.png';
@@ -6,6 +6,7 @@ import basket from './images/basket.png';
 import master from './images/master.png';
 import visa from './images/visa.png';
 import { fetchBasket } from '../../Redux/Actions/basket'
+import decode from 'jwt-decode'
 
 
 class Chart extends Component {
@@ -14,7 +15,8 @@ class Chart extends Component {
     this.state = {
       // from the Redux
       products: null,
-      total: 0
+      total: 0,
+      userID: null
     }
   }
 
@@ -23,15 +25,21 @@ class Chart extends Component {
     this.props.fetchBasket().then(res => {
       this.setState({ products: this.props.item.filter((item, index) => this.props.item.indexOf(item) === index) })
 
-      
-      // get the prices from the items in the basket and put it insid the total input
-      let FullAmount=0;
 
-       this.state.products.forEach((item) => {
-          FullAmount +=item.prices[0]
+      // get the prices from the items in the basket and put it insid the total input
+      let FullAmount = 0;
+
+      this.state.products.forEach((item) => {
+        FullAmount += item.prices[0]
       }
       )
-      this.setState({total:FullAmount})
+      this.setState({ total: FullAmount })
+
+      if(localStorage.sCount){
+        const payload = decode(localStorage.sCount)
+        console.log(payload)
+        this.setState({userID:payload.userID})
+      }
     })
 
   }
@@ -49,7 +57,7 @@ class Chart extends Component {
   delete(item) {
     this.setState(prevState => ({
       products: prevState.products.filter(el => el != item),
-      total:prevState.total - item.prices[0]
+      total: prevState.total - item.prices[0]
     }))
   }
 
@@ -59,7 +67,7 @@ class Chart extends Component {
         <h3 className="card-header text-center font-weight-bold text-uppercase py-4 "><img className="float-right " src={basket} />MY Basket </h3>
         <br />
 
-        <div className=" row" style={{marginBottom:'300px'}}>
+        <div className=" row" style={{ marginBottom: '300px' }}>
           {/*if the chart is empty show this code , if not then show the product*/}
           {(!this.state.products || this.state.products.length === 0) && (
             <div className="col-9 container" >
@@ -67,8 +75,8 @@ class Chart extends Component {
               <div>
                 <div className="mt-3 alert alert-warning" role="alert">
                   <h4 className="alert-heading">No products in your Basket!</h4>
-                 
-                 
+
+
                 </div>
 
                 <div className="container row">
@@ -149,7 +157,7 @@ class Chart extends Component {
                           </select>
 
                           <select style={{ height: "30px", width: "100px", backgroundColor: "#FCC400" }} className=" md-form  dropdown-primary ">
-                            <option  disabled selected='selected'>Size </option>
+                            <option disabled selected='selected'>Size </option>
                             <option value="2">Small</option>
                             <option value="3">Medium</option>
                             <option value="4">Large</option>
@@ -189,11 +197,15 @@ class Chart extends Component {
               <h3 className="font-weight-bold mt-3">Total</h3>
               <h3 className="card-header text-center font-weight-bold text-uppercase py-3 ">{this.state.total}$</h3>
               <br />
+
+                <a href={"http://localhost:3001/paypal/buy?id="+this.state.userID}>
               <button
                 type="button"
                 className="btn btn-info btn-rounded w-100 "
               >Pay
-                    </button>
+              </button>
+              </a>
+
             </div>
           ) : null}
 
