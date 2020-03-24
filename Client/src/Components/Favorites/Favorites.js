@@ -3,20 +3,36 @@ import { connect } from 'react-redux';
 import empty from './images/emptyb.png';
 import basket from './images/basket.png';
 import { fetchFavorite } from '../../Redux/Actions/favorite' 
+import { removeFromFavoriteAction } from '../../Redux/Actions/favorite' 
+import SuccessMessage from '../Messages/SuccessMessage'
 
 class Favorits extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      // from the Redux
+
       products: null,
+      removedFromFavorite: false,
+      removedFromFavoriteMessage: '',
     }
   }
 
-  // to remove duplicated items, thats come from the redux Store, and then save it inside the Compoment's state 
+
   componentDidMount() {
-    this.props.fetchFavorite().then(res => {
-      this.setState({ products: this.props.item.filter((item, index) => this.props.item.indexOf(item) === index) })
+    this.props.fetchFavorite().then(() => {
+
+
+      const filteredArr = this.props.item.reduce((acc, current) => {
+        const x = acc.find(item => item._id === current._id);
+        if (!x) {
+          return acc.concat([current]);
+        } else {
+          return acc;
+        }
+      }, []);
+
+      this.setState({ products: filteredArr })
+
     })
   }
 
@@ -31,9 +47,24 @@ class Favorits extends Component {
 
   // remove items
   delete(item) {
-    this.setState(prevState => ({
-      products: prevState.products.filter(el => el != item)
-    }))
+
+    removeFromFavoriteAction(item).then(res => {
+       
+      this.setState(prevState => ({
+          products: prevState.products.filter(el => el._id !== item._id),
+          removedFromFavorite: prevState.removedFromFavorite = true,
+          removedFromFavoriteMessage: prevState.removedFromFavoriteMessage = res
+      }))
+       setTimeout(()=> {
+          this.setState({removedFromFavorite:false})
+       },200)
+
+     }).catch((res) => {
+       this.setState({removedFromFavorite: true, removedFromFavoriteMessage: res})
+       setTimeout(()=> {
+        this.setState({removedFromFavorite:false})
+     },200)
+     })
   }
 
   render() {
@@ -41,6 +72,8 @@ class Favorits extends Component {
     return (
       <>
       
+      {this.state.removedFromFavorite && (<SuccessMessage text = {this.state.removedFromFavoriteMessage} />)}
+
         <h3 className="card-header text-center font-weight-bold text-uppercase py-4 "><img className="float-right " src={basket}/>your Favorite </h3>
   
         

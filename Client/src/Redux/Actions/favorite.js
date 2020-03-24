@@ -19,3 +19,11 @@ export const fetchFavorite = () => (dispatch) => {
         dispatch(addedToFavorite(items))
     })
 }
+
+export const removeFromFavoriteAction = (item) => {
+    return api.favorite.removeFromFavoriteRequest(item).then(item => {
+        return item
+    }).catch(()=> {
+        return 'failed to remove from Favorite'
+    })
+}
