@@ -145,7 +145,7 @@ class Edit extends React.Component {
 
         {/* ---------------second form-------------- */}
 
-        <div class="col">
+        <div className="col">
           {" "}
            
             <MDBInput

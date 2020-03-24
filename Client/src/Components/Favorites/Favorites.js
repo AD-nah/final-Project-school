@@ -3,14 +3,13 @@ import { connect } from 'react-redux';
 import empty from './images/emptyb.png';
 import paypal from './images/paypal.png';
 import basket from './images/basket.png';
-
-
+import { Switch, Route, Link } from 'react-router-dom';
 class Favorits extends Component {
   constructor(props) {
     super(props)
     this.state = {
       // from the Redux
-      products : null,
+      products: null,
     }
   }
 
@@ -39,50 +38,52 @@ class Favorits extends Component {
 
     return (
       <>
-      
-        <h3 className="card-header text-center font-weight-bold text-uppercase py-4 "><img className="float-right " src={basket}/>MY Favorets </h3>
-  
-        
+
+        <h3 className="card-header text-center font-weight-bold text-uppercase py-4 "><Link to="Basket/Basket"><img className="float-right " src={basket} /></Link>MY Favorets </h3>
+
+
         {/*if the chart is empty show this code , if not then show the product*/}
-       
-          {console.log('products :', this.state.products)}
-          {(!this.state.products || this.state.products.length === 0) &&
-            (
-              <div className="container">
-                <div className="mt-3 alert alert-warning" role="alert">
-                  <h4 className="alert-heading">No products in your Favorets!</h4>
-                  <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
-                  <hr />
-                  <p className="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
 
-                </div>
+        {console.log('products :', this.state.products)}
+        {(!this.state.products || this.state.products.length === 0) &&
+          (
+            <div className="container">
+              <div className="mt-3 alert alert-warning" role="alert">
+                <h4 className="alert-heading">No products in your Favorets!</h4>
+                <p>You have no items in your Shopping Bag
+
+</p>
                 <hr />
-                <div className="container row">
-                  <div className="col-md-6" >
-                    <img className="img-fluid" src={empty} style={{ height: "50vh" }} />
-                  </div>
 
-                  <div className="col-md-6 text-center">
-                    <h1>Your Favorites is empty </h1>
-               
-                    <button  type="button"
-                      className="btn btn-info btn-rounded btn-sm my-0 ">Go back to Product</button>
 
-                  </div>
+              </div>
+              <hr />
+              <div className="container row">
+                <div className="col-md-6" >
+                  <img className="img-fluid" src={empty} style={{ height: "50vh" }} />
+                </div>
+
+                <div className="col-md-6 text-center">
+                  <h1>Your Favorites is empty </h1>
+
+                  <button type="button"
+                    className="btn btn-info btn-rounded btn-sm my-0 ">Go back to Product</button>
 
                 </div>
 
               </div>
 
+            </div>
 
 
 
 
-            )}
-          {this.state.products && this.state.products.map((item, index) => {
-            return (
 
-              <div className="container col-lg-12 border border-dark">
+          )}
+        {this.state.products && this.state.products.map((item, index) => {
+          return (
+
+            <div className="container col-lg-12 border border-dark">
               <div className="row mb-3 m-5">
                 <div className="col-md-4 text-center"> {/* bg-success*/}
                   <h3></h3>
@@ -143,19 +144,24 @@ class Favorits extends Component {
 
                     </select>
 
-                  
+
                   </div>
-                
+
                 </div>
 
               </div>
 
-              </div>
+            </div>
 
-              
-            )
-          })}
-    
+
+          )
+        })}
+        <div>
+          <Switch>
+            <Route pathe="Basket/basket" />
+          </Switch>
+        </div>
+
       </>
     )
   }
