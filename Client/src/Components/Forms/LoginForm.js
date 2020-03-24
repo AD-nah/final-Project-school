@@ -21,9 +21,14 @@ class LoginForm extends React.Component {
     super(props)
 
     this.state = {
-      data: {
-        email: '',
-        password: ''
+      
+      
+      data:{
+          emil:'ahmad.alnahlawi@icloud.com',
+          userPassword:'ad-nah'
+
+      
+      
       },
       loading: false,
       errors: {}
@@ -66,8 +71,9 @@ class LoginForm extends React.Component {
   validate = (data) => {
 
     const errors = {}; // the errors var will be empty if we don`t have errors 
-    if (!Validator.isEmail(data.email)) errors.email = 'Email is required';
-    if (!data.password) errors.password = 'Password is required';
+    if(!Validator.isEmail(data.email)) errors.email = 'Email is required';
+    if(!data.userPassword ) errors.userPassword = 'Password is required';  
+
 
     return errors;
   }
@@ -76,6 +82,46 @@ class LoginForm extends React.Component {
   render() {
     return (<>
       <MDBContainer>
+        
+          <MDBCol className= ' w-100 ' lg>
+              <form onSubmit = { this.onSubmit }>
+             
+             
+              {this.state.loading && <SemipolarLoading  />}
+              {this.state.errors.authError && <ErrorMessage text ={this.state.errors.authError} />}
+
+                <MDBInput
+                className='text-dark'
+                  label="Your email"
+                  type="email"
+                  validate
+                  success=""
+                  name = 'email'
+                  onChange = {this.onChange}
+                  value = {this.state.data.email} 
+                />
+                  <br/>
+                 
+
+                {this.state.errors.email &&  <ErrorMessage text ={this.state.errors.email}/>}
+                
+                <MDBInput
+                   className='text-dark'
+                  label="Your password"
+                  type="password"
+                  name = 'userPassword'
+                  onChange = {this.onChange}
+                  value = {this.state.data.userPassword} 
+                />
+
+                {this.state.errors.userPassword &&  <ErrorMessage text = {this.state.errors.userPassword}/>}
+
+                <p className="font-small blue-text d-flex justify-content-end pb-3">
+                  Forgot
+                  <a href="#!" className="blue-text ml-1">
+                    Password?
+                  </a>
+                </p>
 
         <MDBCol className=' w-100 ' lg>
           <form onSubmit={this.onSubmit}>

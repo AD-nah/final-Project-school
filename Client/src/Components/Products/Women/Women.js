@@ -6,6 +6,7 @@ import { WaveLoading } from "react-loadingg";
 import { fetchWomenProducts } from '../../../Redux/Actions/products'
 import { connect } from "react-redux";
 import { addToBasketAction } from "../../../Redux/Actions/basket";
+import { addToFavoriteAction } from '../../../Redux/Actions/favorite'
 import {
   MDBContainer,
   MDBModal,
@@ -43,7 +44,9 @@ class Women extends React.Component {
       data: null,
       currentProduct: [],
       currentArrayOfImages: [],
-      successMessage: false,
+      addedToBasketMessage: false,
+      alreadyInBasket : false,
+      alreadyInBasketMessage :'',
       //images modal
       modal13: false
     };
@@ -63,19 +66,36 @@ class Women extends React.Component {
     });
   };
 
-  setCurrentProduct(item) {
-    this.props.addToBasketAction(item);
-    this.setState({successMessage:true});
+  addToBasket(item) {
 
+
+    this.props.addToBasketAction(item).then(res => {
+
+    this.setState({addedToBasketMessage:true});
     setTimeout(()=>{
-      this.setState({successMessage:false});
+      this.setState({addedToBasketMessage:false});
     },100);
+
+    })//.catch(res => {
+    //   console.log(res)
+    //   this.setState({
+    //     alreadyInBasket : true,
+    //     alreadyInBasketMessage : res
+    //   })
+    //   setTimeout(()=>{
+    //     this.setState({alreadyInBasket:false});
+    //   },100);
+    // })
+
+
   }
   /// add the Favorites to the basket
-  addingFavorits(item) {
-   // this.props.addToBasketAction(item);
+  addToFavorite(item) {
 
-   // alert("added to Favorites");
+
+   this.props.addToFavoriteAction(item);
+
+    alert("added to Favorites");
   }
 
   sendImagesToCarousel(array) {
@@ -93,10 +113,15 @@ class Women extends React.Component {
   render() {
     return (
       <>
-        {this.state.successMessage && <SuccessMessage text = 'added to Basket'/>}
-        <div className="container">
-          <div className="row">
-          <div class="wordCarousel">
+
+        {this.state.addedToBasketMessage && <SuccessMessage text = 'added to Basket'/>}
+        {this.state.alreadyInBasket && (<SuccessMessage text = {this.state.alreadyInBasketMessage}/>)}
+        <div className="container" style={{maxWidth:"100%"}}>
+
+
+          <div className="container" style={{height:"200px "}}>
+            <h4 class="wordCarousel" style={{height:"100px "}}>
+
               <span className="whyScount">Why Scount ? </span>
               <div>
                 <ul class="flip4">
@@ -288,4 +313,6 @@ const  mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {addToBasketAction,  fetchWomenProducts })(Women);
+
+export default connect(mapStateToProps, {addToBasketAction, addToFavoriteAction, fetchWomenProducts })(Women);
+
