@@ -20,8 +20,8 @@ class LoginForm extends React.Component {
   
     this.state = {
       data:{
-          email:'',
-          password:''
+          email:'ahmad.alnahlawi@icloud.com',
+          userPassword:'ad-nah'
       },
       loading: false,
       errors:{}
@@ -65,7 +65,7 @@ class LoginForm extends React.Component {
 
     const errors = {}; // the errors var will be empty if we don`t have errors 
     if(!Validator.isEmail(data.email)) errors.email = 'Email is required';
-    if(!data.password ) errors.password = 'Password is required';  
+    if(!data.userPassword ) errors.userPassword = 'Password is required';  
 
     return errors;
   }
@@ -101,12 +101,12 @@ class LoginForm extends React.Component {
                    className='text-dark'
                   label="Your password"
                   type="password"
-                  name = 'password'
+                  name = 'userPassword'
                   onChange = {this.onChange}
-                  value = {this.state.data.password} 
+                  value = {this.state.data.userPassword} 
                 />
 
-                {this.state.errors.password &&  <ErrorMessage text = {this.state.errors.password}/>}
+                {this.state.errors.userPassword &&  <ErrorMessage text = {this.state.errors.userPassword}/>}
 
                 <p className="font-small blue-text d-flex justify-content-end pb-3">
                   Forgot

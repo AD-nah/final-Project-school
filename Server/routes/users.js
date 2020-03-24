@@ -677,28 +677,109 @@ const men = [
 
 
 
-
-
+// const Array = [
+//   {
+//     productId  : '',
+//     productType: '',
+//     productName : '',
+//     productDescription:''
+//   } 
+// ]
 
    
-//  let sql = `SELECT * FROM Main_Products WHERE productId =`+i+1
-//   pool.query(sql, (err, row) => {
-//       if(err)throw err
-//       console.log(row[0].productId)
-//   })
+// let sql = `SELECT 
+//    main_products.productId, 
+//    main_products.productType, 
+//    main_products.productName,
+//    main_products.productDescription, 
+//    product_images.images,
+//    product_prices.prices
+//    FROM main_products 
+//    INNER JOIN product_images ON main_products.productId=product_images.productId 
+//    INNER JOIN product_prices ON main_products.productId=product_prices.productId 
+//    WHERE main_products.productType="male"`;
+// pool.query(sql, (err, row) => {
+//     if(err)throw err
+//     console.log(row)
+// })
 
 
-  // let sql = `INSERT INTO Product_Images (productId, images)
-  //   VALUES(
+
+
+// let sql = `SELECT DISTINCT * FROM main_products, product_images WHERE  main_products.productId = product_images.productId`;
+// pool.query(sql, (err, row) => {
+//     if(err)throw err
+//       // row.forEach((item) => {
+//         console.log( row[0])
+//       // })
+// })
+
+// let arr = [];
+
+// pool.query( `SELECT * FROM main_products WHERE productId = 10`, (err, row) => {
+  //     if(err)throw err
+  // })
+
+//   var arr = [
+//     {
+//       male: new Array,
+//       female: new Array
+//     }
+//   ]
+
+//   pool.query(`SELECT * FROM product_images WHERE productType = 'female'`, (err, row) => {
+//     if(err) {
+//       console.log(err);
+//     }else{
+//       if(row && row.length){
+//         let images = []
+
+//         row.forEach((item) => {
+//           images.push(item.images)
+//         })
+        
+//         arr[0].male.push(images)
+//       }else{
+
+//       }
+//     }
+
+// })
+// pool.query(`SELECT * FROM product_images WHERE productType = 'male'`, (err, row) => {
+//   if(err) {
+//     console.log(err);
+//   }else{
+//     if(row && row.length){
+//       let images = []
+
+//       row.forEach((item) => {
+//         images.push(item.images)
+//       })
+      
+//       arr[0].female.push(images)
+//     }else{
+
+//     }
+//   }
+
+// })
+// setTimeout(() => {
+
+//   console.log(arr[0].male)
+//   console.log(arr[0].female)
+// },1000)
+
+
+// let sql = `INSERT INTO Product_Images (productId, images)
+//   VALUES(
   //     ${pool.escape(String(item.name))},
   //     ${pool.escape(String(item.images))}
   //   )`
   //   pool.query(sql, (err, fields) => {
-  //     if(err)throw err
-  //     console.log('inserted')
-  //   })
-
-
+    //     if(err)throw err
+    //     console.log('inserted')
+    //   })
     
+
 
 module.exports = router;
