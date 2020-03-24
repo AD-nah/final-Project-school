@@ -1,24 +1,17 @@
 const jwt = require ('jsonwebtoken');
 const bcryptjs = require ('bcryptjs');
-const pool = require('./mySql')
-
-
-
-
-
 module.exports = {
 
-    isValidPassword: (password) => {
-
+    isValidPassword: (hashedPassword, password) => {
+        return bcryptjs.compareSync(password, hashedPassword)
     },
-    toAuthJSON: (User_Id, email) => {
+    generateJWT: (userId, email) => {
 
-       const generateJWT = (User_Id, email) => {
+       const generateJWT = (userId, email) => {
 
             return jwt.sign({
-                User_Id : User_Id,
+                userId : userId,
                 email : email
-    
                 // confirmed: this.confirmed
               },
               process.env.JWT_SECRET
@@ -26,37 +19,10 @@ module.exports = {
         }
 
         return {
-            token: generateJWT(User_Id, email),
+            token: generateJWT(userId, email),
         }
     },
     setPassword: (password) => {
         return bcryptjs.hashSync(password, 10)
     },
 }
-
-
-
-
- 
-//   userSchema.methods.isValidPassword = function isValidPassword(password) {
-//     return bcryptjs.compareSync(password, this.hashedPassword)
-//   }
-  
-//   userSchema.methods.toAuthJSON = function toAuthJSON() {
-//     return {
-//       token: this.generateJWT(),
-//     }
-//   }
-  
-//   userSchema.methods.generateJWT = function generateJWT() {
-//     return jwt.sign({
-//         userID: this._id,
-//         email: this.email,
-//         //confirmed: this.confirmed
-//       },
-//       process.env.JWT_SECRET
-//     )
-//   }
-  
-
-  
