@@ -9,7 +9,7 @@ export const addedToFavorite = (items) => {
 }
 
 export const  addToFavoriteAction = (item) => (dispatch) => {
-    api.favorite.saveToFavoriteRequest(item).then(items => {
+   return api.favorite.saveToFavoriteRequest(item).then(items => {
         dispatch(addedToFavorite(items));
     })
 }

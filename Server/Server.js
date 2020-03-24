@@ -18,7 +18,7 @@ require('mongoose').connect(process.env.SERVER_DB_URI_CLOUD, {
     if( err ){ 
         console.log('database connecton Error: ', err )
     }else{
-         console.log('Connected to mongo:',[res.name, res.user])
+         console.log('Connected to mongodb:',[res.name, res.user])
  
     }
 })

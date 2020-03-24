@@ -8,7 +8,7 @@ import visa from './images/visa.png';
 import {fetchBasket} from '../../Redux/Actions/basket'
 import { removeFromBasketAction } from '../../Redux/Actions/basket'
 import SuccessMessage from '../Messages/SuccessMessage'
-
+import decode from 'jwt-decode'
 class Chart extends Component {
   constructor(props) {
     super(props)
@@ -17,8 +17,8 @@ class Chart extends Component {
       products: null,
       removedFromBasket: false,
       removedFromBasketMessage: '',
-      total : 0
-      userID: null
+      total : 0,
+      userId: null
 
     }
   }
@@ -38,24 +38,21 @@ class Chart extends Component {
           }, []);
 
           this.setState({ products: filteredArr })
+
+          // get the prices from the items in the basket and put it insid the total input
+          let FullAmount = 0;
+          this.state.products.forEach((item) => {
+            FullAmount += item.prices[0]
+          })
+          this.setState({ total: FullAmount })
      })
 
-      // get the prices from the items in the basket and put it insid the total input
-      let FullAmount = 0;
 
-      this.state.products.forEach((item) => {
-        FullAmount += item.prices[0]
-      }
-      )
-      this.setState({ total: FullAmount })
 
       if(localStorage.sCount){
         const payload = decode(localStorage.sCount)
-        console.log(payload)
-        this.setState({userID:payload.userID})
-      }
-    })
-
+        this.setState({userId:payload.userId})
+      } 
   }
 
   // to take a Number and convert it to Star
@@ -68,7 +65,7 @@ class Chart extends Component {
   }
 
   // remove items and its price same time
-  delete(item) {
+  remove(item) {
 
      removeFromBasketAction(item).then(res => {
        
@@ -112,17 +109,6 @@ class Chart extends Component {
                     </div>
 
 
-        <div className=" row" style={{ marginBottom: '300px' }}>
-          {/*if the chart is empty show this code , if not then show the product*/}
-          {(!this.state.products || this.state.products.length === 0) && (
-            <div className="col-9 container" >
-
-              <div>
-                <div className="mt-3 alert alert-warning" role="alert">
-                  <h4 className="alert-heading">No products in your Basket!</h4>
-
-
-                </div>
 
                 <div className="container row">
                   <div className="col-md-6" >
@@ -168,7 +154,7 @@ class Chart extends Component {
                         <span className="table-remove">
                           <button
                             type="button"
-                            onClick={this.delete.bind(this, item)}
+                            onClick={this.remove.bind(this, item)}
                             className="btn btn-danger btn-rounded btn-sm "
                           >Remove from Basket
                               </button>
@@ -243,12 +229,8 @@ class Chart extends Component {
               <h3 className="card-header text-center font-weight-bold text-uppercase py-3 ">{this.state.total}$</h3>
               <br />
 
-                <a href={"http://localhost:3001/paypal/buy?id="+this.state.userID}>
-              <button
-                type="button"
-                className="btn btn-info btn-rounded w-100 "
-              >Pay
-              </button>
+              <a href={"http://localhost:3001/paypal/buy?id="+this.state.userId}>
+                <button type="button" className="btn btn-info btn-rounded w-100 " >Pay</button>
               </a>
 
             </div>
