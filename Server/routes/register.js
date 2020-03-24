@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
-// const User = require('../models/User')
-// const Basket = require('../models/Basket')
-// const Favorite = require('../models/Favorite')
-//const parseErrors = require('./parseErrors')
+// mongodb
+const Basket = require('../models/Basket')
+const Favorite = require('../models/Favorite')
+// mysql
 const pool = require('../mySql')
 const randomstring = require('randomstring')
 const functions = require('../functions')
@@ -54,6 +54,7 @@ router.post('/',  (req, res) => {
                     ${pool.escape(String(birthDate))}
                 );
                 `
+
                 pool.query(sql, (err, result, fields) => {
                     if(err) throw err
 
@@ -61,19 +62,18 @@ router.post('/',  (req, res) => {
                         if (err) throw err
 
                         if(row && row.length){ 
-                            
-                            const sql = `
 
+                            const newBasket = new Basket({
+                                userId : row[0].userId,
+                                basket_owner: row[0].email
+                            }).save()
 
-                              INSERT INTO Basket (
-                                User_Id
-                              ) 
+                            const newFavorite = new Favorite({
+                                userId : row[0].userId,
+                                favorite_owner: row[0].email
+                            }).save()
 
-
-                            `
-                            // pool.query()
-
-                            res.json({userRegistered : functions.toAuthJSON(row[0].User_Id, row[0].email)})
+                            res.json({userRegistered : functions.generateJWT(row[0].userId, row[0].email)})
                         }
                     } ) 
                 })
