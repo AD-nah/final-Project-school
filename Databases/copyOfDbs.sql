@@ -69,7 +69,8 @@ INSERT INTO `Main_Products` (`productId`, `productType`, `productName`, `product
 CREATE TABLE `Product_Colors` (
   `productId` int(11) DEFAULT NULL,
   `colors` varchar(255) DEFAULT NULL,
-  `productType` varchar(255) DEFAULT NULL
+  `productType` varchar(255) DEFAULT NULL,
+  `images` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
