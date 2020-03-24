@@ -4,29 +4,40 @@ const Favorite = require('../models/Favorite');
 
 
 router.post('/get-favorite', async (req, res, next) => { 
-    const { userID } = req.body
+    const { userId } = req.body;
 
-    const findInFavorite = await Favorite.findOne({user_ID: userID})
+    const findInFavorite = await Favorite.findOne({userId: userId});
         if(findInFavorite){
 
             res.json({favorite: findInFavorite.favorite});
         }else{
-            res.status(404).json({err:'favorite not found'})
+            res.status(404).json({err:'favorite not found'});
         }
 })
 
 router.post('/save-to-favorite', async (req, res, next)=> {
 
-    const { userID, item } = req.body
+    const { userId, item } = req.body;
 
-    const findFavoriteAndUpdate = await Favorite.findOneAndUpdate({ user_ID: userID }, { $push: { favorite : item }})
+    const findFavoriteAndUpdate = await Favorite.findOneAndUpdate({ userId: userId }, { $push: { favorite : item }})
 
-        if(findFavoriteAndUpdate){
-            res.json({items: findFavoriteAndUpdate.favorite});
-        }else{
-            res.status(404).json({err:'favorite not found'})
-        }
+    if(findFavoriteAndUpdate){
+        res.json({items: findFavoriteAndUpdate.favorite});
+    }else{
+        res.status(404).json({err:'favorite not found'});
+    }
 })
+router.post('/remove-from-favorite', async (req, res, next) => {
+
+    const { userId, item } = req.body
+
+    const removeingItem = await Favorite.update({ userId : userId }, { $pull : { favorite : { _id : item._id}}})
+    if(removeingItem){
+        res.status(200).json({item: 'removed from favorite'})
+    }
+
+})
+
 
 
 
