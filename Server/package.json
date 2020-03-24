@@ -2,9 +2,21 @@
   "name": "server",
   "version": "0.0.0",
   "private": true,
+  "main": "Server.js",
   "scripts": {
     "start": "nodemon ./bin/www"
   },
+  "keywords": [
+    "paypal",
+    "payment",
+    "gateway",
+    "nodejs",
+    "payment",
+    "integration",
+    "in",
+    "web",
+    "apps"
+  ],
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "concurrently": "^5.1.0",
@@ -22,5 +34,6 @@
     "nodemon": "^2.0.2",
     "randomstring": "^1.1.5",
     "uuid": "^7.0.2"
+    "paypal-rest-sdk": "^1.8.1"
   }
 }

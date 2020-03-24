@@ -31,7 +31,7 @@ class Navbar extends Component {
     loginModal: false,
     logoutSuccess: false,
     redirectSuccess: false,
-    NavbarClass: "" // "navbarTop"
+    NavbarClass: "navbarTop"
   };
 
 
@@ -39,6 +39,7 @@ class Navbar extends Component {
   toggleCollapse = () => {
     this.setState({ isOpen: !this.state.isOpen });
   };
+
 
   registerToggle = () => {
     this.setState({
@@ -48,7 +49,7 @@ class Navbar extends Component {
   loginToggle = () => {
     this.setState({
       loginModal: !this.state.loginModal
-    });
+    }); 
   };
 
   logoutHandler = () => {
@@ -63,23 +64,28 @@ class Navbar extends Component {
     }
   };
 
+
+
+
   scrollFunction = () => {
     if (window.scrollY > 10) {
       this.setState({ NavbarClass: "navbarDown" })
     } else {
-      this.setState({ NavbarClass: "" })
+      this.setState({ NavbarClass: "navbarTop" })
     }
   }
+
+
+
 
   render() {
 
     window.onscroll = () => { this.scrollFunction() };
 
-    return (
-    <>
-      <div>
+    return (<>
+      <div  >
 
-        <nav  className={`${this.state.NavbarClass} navbar_header navbar navbar-expand-lg`} style = {{height:'55px'}}>
+        <nav  className={`${this.state.NavbarClass} navbar_header navbar navbar-expand-lg`}>
           {this.state.logoutSuccess && <SuccessMessage text="Good Bey" />}
 
           {authMessagesHandler() === "registerdMessage" && (
@@ -106,7 +112,6 @@ class Navbar extends Component {
           </button>
 
           <div className="collapse navbar-collapse " id="navbarSupportedContent">
-            
             <ul className="navbar-nav mr-auto ">
               <li className="nav-item ">
 
@@ -179,7 +184,7 @@ class Navbar extends Component {
                     </a>
                   <div class="dropdown-menu flex-column" aria-labelledby="navbarDropdown">
                   <a>
-                    <Link to="/profile">
+                    <Link to="/profile/bought">
                       <strong>Profile</strong>
                     </Link>
                   </a>

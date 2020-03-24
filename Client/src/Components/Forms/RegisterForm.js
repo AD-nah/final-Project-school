@@ -226,7 +226,8 @@ class RegisterForm extends React.Component {
       <div className="text-center mb-3">
               <MDBBtn
                 type="submit"
-                gradient="blue"
+                color="elegant"
+                outline
                 rounded
                 className=" z-depth-1a"
               >
@@ -251,21 +252,14 @@ class RegisterForm extends React.Component {
                 className="blue-text text-center"
               />
             </MDBBtn>
-            <MDBBtn
-              type="button"
-              color="white"
-              rounded
-              className="mr-md-3 z-depth-1a"
-            >
-              <MDBIcon fab icon="twitter" className="blue-text" />
-            </MDBBtn>
+         
             <MDBBtn
               type="button"
               color="white"
               rounded
               className="z-depth-1a"
             >
-              <MDBIcon fab icon="google-plus-g" className="blue-text" />
+              <MDBIcon fab icon="google-plus-g" className="red-text " />
             </MDBBtn>
           </div>
     </form>
@@ -276,12 +270,3 @@ class RegisterForm extends React.Component {
 }
 
 export default RegisterForm;
-
-
-
-// <div class="container">
-//   <div class="row">
-//     <div class="col">Column</div>
-//     <div class="col">Column</div>
-//   </div>
-// </div>

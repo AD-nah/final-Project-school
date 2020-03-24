@@ -11,6 +11,7 @@ router.post('/get-basket', async (req, res, next) => {
 console.log(userId)
 
     const findInBasket = await Basket.findOne({userId: userId})
+
         if(findInBasket){
 
             res.json({basket: findInBasket.basket});
@@ -30,6 +31,7 @@ console.log(userId)
         if(newRecord){
 
             res.json({items: newRecord.basket});
+
         }
         
     }).catch(err => {
