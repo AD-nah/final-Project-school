@@ -45,9 +45,10 @@ class Women extends React.Component {
       currentProduct: [],
       currentArrayOfImages: [],
       addedToBasketMessage: false,
-      alreadyInBasket : false,
-      alreadyInBasketMessage :'',
-      //images modal
+      addedToFavoriteMessage: false,
+      // alreadyInBasket : false,
+      // alreadyInBasketMessage :'',
+      // //images modal
       modal13: false
     };
   }
@@ -86,16 +87,16 @@ class Women extends React.Component {
     //     this.setState({alreadyInBasket:false});
     //   },100);
     // })
-
-
   }
   /// add the Favorites to the basket
   addToFavorite(item) {
 
-
-   this.props.addToFavoriteAction(item);
-
-    alert("added to Favorites");
+   this.props.addToFavoriteAction(item).then(res => {
+    this.setState({addedToFavoriteMessage:true});
+    setTimeout(()=>{
+      this.setState({addedToFavoriteMessage:false});
+    },100);
+   });
   }
 
   sendImagesToCarousel(array) {
@@ -115,13 +116,12 @@ class Women extends React.Component {
       <>
 
         {this.state.addedToBasketMessage && <SuccessMessage text = 'added to Basket'/>}
-        {this.state.alreadyInBasket && (<SuccessMessage text = {this.state.alreadyInBasketMessage}/>)}
+        {this.state.addedToFavoriteMessage && <SuccessMessage text = 'added to Favorite'/>}
+        {/* {this.state.alreadyInBasket && (<SuccessMessage text = {this.state.alreadyInBasketMessage}/>)} */}
+
         <div className="container" style={{maxWidth:"100%"}}>
-
-
-          <div className="container" style={{height:"200px "}}>
-            <h4 class="wordCarousel" style={{height:"100px "}}>
-
+         <div className="row">
+          <div class="wordCarousel">
               <span className="whyScount">Why Scount ? </span>
               <div>
                 <ul class="flip4">
@@ -132,11 +132,11 @@ class Women extends React.Component {
                 </ul>
               </div>
             </div>
-         
 
             {this.state.data ? (
               this.state.data.map((item, index) => {
                 return (<>
+
                   <div key={index} className="col-lg-4 col-md-4 col-sm-6">
                     <div className="product-grid7">
                       <div className="product-content">
@@ -155,18 +155,12 @@ class Women extends React.Component {
                               style={{ maxHeight: "400px" }}
                               src={item.images.protoTypes[0]}
                             />
-
-
-
-
                             <img
                               className="pic-2"
-                              
                               src={item.images.protoTypes[1]}
                             />
                           </a>
                         </li>
-
                         <ul className="social">
                           <li
                             onClick={() =>
@@ -178,19 +172,18 @@ class Women extends React.Component {
                               className="fas fa-expand-arrows-alt"
                             ></a>
                           </li>
-
                           <li>
                             <a href="#" className="far fa-heart" 
                              role="button"
                              tabIndex={1}
-                             onClick={() => this.addingFavorits(item)}
+                             onClick={() => this.addToFavorite(item)}
                             ></a>
                           </li>
 
                           <li>
                             <a
                               role="button"
-                              onClick={() => this.setCurrentProduct(item)}
+                              onClick={() => this.addToBasket(item)}
                               className="fa fa-shopping-cart"
                             ></a>
                           </li>
@@ -227,9 +220,8 @@ class Women extends React.Component {
 
 
 
+</div>
           </div>
-        </div>
-
 
 
 

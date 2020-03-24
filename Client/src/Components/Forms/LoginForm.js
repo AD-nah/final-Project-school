@@ -123,11 +123,11 @@ class LoginForm extends React.Component {
                   </a>
                 </p>
 
-        <MDBCol className=' w-100 ' lg>
-          <form onSubmit={this.onSubmit}>
+        {/* <MDBCol className=' w-100 ' lg>
+          <form onSubmit={this.onSubmit}> */}
 
 
-            {this.state.loading && <SemipolarLoading />}
+            {/* {this.state.loading && <SemipolarLoading />}
             {this.state.errors.authError && <ErrorMessage text={this.state.errors.authError} />}
 
             <MDBInput
@@ -139,13 +139,13 @@ class LoginForm extends React.Component {
               name='email'
               onChange={this.onChange}
               value={this.state.data.email}
-            />
+            /> */}
 
 
 
-            {this.state.errors.email && <ErrorMessage text={this.state.errors.email} />}
+            {/* {this.state.errors.email && <ErrorMessage text={this.state.errors.email} />} */}
 
-            <MDBInput
+            {/* <MDBInput
               className='text-dark'
               label="Your password"
               type="password"
@@ -154,10 +154,10 @@ class LoginForm extends React.Component {
               value={this.state.data.password}
             />
 
-            {this.state.errors.password && <ErrorMessage text={this.state.errors.password} />}
+            {this.state.errors.password && <ErrorMessage text={this.state.errors.password} />} */}
 
 
-            <ForgotPasswordForm/>
+            {/* <ForgotPasswordForm/> */}
 
 
             <div className="text-center mb-3">
@@ -233,7 +233,7 @@ export default LoginForm;
 
 
 
-//------------please dont delete it----------- 
+{/* //------------please dont delete it-----------  */}
 {/* <form onSubmit={this.onSubmit}>
 
 {this.state.loading && <SemipolarLoading />}
