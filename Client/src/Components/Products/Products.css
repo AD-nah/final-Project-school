@@ -1,0 +1,78 @@
+/* the side navbar */
+.products-sidebar {
+    margin: 10px;
+    padding: 10px;
+    position: relative;
+}
+
+.container-fluid {
+    list-style: none;
+}
+
+.products-sidebar li{
+list-style: none;
+}
+
+.products-sidebar a {
+    text-align: center;
+    font-weight: 700;
+    display: block;
+    color: rgb(158, 143, 143);
+    padding: 16px;
+    text-decoration: none;
+}
+@media screen and (max-width: 700px) {
+    .products-sidebar{
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .products-sidebar a {float: left;} 
+}
+@media screen and (max-width: 400px) {
+    .products-sidebar a {
+      text-align: center;
+      float: none;
+    }
+  
+}
+
+
+
+
+
+/* the side nav bar btn style  */
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
+.products-sidebar  a:hover, .products-sidebar  a:active {
+  color: black;
+}
+
+.products-sidebar  a:hover:after, .products-sidebar a:hover:before {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 1px solid rgba(255, 255, 255, 0);
+  bottom: 0px;
+  content:"";
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  -webkit-transition: all 280ms ease-in-out;
+  transition: all 280ms ease-in-out;
+  width: 0;
+}
+
+.products-sidebar  a:hover:after, .products-sidebar  a:hover:before {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-color: black;
+  -webkit-transition: width 350ms ease-in-out;
+  transition: width 350ms ease-in-out;
+  width: 70%;
+}
+
+.products-sidebar  a:hover:before {
+  bottom: auto;
+  top: 0;
+  width: 70%;
+}
+
