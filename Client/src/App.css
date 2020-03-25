@@ -66,6 +66,11 @@ body {
 
 /* Navbar Style  end */
 
+/*font Google*/
+.news{
+  font-family: 'Playfair Display', serif;
+}
+
 /* the Products Css start here */
 
 h3.h3 {
