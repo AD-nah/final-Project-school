@@ -21,9 +21,14 @@ class LoginForm extends React.Component {
     super(props)
 
     this.state = {
-      data: {
-        email: '',
-        password: ''
+      
+      
+      data:{
+          emil:'ahmad.alnahlawi@icloud.com',
+          userPassword:'ad-nah'
+
+      
+      
       },
       loading: false,
       errors: {}
@@ -66,8 +71,9 @@ class LoginForm extends React.Component {
   validate = (data) => {
 
     const errors = {}; // the errors var will be empty if we don`t have errors 
-    if (!Validator.isEmail(data.email)) errors.email = 'Email is required';
-    if (!data.password) errors.password = 'Password is required';
+    if(!Validator.isEmail(data.email)) errors.email = 'Email is required';
+    if(!data.userPassword ) errors.userPassword = 'Password is required';  
+
 
     return errors;
   }
@@ -76,12 +82,52 @@ class LoginForm extends React.Component {
   render() {
     return (<>
       <MDBContainer>
+        
+          <MDBCol className= ' w-100 ' lg>
+              <form onSubmit = { this.onSubmit }>
+             
+             
+              {this.state.loading && <SemipolarLoading  />}
+              {this.state.errors.authError && <ErrorMessage text ={this.state.errors.authError} />}
 
-        <MDBCol className=' w-100 ' lg>
-          <form onSubmit={this.onSubmit}>
+                <MDBInput
+                className='text-dark'
+                  label="Your email"
+                  type="email"
+                  validate
+                  success=""
+                  name = 'email'
+                  onChange = {this.onChange}
+                  value = {this.state.data.email} 
+                />
+                  <br/>
+                 
+
+                {this.state.errors.email &&  <ErrorMessage text ={this.state.errors.email}/>}
+                
+                <MDBInput
+                   className='text-dark'
+                  label="Your password"
+                  type="password"
+                  name = 'userPassword'
+                  onChange = {this.onChange}
+                  value = {this.state.data.userPassword} 
+                />
+
+                {this.state.errors.userPassword &&  <ErrorMessage text = {this.state.errors.userPassword}/>}
+
+                <p className="font-small blue-text d-flex justify-content-end pb-3">
+                  Forgot
+                  <a href="#!" className="blue-text ml-1">
+                    Password?
+                  </a>
+                </p>
+
+        {/* <MDBCol className=' w-100 ' lg>
+          <form onSubmit={this.onSubmit}> */}
 
 
-            {this.state.loading && <SemipolarLoading />}
+            {/* {this.state.loading && <SemipolarLoading />}
             {this.state.errors.authError && <ErrorMessage text={this.state.errors.authError} />}
 
             <MDBInput
@@ -93,13 +139,13 @@ class LoginForm extends React.Component {
               name='email'
               onChange={this.onChange}
               value={this.state.data.email}
-            />
+            /> */}
 
 
 
-            {this.state.errors.email && <ErrorMessage text={this.state.errors.email} />}
+            {/* {this.state.errors.email && <ErrorMessage text={this.state.errors.email} />} */}
 
-            <MDBInput
+            {/* <MDBInput
               className='text-dark'
               label="Your password"
               type="password"
@@ -108,10 +154,10 @@ class LoginForm extends React.Component {
               value={this.state.data.password}
             />
 
-            {this.state.errors.password && <ErrorMessage text={this.state.errors.password} />}
+            {this.state.errors.password && <ErrorMessage text={this.state.errors.password} />} */}
 
 
-            <ForgotPasswordForm/>
+            {/* <ForgotPasswordForm/> */}
 
 
             <div className="text-center mb-3">
@@ -187,7 +233,7 @@ export default LoginForm;
 
 
 
-//------------please dont delete it----------- 
+{/* //------------please dont delete it-----------  */}
 {/* <form onSubmit={this.onSubmit}>
 
 {this.state.loading && <SemipolarLoading />}

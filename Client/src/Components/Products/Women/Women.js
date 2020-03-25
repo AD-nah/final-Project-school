@@ -6,6 +6,7 @@ import { WaveLoading } from "react-loadingg";
 import { fetchWomenProducts } from '../../../Redux/Actions/products'
 import { connect } from "react-redux";
 import { addToBasketAction } from "../../../Redux/Actions/basket";
+import { addToFavoriteAction } from '../../../Redux/Actions/favorite'
 import {
   MDBContainer,
   MDBModal,
@@ -43,8 +44,11 @@ class Women extends React.Component {
       data: null,
       currentProduct: [],
       currentArrayOfImages: [],
-      successMessage: false,
-      //images modal
+      addedToBasketMessage: false,
+      addedToFavoriteMessage: false,
+      // alreadyInBasket : false,
+      // alreadyInBasketMessage :'',
+      // //images modal
       modal13: false
     };
   }
@@ -63,19 +67,36 @@ class Women extends React.Component {
     });
   };
 
-  setCurrentProduct(item) {
-    this.props.addToBasketAction(item);
-    this.setState({successMessage:true});
+  addToBasket(item) {
 
+
+    this.props.addToBasketAction(item).then(res => {
+
+    this.setState({addedToBasketMessage:true});
     setTimeout(()=>{
-      this.setState({successMessage:false});
+      this.setState({addedToBasketMessage:false});
     },100);
+
+    })//.catch(res => {
+    //   console.log(res)
+    //   this.setState({
+    //     alreadyInBasket : true,
+    //     alreadyInBasketMessage : res
+    //   })
+    //   setTimeout(()=>{
+    //     this.setState({alreadyInBasket:false});
+    //   },100);
+    // })
   }
   /// add the Favorites to the basket
-  addingFavorits(item) {
-   // this.props.addToBasketAction(item);
+  addToFavorite(item) {
 
-   // alert("added to Favorites");
+   this.props.addToFavoriteAction(item).then(res => {
+    this.setState({addedToFavoriteMessage:true});
+    setTimeout(()=>{
+      this.setState({addedToFavoriteMessage:false});
+    },100);
+   });
   }
 
   sendImagesToCarousel(array) {
@@ -93,9 +114,13 @@ class Women extends React.Component {
   render() {
     return (
       <>
-        {this.state.successMessage && <SuccessMessage text = 'added to Basket'/>}
-        <div className="container">
-          <div className="row">
+
+        {this.state.addedToBasketMessage && <SuccessMessage text = 'added to Basket'/>}
+        {this.state.addedToFavoriteMessage && <SuccessMessage text = 'added to Favorite'/>}
+        {/* {this.state.alreadyInBasket && (<SuccessMessage text = {this.state.alreadyInBasketMessage}/>)} */}
+
+        <div className="container" style={{maxWidth:"100%"}}>
+         <div className="row">
           <div class="wordCarousel">
               <span className="whyScount">Why Scount ? </span>
               <div>
@@ -107,11 +132,11 @@ class Women extends React.Component {
                 </ul>
               </div>
             </div>
-         
 
             {this.state.data ? (
               this.state.data.map((item, index) => {
                 return (<>
+
                   <div key={index} className="col-lg-4 col-md-4 col-sm-6">
                     <div className="product-grid7">
                       <div className="product-content">
@@ -130,18 +155,12 @@ class Women extends React.Component {
                               style={{ maxHeight: "400px" }}
                               src={item.images.protoTypes[0]}
                             />
-
-
-
-
                             <img
                               className="pic-2"
-                              
                               src={item.images.protoTypes[1]}
                             />
                           </a>
                         </li>
-
                         <ul className="social">
                           <li
                             onClick={() =>
@@ -153,19 +172,18 @@ class Women extends React.Component {
                               className="fas fa-expand-arrows-alt"
                             ></a>
                           </li>
-
                           <li>
                             <a href="#" className="far fa-heart" 
                              role="button"
                              tabIndex={1}
-                             onClick={() => this.addingFavorits(item)}
+                             onClick={() => this.addToFavorite(item)}
                             ></a>
                           </li>
 
                           <li>
                             <a
                               role="button"
-                              onClick={() => this.setCurrentProduct(item)}
+                              onClick={() => this.addToBasket(item)}
                               className="fa fa-shopping-cart"
                             ></a>
                           </li>
@@ -202,9 +220,8 @@ class Women extends React.Component {
 
 
 
+</div>
           </div>
-        </div>
-
 
 
 
@@ -288,4 +305,6 @@ const  mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {addToBasketAction,  fetchWomenProducts })(Women);
+
+export default connect(mapStateToProps, {addToBasketAction, addToFavoriteAction, fetchWomenProducts })(Women);
+

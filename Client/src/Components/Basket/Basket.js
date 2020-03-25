@@ -5,43 +5,54 @@ import paypal from './images/paypal.png';
 import basket from './images/basket.png';
 import master from './images/master.png';
 import visa from './images/visa.png';
-import { fetchBasket } from '../../Redux/Actions/basket'
+import {fetchBasket} from '../../Redux/Actions/basket'
+import { removeFromBasketAction } from '../../Redux/Actions/basket'
+import SuccessMessage from '../Messages/SuccessMessage'
 import decode from 'jwt-decode'
-
-
 class Chart extends Component {
   constructor(props) {
     super(props)
     this.state = {
       // from the Redux
       products: null,
-      total: 0,
-      userID: null
+      removedFromBasket: false,
+      removedFromBasketMessage: '',
+      total : 0,
+      userId: null
+
     }
   }
 
   // to remove duplicated items, thats come from the redux Store, and then save it inside the Compoment's state 
   componentDidMount() {
-    this.props.fetchBasket().then(res => {
-      this.setState({ products: this.props.item.filter((item, index) => this.props.item.indexOf(item) === index) })
+
+    this.props.fetchBasket().then(() => {
+      
+          const filteredArr = this.props.item.reduce((acc, current) => {
+            const x = acc.find(item => item._id === current._id);
+            if (!x) {
+              return acc.concat([current]);
+            } else {
+              return acc;
+            }
+          }, []);
+
+          this.setState({ products: filteredArr })
+
+          // get the prices from the items in the basket and put it insid the total input
+          let FullAmount = 0;
+          this.state.products.forEach((item) => {
+            FullAmount += item.prices[0]
+          })
+          this.setState({ total: FullAmount })
+     })
 
 
-      // get the prices from the items in the basket and put it insid the total input
-      let FullAmount = 0;
-
-      this.state.products.forEach((item) => {
-        FullAmount += item.prices[0]
-      }
-      )
-      this.setState({ total: FullAmount })
 
       if(localStorage.sCount){
         const payload = decode(localStorage.sCount)
-        console.log(payload)
-        this.setState({userID:payload.userID})
-      }
-    })
-
+        this.setState({userId:payload.userId})
+      } 
   }
 
   // to take a Number and convert it to Star
@@ -54,30 +65,50 @@ class Chart extends Component {
   }
 
   // remove items and its price same time
-  delete(item) {
-    this.setState(prevState => ({
-      products: prevState.products.filter(el => el != item),
-      total: prevState.total - item.prices[0]
-    }))
+  remove(item) {
+
+     removeFromBasketAction(item).then(res => {
+       
+      this.setState(prevState => ({
+          products: prevState.products.filter(el => el._id !== item._id),
+          removedFromBasket: prevState.removedFromBasket = true,
+          removedFromBasketMessage: prevState.removedFromBasketMessage = res
+      }))
+       setTimeout(()=> {
+          this.setState({removedFromBasket:false})
+       },200)
+
+     }).catch((res) => {
+       this.setState({removedFromBasket: true, removedFromBasketMessage: res})
+       setTimeout(()=> {
+        this.setState({removedFromBasket:false})
+     },200)
+     })
+
   }
 
   render() {
     return (
-      <div className='container-fluid' >
-        <h3 className="card-header text-center font-weight-bold text-uppercase py-4 "><img className="float-right " src={basket} />MY Basket </h3>
-        <br />
+      <div className = 'container-fluid'>
 
-        <div className=" row" style={{ marginBottom: '300px' }}>
-          {/*if the chart is empty show this code , if not then show the product*/}
-          {(!this.state.products || this.state.products.length === 0) && (
-            <div className="col-9 container" >
+        {this.state.removedFromBasket && (<SuccessMessage text = {this.state.removedFromBasketMessage} />)}
 
-              <div>
-                <div className="mt-3 alert alert-warning" role="alert">
-                  <h4 className="alert-heading">No products in your Basket!</h4>
+        <h3 className="card-header text-center font-weight-bold text-uppercase py-4 "><img className="float-right " src={basket}/>your Basket </h3>
+        <br/>
+
+        <div className=" row">
+            {/*if the chart is empty show this code , if not then show the product*/}
+              {(!this.state.products || this.state.products.length === 0) && (
+                <div className="col-9 container">
+                  <div>
+                    <div className="mt-3 alert alert-warning" role="alert">
+                      <h4 className="alert-heading">No products in your Basket!</h4>
+                      <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                      <hr/>
+                      <p className="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                    </div>
 
 
-                </div>
 
                 <div className="container row">
                   <div className="col-md-6" >
@@ -123,7 +154,7 @@ class Chart extends Component {
                         <span className="table-remove">
                           <button
                             type="button"
-                            onClick={this.delete.bind(this, item)}
+                            onClick={this.remove.bind(this, item)}
                             className="btn btn-danger btn-rounded btn-sm "
                           >Remove from Basket
                               </button>
@@ -198,12 +229,8 @@ class Chart extends Component {
               <h3 className="card-header text-center font-weight-bold text-uppercase py-3 ">{this.state.total}$</h3>
               <br />
 
-                <a href={"http://localhost:3001/paypal/buy?id="+this.state.userID}>
-              <button
-                type="button"
-                className="btn btn-info btn-rounded w-100 "
-              >Pay
-              </button>
+              <a href={"http://localhost:3001/paypal/buy?id="+this.state.userId}>
+                <button type="button" className="btn btn-info btn-rounded w-100 " >Pay</button>
               </a>
 
             </div>

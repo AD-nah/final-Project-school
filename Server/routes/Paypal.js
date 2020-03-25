@@ -17,9 +17,9 @@ paypal.configure({
 //start payment process by adding to PAY btn inside basket /BUY redirection to get the  authenticate from server.get  
 router.get('/buy', async (req, res) => {
 
-    let userID = req.query.id;
-    const findInBasket = await Basket.findOne({user_ID: userID})
-    console.log(userID)
+    let userId = req.query.id;
+    const findInBasket = await Basket.findOne({userId: userId})
+    console.log(userId)
     //Here you get the basket information from data base
 
     var payment = {
