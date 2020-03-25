@@ -25,8 +25,11 @@ console.log(userId)
         
     const { userId, item } = req.body
     
+    const findBasketAndUpdate = await Basket.findOneAndUpdate({ userId: userId }, { $push: { basket : item }}).then(newRecord => { // check for duplicate 
 
-    const findBasketAndUpdate = await Basket.findOneAndUpdate({ userId: userId }, { $push: { basket : item }}).then(newRecord => {
+        // if(duplicated){ 
+        //      res.json({error : 'product is already exist!'})
+        // } 
 
         if(newRecord){
 

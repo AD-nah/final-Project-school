@@ -12,7 +12,7 @@ router.post('/',  (req, res) => {
 
     const {firstName, lastName, email, userPassword, country, city, postCode, userAddress, phoneNumber, birthDate} = req.body.data
 
-    pool.query('SELECT * FROM `Users` WHERE `email`='+pool.escape(String(req.body.data.email)), function(err, row, fields) {
+    pool.query('SELECT * FROM `users` WHERE `email`='+pool.escape(String(req.body.data.email)), function(err, row, fields) {
 
         if(err) {
 
@@ -26,7 +26,7 @@ router.post('/',  (req, res) => {
             } else {
 
                 const sql = `INSERT INTO
-                Users(
+                users(
                     userId, 
                     firstName, 
                     lastName, 
@@ -58,7 +58,7 @@ router.post('/',  (req, res) => {
                 pool.query(sql, (err, result, fields) => {
                     if(err) throw err
 
-                    pool.query('SELECT * FROM `Users` WHERE `email` =' +pool.escape(String(email)),function (err, row)  {
+                    pool.query('SELECT * FROM `users` WHERE `email` =' +pool.escape(String(email)),function (err, row)  {
                         if (err) throw err
 
                         if(row && row.length){ 
