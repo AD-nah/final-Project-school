@@ -17,7 +17,7 @@ export default class Products extends Component {
                     <div class="products-sidebar">
                         <Link to="/products/women" className="fa fa-venus "> Women </Link>
                         <Link to="/products/men" className="fa fa-mars"> Men</Link>
-                        <Link to="/products/reworked" className="fa fa-cut"> Reworked</Link>
+                        <Link to="/products/reworked" className="fa fa-cut">Rework</Link>
 
                         <li >
                             <a class="collapsed  fa fa-caret-down" href="#submenu1" data-toggle="collapse" data-target="#submenu1">More
