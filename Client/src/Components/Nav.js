@@ -83,7 +83,7 @@ class Navbar extends Component {
     window.onscroll = () => { this.scrollFunction() };
 
     return (<>
-      <div  >
+      <div>
 
         <nav  className={`${this.state.NavbarClass} navbar_header navbar navbar-expand-lg`}>
           {this.state.logoutSuccess && <SuccessMessage text="Good Bey" />}

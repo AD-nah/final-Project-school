@@ -59,13 +59,7 @@ constructor(props) {
 
   
 }
-getInitialState(){
-    return {"showHideSidenav":"hidden"};
-  }
-  toggleSidenav() {
-    var css = (this.props.showHideSidenav === "hidden") ? "show" : "hidden";
-    this.setState({"showHideSidenav":css});
-}
+
 
 
     render() {
@@ -73,7 +67,7 @@ getInitialState(){
             <>
                 <div className="primary-nav">
 
-                    <button onClick={this.toggleSidenav.bind(this)} href="#" className="hamburger open-panel nav-toggle">
+                    <button href="#" className="hamburger open-panel nav-toggle">
                         <span className="screen-reader-text">Menu</span>
                        
                     </button>
@@ -93,7 +87,7 @@ getInitialState(){
                                     <MDBNavItem>
                                         <MDBNavLink to="/profile/edit">Edit your Profile</MDBNavLink>
                                     </MDBNavItem>
-                                    <span><i className="fa fa-gear"></i></span>
+                                    {/* <span><i className="fa fa-gear"></i></span> */}
 
 
                                 </li>
