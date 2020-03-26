@@ -50,6 +50,7 @@ import React, { Component } from 'react'
 import Bought from './Bought/Bought';
 import Edit from './Edit/Edit';
 import Sell from './Sell/Sell';
+import './profile.css'
 
 import { Switch, Route } from 'react-router-dom';
 import { MDBNav, MDBNavLink, MDBNavItem } from "mdbreact";
@@ -65,15 +66,15 @@ constructor(props) {
     render() {
         return (
             <>
-                <div className="primary-nav">
+                <div className="primary-nav ">
 
-                    <button href="#" className="hamburger open-panel nav-toggle">
+                     {/* <button href="#" className="hamburger open-panel nav-toggle">
                         <span className="screen-reader-text">Menu</span>
                        
-                    </button>
+                    </button>  */}
                    
 
-                    <nav role="navigation" className="menu">
+                    <nav role="navigation" className="menu ">
 
                         <a href="#" className="logotype">My<span>Profile</span></a>
 
@@ -88,7 +89,7 @@ constructor(props) {
                                         <MDBNavLink to="/profile/edit">Edit your Profile</MDBNavLink>
                                     </MDBNavItem>
                                     {/* <span><i className="fa fa-gear"></i></span> */}
-
+ 
 
                                 </li>
 
