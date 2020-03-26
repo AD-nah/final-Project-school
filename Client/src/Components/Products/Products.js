@@ -13,7 +13,17 @@ export default class Products extends Component {
 
             <div class="container-fluid ">
                 <div class="row">
-
+                <div class="wordCarousel">
+              <span className="whyScount">Why Scount ? </span>
+              <div>
+                <ul class="flip4">
+                  <li>Best Quality</li>
+                  <li>New Trends</li>
+                  <li>Free Shipping</li>
+                  <li>Satisfiction </li>
+                </ul>
+              </div>
+            </div>
                     <div class="products-sidebar">
                         <Link to="/products/women" className="fa fa-venus "> Women </Link>
                         <Link to="/products/men" className="fa fa-mars"> Men</Link>
@@ -24,7 +34,7 @@ export default class Products extends Component {
                             </a>
                             <div class="collapse" id="submenu1" aria-expanded="false">
                                 <ul class="flex-column nav">
-                                    <li ><a class="py-0" href="#"><span>Orders</span></a></li>
+                                    <li ><a  href="#"><span>Orders</span></a></li>
                                     <li >
                                         <a class="collapsed fa fa-caret-down" href="#submenu1sub1" data-toggle="collapse" data-target="#submenu1sub1"><span>Profile</span></a>
                                         <div class="collapse" id="submenu1sub1" aria-expanded="false">
