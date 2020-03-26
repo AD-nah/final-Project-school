@@ -51,9 +51,11 @@ class Bought extends Component {
             <div className="container">
               <div className="mt-3 alert alert-warning" role="alert">
                 <h4 className="alert-heading">No products in your Favorets!</h4>
-                <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                <p>You have no items in your Shopping Bag
+
+</p>
                 <hr />
-                <p className="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+
 
               </div>
               <hr />
@@ -89,7 +91,7 @@ class Bought extends Component {
                 <div className="col-md-4 text-center"> {/* bg-success*/}
                   <h3></h3>
                   <img style={{ height: '40vh', width: "15vw" }} src={item.images.protoTypes[0]} className="img-fluid img-thumbnail" alt="Sheep" />
-                  
+
                   <div>
                     <span>{this.starMaker(item.rating)}</span>
                   </div>
@@ -121,7 +123,7 @@ class Bought extends Component {
                   <span className="table-remove"><button type="button"
                     onClick={this.delete.bind(this, item)}
                     className="btn btn-info btn-rounded btn-sm my-0  w-25">Delete</button></span>
-                
+
                 </div>
 
                 {/*des and Price*/}

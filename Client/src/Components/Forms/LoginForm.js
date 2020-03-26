@@ -24,8 +24,8 @@ class LoginForm extends React.Component {
       
       
       data:{
-          emil:'ahmad.alnahlawi@icloud.com',
-          userPassword:'ad-nah'
+          email:'',
+          userPassword:''
 
       
       

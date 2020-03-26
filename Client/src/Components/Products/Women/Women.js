@@ -52,7 +52,6 @@ class Women extends React.Component {
       modal13: false
     };
   }
-
     componentDidMount() {
         this.props.fetchWomenProducts().then(res => {
           this.setState({data: this.props.getWomenProducts.womenProducts})
