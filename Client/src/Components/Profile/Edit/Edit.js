@@ -26,8 +26,8 @@ class Edit extends React.Component {
 
     this.state = {
       data: {
-        email: "ahmad.alnahlawi@icloud.com",
-        password: "asdf1234"
+        email: "",
+        password: ""
       },
       loading: false,
       errors: {}
