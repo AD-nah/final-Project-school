@@ -32,6 +32,8 @@
     right: 3px;
 }
 
+
+
 .checkbox span:after {
     -moz-transform: scaleX(-1) rotate(135deg);
     -ms-transform: scaleX(-1) rotate(135deg);
@@ -68,21 +70,14 @@
     border-color: #8bc34a
 }
 
-.forgotpassword span{
-    font-size: 18px;
-    color: gray;
-}
 
-.forgotpassword span:hover{
-    color: cornflowerblue !important;
-    cursor: pointer;
-}
+
 
 .rememberMe {
     position: relative;
     bottom: 4px;
     color: gray;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .rememberMe:hover {
