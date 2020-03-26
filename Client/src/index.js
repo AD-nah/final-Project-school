@@ -22,13 +22,7 @@ import {userLoggedIn} from './Redux/Actions/auth'
 //import decode from 'jwt-decode'
 
 
-import WebFont from 'webfontloader';
 
-WebFont.load({
-  google: {
-    families: ["Playfair Display", "serif"]
-  }
-});
 
 const store = createStore(combineReducers, composeWithDevTools(applyMiddleware(thunk)))
 
