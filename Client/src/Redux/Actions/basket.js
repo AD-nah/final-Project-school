@@ -16,8 +16,8 @@ export const  addToBasketAction = (item) => (dispatch) => {
 
     }).catch((err => {
 
-        console.log('404 ' + err.response.data.items)
-        return err.response.data.items
+        console.log('404 ' + err)
+        return err
     }))
 }
 

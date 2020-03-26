@@ -6,17 +6,17 @@ import kleidung3 from './newsPhoto/kleidung3.jpg';
 import { BackTop } from 'antd';
 import api from '../../APIs/AuthApi';
 
-       
 
-   
+
+
 export default class News extends Component {
     constructor(props) {
         super(props)
-        
+
         this.state = {
-             newsURL : `http://newsapi.org/v2/everything?q=fashion&from=${this.formatDate(Date())}&sortBy=publishedAt&apiKey=54ab4e9ca5d94879a3f3c8b0995b4482`,
-             news : [],
-             isLoading : false
+            newsURL: `http://newsapi.org/v2/everything?q=fashion&from=${this.formatDate(Date())}&sortBy=publishedAt&apiKey=54ab4e9ca5d94879a3f3c8b0995b4482`,
+            news: [],
+            isLoading: false
         }
     }
     formatDate(date) {
@@ -24,50 +24,50 @@ export default class News extends Component {
             month = '' + (d.getMonth() + 1),
             day = '' + d.getDate(),
             year = d.getFullYear();
-    
-        if (month.length < 2) 
+
+        if (month.length < 2)
             month = '0' + month;
-        if (day.length < 2) 
+        if (day.length < 2)
             day = '0' + day;
-    
+
         return [year, month, day].join('-');
     }
     componentDidMount = async () => {
         this.setState({
-            isLoading : true
+            isLoading: true
         })
         await api.newApi.getNews(this.state.newsURL).then(res => {
             this.setState({
-                news : res.data.articles,
-                isLoading : false
+                news: res.data.articles,
+                isLoading: false
             })
         }).catch(err => {
             console.log(err);
         })
     }
 
-      
-    
+
+
     render() {
         console.log(this.state.news)
         let news1 = null
-        
-        if(this.state.news.length > 0){
-            news1 = this.state.news.slice(0,10).map(item => {
+
+        if (this.state.news.length > 0) {
+            news1 = this.state.news.slice(0, 10).map(item => {
                 return <div key={item.title} className="container-fluid mb-5">
-                <h1 className="font-weight-bold ">{item.title}</h1>
-                <p>{item.content }...<a className="bg-info font-weight-bold text-dark" target="_blank" href={item.url}>See more...</a></p>
-                    <img className="w-100" src={item.urlToImage}/>
-                    <h2>{item.publishedAt}</h2>
-                    
-            </div>
+                    <h2 className="font-weight-bold ">{item.title}</h2>
+                    <p className="news">{item.content}...<a className="bg-info font-weight-bold text-dark" target="_blank" href={item.url}>See more...</a></p>
+                    <img className="w-100" src={item.urlToImage} />
+                    <span>{item.publishedAt.slice(0 , 10)}</span>
+ 
+                </div>
             })
         }
-           
+
         return (
             <React.Fragment>
                 <div className="container-fluid mb-5">
-                  
+
                     <div id="carousel-example-1z" className="carousel slide carousel-fade" data-ride="carousel">
                         {/* <h1 className="text-center bg-danger">Hallo in the new Page</h1> */}
 
@@ -103,24 +103,24 @@ export default class News extends Component {
 
 
 
-                            {/* Back to top btn */}
-                            <div>
-                                    <BackTop>
-                                    
-                                    <i className="fas fa-angle-double-up" style={{color:"orange",fontSize:"40px"}}></i>
-               
-                                    </BackTop>
-                            </div>
+                        {/* Back to top btn */}
+                        <div>
+                            <BackTop>
 
-                        
+                                <i className="fas fa-angle-double-up" style={{ color: "orange", fontSize: "40px" }}></i>
+
+                            </BackTop>
+                        </div>
+
+
                         <a className="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
-                       
+
                             <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span className="sr-only">Previous</span>
                         </a>
 
                         <a className="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
-                       
+
                             <span className="carousel-control-next-icon" aria-hidden="true"></span>
                             <span className="sr-only">Next</span>
                         </a>
@@ -129,7 +129,7 @@ export default class News extends Component {
 
                 </div>
                 {/*news Started*/}
-                <div className="container" style={{width:"50vw"}}>
+                <div className="container" style={{ width: "50vw" }}>
                     {news1}
 
                 </div>
@@ -141,3 +141,5 @@ export default class News extends Component {
 // 54ab4e9ca5d94879a3f3c8b0995b4482 key for the Api
 
 // http://newsapi.org/v2/everything?q=bitcoin&from=2020-02-04&sortBy=publishedAt&apiKey=54ab4e9ca5d94879a3f3c8b0995b4482
+
+

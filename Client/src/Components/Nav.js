@@ -83,7 +83,7 @@ class Navbar extends Component {
     window.onscroll = () => { this.scrollFunction() };
 
     return (<>
-      <div  >
+      <div>
 
         <nav  className={`${this.state.NavbarClass} navbar_header navbar navbar-expand-lg`}>
           {this.state.logoutSuccess && <SuccessMessage text="Good Bey" />}
@@ -125,7 +125,7 @@ class Navbar extends Component {
                 </Link>
               </li>
 
-              <li className="nav-item btn-2_custom">
+              <li className="nav-item">
                
                 <Link to="/news" >
                   News
@@ -143,7 +143,7 @@ class Navbar extends Component {
 
 
               {/* login btn auth with modal */}
-                {!this.props.isAuthenticated && (<button class="btn-5 " onClick={this.loginToggle}>Login</button>)}
+                {!this.props.isAuthenticated && (<button className="btn-5 " onClick={this.loginToggle}>Login</button>)}
 
                 <MDBModal isOpen={this.state.loginModal}
                   toggle={this.loginToggle}
@@ -161,7 +161,7 @@ class Navbar extends Component {
 
 
               {/* Register auth and Modal */}
-              {!this.props.isAuthenticated && (<button class=" btn-5  my-2 my-sm-0" onClick={this.registerToggle}>Register</button>)}
+              {!this.props.isAuthenticated && (<button className=" btn-5  my-2 my-sm-0" onClick={this.registerToggle}>Register</button>)}
               <MDBModal
                 isOpen={this.state.registerModal}
                 toggle={this.registerToggle}
@@ -178,11 +178,11 @@ class Navbar extends Component {
 
               {/* Acoount Dropdown Authentication */}
               {this.props.isAuthenticated && (
-                <div class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div className="nav-item dropdown">
+                  <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Account
                     </a>
-                  <div class="dropdown-menu flex-column" aria-labelledby="navbarDropdown">
+                  <div className="dropdown-menu flex-column" aria-labelledby="navbarDropdown">
                   <a>
                     <Link to="/profile/bought">
                       <strong>Profile</strong>
@@ -190,7 +190,7 @@ class Navbar extends Component {
                   </a>
 
                   <a>
-                    <Link class="dropdown-item" to="/basket">
+                    <Link className="dropdown-item" to="/basket">
                       <strong>My-Basket</strong>
                     </Link>
                   </a>
@@ -207,7 +207,7 @@ class Navbar extends Component {
 
 
               {/* logout handler auth */}
-              {this.props.isAuthenticated && (<button class="btn-5 my-2 my-sm-0" onClick={this.logoutHandler}>Logout</button>)}
+              {this.props.isAuthenticated && (<button className="btn-5 my-2 my-sm-0" onClick={this.logoutHandler}>Logout</button>)}
 
           
           </div>

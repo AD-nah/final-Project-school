@@ -6,7 +6,7 @@ const functions = require('../functions')
 
 router.post('/', (req, res) => {
     const {email, userPassword} = req.body.data
-    pool.query('SELECT * FROM `Users` WHERE `email` =' +pool.escape(String(email)),function (err, row)  {
+    pool.query('SELECT * FROM `users` WHERE `email` =' +pool.escape(String(email)),function (err, row)  {
         if (err) throw err
     
         if(row && row.length){ 
@@ -15,7 +15,7 @@ router.post('/', (req, res) => {
 
                 res.status(200).json({ userSignedInData: functions.generateJWT(row[0].userId, row[0].email)})
             }else{
-                res.status(400).json({ globalErrors: { authError: "Password is Incurrect!" }});
+                res.status(400).json({ globalErrors: { authError: "Password is Incorrect!" }});
             }
 
         }else{
