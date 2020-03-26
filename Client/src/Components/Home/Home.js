@@ -14,15 +14,6 @@ import caro3 from './imgCarousel/d-women1.jpg';
 import caro4 from './imgCarousel/d-men2.jpg';
 import caro5 from './imgCarousel/d-men3.jpg';
 import caro6 from './imgCarousel/d-women3.jpg';
-import BoxIMmage from './Boxes images/128143675--624x394.jpg';
-
-
-
-
-import paypal from './icons/paypal1.png';
-import visa from './icons/visa1.png';
-import master from './icons/master.png'
-
 
 
 import { BackTop } from 'antd';

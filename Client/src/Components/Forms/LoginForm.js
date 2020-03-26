@@ -117,46 +117,15 @@ class LoginForm extends React.Component {
                 {this.state.errors.userPassword &&  <ErrorMessage text = {this.state.errors.userPassword}/>}
 
                 <p className="font-small blue-text d-flex justify-content-end pb-3">
-                  Forgot
+                  
                   <a href="#!" className="blue-text ml-1">
-                    Password?
+                  Forgot
+                  
+                  Password?
                   </a>
                 </p>
 
-        {/* <MDBCol className=' w-100 ' lg>
-          <form onSubmit={this.onSubmit}> */}
-
-
-            {/* {this.state.loading && <SemipolarLoading />}
-            {this.state.errors.authError && <ErrorMessage text={this.state.errors.authError} />}
-
-            <MDBInput
-              className='text-dark'
-              label="Your email"
-              type="email"
-              validate
-              success=""
-              name='email'
-              onChange={this.onChange}
-              value={this.state.data.email}
-            /> */}
-
-
-
-            {/* {this.state.errors.email && <ErrorMessage text={this.state.errors.email} />} */}
-
-            {/* <MDBInput
-              className='text-dark'
-              label="Your password"
-              type="password"
-              name='password'
-              onChange={this.onChange}
-              value={this.state.data.password}
-            />
-
-            {this.state.errors.password && <ErrorMessage text={this.state.errors.password} />} */}
-
-
+    
             {/* <ForgotPasswordForm/> */}
 
 
@@ -176,13 +145,12 @@ class LoginForm extends React.Component {
 
 
             <div>
-              <span className="rememberMe" >Remember me</span>
+              <span className="rememberMe">Remember me</span>
               <label class="checkbox">
                 <input type="checkbox" />
                 <span class="success"></span>
               </label>
             </div>
-
 
 
           </form>
@@ -223,51 +191,3 @@ class LoginForm extends React.Component {
 
 
 export default LoginForm;
-
-
-
-
-
-
-
-
-
-
-{/* //------------please dont delete it-----------  */}
-{/* <form onSubmit={this.onSubmit}>
-
-{this.state.loading && <SemipolarLoading />}
-{this.state.errors.authError && <ErrorMessage text={this.state.errors.authError} />}
-
-<div class="form-group">
-  <input type="email"   validate class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" onChange={this.onChange}
-    value={this.state.data.email} />
-  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  {this.state.errors.email && <ErrorMessage text={this.state.errors.email} />}
-</div>
-<div class="form-group">
-  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" onChange={this.onChange}
-    value={this.state.data.password} />
-</div>
-
-
-{this.state.errors.password && <ErrorMessage text={this.state.errors.password} />}
-
-<div>
-  <a href="#!" className="blue-text font-small float-right">
-    Forgot
-    Password?
-  </a>
-</div>
-
-<br />
-
-<div className="d-flex justify-content-end "> <button type="submit" class="btn btn-primary   ">Login</button></div>
-
-<div>
-  <span className="rememberMe" style={{ fontSize: "16px" }}>Remember me</span>
-  <label class="checkbox">
-    <input type="checkbox" />
-    <span class="success"></span>
-  </label></div>
-</form> */}

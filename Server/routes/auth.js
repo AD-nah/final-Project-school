@@ -15,7 +15,7 @@ router.post('/', (req, res) => {
 
                 res.status(200).json({ userSignedInData: functions.generateJWT(row[0].userId, row[0].email)})
             }else{
-                res.status(400).json({ globalErrors: { authError: "Password is Incurrect!" }});
+                res.status(400).json({ globalErrors: { authError: "Password is Incorrect!" }});
             }
 
         }else{

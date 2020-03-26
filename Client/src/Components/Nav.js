@@ -125,7 +125,7 @@ class Navbar extends Component {
                 </Link>
               </li>
 
-              <li className="nav-item btn-2_custom">
+              <li className="nav-item">
                
                 <Link to="/news" >
                   News

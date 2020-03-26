@@ -1,0 +1,325 @@
+/* the side navbar */
+.products-sidebar {
+    margin: 10px;
+    padding: 20px;
+    position: relative;
+}
+
+.container-fluid {
+    list-style: none;
+}
+
+.products-sidebar li{
+list-style: none;
+}
+
+.products-sidebar a {
+    text-align: center;
+    font-weight: 700;
+    display: block;
+    color: rgb(158, 143, 143);
+    padding: 16px;
+    text-decoration: none;
+}
+@media screen and (max-width: 700px) {
+    .products-sidebar{
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .products-sidebar a {float: left;} 
+}
+@media screen and (max-width: 400px) {
+    .products-sidebar a {
+      text-align: center;
+      float: none;
+    }
+  
+}
+
+
+
+
+
+/* the side nav bar btn style  */
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
+.products-sidebar  a:hover, .products-sidebar  a:active {
+  color: black;
+}
+
+.products-sidebar  a:hover:after, .products-sidebar a:hover:before {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 1px solid rgba(255, 255, 255, 0);
+  bottom: 0px;
+  content:"";
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  -webkit-transition: all 280ms ease-in-out;
+  transition: all 280ms ease-in-out;
+  width: 0;
+}
+
+.products-sidebar  a:hover:after, .products-sidebar  a:hover:before {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-color: black;
+  -webkit-transition: width 350ms ease-in-out;
+  transition: width 350ms ease-in-out;
+  width: 50%;
+}
+
+.products-sidebar  a:hover:before {
+  bottom: auto;
+  top: 0;
+  width: 50%;
+}
+
+
+
+
+
+
+
+
+
+/* Why scount words flip animation */
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300|Oswald);
+.wordCarousel {
+  background-color: rgba(201, 145, 128, 0.733);
+  padding: 20px;
+  margin: 5px;
+  width: 100%;
+  font-size: 36px;
+  font-weight: 100;
+  font-family: Serif;
+  color: rgb(255, 254, 254);
+  font-weight: 700;
+}
+
+.wordCarousel div {
+  overflow: hidden;
+  position: relative;
+  float: right;
+  height: 65px;
+  padding-top: 10px;
+  margin-top: -10px;
+}
+
+.wordCarousel div li {
+  font-family: Serif;
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  padding: 0 10px;
+  height: 45px;
+  margin-bottom: 45px;
+  display: block;
+}
+
+.flip2 {
+  -webkit-animation: flip2 6s cubic-bezier(0.23, 1, 0.32, 1.2) infinite;
+  animation: flip2 6s cubic-bezier(0.23, 1, 0.32, 1.2) infinite;
+}
+
+.flip3 {
+  -webkit-animation: flip3 8s cubic-bezier(0.23, 1, 0.32, 1.2) infinite;
+  animation: flip3 8s cubic-bezier(0.23, 1, 0.32, 1.2) infinite;
+}
+
+.flip4 {
+  -webkit-animation: flip4 10s cubic-bezier(0.23, 1, 0.32, 1.2) infinite;
+  animation: flip4 10s cubic-bezier(0.23, 1, 0.32, 1.2) infinite;
+}
+
+@-webkit-keyframes flip2 {
+  0% {
+    margin-top: -180px;
+  }
+  5% {
+    margin-top: -90px;
+  }
+  50% {
+    margin-top: -90px;
+  }
+  55% {
+    margin-top: 0px;
+  }
+  99.99% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: -270px;
+  }
+}
+
+@keyframes flip2 {
+  0% {
+    margin-top: -180px;
+  }
+  5% {
+    margin-top: -90px;
+  }
+  50% {
+    margin-top: -90px;
+  }
+  55% {
+    margin-top: 0px;
+  }
+  99.99% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: -270px;
+  }
+}
+
+@-webkit-keyframes flip3 {
+  0% {
+    margin-top: -270px;
+  }
+  5% {
+    margin-top: -180px;
+  }
+  33% {
+    margin-top: -180px;
+  }
+  38% {
+    margin-top: -90px;
+  }
+  66% {
+    margin-top: -90px;
+  }
+  71% {
+    margin-top: 0px;
+  }
+  99.99% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: -270px;
+  }
+}
+
+@keyframes flip3 {
+  0% {
+    margin-top: -270px;
+  }
+  5% {
+    margin-top: -180px;
+  }
+  33% {
+    margin-top: -180px;
+  }
+  38% {
+    margin-top: -90px;
+  }
+  66% {
+    margin-top: -90px;
+  }
+  71% {
+    margin-top: 0px;
+  }
+  99.99% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: -270px;
+  }
+}
+
+@-webkit-keyframes flip4 {
+  0% {
+    margin-top: -360px;
+  }
+  5% {
+    margin-top: -270px;
+  }
+  25% {
+    margin-top: -270px;
+  }
+  30% {
+    margin-top: -180px;
+  }
+  50% {
+    margin-top: -180px;
+  }
+  55% {
+    margin-top: -90px;
+  }
+  75% {
+    margin-top: -90px;
+  }
+  80% {
+    margin-top: 0px;
+  }
+  99.99% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: -270px;
+  }
+}
+
+@keyframes flip4 {
+  0% {
+    margin-top: -360px;
+  }
+  5% {
+    margin-top: -270px;
+  }
+  25% {
+    margin-top: -270px;
+  }
+  30% {
+    margin-top: -180px;
+  }
+  50% {
+    margin-top: -180px;
+  }
+  55% {
+    margin-top: -90px;
+  }
+  75% {
+    margin-top: -90px;
+  }
+  80% {
+    margin-top: 0px;
+  }
+  99.99% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-top: -270px;
+  }
+}
+
+/* Why Scount word animation */
+.whyScount {
+  font-size: 35px;
+  color: #fff;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e65c00;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #f5a802;
+  }
+}
+
+/* Why scount Div animation end */
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Poppins:400,500,600,700');
+
+body,html{
+font-family: 'Poppins', sans-serif; font-size: 14px; color: #333;
+}
+

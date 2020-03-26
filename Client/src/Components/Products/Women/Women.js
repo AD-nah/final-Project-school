@@ -18,7 +18,6 @@ import {
   MDBMask
 } from "mdbreact";
 import SuccessMessage from '../../Messages/SuccessMessage'
-// import ImageZoomAnim from "../../../imgs/cadinfluencer1.jpg";
 
 // ----------------------------------
 
@@ -52,13 +51,15 @@ class Women extends React.Component {
       modal13: false
     };
   }
-    componentDidMount() {
-        this.props.fetchWomenProducts().then(res => {
-          this.setState({data: this.props.getWomenProducts.womenProducts})
-        })
-    }
 
- // for the images modal
+  componentDidMount() {
+    this.props.fetchWomenProducts().then(res => {
+      this.setState({ data: this.props.getWomenProducts.womenProducts })
+    })
+  }
+
+
+  // for the images modal
   toggle = nr => () => {
     let modalNumber = "modal" + nr;
     this.setState({
@@ -71,31 +72,23 @@ class Women extends React.Component {
 
     this.props.addToBasketAction(item).then(res => {
 
-    this.setState({addedToBasketMessage:true});
-    setTimeout(()=>{
-      this.setState({addedToBasketMessage:false});
-    },100);
+      this.setState({ addedToBasketMessage: true });
+      setTimeout(() => {
+        this.setState({ addedToBasketMessage: false });
+      }, 100);
 
-    })//.catch(res => {
-    //   console.log(res)
-    //   this.setState({
-    //     alreadyInBasket : true,
-    //     alreadyInBasketMessage : res
-    //   })
-    //   setTimeout(()=>{
-    //     this.setState({alreadyInBasket:false});
-    //   },100);
-    // })
+    })
+
   }
   /// add the Favorites to the basket
   addToFavorite(item) {
 
-   this.props.addToFavoriteAction(item).then(res => {
-    this.setState({addedToFavoriteMessage:true});
-    setTimeout(()=>{
-      this.setState({addedToFavoriteMessage:false});
-    },100);
-   });
+    this.props.addToFavoriteAction(item).then(res => {
+      this.setState({ addedToFavoriteMessage: true });
+      setTimeout(() => {
+        this.setState({ addedToFavoriteMessage: false });
+      }, 100);
+    });
   }
 
   sendImagesToCarousel(array) {
@@ -114,29 +107,19 @@ class Women extends React.Component {
     return (
       <>
 
-        {this.state.addedToBasketMessage && <SuccessMessage text = 'added to Basket'/>}
-        {this.state.addedToFavoriteMessage && <SuccessMessage text = 'added to Favorite'/>}
+        {this.state.addedToBasketMessage && <SuccessMessage text='added to Basket' />}
+        {this.state.addedToFavoriteMessage && <SuccessMessage text='added to Favorite' />}
         {/* {this.state.alreadyInBasket && (<SuccessMessage text = {this.state.alreadyInBasketMessage}/>)} */}
 
-        <div className="container" style={{maxWidth:"100%"}}>
-         <div className="row">
-          <div class="wordCarousel">
-              <span className="whyScount">Why Scount ? </span>
-              <div>
-                <ul class="flip4">
-                  <li>Best Quality</li>
-                  <li>New Trends</li>
-                  <li>Free Shipping</li>
-                  <li>Satisfiction </li>
-                </ul>
-              </div>
-            </div>
+        <div className="container" >
+          <div className="row">
+
 
             {this.state.data ? (
               this.state.data.map((item, index) => {
                 return (<>
 
-                  <div key={index} className="col-lg-4 col-md-4 col-sm-6">
+                  <div key={index} className="col-md-3 col-sm-6">
                     <div className="product-grid7">
                       <div className="product-content">
                         <h3 className="title">
@@ -172,10 +155,10 @@ class Women extends React.Component {
                             ></a>
                           </li>
                           <li>
-                            <a href="#" className="far fa-heart" 
-                             role="button"
-                             tabIndex={1}
-                             onClick={() => this.addToFavorite(item)}
+                            <a href="#" className="far fa-heart"
+                              role="button"
+                              tabIndex={1}
+                              onClick={() => this.addToFavorite(item)}
                             ></a>
                           </li>
 
@@ -209,18 +192,16 @@ class Women extends React.Component {
                   </div>
                 </>);
               })
-            ) :  (
-              <div style={{height:"350px",width:"200px",textAlign:"center",position:"relative",left:"40%"}}>
-                <span style={{fontSize:"20px",fontWeight:"700"}}>Loading ...
-                <WaveLoading/>
-                 </span>
-              </div>
-            )}
+            ) : (
+                <div style={{ height: "350px", width: "200px", textAlign: "center", position: "relative", left: "40%" }}>
+                  <span style={{ fontSize: "20px", fontWeight: "700" }}>Loading ...
+                <WaveLoading />
+                  </span>
+                </div>
+              )}
 
-
-
-</div>
           </div>
+        </div>
 
 
 
@@ -235,10 +216,6 @@ class Women extends React.Component {
             ></i>
           </BackTop>
         </div>
-
-
-
-
 
 
         {/* // images modal */}
@@ -262,27 +239,27 @@ class Women extends React.Component {
                     <MDBCarouselInner>
                       {this.state.currentArrayOfImages.length > 0
                         ? this.state.currentArrayOfImages.map((item, index) => {
-                            return (
-                              <MDBCarouselItem itemId={index + 1}>
-                                <MDBView>
-                                  <img
-                                    className="d-block"
-                                    style={{ maxHeight: "550px" }}
-                                    src={item}
-                                    alt="First slide"
-                                  />
-                                  <MDBMask overlay="black-light" />
-                                </MDBView>
+                          return (
+                            <MDBCarouselItem itemId={index + 1}>
+                              <MDBView>
+                                <img
+                                  className="d-block"
+                                  style={{ maxHeight: "550px" }}
+                                  src={item}
+                                  alt="First slide"
+                                />
+                                <MDBMask overlay="black-light" />
+                              </MDBView>
 
-                                {/* <MDBCarouselCaption>
+                              {/* <MDBCarouselCaption>
 
 
                                     <h3 className="h3-responsive">Light mask</h3>
                                     <p>First text</p>
                                   </MDBCarouselCaption> */}
-                              </MDBCarouselItem>
-                            );
-                          })
+                            </MDBCarouselItem>
+                          );
+                        })
                         : null}
                     </MDBCarouselInner>
                   </MDBCarousel>
@@ -298,12 +275,12 @@ class Women extends React.Component {
   }
 }
 
-const  mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
   return {
     getWomenProducts: state.productReducer
   }
 }
 
 
-export default connect(mapStateToProps, {addToBasketAction, addToFavoriteAction, fetchWomenProducts })(Women);
+export default connect(mapStateToProps, { addToBasketAction, addToFavoriteAction, fetchWomenProducts })(Women);
 
