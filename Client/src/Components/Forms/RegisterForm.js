@@ -25,18 +25,18 @@ class RegisterForm extends React.Component {
 
     this.state = {
       data: {
-        firstName: "ahmad",
-        lastName: "nahlawi",
+        firstName: "",
+        lastName: "",
 
-        email: "ahmad.alnahlawi@icloud.com",
-        userPassword: "ad-nah",
+        email: "",
+        userPassword: "",
 
-        country:"Germany",
-        city:"Hamburg",
-        postCode:"22045",
-        userAddress:"raja-Ilinauk-Strasse 33",
-        phoneNumber: '+4914838449375',
-        birthDate: '2019-03-25'
+        country:"",
+        city:"",
+        postCode:"",
+        userAddress:"",
+        phoneNumber: '',
+        birthDate: ''
       },
       loading: false,
       errors: {}

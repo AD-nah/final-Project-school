@@ -58,6 +58,7 @@ class Women extends React.Component {
     })
   }
 
+
   // for the images modal
   toggle = nr => () => {
     let modalNumber = "modal" + nr;

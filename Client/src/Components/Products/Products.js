@@ -6,6 +6,7 @@ import { Switch, Route, Link } from 'react-router-dom';
 
 import '../Products/Products.css'
 
+
 export default class Products extends Component {
     render() {
         return (
@@ -67,7 +68,6 @@ export default class Products extends Component {
                                 </ul>
                             </div>
                         </li>
-
 
                     </div>
 
