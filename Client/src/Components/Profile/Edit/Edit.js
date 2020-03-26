@@ -1,18 +1,4 @@
 import React from "react";
-import {
-  MDBContainer,
-  MDBCol,
-  MDBInput,
-  MDBBtn,
-  MDBIcon,
-} from "mdbreact";
-//import { toast } from "react-toastify";
-
-import Validator from "validator";
-import ErrorMessage from "../../Messages/ErrorMessage";
-
-//Loading Spinner
-import { SemipolarLoading } from "react-loadingg";
 
 
 
@@ -21,234 +7,124 @@ import { SemipolarLoading } from "react-loadingg";
 
 
 class Edit extends React.Component {
-  constructor(props) {
-    super(props);
+    constructor(props) {
+        super(props);
 
-    this.state = {
-      data: {
-        email: "",
-        password: ""
-      },
-      loading: false,
-      errors: {}
-    };
-  }
+        this.state = {
 
-  onChange = e =>
-    this.setState({
-      data: {
-        ...this.state.data,
-        [e.target.name]: e.target.value
-      }
-    });
-
-  onSubmit = e => {
-    e.preventDefault();
-    const errors = this.validate(this.state.data); // do not do enything else if we have errors
-    this.setState({ errors });
-
-    if (Object.keys(errors).length === 0) {
-      this.setState({ loading: true });
-
-      return this.props
-        .submit(this.state.data)
-        .then(res => {
-          console.log("auth data is successfully received (RegisterForm.js)");
-
-          return this.setState({ loading: false });
-        })
-        .catch(err => {
-          console.log(
-            "receiving auth data is failed (RegisterForm.js) Server Error is: ",
-            err
-          );
-
-          return this.setState({
-            errors: err.response.data.errors,
-            loading: false
-          });
-        });
+        };
     }
-  };
-
-  validate = data => {
-    const errors = {}; // the errors var will be empty if we don`t have errors
-    if (!Validator.isEmail(data.email)) errors.email = "Email is required";
-    if (!data.password) errors.password = "Password is required";
-
-    return errors;
-  };
-
-  render() {
-    return (
-      <div class="container regFormContainer">
-      <form className="regFormContainer" onSubmit={this.onSubmit}>
-        <div class="row" >
-          <div class="col-md-6">
-            {this.state.loading && <SemipolarLoading />}
-            {this.state.errors.registerError && (
-              <ErrorMessage text={this.state.errors.registerError} />
-            )}
-
-            <MDBInput
-              className="text-dark"
-              label="Name"
-              type="text"
-              validate
-            />
-
-            <MDBInput
-              className="text-dark"
-              label="Family Name"
-              type="text"
-              validate
-            />
-
-            <MDBInput
-              className="text-dark"
-              label="Your email"
-              type="email"
-              validate
-              success=""
-              name="email"
-              onChange={this.onChange}
-              value={this.state.data.email}
-            />
-
-            {this.state.errors.email && (
-              <ErrorMessage text={this.state.errors.email} />
-            )}
-
-            <MDBInput
-              className="text-dark"
-              label="Your password"
-              type="password"
-              name="password"
-              onChange={this.onChange}
-              value={this.state.data.password}
-            />
-
-            <MDBInput
-              className="text-dark"
-              label="Confirm password"
-              type="password"
-              onChange={this.onChange}
-              value={this.state.data.password}
-            />
-
-            {this.state.errors.password && (
-              <ErrorMessage text={this.state.errors.password} />
-            )}
 
 
-        </div>
+    
+    render() {
+        return (<div>
+            <div class="container bootstrap snippet">
 
-        {/* ---------------second form-------------- */}
 
-        <div className="col">
-          {" "}
-           
-            <MDBInput
-              className="text-dark"
-              label="Country"
-              type="text"
-              validate
-            />
+                <div class="row">
+                    <div class="col-sm-10 m-4">
+                        <h1>User name</h1>
+                    </div>
 
-            <MDBInput
-              className="text-dark"
-              label="City"
-              type="text"
-              validate
-            />
+                </div>
 
-            <MDBInput
-              className="text-dark"
-              label="Plz/Zip"
-              type="number"
-              validate
-              success=""
-              name="email"
-             
-            />
 
-         
+                <div class="row">
+                    <div class="col-sm-3">
 
-            <MDBInput
-              className="text-dark"
-              label="Your Address"
-              type="text"
-            
-            />
+                        <div class="text-center">
+                            <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar" />
+                            <h6>Upload a different photo...</h6>
+                            <input type="file" class="text-center center-block file-upload" />
+                        </div>
 
-            <MDBInput
-              className="text-black"
-              label="Phone Number"
-              type="Number"
-          
-            />
-        </div>
-      </div>
 
-      <div className="text-center mb-3">
-              <MDBBtn
-                type="submit"
-                gradient="blue"
-                rounded
-                className=" z-depth-1a"
-              >
-                Edit
-              </MDBBtn>
-            </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
+                            <div class="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div>
+                        </div>
+                    </div>
 
-          <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
-            Register with:
-          </p>
 
-          <div className="row my-3 d-flex justify-content-center">
-            <MDBBtn
-              type="button"
-              color="white"
-              rounded
-              className="mr-md-3 z-depth-1a"
-            >
-              <MDBIcon
-                fab
-                icon="facebook-f"
-                className="blue-text text-center"
-              />
-            </MDBBtn>
-            <MDBBtn
-              type="button"
-              color="white"
-              rounded
-              className="mr-md-3 z-depth-1a"
-            >
-              <MDBIcon fab icon="twitter" className="blue-text" />
-            </MDBBtn>
-            <MDBBtn
-              type="button"
-              color="white"
-              rounded
-              className="z-depth-1a"
-            >
-              <MDBIcon fab icon="google-plus-g" className="blue-text" />
-            </MDBBtn>
-          </div>
-    </form>
-    </div>
-  
-    );
-  }
+
+
+
+                    <div class="col-sm-9">
+
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="home">
+
+                                <form class="form" action="##" method="post" id="registrationForm">
+                                    <div class="form-group">
+
+                                        <div class="col-xs-6">
+                                            <label for="first_name"><h4>First name</h4></label>
+                                            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any." />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+
+                                        <div class="col-xs-6">
+                                            <label for="last_name"><h4>Last name</h4></label>
+                                            <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any." />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        <div class="col-xs-6">
+                                            <label for="phone"><h4>Phone</h4></label>
+                                            <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any." />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-xs-6">
+                                            <label for="mobile"><h4>Mobile</h4></label>
+                                            <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any." />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+
+                                        <div class="col-xs-6">
+                                            <label for="email"><h4>Email</h4></label>
+                                            <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email." />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+
+                                        <div class="col-xs-6">
+                                            <label for="email"><h4>Location</h4></label>
+                                            <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location" />
+                                        </div>
+                                    </div>
+                                 
+                                    <div class="form-group">
+                                        <div class="col-xs-12">
+
+                                            <button class="btn btn-lg btn-outline-dark" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                            <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+
+                            
+
+
+                        </div >
+                    </div >
+                </div >
+            </div >
+        </div >
+
+        );
+    }
 }
 
 export default Edit;
 
 
-
-// <div class="container">
-//   <div class="row">
-//     <div class="col">Column</div>
-//     <div class="col">Column</div>
-//   </div>
-// </div>
