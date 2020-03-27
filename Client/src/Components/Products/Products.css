@@ -1,58 +1,59 @@
 /* the side navbar */
+
 .products-sidebar {
-    margin: 10px;
-    padding: 20px;
-    position: relative;
+  margin: 10px;
+  padding: 20px;
+  position: relative;
 }
 
 .container-fluid {
-    list-style: none;
+  list-style: none;
 }
 
-.products-sidebar li{
-list-style: none;
+.products-sidebar li {
+  list-style: none;
 }
 
 .products-sidebar a {
-    text-align: center;
-    font-weight: 700;
-    display: block;
-    color: rgb(158, 143, 143);
-    padding: 16px;
-    text-decoration: none;
+  text-align: center;
+  font-weight: 700;
+  display: block;
+  color: rgb(158, 143, 143);
+  padding: 16px;
+  text-decoration: none;
 }
+
 @media screen and (max-width: 700px) {
-    .products-sidebar{
-      width: 100%;
-      height: auto;
-      position: relative;
-    }
-    .products-sidebar a {float: left;} 
+  .products-sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .products-sidebar a {
+    float: left;
+  }
 }
+
 @media screen and (max-width: 400px) {
-    .products-sidebar a {
-      text-align: center;
-      float: none;
-    }
-  
+  .products-sidebar a {
+    text-align: center;
+    float: none;
+  }
 }
-
-
-
-
 
 /* the side nav bar btn style  */
+
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
-.products-sidebar  a:hover, .products-sidebar  a:active {
+.products-sidebar a:hover, .products-sidebar a:active {
   color: black;
 }
 
-.products-sidebar  a:hover:after, .products-sidebar a:hover:before {
+.products-sidebar a:hover:after, .products-sidebar a:hover:before {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border: 1px solid rgba(255, 255, 255, 0);
   bottom: 0px;
-  content:"";
+  content: "";
   display: block;
   margin: 0 auto;
   position: relative;
@@ -61,7 +62,7 @@ list-style: none;
   width: 0;
 }
 
-.products-sidebar  a:hover:after, .products-sidebar  a:hover:before {
+.products-sidebar a:hover:after, .products-sidebar a:hover:before {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-color: black;
@@ -70,21 +71,14 @@ list-style: none;
   width: 50%;
 }
 
-.products-sidebar  a:hover:before {
+.products-sidebar a:hover:before {
   bottom: auto;
   top: 0;
   width: 50%;
 }
 
-
-
-
-
-
-
-
-
 /* Why scount words flip animation */
+
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300|Oswald);
 .wordCarousel {
   background-color: rgba(201, 145, 128, 0.733);
@@ -295,6 +289,7 @@ list-style: none;
 }
 
 /* Why Scount word animation */
+
 .whyScount {
   font-size: 35px;
   color: #fff;
@@ -314,12 +309,9 @@ list-style: none;
 
 /* Why scount Div animation end */
 
-
-
-
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Poppins:400,500,600,700');
-
-body,html{
-font-family: 'Poppins', sans-serif; font-size: 14px; color: #333;
+body, html {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #333;
 }
-
