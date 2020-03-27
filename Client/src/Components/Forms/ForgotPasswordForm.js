@@ -1,27 +1,42 @@
 import React, { Component } from 'react'
 
-export default class ForgotPasswordForm extends Component {
-    render() {
-        return (
-            <div>
-                
-            {/* rest the password  form*/}
-           
-              <p className="forgotpassword">
-                <span class="font-small dark-text" style={{ width: '100%' }} data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Forgot Password?</span>
-              </p>
-              <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Rest Password</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
-                    <button type="submit"  class="btn btn-outline-warning">Rest it</button><br />
-                  </div>
-                </div>
-              </div>
-         
+import { MDBContainer, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBModalFooter } from 'mdbreact';
 
-            </div>
-        )
-    }
+export default class ForgotPasswordForm extends Component {
+  render() {
+    return (
+
+      <div>
+        {/* rest the password  form*/}
+        <br/>
+        <h4 className="text-center">
+          Forgot your password ?
+        </h4>
+        <form accept-charset="UTF-8" role="form" id="login-recordar">
+          <fieldset>
+            <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
+              We'll send you an email with instructions to choose a new password.
+            </p>
+              <MDBInput
+              className='text-dark'
+              label="Your email"
+              type="email"
+              validate
+              success=""
+              name='email'
+              // onChange={this.onChange}
+              // value={this.state.data.email}
+            />
+            <button type="button" className="btn btn-primary btn-block" id="btn-olvidado">
+              Continue
+              </button>
+            <p className="help-block">
+              <a className="text-muted" href="#" id="acceso"><small>Home Page</small></a>
+            </p>
+          </fieldset>
+        </form>
+      </div>
+
+    )
+  }
 }
