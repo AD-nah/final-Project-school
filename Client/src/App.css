@@ -398,6 +398,7 @@ h3.h3 {
     text-align: center;
     float: none;
   }
+
 }
 
 /* menBox style and the ocean video */
@@ -465,3 +466,98 @@ svg>rect {
 
 /* the sldie profile nabvbar end */
 
+.primary-nav {
+  position: fixed;
+  top: 315px;
+	z-index: 999;
+}
+
+/* menBox style and the ocean video */
+.menBox {
+  margin:0 15px;
+  width: 98%;
+  background-image: url(Components//Home//Boxes\ images/menBox.jpg);
+  background-size: cover;
+}
+
+.oceanheader {
+  border: 1px solid black;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  margin: 0px auto;
+  position: relative;
+}
+
+.oceanheader video {
+  width: 97%;
+  height: 100%;
+}
+
+svg {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+svg text {
+  font-family: Biko, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+svg rect {
+  height: 100%;
+  width: 100%;
+  fill: white;
+  
+}
+
+svg>rect {
+  -webkit-mask: url(#mask);
+  mask: url(#mask);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* the sldie profile nabvbar end */
+
+
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+          box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar. */
+}
+
+/* the sldie profile nabvbar end */
