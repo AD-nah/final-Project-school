@@ -1,11 +1,14 @@
 import React from "react";
+import { Switch, Route, Link } from 'react-router-dom';
+
+
 import { MDBContainer, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBModalFooter } from 'mdbreact';
 
 
 
 import Validator from 'validator'
 import ErrorMessage from '../Messages/ErrorMessage'
-import ForgotPasswordForm  from './ForgotPasswordForm'
+import ForgotPasswordForm from './ForgotPasswordForm'
 
 
 //Loading Spinner
@@ -21,14 +24,9 @@ class LoginForm extends React.Component {
     super(props)
 
     this.state = {
-      
-      
-      data:{
-          email:'',
-          userPassword:''
-
-      
-      
+      data: {
+        email: '',
+        userPassword: ''
       },
       loading: false,
       errors: {}
@@ -71,8 +69,8 @@ class LoginForm extends React.Component {
   validate = (data) => {
 
     const errors = {}; // the errors var will be empty if we don`t have errors 
-    if(!Validator.isEmail(data.email)) errors.email = 'Email is required';
-    if(!data.userPassword ) errors.userPassword = 'Password is required';  
+    if (!Validator.isEmail(data.email)) errors.email = 'Email is required';
+    if (!data.userPassword) errors.userPassword = 'Password is required';
 
 
     return errors;
@@ -82,56 +80,51 @@ class LoginForm extends React.Component {
   render() {
     return (<>
       <MDBContainer>
-        
-          <MDBCol className= ' w-100 ' lg>
-              <form onSubmit = { this.onSubmit }>
-             
-             
-              {this.state.loading && <SemipolarLoading  />}
-              {this.state.errors.authError && <ErrorMessage text ={this.state.errors.authError} />}
 
-                <MDBInput
-                className='text-dark'
-                  label="Your email"
-                  type="email"
-                  validate
-                  success=""
-                  name = 'email'
-                  onChange = {this.onChange}
-                  value = {this.state.data.email} 
-                />
-                  <br/>
-                 
+        <MDBCol className=' w-100 ' lg>
+          <form onSubmit={this.onSubmit}>
 
-                {this.state.errors.email &&  <ErrorMessage text ={this.state.errors.email}/>}
-                
-                <MDBInput
-                   className='text-dark'
-                  label="Your password"
-                  type="password"
-                  name = 'userPassword'
-                  onChange = {this.onChange}
-                  value = {this.state.data.userPassword} 
-                />
 
-                {this.state.errors.userPassword &&  <ErrorMessage text = {this.state.errors.userPassword}/>}
+            {this.state.loading && <SemipolarLoading />}
+            {this.state.errors.authError && <ErrorMessage text={this.state.errors.authError} />}
 
-                <p className="font-small blue-text d-flex justify-content-end pb-3">
-                  
-                  <a href="#!" className="blue-text ml-1">
-                  Forgot
-                  
-                  Password?
-                  </a>
-                </p>
+            <MDBInput
+              className='text-dark'
+              label="Your email"
+              type="email"
+              validate
+              success=""
+              name='email'
+              onChange={this.onChange}
+              value={this.state.data.email}
+            />
+            <br />
 
-    
-            {/* <ForgotPasswordForm/> */}
+
+            {this.state.errors.email && <ErrorMessage text={this.state.errors.email} />}
+
+            <MDBInput
+              className='text-dark'
+              label="Your password"
+              type="password"
+              name='userPassword'
+              onChange={this.onChange}
+              value={this.state.data.userPassword}
+            />
+
+            {this.state.errors.userPassword && <ErrorMessage text={this.state.errors.userPassword} />}
+
+            <p className="font-small blue-text d-flex justify-content-end pb-3">
+              <Link to="/forgotPassword" className="blue-text ml-1">
+                Forgot
+                Password?
+              </Link>
+            </p>
 
 
             <div className="text-center mb-3">
               <MDBBtn
-              color="elegant"
+                color="elegant"
                 outline
                 type="submit"
                 rounded
@@ -172,7 +165,7 @@ class LoginForm extends React.Component {
             >
               <MDBIcon fab icon="facebook-f" className="blue-text text-center" />
             </MDBBtn>
-          
+
             <MDBBtn
               type="button"
               color="white"
@@ -185,7 +178,13 @@ class LoginForm extends React.Component {
         </MDBCol>
 
       </MDBContainer>
+
+      <Switch>
+        <Route path="/forgotPassword" component={ForgotPasswordForm} />
+      </Switch>
+
     </>)
+    
   }
 }
 
