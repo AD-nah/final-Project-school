@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Men from './Men/Men';
 import Women from './Women/Women';
-import Reworked from './Reworked/Reworked';
+import Reworked from './Reworked/Reworked'; 
 import { Switch, Route, Link } from 'react-router-dom';
 
 import '../Products/Products.css'

@@ -252,8 +252,7 @@ class Women extends React.Component {
                           <span>{item.prices[1]}</span>
                         </div>
 
-                        {/* <img src={ImageZoomAnim} />
-                                   */}
+                      
                       </div>
                     </div>
                   </div>
