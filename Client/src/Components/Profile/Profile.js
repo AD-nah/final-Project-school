@@ -13,19 +13,10 @@ export default class Profile extends Component {
 
     }
 
-
-
     render() {
         return (
             <>
                 <div className="primary-nav ">
-
-                     {/* <button href="#" className="hamburger open-panel nav-toggle">
-                        <span className="screen-reader-text">Menu</span>
-                       
-                    </button>  */}
-                   
-
                     <nav role="navigation" className="menu ">
 
                         <a href="#" className="logotype">My<span>Profile</span></a>
@@ -41,8 +32,6 @@ export default class Profile extends Component {
                                         <span className="icon"><i class="fas fa-arrows-alt-h"></i></span>
                                     </MDBNavItem>
                                     {/* <span><i className="fa fa-gear"></i></span> */}
- 
-
 
                                 </li>
 
@@ -57,10 +46,13 @@ export default class Profile extends Component {
                                     <MDBNavLink to="/profile/bought">Bought</MDBNavLink>
                                 </MDBNavItem><span className="icon"><i class="fas fa-arrows-alt-h"></i></span></li>
                             </ul>
-                        
+                </div>
+
                     </nav>
 
                 </div>
+           
+
                 <Switch>
                     <Route path="/profile/edit" component={Edit} />
                     <Route path="/profile/sell" component={Sell} />
