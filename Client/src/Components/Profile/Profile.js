@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Bought from './Bought/Bought';
 import Edit from './Edit/Edit';
 import Sell from './Sell/Sell';
+import './profile.css'
 
 import { Switch, Route } from 'react-router-dom';
 import { MDBNav, MDBNavLink, MDBNavItem } from "mdbreact";
@@ -17,8 +18,21 @@ export default class Profile extends Component {
     render() {
         return (
             <>
-                <div className="primary-nav">
-                    <nav role="navigation" className="menu">
+                <div className="primary-nav ">
+
+                     {/* <button href="#" className="hamburger open-panel nav-toggle">
+                        <span className="screen-reader-text">Menu</span>
+                       
+                    </button>  */}
+                   
+
+                    <nav role="navigation" className="menu ">
+
+                        <a href="#" className="logotype">My<span>Profile</span></a>
+
+                        <div className="overflow-container">
+
+
                             <ul className="menu-dropdown">
                               
                                 <li className="menu-hasdropdown">
@@ -26,7 +40,8 @@ export default class Profile extends Component {
                                         <MDBNavLink to="/profile/edit">Edit your Profile</MDBNavLink>
                                         <span className="icon"><i class="fas fa-arrows-alt-h"></i></span>
                                     </MDBNavItem>
-                                  
+                                    {/* <span><i className="fa fa-gear"></i></span> */}
+ 
 
 
                                 </li>
