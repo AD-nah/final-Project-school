@@ -1,8 +1,8 @@
 import React from "react";
-import { Switch, Route, Link } from 'react-router-dom';
 
 
-import { MDBContainer, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBModalFooter } from 'mdbreact';
+
+import { MDBContainer, MDBCol, MDBInput, MDBBtn, MDBIcon, } from 'mdbreact';
 
 
 
@@ -29,7 +29,9 @@ class LoginForm extends React.Component {
         userPassword: ''
       },
       loading: false,
-      errors: {}
+      errors: {},
+      fromIsOpen:false,
+      showHide: 'Forgot Password?'
     }
   }
 
@@ -71,13 +73,24 @@ class LoginForm extends React.Component {
     const errors = {}; // the errors var will be empty if we don`t have errors 
     if (!Validator.isEmail(data.email)) errors.email = 'Email is required';
     if (!data.userPassword) errors.userPassword = 'Password is required';
-
-
     return errors;
   }
 
-
+  
   render() {
+
+   const showForgotPasswordForm = () => {
+     this.setState({fromIsOpen: !this.state.fromIsOpen})
+
+     if(!this.state.fromIsOpen){
+        this.setState({showHide: 'Close'})
+     }else{
+        this.setState({showHide: 'Forgot Password?'})
+     }
+    }
+
+
+    
     return (<>
       <MDBContainer>
 
@@ -98,7 +111,7 @@ class LoginForm extends React.Component {
               onChange={this.onChange}
               value={this.state.data.email}
             />
-            <br />
+            <br/>
 
 
             {this.state.errors.email && <ErrorMessage text={this.state.errors.email} />}
@@ -115,13 +128,9 @@ class LoginForm extends React.Component {
             {this.state.errors.userPassword && <ErrorMessage text={this.state.errors.userPassword} />}
 
             <p className="font-small blue-text d-flex justify-content-end pb-3">
-              <Link to="/forgotPassword" className="blue-text ml-1">
-                Forgot
-                Password?
-              </Link>
+        
+
             </p>
-
-
             <div className="text-center mb-3">
               <MDBBtn
                 color="elegant"
@@ -129,14 +138,9 @@ class LoginForm extends React.Component {
                 type="submit"
                 rounded
                 className="btn z-depth-1a"
-              >
-                Login
-                  </MDBBtn>
+              > Login</MDBBtn>
 
             </div>
-
-
-
             <div>
               <span className="rememberMe">Remember me</span>
               <label class="checkbox">
@@ -144,11 +148,12 @@ class LoginForm extends React.Component {
                 <span class="success"></span>
               </label>
             </div>
-
-
           </form>
 
+        <button className='btn bg-info w-100' onClick = {showForgotPasswordForm}>{this.state.showHide}</button>
 
+
+          {this.state.fromIsOpen ? <ForgotPasswordForm/> : null}
 
 
 
@@ -179,9 +184,6 @@ class LoginForm extends React.Component {
 
       </MDBContainer>
 
-      <Switch>
-        <Route path="/forgotPassword" component={ForgotPasswordForm} />
-      </Switch>
 
     </>)
     
