@@ -1,12 +1,12 @@
 import React from "react";
-import { BackTop } from "antd";
-
-import { WaveLoading } from "react-loadingg";
-
-import { fetchWomenProducts } from '../../../Redux/Actions/products'
 import { connect } from "react-redux";
+import { fetchWomenProducts } from '../../../Redux/Actions/products'
 import { addToBasketAction } from "../../../Redux/Actions/basket";
 import { addToFavoriteAction } from '../../../Redux/Actions/favorite'
+
+import { WaveLoading } from "react-loadingg";
+import { BackTop } from "antd";
+
 import {
   MDBContainer,
   MDBModal,
@@ -93,8 +93,8 @@ class Women extends React.Component {
       setTimeout(() =>  this.setState({ addedToFavorite: false }), 100);
 
     }).catch(message => {
-      this.setState({alreadyInBasket : true, alreadyInBasketMessage: message });
-      setTimeout(() =>  this.setState({ alreadyInBasket: false }), 100);
+      this.setState({alreadyInFavorite : true, alreadyInBasketMessage: message });
+      setTimeout(() =>  this.setState({ alreadyInFavorite: false }), 100);
     })
   }
 
@@ -113,21 +113,23 @@ class Women extends React.Component {
   render() {
     return (
       <>
+        <div className="container" >
+
 
         {this.state.addedToBasket && <SuccessMessage text={this.state.addedToBasketMessage}/>}
         {this.state.alreadyInBasket && <SuccessMessage text={this.state.alreadyInBasketMessage}/>}
 
         {this.state.addedToFavorite && <SuccessMessage text={this.state.addedToFavoriteMessage} />}
         {this.state.alreadyInFavorite && (<SuccessMessage text = {this.state.alreadyInFavoriteMessage}/>)}
+        <h3 className="h3">Men's Collection </h3>
 
-        <div className="container" >
           <div className="row">
 
 
             {this.state.data ? (
               this.state.data.map((item, index) => {
-                return (<>
-
+                return (
+                <>
                   <div key={index} className="col-md-3 col-sm-6">
                     <div className="product-grid7">
                       <div className="product-content">
@@ -184,6 +186,8 @@ class Women extends React.Component {
                       </div>
 
                       <div className="product-content">
+
+                      {/* <h3 className="title"><a href="#">{item.description}</a></h3> */}
                         <ul className="rating">
                           {this.starMaker(item.rating)}
                         </ul>
@@ -191,7 +195,8 @@ class Women extends React.Component {
                         <div className="price">
                           &#8364;
                           {item.prices[0]}
-                          <span>{item.prices[1]}</span>
+               
+                           <span>{item.prices[1]}</span>
                         </div>
 
                         {/* <img src={ImageZoomAnim} />
@@ -199,7 +204,8 @@ class Women extends React.Component {
                       </div>
                     </div>
                   </div>
-                </>);
+                </>
+                )
               })
             ) : (
                 <div style={{ height: "350px", width: "200px", textAlign: "center", position: "relative", left: "40%" }}>
