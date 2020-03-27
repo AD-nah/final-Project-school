@@ -43,10 +43,19 @@ class Women extends React.Component {
       data: null,
       currentProduct: [],
       currentArrayOfImages: [],
-      addedToBasketMessage: false,
-      addedToFavoriteMessage: false,
-      // alreadyInBasket : false,
-      // alreadyInBasketMessage :'',
+
+      // for basket Messages
+      addedToBasket: false,
+      addedToBasketMessage: '',
+      alreadyInBasket : false,
+      alreadyInBasketMessage :'',
+
+      // for favorite Messages
+      addedToFavorite: false,
+      addedToFavoriteMessage : '',
+      alreadyInFavorite: false,
+      alreadyInFavoriteMessage:'',
+
       // //images modal
       modal13: false
     };
@@ -68,27 +77,25 @@ class Women extends React.Component {
   };
 
   addToBasket(item) {
+    this.props.addToBasketAction(item).then(message => {
+      this.setState({addedToBasket : true, addedToBasketMessage: message });
+      setTimeout(() =>  this.setState({ addedToBasket: false }), 100);
 
-
-    this.props.addToBasketAction(item).then(res => {
-
-      this.setState({ addedToBasketMessage: true });
-      setTimeout(() => {
-        this.setState({ addedToBasketMessage: false });
-      }, 100);
-
+    }).catch(message => {
+      this.setState({alreadyInBasket : true, alreadyInBasketMessage: message });
+      setTimeout(() =>  this.setState({ alreadyInBasket: false }), 100);
     })
-
   }
   /// add the Favorites to the basket
   addToFavorite(item) {
+    this.props.addToFavoriteAction(item).then(message => {
+      this.setState({addedToFavorite : true, addedToFavoriteMessage: message });
+      setTimeout(() =>  this.setState({ addedToFavorite: false }), 100);
 
-    this.props.addToFavoriteAction(item).then(res => {
-      this.setState({ addedToFavoriteMessage: true });
-      setTimeout(() => {
-        this.setState({ addedToFavoriteMessage: false });
-      }, 100);
-    });
+    }).catch(message => {
+      this.setState({alreadyInBasket : true, alreadyInBasketMessage: message });
+      setTimeout(() =>  this.setState({ alreadyInBasket: false }), 100);
+    })
   }
 
   sendImagesToCarousel(array) {
@@ -107,9 +114,11 @@ class Women extends React.Component {
     return (
       <>
 
-        {this.state.addedToBasketMessage && <SuccessMessage text='added to Basket' />}
-        {this.state.addedToFavoriteMessage && <SuccessMessage text='added to Favorite' />}
-        {/* {this.state.alreadyInBasket && (<SuccessMessage text = {this.state.alreadyInBasketMessage}/>)} */}
+        {this.state.addedToBasket && <SuccessMessage text={this.state.addedToBasketMessage}/>}
+        {this.state.alreadyInBasket && <SuccessMessage text={this.state.alreadyInBasketMessage}/>}
+
+        {this.state.addedToFavorite && <SuccessMessage text={this.state.addedToFavoriteMessage} />}
+        {this.state.alreadyInFavorite && (<SuccessMessage text = {this.state.alreadyInFavoriteMessage}/>)}
 
         <div className="container" >
           <div className="row">

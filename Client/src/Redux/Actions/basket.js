@@ -9,16 +9,12 @@ export const addedToBasket = (items) => {
 }
 
 export const  addToBasketAction = (item) => (dispatch) => {
-   return api.basket.saveToBasketRequest(item).then(items => {
-
-       console.log('200 ' + items)
-        dispatch(addedToBasket(items));
-
-    }).catch((err => {
-
-        console.log('404 ' + err)
-        return err
-    }))
+   return api.basket.saveToBasketRequest(item).then(res => {
+        dispatch(addedToBasket(res.products));
+        return res.message
+    }).catch(err => {
+        return err.response.data.message
+    })
 }
 
 export const fetchBasket = () => (dispatch) => {
@@ -28,9 +24,9 @@ export const fetchBasket = () => (dispatch) => {
 }
 
 export const removeFromBasketAction = (item) => {
-    return api.basket.removeFromBasketRequest(item).then(item => {
-        return item
-    }).catch(()=> {
-        return 'failed to remove from Basket'
+    return api.basket.removeFromBasketRequest(item).then(message => {
+        return message
+    }).catch((err)=> {
+        return err.response.data.message
     })
 }
