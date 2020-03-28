@@ -16,41 +16,35 @@ class Edit extends React.Component {
     }
 
 
-    
+
     render() {
-        return (<div>
-            <div class="container bootstrap snippet">
+        return (
+            <div class="container" style={{backgroundColor:' beige'}}>
 
-
-                <div class="row">
-                    <div class="col-sm-10 m-4">
+                <div class="row ml-5">
+                    <div class="col-sm-10 m-4 text-center">
                         <h1>User name</h1>
                     </div>
 
-                </div>
 
 
-                <div class="row">
+
+
                     <div class="col-sm-3">
 
                         <div class="text-center">
-                            <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar" />
-                            <h6>Upload a different photo...</h6>
-                            <input type="file" class="text-center center-block file-upload" />
+                            <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-thumbnail" alt="avatar" />
+                            <h6>Upload a photo...</h6>
+                            <input type="file" className=" ml-2" />
                         </div>
 
-
-                        <div class="panel panel-default">
-                            <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
-                            <div class="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div>
-                        </div>
                     </div>
 
 
 
 
 
-                    <div class="col-sm-9">
+                    <div class="col-sm-9 col-md-6 ml-5">
 
 
                         <div class="tab-content">
@@ -100,7 +94,7 @@ class Edit extends React.Component {
                                             <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location" />
                                         </div>
                                     </div>
-                                 
+
                                     <div class="form-group">
                                         <div class="col-xs-12">
 
@@ -110,16 +104,12 @@ class Edit extends React.Component {
                                     </div>
                                 </form>
                             </div>
-
-
-                            
-
-
                         </div >
+
+
                     </div >
                 </div >
             </div >
-        </div >
 
         );
     }
