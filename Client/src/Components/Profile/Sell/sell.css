@@ -1,6 +1,11 @@
-h3{
-    margin-left: 15px;
+.Sell-container {
+position: relative;
+top: 20px;
+margin: 30px;
+padding: 30px;
 }
+
+
 .fileInput
  {
   border-bottom: 4px solid lightgray;
@@ -36,20 +41,58 @@ h3{
   margin-top: 20px;
 }
    */
-.submitButton
-{  padding: 12px;
-  margin-left: 10px;
+
+
+
+
+
+
+
+
+
+
+/* select input style */
+
+
+.styled-select {
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 3px;
+  box-shadow:1px 1px 1px 1px rgb(119, 115, 115);
+  overflow: hidden;
+  position: relative;
+}
+.styled-select,
+.styled-select select {
+  width: 180px;
+}
+select:focus {
+  outline: none;
+}
+.styled-select select {
+  height: 30px;
+  padding: 1px 0 1px 1px;
   background: white;
-  border: 4px solid lightgray;
-  border-radius: 15px;
-  font-weight: 700;
-  font-size: 10pt;
-  cursor: pointer;
-    background: #efefef;
+  border: none;
+  /*hide default down arrow in webkit */
+  -webkit-appearance: none;
 }
 
-.centerText
- { 
-     text-align: center;
-  width: 500px;
+@-moz-document url-prefix() {
+  .styled-select select {
+    width: 110%;
+  }
 }
+
+.fa-sort-desc {
+  position: absolute;
+  top: 0;
+  right: 12px;
+  font-size: 24px;
+}
+
+select::-ms-expand {
+  display: none;
+} /* hide default down arrow in IE10*/
+
+

@@ -7,16 +7,29 @@ import master from './images/master.png';
 import visa from './images/visa.png';
 import {fetchBasket} from '../../Redux/Actions/basket'
 import { removeFromBasketAction } from '../../Redux/Actions/basket'
+import {sendFromBasketToFavoriteAction} from '../../Redux/Actions/basket'
 import SuccessMessage from '../Messages/SuccessMessage'
 import decode from 'jwt-decode'
+
 class Chart extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      // from the Redux
+
+      // Produczs come from Redux state and will saved here!
       products: null,
+
+      // for removing from Basket Messages
       removedFromBasket: false,
       removedFromBasketMessage: '',
+
+      // for sending to Favorite Messages
+      addedToFavorite : false,
+      addedToFavoriteMessage : '',
+      alreadyInFavorite:false,
+      alreadyInFavoriteMessage:'',
+
+      // for payment
       total : 0,
       userId: null
 
@@ -67,24 +80,43 @@ class Chart extends Component {
   // remove items and its price same time
   remove(item) {
 
-     removeFromBasketAction(item).then(res => {
-       
-      this.setState(prevState => ({
-          products: prevState.products.filter(el => el._id !== item._id),
-          removedFromBasket: prevState.removedFromBasket = true,
-          removedFromBasketMessage: prevState.removedFromBasketMessage = res
-      }))
-       setTimeout(()=> {
-          this.setState({removedFromBasket:false})
-       },200)
-
-     }).catch((res) => {
-       this.setState({removedFromBasket: true, removedFromBasketMessage: res})
-       setTimeout(()=> {
-        this.setState({removedFromBasket:false})
-     },200)
+     removeFromBasketAction(item)
+     .then(message => {
+          this.setState(prevState => ({
+              products: prevState.products.filter(el => el._id !== item._id),
+              removedFromBasket: prevState.removedFromBasket = true,
+              removedFromBasketMessage: prevState.removedFromBasketMessage = message
+          }))
+          setTimeout(()=> this.setState({removedFromBasket:false}),200)
      })
+     .catch(message => {
+          this.setState({removedFromBasket:true, removedFromBasketMessage: message})
+          setTimeout(()=> this.setState({removedFromBasket:false}),200)
+     })
+  }
 
+
+  sendToFavorite(item){
+
+    this.props.sendFromBasketToFavoriteAction(item).then(message => {
+      this.setState({addedToFavorite : true, addedToFavoriteMessage: message });
+      setTimeout(() =>  this.setState({ addedToFavorite: false }), 100);
+
+
+      removeFromBasketAction(item).then(message => {
+           this.setState(prevState => ({
+               products: prevState.products.filter(el => el._id !== item._id),
+               removedFromBasket: prevState.removedFromBasket = true,
+               removedFromBasketMessage: prevState.removedFromBasketMessage = message
+           }))
+           setTimeout(()=> this.setState({removedFromBasket:false}),200)
+      })
+
+
+    }).catch(message => {
+      this.setState({alreadyInFavorite : true, alreadyInFavoriteMessage: message });
+      setTimeout(() =>  this.setState({ alreadyInFavorite: false }), 100);
+    })
   }
 
   render() {
@@ -92,6 +124,11 @@ class Chart extends Component {
       <div className = 'container-fluid'>
 
         {this.state.removedFromBasket && (<SuccessMessage text = {this.state.removedFromBasketMessage} />)}
+
+        {this.state.addedToFavorite && (<SuccessMessage text = {this.state.addedToFavoriteMessage} />)}
+        {this.state.alreadyInFavorite && (<SuccessMessage text = {this.state.alreadyInFavoriteMessage} />)}
+
+
 
         <h3 className="card-header text-center font-weight-bold text-uppercase py-4 "><img className="float-right " src={basket}/>your Basket </h3>
         <br/>
@@ -155,22 +192,21 @@ class Chart extends Component {
                           <button
                             type="button"
                             onClick={this.remove.bind(this, item)}
-                            className="btn btn-danger btn-rounded btn-sm "
+                            className="btn btn-danger"
                           >Remove from Basket
-                              </button>
+                          </button>
                           <button
                             type="button"
-                            className="btn btn-info btn-rounded btn-sm "
+                            onClick = {this.sendToFavorite.bind(this, item)}
+                            className="btn btn-info"
                           >Send To Favorite
-                              </button>
+                          </button>
                         </span>
-
                       </div>
                     </div>
 
                     <div className="  col">
                       <div className=" text-center">
-
 
                         <div className="col">
                           <h2>Price</h2>
@@ -247,4 +283,4 @@ const mapStateToProps = (state) => {
     item: state.basketReducer
   }
 }
-export default connect(mapStateToProps, { fetchBasket })(Chart)
+export default connect(mapStateToProps, { fetchBasket, sendFromBasketToFavoriteAction })(Chart)

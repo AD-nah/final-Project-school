@@ -1,11 +1,14 @@
 import React from "react";
-import { MDBContainer, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBModalFooter } from 'mdbreact';
+
+
+
+import { MDBContainer, MDBCol, MDBInput, MDBBtn, MDBIcon, } from 'mdbreact';
 
 
 
 import Validator from 'validator'
 import ErrorMessage from '../Messages/ErrorMessage'
-import ForgotPasswordForm  from './ForgotPasswordForm'
+import ForgotPasswordForm from './ForgotPasswordForm'
 
 
 //Loading Spinner
@@ -21,17 +24,14 @@ class LoginForm extends React.Component {
     super(props)
 
     this.state = {
-      
-      
-      data:{
-          email:'',
-          userPassword:''
-
-      
-      
+      data: {
+        email: '',
+        userPassword: ''
       },
       loading: false,
-      errors: {}
+      errors: {},
+      fromIsOpen:false,
+      showHide: 'Forgot Password?'
     }
   }
 
@@ -71,79 +71,76 @@ class LoginForm extends React.Component {
   validate = (data) => {
 
     const errors = {}; // the errors var will be empty if we don`t have errors 
-    if(!Validator.isEmail(data.email)) errors.email = 'Email is required';
-    if(!data.userPassword ) errors.userPassword = 'Password is required';  
-
-
+    if (!Validator.isEmail(data.email)) errors.email = 'Email is required';
+    if (!data.userPassword) errors.userPassword = 'Password is required';
     return errors;
   }
 
-
+  
   render() {
-    return (<>
-      <MDBContainer>
-        
-          <MDBCol className= ' w-100 ' lg>
-              <form onSubmit = { this.onSubmit }>
-             
-             
-              {this.state.loading && <SemipolarLoading  />}
-              {this.state.errors.authError && <ErrorMessage text ={this.state.errors.authError} />}
 
-                <MDBInput
-                className='text-dark'
-                  label="Your email"
-                  type="email"
-                  validate
-                  success=""
-                  name = 'email'
-                  onChange = {this.onChange}
-                  value = {this.state.data.email} 
-                />
-                  <br/>
-                 
+   const showForgotPasswordForm = () => {
+     this.setState({fromIsOpen: !this.state.fromIsOpen})
 
-                {this.state.errors.email &&  <ErrorMessage text ={this.state.errors.email}/>}
-                
-                <MDBInput
-                   className='text-dark'
-                  label="Your password"
-                  type="password"
-                  name = 'userPassword'
-                  onChange = {this.onChange}
-                  value = {this.state.data.userPassword} 
-                />
+     if(!this.state.fromIsOpen){
+        this.setState({showHide: 'Close'})
+     }else{
+        this.setState({showHide: 'Forgot Password?'})
+     }
+    }
 
-                {this.state.errors.userPassword &&  <ErrorMessage text = {this.state.errors.userPassword}/>}
-
-                <p className="font-small blue-text d-flex justify-content-end pb-3">
-                  
-                  <a href="#!" className="blue-text ml-1">
-                  Forgot
-                  
-                  Password?
-                  </a>
-                </p>
 
     
-            {/* <ForgotPasswordForm/> */}
+    return (<>
+      <MDBContainer>
+
+        <MDBCol className=' w-100 ' lg>
+          <form onSubmit={this.onSubmit}>
 
 
+            {this.state.loading && <SemipolarLoading />}
+            {this.state.errors.authError && <ErrorMessage text={this.state.errors.authError} />}
+
+            <MDBInput
+              className='text-dark'
+              label="Your email"
+              type="email"
+              validate
+              success=""
+              name='email'
+              onChange={this.onChange}
+              value={this.state.data.email}
+            />
+            <br/>
+
+
+            {this.state.errors.email && <ErrorMessage text={this.state.errors.email} />}
+
+            <MDBInput
+              className='text-dark'
+              label="Your password"
+              type="password"
+              name='userPassword'
+              onChange={this.onChange}
+              value={this.state.data.userPassword}
+            />
+
+            {this.state.errors.userPassword && <ErrorMessage text={this.state.errors.userPassword} />}
+
+            <p className="font-small blue-text d-flex justify-content-end pb-3">
+        
+
+            </p>
             <div className="text-center mb-3">
               <MDBBtn
-              color="elegant"
+                color="elegant"
                 outline
                 type="submit"
                 rounded
                 className="btn z-depth-1a"
-              >
-                Login
-                  </MDBBtn>
+              > Login</MDBBtn>
 
             </div>
-
-
-
             <div>
               <span className="rememberMe">Remember me</span>
               <label class="checkbox">
@@ -151,11 +148,12 @@ class LoginForm extends React.Component {
                 <span class="success"></span>
               </label>
             </div>
-
-
           </form>
 
+        <button className='btn bg-info w-100' onClick = {showForgotPasswordForm}>{this.state.showHide}</button>
 
+
+          {this.state.fromIsOpen ? <ForgotPasswordForm/> : null}
 
 
 
@@ -172,7 +170,7 @@ class LoginForm extends React.Component {
             >
               <MDBIcon fab icon="facebook-f" className="blue-text text-center" />
             </MDBBtn>
-          
+
             <MDBBtn
               type="button"
               color="white"
@@ -185,7 +183,10 @@ class LoginForm extends React.Component {
         </MDBCol>
 
       </MDBContainer>
+
+
     </>)
+    
   }
 }
 
