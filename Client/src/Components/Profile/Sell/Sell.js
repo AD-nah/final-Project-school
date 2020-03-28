@@ -87,7 +87,7 @@ class Sell extends React.Component {
 
         return (
             <div className="container Sell-container font-weight-bold">
-                <div className="row m-2 " style={{ backgroundColor: "#ffebd3" }}>
+                <div className="row m-2 " style={{ backgroundColor: "beige" }}>
                
                     <div className="row m-2">
                         <div className=" row-md-4 img-thumbnail mx-auto d-block ">
