@@ -30,8 +30,8 @@ class LoginForm extends React.Component {
       },
       loading: false,
       errors: {},
-      fromIsOpen:false,
-      showHide: 'Forgot Password?'
+      fromIsOpen: false,
+      showHide: 'Forgot Password'
     }
   }
 
@@ -76,21 +76,21 @@ class LoginForm extends React.Component {
     return errors;
   }
 
-  
+
   render() {
 
-   const showForgotPasswordForm = () => {
-     this.setState({fromIsOpen: !this.state.fromIsOpen})
+    const showForgotPasswordForm = () => {
+      this.setState({ fromIsOpen: !this.state.fromIsOpen })
 
-     if(!this.state.fromIsOpen){
-        this.setState({showHide: 'Close'})
-     }else{
-        this.setState({showHide: 'Forgot Password?'})
-     }
+      if (!this.state.fromIsOpen) {
+        this.setState({ showHide: 'Close' })
+      } else {
+        this.setState({ showHide: 'Forgot Password' })
+      }
     }
 
 
-    
+
     return (<>
       <MDBContainer>
 
@@ -111,7 +111,7 @@ class LoginForm extends React.Component {
               onChange={this.onChange}
               value={this.state.data.email}
             />
-            <br/>
+            <br />
 
 
             {this.state.errors.email && <ErrorMessage text={this.state.errors.email} />}
@@ -127,10 +127,10 @@ class LoginForm extends React.Component {
 
             {this.state.errors.userPassword && <ErrorMessage text={this.state.errors.userPassword} />}
 
-            <p className="font-small blue-text d-flex justify-content-end pb-3">
-        
+            {/* <p className="font-small blue-text d-flex justify-content-end pb-3">
+            </p> */}
 
-            </p>
+
             <div className="text-center mb-3">
               <MDBBtn
                 color="elegant"
@@ -141,21 +141,24 @@ class LoginForm extends React.Component {
               > Login</MDBBtn>
 
             </div>
-            <div>
+
+            {/*remember me  checkbox */}
+            {/* <div>
               <span className="rememberMe">Remember me</span>
               <label class="checkbox">
                 <input type="checkbox" />
                 <span class="success"></span>
               </label>
-            </div>
+            </div> */}
           </form>
 
-        <button className='btn bg-info w-100' onClick = {showForgotPasswordForm}>{this.state.showHide}</button>
+          <div className='text-center'>
+            <button className='btn '  onClick={showForgotPasswordForm}>{this.state.showHide}</button>
+          </div>
 
+          {this.state.fromIsOpen ?  <ForgotPasswordForm /> : null}
 
-          {this.state.fromIsOpen ? <ForgotPasswordForm/> : null}
-
-
+          <hr/>
 
           <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
 
@@ -186,7 +189,7 @@ class LoginForm extends React.Component {
 
 
     </>)
-    
+
   }
 }
 

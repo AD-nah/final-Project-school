@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
-
-import { MDBContainer, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBModalFooter } from 'mdbreact';
+import { MDBInput} from 'mdbreact';
 
 export default class ForgotPasswordForm extends Component {
   render() {
     return (
 
-      <div>
+      <div >
         {/* rest the password  form*/}
         <br/>
-        <h4 className="text-center">
+        <hr/>
+
+
+        <h4 className="text-center" >
           Forgot your password ?
         </h4>
         <form accept-charset="UTF-8" role="form" id="login-recordar">
@@ -27,12 +29,10 @@ export default class ForgotPasswordForm extends Component {
               // onChange={this.onChange}
               // value={this.state.data.email}
             />
-            <button type="button" className="btn btn-primary btn-block" id="btn-olvidado">
-              Continue
-              </button>
-            <p className="help-block">
-              <a className="text-muted" href="#" id="acceso"><small>Home Page</small></a>
-            </p>
+            <button type="button" className="btn bg-outline-transparent" id="btn-olvidado">
+              Rest it
+            </button>
+          
           </fieldset>
         </form>
       </div>
