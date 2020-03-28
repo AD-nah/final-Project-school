@@ -59,7 +59,7 @@ class Chart extends Component {
   starMaker(n) {
     let stars = [];
     for (let i = 0; i < n; i++) {
-      stars.push(<li className="fa fa-star"></li>);
+      stars.push(<li key={i} className="fa fa-star"></li>);
     }
     return stars;
   }
@@ -123,11 +123,11 @@ class Chart extends Component {
             </div>
           )}
 
-          <div className=" col-9">
+          <div className="col-9" >
             {this.state.products && this.state.products.map((item, index) => {
 
               return (
-                <div className="row mb-3 m-5">
+                <div className="row mb-3 m-5" key={index} >
 
 
                   <div className="  row">
@@ -180,22 +180,22 @@ class Chart extends Component {
                           <hr />
 
                           <select style={{ height: "30px", width: "100px", backgroundColor: "#FCC400" }} className="mr-2 md-form colorful-select dropdown-primary">
-                            <label>color</label>
-                            <option disabled selected='selected'>color</option>
+                            
+                            <option disabled defaultValue >color</option>
                             <option value="1">Red</option>
                             <option value="2">Blue</option>
                             <option value="3">White</option>
                           </select>
 
                           <select style={{ height: "30px", width: "100px", backgroundColor: "#FCC400" }} className=" md-form  dropdown-primary ">
-                            <option disabled selected='selected'>Size </option>
+                            <option disabled defaultValue>Size </option>
                             <option value="2">Small</option>
                             <option value="3">Medium</option>
                             <option value="4">Large</option>
                           </select>
                         </div>
                         <select style={{ height: "30px", width: "100px", backgroundColor: "#FCC400" }} className=" md-form  dropdown-primary ">
-                          <option disabled selected='selected'>Quantity</option>
+                          <option value=""  >Quantity</option>
                           <option value="1">1 pi's</option>
                           <option value="2">2 p's</option>
                           <option value="3">3 p's</option>

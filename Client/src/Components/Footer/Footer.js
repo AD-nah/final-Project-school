@@ -48,14 +48,14 @@ const Footer = () => {
   return (
     <>
      
-        <footer class="site-footer">
+        <footer className="site-footer">
 
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-sm-12 col-md-4">
+          <div className="container-fluid">
+            <div className="row">
+              <div className="col-sm-12 col-md-4">
                 <h6>About</h6>
                 
-                <p class="text-justify">
+                <p className="text-justify">
                   Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative
                   to help the upcoming programmers with the code. Scanfcode
                   focuses on providing the most efficient code or snippets as the
@@ -66,9 +66,9 @@ const Footer = () => {
               </p>
               </div>
 
-              <div class="col-xs-6 col-md-2">
+              <div className="col-xs-6 col-md-2">
               <h6>Products</h6>
-                <ul class="footer-links">
+                <ul className="footer-links">
                  
                   <li>
                   <Link to="/products/men">Man</Link>
@@ -82,9 +82,9 @@ const Footer = () => {
                 </ul>
               </div>
 
-              <div class="col-xs-6 col-md-2">
+              <div className="col-xs-6 col-md-2">
                 <h6>Account</h6>
-                <ul class="footer-links">
+                <ul className="footer-links">
                 <li>
                   <Link to="/basket">Basket</Link>
                   </li>
@@ -96,9 +96,9 @@ const Footer = () => {
                 </ul>
               </div>
 
-              <div class="col-xs-6 col-md-2">
+              <div className="col-xs-6 col-md-2">
                 <h6>Profile</h6>
-                <ul class="footer-links">
+                <ul className="footer-links">
                   
                 <li>
                   <Link to="/profile/bought">Bought</Link>
@@ -112,9 +112,9 @@ const Footer = () => {
                 </ul>
               </div>
 
-              <div class="col-xs-6 col-md-2 ">
+              <div className="col-xs-6 col-md-2 ">
                 <h6>Quick Links</h6>
-                <ul class="footer-links">
+                <ul className="footer-links">
                   <li >
                     <a href="#">
                       <ContactUs />
@@ -136,26 +136,26 @@ const Footer = () => {
             </div>
           </div>
 
-          <div class="container-fluid">
+          <div className="container-fluid">
             <hr />
 
-            <div class="row">
-              <div class="col-md-8 col-sm-6 col-xs-12">
-                <p class="copyright-text">
+            <div className="row">
+              <div className="col-md-8 col-sm-6 col-xs-12">
+                <p className="copyright-text">
                   {" "}
                   &copy; {new Date().getFullYear()} Copyright:{" "}
                   <a href="#"> Scount </a>
                 </p>
               </div>
 
-              <div class="col-md-4 col-sm-6 col-xs-12">
-                <ul class="social-icons">
-                  <a class="facebook" href="http://www.facebook.com">
-                    <i class="fab fa-facebook-f"></i>
+              <div className="col-md-4 col-sm-6 col-xs-12">
+                <ul className="social-icons">
+                  <a className="facebook" href="http://www.facebook.com">
+                    <i className="fab fa-facebook-f"></i>
                   </a>
                   
-                  <a class="linkedin" href="http://www.linkedin.com">
-                    <i class="fab fa-linkedin"></i>
+                  <a className="linkedin" href="http://www.linkedin.com">
+                    <i className="fab fa-linkedin"></i>
                   </a>
                 </ul>
               </div>

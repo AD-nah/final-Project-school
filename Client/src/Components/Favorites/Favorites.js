@@ -41,7 +41,7 @@ class Favorits extends Component {
   starMaker(n) {
     let stars = [];
     for (let i = 0; i < n; i++) {
-      stars.push(<li className="fa fa-star"></li>);
+      stars.push(<li key={i} className="fa fa-star"></li>);
     }
     return stars;
   }
@@ -113,7 +113,7 @@ class Favorits extends Component {
             {this.state.products && this.state.products.map((item, index) => {
 
                 return ( 
-                  <div className="container">
+                  <div className="container" key="container">
 
                   <div className="row mb-3 m-5">
                     <div className="  row">

@@ -37,11 +37,11 @@ const About = () => {
               </h4>
             <h6 className="text-uppercase grey-text mb-3">Web Developer</h6>
 
-            <MDBBtn href="https://www.linkedin.com/in/ahmad-nahlawi/" tag="a" floating className="mx-1 mb-0 btn-li">
+            <MDBBtn href="https://www.linkedin.com/in/ahmad-nahlawi/" tag="a" floating="true" className="mx-1 mb-0 btn-li">
               <i className="fab fa-linkedin-in"></i>
             </MDBBtn>
 
-            <MDBBtn href="https://github.com/AD-nah" tag="a" floating className="mx-1 mb-0 btn-tw">
+            <MDBBtn href="https://github.com/AD-nah" tag="a" floating="true" className="mx-1 mb-0 btn-tw">
               <MDBIcon size="lg" fab icon="github" />
             </MDBBtn>
           </MDBCol>
@@ -62,10 +62,10 @@ const About = () => {
               Wissam-Bashir
               </h4>
             <h6 className="text-uppercase grey-text mb-3">Web Developer</h6>
-            <MDBBtn tag="a" floating className="mx-1 mb-0 btn-li">
+            <MDBBtn tag="a" floating="true" className="mx-1 mb-0 btn-li">
               <i className="fab fa-linkedin-in"></i>
             </MDBBtn>
-            <MDBBtn href='https://github.com/w' tag="a" floating className="mx-1 mb-0 btn-tw">
+            <MDBBtn href='https://github.com/w' tag="a" floating="true" className="mx-1 mb-0 btn-tw">
               <MDBIcon size="lg" fab icon="github" />
             </MDBBtn>
 
@@ -87,10 +87,10 @@ const About = () => {
               AD-Suleman
               </h4>
             <h6 className="text-uppercase grey-text mb-3">Web Developer</h6>
-            <MDBBtn href="https://www.linkedin.com/in/ahmed-suleman-aba307190/" tag="a" floating className="mx-1 mb-0 btn-li">
+            <MDBBtn href="https://www.linkedin.com/in/ahmed-suleman-aba307190/" tag="a" floating="true" className="mx-1 mb-0 btn-li">
               <i className="fab fa-linkedin-in"></i>
             </MDBBtn>
-            <MDBBtn href="https://github.com/adsulemann" tag="a" floating className="mx-1 mb-0 btn-tw">
+            <MDBBtn href="https://github.com/adsulemann" tag="a" floating="true" className="mx-1 mb-0 btn-tw">
               <MDBIcon size="lg" fab icon="github" />
             </MDBBtn>
           </MDBCol>

@@ -73,17 +73,17 @@ class Sell extends React.Component {
                     <div className="row-md-6 ml-5">
                         <form onSubmit={(e) => this._handleSubmit(e)}>
                             <div className="form-group">
-                                <label for="exampleFormControlInput1">Product Name</label>
+                                <label htmlFor="exampleFormControlInput1">Product Name</label>
                                 <input type="name" className="form-control" id="exampleFormControlInput1" placeholder="product name" />
                             </div>
                             <div className="form-group">
-                                <label for="exampleFormControlInput1">Price</label>
+                                <label htmlFor="exampleFormControlInput1">Price</label>
                                 <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Inter your Price" />
 
                             </div>
 
                             <div className="form-group">
-                                <label for="exampleFormControlTextarea1">Write your product description</label>
+                                <label htmlFor="exampleFormControlTextarea1">Write your product description</label>
                                 <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                             </div>
 

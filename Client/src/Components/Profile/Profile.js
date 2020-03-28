@@ -55,11 +55,11 @@ import './profile.css'
 import { Switch, Route } from 'react-router-dom';
 import { MDBNav, MDBNavLink, MDBNavItem } from "mdbreact";
 export default class Profile extends Component {
-constructor(props) {
-    super(props)
+    constructor(props) {
+        super(props)
 
-  
-}
+
+    }
 
 
 
@@ -68,11 +68,11 @@ constructor(props) {
             <>
                 <div className="primary-nav ">
 
-                     {/* <button href="#" className="hamburger open-panel nav-toggle">
+                    {/* <button href="#" className="hamburger open-panel nav-toggle">
                         <span className="screen-reader-text">Menu</span>
                        
                     </button>  */}
-                   
+
 
                     <nav role="navigation" className="menu ">
 
@@ -85,28 +85,32 @@ constructor(props) {
                                 {/* <li><a href="#">Dashboard</a><span class="icon"><i class="fa fa-dashboard"></i></span></li> */}
 
                                 <li className="menu-hasdropdown">
-                                    <MDBNavItem>
+                                    
                                         <MDBNavLink to="/profile/edit">Edit your Profile</MDBNavLink>
-                                    </MDBNavItem>
+                                    
                                     {/* <span><i className="fa fa-gear"></i></span> */}
- 
+
 
                                 </li>
 
-                                <li>       <MDBNavItem>
-                                    <MDBNavLink  to="/profile/sell">Sell</MDBNavLink>
-                                </MDBNavItem><span className="icon"><i class="fas fa-dollar-sign"></i></span></li>
+                                <li>      
+                                    <MDBNavLink to="/profile/sell">Sell</MDBNavLink>
+                                <span className="icon"><i className="fas fa-dollar-sign"></i></span>
+                                
+                                </li>
 
-                                <li>   <MDBNavItem>
-                                    <MDBNavLink  to="/profile/bought">Bought</MDBNavLink>
-                                </MDBNavItem><span className="icon"><i class="fas fa-euro-sign"></i></span></li>
+                                <li>   
+                                    <MDBNavLink to="/profile/bought">Bought</MDBNavLink>
+                                <span className="icon"><i className="fas fa-euro-sign"></i></span>
+                                
+                                </li>
 
                             </ul>
 
                         </div>
 
                     </nav>
-                    
+
                 </div>
                 <Switch>
                     <Route path="/profile/edit" component={Edit} />
@@ -114,7 +118,7 @@ constructor(props) {
                     <Route path="/profile/bought" component={Bought} />
                 </Switch>
 
-                
+
             </>
         )
     }

@@ -81,10 +81,10 @@ class Edit extends React.Component {
 
   render() {
     return (
-      <div class="container regFormContainer">
+      <div className="container regFormContainer">
       <form className="regFormContainer" onSubmit={this.onSubmit}>
-        <div class="row" >
-          <div class="col-md-6">
+        <div className="row" >
+          <div className="col-md-6">
             {this.state.loading && <SemipolarLoading />}
             {this.state.errors.registerError && (
               <ErrorMessage text={this.state.errors.registerError} />
