@@ -1,4 +1,5 @@
-import React, { Component, Link } from 'react';
+import React, { Component} from 'react';
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import empty from './images/emptyb.png';
 import paypal from './images/paypal.png';
@@ -10,6 +11,7 @@ import { removeFromBasketAction } from '../../Redux/Actions/basket'
 import {sendFromBasketToFavoriteAction} from '../../Redux/Actions/basket'
 import SuccessMessage from '../Messages/SuccessMessage'
 import decode from 'jwt-decode'
+
 
 class Chart extends Component {
   constructor(props) {
@@ -95,13 +97,12 @@ class Chart extends Component {
      })
   }
 
-
+ 
   sendToFavorite(item){
 
     this.props.sendFromBasketToFavoriteAction(item).then(message => {
       this.setState({addedToFavorite : true, addedToFavoriteMessage: message });
       setTimeout(() =>  this.setState({ addedToFavorite: false }), 100);
-
 
       removeFromBasketAction(item).then(message => {
            this.setState(prevState => ({
@@ -111,7 +112,6 @@ class Chart extends Component {
            }))
            setTimeout(()=> this.setState({removedFromBasket:false}),200)
       })
-
 
     }).catch(message => {
       this.setState({alreadyInFavorite : true, alreadyInFavoriteMessage: message });
@@ -152,8 +152,8 @@ class Chart extends Component {
                     <img className="img-fluid" src={empty} style={{ height: "50vh" }} />
                   </div>
                   <div className="col-md-6 text-center">
-                    <button type="button"
-                      className="btn btn-info btn-rounded btn-sm my-0 ">Go back to Product</button>
+  
+                      <Link to = '/products/women'>Go back to Product</Link>
                   </div>
                 </div>
               </div>
