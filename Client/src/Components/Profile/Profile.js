@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import Bought from './Bought/Bought';
+import Ordered from './Ordered/Ordered';
 import Edit from './Edit/Edit';
 import Sell from './Sell/Sell';
+
 
 import { Switch, Route } from 'react-router-dom';
 import { MDBNavLink, MDBNavItem } from "mdbreact";
@@ -15,7 +16,9 @@ export default class Profile extends Component {
     render() {
         return (
             <>
+            {/* please dont delete it */}
 
+                {/* 
                 <div className="containe ">
                     <div className="row">
                      
@@ -70,9 +73,7 @@ export default class Profile extends Component {
                     </div>
 
                 </div>
-
-
-
+                */}
 
 
 
@@ -99,7 +100,7 @@ export default class Profile extends Component {
 
                             <li>
                                 <MDBNavItem>
-                                    <MDBNavLink to="/profile/bought">Bought</MDBNavLink>
+                                    <MDBNavLink to="/profile/ordered">Ordered</MDBNavLink>
                                 </MDBNavItem><span className="icon"><i class="fas fa-arrows-alt-h"></i></span></li>
                         </ul>
 
@@ -115,7 +116,8 @@ export default class Profile extends Component {
                     <Switch>
                         <Route path="/profile/edit" component={Edit} />
                         <Route path="/profile/sell" component={Sell} />
-                        <Route path="/profile/bought" component={Bought} />
+                        
+                        <Route path="/profile/ordered" component={Ordered} />
                     </Switch>
                 </div>
             </>
