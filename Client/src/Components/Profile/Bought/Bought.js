@@ -3,6 +3,7 @@ import img from "../../../imgs/wissam.jpeg";
 
 import './bought.css'
 
+
 export default class Bought extends Component {
 
   render() {

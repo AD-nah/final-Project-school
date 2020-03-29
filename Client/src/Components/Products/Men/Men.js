@@ -97,7 +97,7 @@ class Men extends React.Component {
     starMaker(n) {
         let stars = []
         for (let i = 0; i < n; i++) {
-            stars.push(<li className="fa fa-star"></li>)
+            stars.push(<li key={i} className="fa fa-star"></li>)
         }
         return stars
     }

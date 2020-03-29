@@ -102,71 +102,71 @@ class Sell extends React.Component {
                         <div className="row-md-6 ml-5">
                             <form onSubmit={(e) => this._handleSubmit(e)}>
 
-                                <label for="product_name">Poduct Name</label>
-                                <div class="form-group styled-select">
+                                <label htmlFor="product_name">Poduct Name</label>
+                                <div className="form-group styled-select">
                                   
-                                    <input id="product_name" name="product_name" placeholder="Product Name.." class="form-control input-md" required="" type="text" style={{backgroundColor:""}}/>
+                                    <input id="product_name" name="product_name" placeholder="Product Name.." className="form-control input-md" required="" type="text" style={{backgroundColor:""}}/>
                                   
                                 </div>
 
 
-                                <label for="product_categorie">Category</label>
-                                <div class="form-group styled-select">
+                                <label htmlFor="product_categorie">Category</label>
+                                <div className="form-group styled-select">
                                     <select>
                                         <option>Select Category</option>
                                         <option>The second option</option>
                                         <option>The thrid option</option>
-                                    </select><span class="fa fa-sort-desc"></span>
+                                    </select><span className="fa fa-sort-desc"></span>
                                 </div>
 
 
-                                <label for="available_quantity">Quantity</label>
-                                <div class="form-group styled-select">
+                                <label htmlFor="available_quantity">Quantity</label>
+                                <div className="form-group styled-select">
                                     <select>
                                         <option>Select Quantity</option>
                                         <option>The second option</option>
                                         <option>The thrid option</option>
-                                    </select><span class="fa fa-sort-desc"></span>
+                                    </select><span className="fa fa-sort-desc"></span>
                                 </div>
 
 
-                                <label for="available_quantity">Size</label>
-                                <div class="form-group styled-select">
+                                <label htmlFor="available_quantity">Size</label>
+                                <div className="form-group styled-select">
                                     <select>
                                         <option>Select a size</option>
                                         <option>The second option</option>
                                         <option>The thrid option</option>
-                                    </select><span class="fa fa-sort-desc"></span>
+                                    </select><span className="fa fa-sort-desc"></span>
                                 </div>
 
-                                <label for="percentage_discount">Discount</label>
-                                <div class="form-group styled-select">
+                                <label htmlFor="percentage_discount">Discount</label>
+                                <div className="form-group styled-select">
                                     <select>
                                         <option>Percenage</option>
                                         <option>The second option</option>
                                         <option>The thrid option</option>
-                                    </select><span class="fa fa-sort-desc"></span>
+                                    </select><span className="fa fa-sort-desc"></span>
                                 </div>
 
 
 
-                                <div class="form-group">
-                                    <label for="product_description">Prroduct Description</label>
-                                    <textarea class="form-control" id="product_description" name="product_description"></textarea>
+                                <div className="form-group">
+                                    <label htmlFor="product_description">Prroduct Description</label>
+                                    <textarea className="form-control" id="product_description" name="product_description"></textarea>
                                 </div>
 
 
 
 
-                                <div class="form-group">
-                                    <label for="filebutton">Image 3</label> 
-                                    <input onChange={(e) => this._handleImageChange(e)} id="filebutton" name="filebutton" class="input-file" type="file" />
+                                <div className="form-group">
+                                    <label htmlFor="filebutton">Image 3</label> 
+                                    <input onChange={(e) => this._handleImageChange(e)} id="filebutton" name="filebutton" className="input-file" type="file" />
 
-                                    <label for="filebutton">Image 2</label> 
-                                    <input onChange={(e) => this._handleImageChange2(e)} id="filebutton" name="filebutton" class="input-file" type="file" />
+                                    <label htmlFor="filebutton">Image 2</label> 
+                                    <input onChange={(e) => this._handleImageChange2(e)} id="filebutton" name="filebutton" className="input-file" type="file" />
 
-                                    <label for="filebutton">Image 3</label> 
-                                    <input onChange={(e) => this._handleImageChange3(e)} id="filebutton" name="filebutton" class="input-file" type="file" />
+                                    <label htmlFor="filebutton">Image 3</label> 
+                                    <input onChange={(e) => this._handleImageChange3(e)} id="filebutton" name="filebutton" className="input-file" type="file" />
                                 </div>
 
 

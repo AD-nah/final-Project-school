@@ -72,7 +72,7 @@ class Home extends Component {
             <div className="carousel-item">
               <img className="d-block w-100 carouselimag" src={caro2}
                 alt="Second slide" />
-              <div class="carousel-caption">
+              <div className="carousel-caption">
                 <h3>Slide 2</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia vel in placeat corrupti. Velit quidem eos, accusantium vitae nostrum reiciendis ratione libero? Aperiam, recusandae culpa.</p>
               </div>
@@ -152,8 +152,8 @@ class Home extends Component {
             <div className="row align-items-center">
               <div className="col-lg-6 order-lg-2">
 
-                <header >
-                  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+                <header>
+                  <video playsInline="playsinline" autoPlay="autoplay" muted="muted" loop="loop">
                     <source src={video} type="video/mp4" />
                   </video>
 
@@ -164,8 +164,8 @@ class Home extends Component {
                 <div className="p-5">
                   <h2 className="display-5">– Daily style watch Our favourite looks for you</h2>
                   <p >“Fashion is not something that exists in dresses only. Fashion is in the sky, in the street, fashion has to do with ideas, the way we live, what is happening.”</p>
-                  <a href="#" class="btn-join">
-                    Discover More <i class="fas fa-chevron-right"></i>
+                  <a href="#" className="btn-join">
+                    Discover More <i className="fas fa-chevron-right"></i>
                   </a>
                 </div>
               </div>
@@ -178,28 +178,28 @@ class Home extends Component {
 
 
         {/*shop women Products Carousel sta */}
-        <div class="my-5 text-center container">
-          <div class="womenbox" >
+        <div className="my-5 text-center container">
+          <div className="womenbox" >
             <p className='heartbeat'>Women Shop</p>
           </div>
-          <div class="row d-flex align-items-center">
-            <div class="col-1 d-flex align-items-center justify-content-center">
+          <div className="row d-flex align-items-center">
+            <div className="col-1 d-flex align-items-center justify-content-center">
 
               <a href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <div class="carousel-nav-icon">
-                  <i class="far fa-arrow-alt-circle-left" style={{ fontSize: '50px', color: "black", opacity: '0.5' }}></i>
+                <div className="carousel-nav-icon">
+                  <i className="far fa-arrow-alt-circle-left" style={{ fontSize: '50px', color: "black", opacity: '0.5' }}></i>
                 </div>
               </a>
             </div>
-            <div class="col-10">
+            <div className="col-10">
 
-              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
 
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <div class="row">
+                <div className="carousel-inner">
+                  <div className="carousel-item active">
+                    <div className="row">
 
-                      <div class="col-12 col-md d-flex align-items-center justify-content-center">
+                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
                         {this.state.women.length > 0 ?
                           <img
                             className="pic-1"
@@ -212,7 +212,7 @@ class Home extends Component {
                         }
                       </div>
 
-                      <div class="col-12 col-md d-flex align-items-center justify-content-center">
+                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
                         {this.state.women.length > 0 ?
                           <img
                             className="pic-1"
@@ -225,7 +225,7 @@ class Home extends Component {
                         }
                       </div>
 
-                      <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
+                      <div className="col-12 col-md d-flex align-items-center justify-content-center" className="col-12 col-md d-flex align-items-center justify-content-center">
                         {this.state.women.length > 0 ?
                           <img
                             className="pic-1"
@@ -240,10 +240,10 @@ class Home extends Component {
                     </div>
                   </div>
 
-                  <div class="carousel-item">
-                    <div class="row">
+                  <div className="carousel-item">
+                    <div className="row">
 
-                      <div class="col-12 col-md d-flex align-items-center justify-content-center">
+                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
                         {this.state.women.length > 0 ?
                           <img
                             className="pic-1"
@@ -256,7 +256,7 @@ class Home extends Component {
                         }
                       </div>
 
-                      <div class="col-12 col-md d-flex align-items-center justify-content-center">
+                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
                         {this.state.women.length > 0 ?
                           <img
                             className="pic-1"
@@ -269,7 +269,7 @@ class Home extends Component {
                         }
                       </div>
 
-                      <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
+                      <div className="col-12 col-md d-flex align-items-center justify-content-center" className="col-12 col-md d-flex align-items-center justify-content-center">
                         {this.state.women.length > 0 ?
                           <img
                             className="pic-1"
@@ -288,9 +288,9 @@ class Home extends Component {
               </div>
 
             </div>
-            <div class="col-1 d-flex align-items-center justify-content-center"><a href="#carouselExampleIndicators" data-slide="next">
-              <div class="carousel-nav-icon">
-                <i class="far fa-arrow-alt-circle-right" style={{ fontSize: '50px', color: "black", opacity: '0.5' }}></i>
+            <div className="col-1 d-flex align-items-center justify-content-center"><a href="#carouselExampleIndicators" data-slide="next">
+              <div className="carousel-nav-icon">
+                <i className="far fa-arrow-alt-circle-right" style={{ fontSize: '50px', color: "black", opacity: '0.5' }}></i>
               </div>
             </a>
             </div>
@@ -306,7 +306,7 @@ class Home extends Component {
             <div className="col-md-4 col-lg-6 ">
 
               <header className="oceanheader">
-                <video autoPlay playsinline muted loop preload poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/oceanshot.jpg">
+                <video autoPlay playsInline muted loop preload="true" poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/oceanshot.jpg">
                   <source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ocean-small.webm" />
                   <source src="http://thenewcode.com/assets/videos/ocean-small.mp4" />
                 </video>
@@ -332,27 +332,27 @@ class Home extends Component {
 
 
         {/*Products men Carousel  */}
-        <div class="my-5 text-center container">
-          <div class="menbox" >
+        <div className="my-5 text-center container">
+          <div className="menbox" >
             <p className='heartbeat'>Men Shop</p>
           </div>
-          <div class="row d-flex align-items-center">
-            <div class="col-1 d-flex align-items-center justify-content-center">
+          <div className="row d-flex align-items-center">
+            <div className="col-1 d-flex align-items-center justify-content-center">
               <a href="#carouselExampleIndicators2" role="button" data-slide="prev">
-                <div class="carousel-nav-icon">
-                  <i class="far fa-arrow-alt-circle-left" style={{ fontSize: '50px', color: "black", opacity: '0.5' }}></i>
+                <div className="carousel-nav-icon">
+                  <i className="far fa-arrow-alt-circle-left" style={{ fontSize: '50px', color: "black", opacity: '0.5' }}></i>
                 </div>
               </a>
             </div>
 
-            <div class="col-10">
-              <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+            <div className="col-10">
+              <div id="carouselExampleIndicators2" className="carousel slide" data-ride="carousel">
 
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <div class="row">
+                <div className="carousel-inner">
+                  <div className="carousel-item active">
+                    <div className="row">
 
-                      <div class="col-12 col-md d-flex align-items-center justify-content-center">
+                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
                         {this.state.men.length > 0 ?
                           <img
                             className="pic-1"
@@ -365,7 +365,7 @@ class Home extends Component {
                         }
                       </div>
 
-                      <div class="col-12 col-md d-flex align-items-center justify-content-center">
+                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
                         {this.state.men.length > 0 ?
                           <img
                             className="pic-1"
@@ -378,7 +378,7 @@ class Home extends Component {
                         }
                       </div>
 
-                      <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
+                      <div className="col-12 col-md d-flex align-items-center justify-content-center" className="col-12 col-md d-flex align-items-center justify-content-center">
                         {this.state.men.length > 0 ?
                           <img
                             className="pic-1"
@@ -393,10 +393,10 @@ class Home extends Component {
                     </div>
                   </div>
 
-                  <div class="carousel-item">
-                    <div class="row">
+                  <div className="carousel-item">
+                    <div className="row">
 
-                      <div class="col-12 col-md d-flex align-items-center justify-content-center">
+                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
                         {this.state.men.length > 0 ?
                           <img
                             className="pic-1"
@@ -409,7 +409,7 @@ class Home extends Component {
                         }
                       </div>
 
-                      <div class="col-12 col-md d-flex align-items-center justify-content-center">
+                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
                         {this.state.men.length > 0 ?
                           <img
                             className="pic-1"
@@ -422,7 +422,7 @@ class Home extends Component {
                         }
                       </div>
 
-                      <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
+                      <div className="col-12 col-md d-flex align-items-center justify-content-center" className="col-12 col-md d-flex align-items-center justify-content-center">
                         {this.state.men.length > 0 ?
                           <img
                             className="pic-1"
@@ -441,9 +441,9 @@ class Home extends Component {
               </div>
             </div>
 
-            <div class="col-1 d-flex align-items-center justify-content-center"><a href="#carouselExampleIndicators2" data-slide="next">
-              <div class="carousel-nav-icon">
-                <i class="far fa-arrow-alt-circle-right" style={{ fontSize: '50px', color: "black", opacity: '0.5' }}></i>
+            <div className="col-1 d-flex align-items-center justify-content-center"><a href="#carouselExampleIndicators2" data-slide="next">
+              <div className="carousel-nav-icon">
+                <i className="far fa-arrow-alt-circle-right" style={{ fontSize: '50px', color: "black", opacity: '0.5' }}></i>
               </div>
             </a>
             </div>
@@ -473,8 +473,8 @@ class Home extends Component {
             <div className="col-md-6 text-center mt-5">
               <h2 className="display-5">– Got talent to Rework?<br /> Scount is your right PLace to share your skills </h2>
               <p >“Fashion is not something that exists in dresses only. Fashion is in the sky, in the street, fashion has to do with ideas”</p>
-              <a href="#" class="btn-join">
-                Register now  <i class="fas fa-chevron-right"></i>
+              <a href="#" className="btn-join">
+                Register now  <i className="fas fa-chevron-right"></i>
               </a>
             </div>
           </div>
@@ -497,52 +497,52 @@ class Home extends Component {
 
 
         {/*Products Second Hand Carousel  */}
-        <div class="my-5 text-center container">
-          <div class="Secondhandbox" >
+        <div className="my-5 text-center container">
+          <div className="Secondhandbox" >
             <p className='heartbeat'> Reworked</p>
           </div>
-          <div class="row d-flex align-items-center">
-            <div class="col-1 d-flex align-items-center justify-content-center">
+          <div className="row d-flex align-items-center">
+            <div className="col-1 d-flex align-items-center justify-content-center">
               <a href="#carouselExampleIndicators3" role="button" data-slide="prev">
-                <div class="carousel-nav-icon">
-                  <i class="far fa-arrow-alt-circle-left" style={{ fontSize: '50px', color: "black", opacity: '0.5' }}></i>
+                <div className="carousel-nav-icon">
+                  <i className="far fa-arrow-alt-circle-left" style={{ fontSize: '50px', color: "black", opacity: '0.5' }}></i>
                 </div>
               </a>
             </div>
 
-            <div class="col-10">
-              <div id="carouselExampleIndicators3" class="carousel slide" data-ride="carousel">
+            <div className="col-10">
+              <div id="carouselExampleIndicators3" className="carousel slide" data-ride="carousel">
 
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <div class="row">
+                <div className="carousel-inner">
+                  <div className="carousel-item active">
+                    <div className="row">
 
-                      <div class="col-12 col-md d-flex align-items-center justify-content-center">
+                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
                         First Pic
                     </div>
 
-                      <div class="col-12 col-md d-flex align-items-center justify-content-center">
+                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
                         Second Pic
                     </div>
 
-                      <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
+                      <div className="col-12 col-md d-flex align-items-center justify-content-center" className="col-12 col-md d-flex align-items-center justify-content-center">
                         Third Pic
                     </div>
                     </div>
                   </div>
 
-                  <div class="carousel-item">
-                    <div class="row">
+                  <div className="carousel-item">
+                    <div className="row">
 
-                      <div class="col-12 col-md d-flex align-items-center justify-content-center">
+                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
                         Forth Pic
                       </div>
 
-                      <div class="col-12 col-md d-flex align-items-center justify-content-center">
+                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
                         Fifth Pic
                       </div>
 
-                      <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
+                      <div className="col-12 col-md d-flex align-items-center justify-content-center" className="col-12 col-md d-flex align-items-center justify-content-center">
                         Sixth Pic
                       </div>
 
@@ -552,9 +552,9 @@ class Home extends Component {
               </div>
             </div>
 
-            <div class="col-1 d-flex align-items-center justify-content-center"><a href="#carouselExampleIndicators3" data-slide="next">
-              <div class="carousel-nav-icon">
-                <i class="far fa-arrow-alt-circle-right" style={{ fontSize: '50px', color: "black", opacity: '0.5' }}></i>
+            <div className="col-1 d-flex align-items-center justify-content-center"><a href="#carouselExampleIndicators3" data-slide="next">
+              <div className="carousel-nav-icon">
+                <i className="far fa-arrow-alt-circle-right" style={{ fontSize: '50px', color: "black", opacity: '0.5' }}></i>
               </div>
             </a>
             </div>
@@ -570,7 +570,7 @@ class Home extends Component {
         <br />
 
         {/* payment cards */}
-        <div class="credit-cards" style={{ textAlign: "center", width: "100%", padding: "5px", margin: "5px" }} >
+        <div className="credit-cards" style={{ textAlign: "center", width: "100%", padding: "5px", margin: "5px" }} >
           <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_visa.png" />
           <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_master.png" />
           <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_paypal.png" />

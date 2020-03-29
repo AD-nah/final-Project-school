@@ -77,33 +77,31 @@ export default class Profile extends Component {
 
 
 
+                            <ul className="menu-dropdown">
+                              
+                                <li className="menu-hasdropdown">
+                                    
+                                        <MDBNavLink to="/profile/edit">Edit your Profile</MDBNavLink>
+                                    
+                                    {/* <span><i className="fa fa-gear"></i></span> */}
 
 
-                <div className="primary-nav">
-                    <nav role="navigation" className="menu">
-                        <ul className="menu-dropdown">
+                                </li>
 
-                            <li className="menu-hasdropdown">
-                                <MDBNavItem>
-                                    <MDBNavLink to="/profile/edit">Edit your Profile</MDBNavLink>
-
-                                    <span className="icon"><i class="fas fa-arrows-alt-h"></i></span>
-                                </MDBNavItem>
-
-                            </li>
-
-                            <li>
-                                <MDBNavItem>
+                                <li>      
                                     <MDBNavLink to="/profile/sell">Sell</MDBNavLink>
-                                </MDBNavItem>
-                                <span className="icon"><i class="fas fa-arrows-alt-h"></i></span>
-                            </li>
+                                <span className="icon"><i className="fas fa-dollar-sign"></i></span>
+                                
+                                </li>
 
-                            <li>
-                                <MDBNavItem>
+                                <li>   
                                     <MDBNavLink to="/profile/bought">Bought</MDBNavLink>
-                                </MDBNavItem><span className="icon"><i class="fas fa-arrows-alt-h"></i></span></li>
-                        </ul>
+                                <span className="icon"><i className="fas fa-euro-sign"></i></span>
+                                
+                                </li>
+
+                            </ul>
+                </div>
 
 
                     </nav>

@@ -115,7 +115,7 @@ class Navbar extends Component {
             <ul className="navbar-nav mr-auto ">
               <li className="nav-item ">
 
-                <Link exact to="/home" >
+                <Link exact="true" to="/home" >
                   Home
                  </Link>
               </li>
@@ -183,23 +183,25 @@ class Navbar extends Component {
                     Account
                     </a>
                   <div className="dropdown-menu flex-column" aria-labelledby="navbarDropdown">
-                  <a>
-                    <Link to="/profile">
-                      <strong>Profile</strong>
-                    </Link>
-                  </a>
 
                   <a>
+                    <Link to="/profile">
+
+<strong>Profile</strong>
+                    </Link>
+                  
+
+                 
                     <Link className="dropdown-item" to="/basket">
                       <strong>My-Basket</strong>
                     </Link>
-                  </a>
+                   
 
-                  <a>
+                  
                   <Link to="/favorites">
                       <strong>Favorites</strong>
                     </Link>
-                  </a>
+                  
                   
                   </div>
                 </div>
