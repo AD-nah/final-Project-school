@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import Bought from './Bought/Bought';
+import Ordered from './Ordered/Ordered';
 import Edit from './Edit/Edit';
 import Sell from './Sell/Sell';
 import './profile.css'
+
 
 import { Switch, Route } from 'react-router-dom';
 import { MDBNavLink, MDBNavItem } from "mdbreact";
@@ -16,10 +17,12 @@ export default class Profile extends Component {
     render() {
         return (
             <>
+                {/* please dont delete it */}
 
                 <div className="containe ">
                     <div className="row">
-                     
+
+                        {/*
                             <div className="col-md-8 ">
                                 <img className="img-fluid" src="http://placehold.it/550x300" alt="" />
                             </div>
@@ -35,9 +38,7 @@ export default class Profile extends Component {
                                     <li>Adipiscing Elit</li>
                                 </ul>
                             </div>
-                       
                     </div>
-
 
 
                     <h3 class="my-4">You may like </h3>
@@ -71,11 +72,17 @@ export default class Profile extends Component {
                     </div>
 
                 </div>
+                */}
 
 
+                        <nav>
+                            <ul className="menu-dropdown">
 
+                                <li className="menu-hasdropdown">
 
+                                    <MDBNavLink to="/profile/edit">Edit your Profile</MDBNavLink>
 
+                                    {/* <span><i className="fa fa-gear"></i></span> */}
 
 
 
@@ -83,33 +90,23 @@ export default class Profile extends Component {
                     <nav role="navigation" className="menu">
                         <ul className="menu-dropdown">
 
-                            <li className="menu-hasdropdown">
-                                <MDBNavItem>
-                                    <MDBNavLink to="/profile/edit">Edit your Profile</MDBNavLink>
-
-                                    <span className="icon"><i class="fas fa-arrows-alt-h"></i></span>
-                                </MDBNavItem>
-
-                            </li>
-
-                            <li>
-                                <MDBNavItem>
+                                <li>
                                     <MDBNavLink to="/profile/sell">Sell</MDBNavLink>
-                                </MDBNavItem>
-                                <span className="icon"><i class="fas fa-arrows-alt-h"></i></span>
-                            </li>
+                                    <span className="icon"><i className="fas fa-dollar-sign"></i></span>
 
-                            <li>
-                                <MDBNavItem>
-                                    <MDBNavLink to="/profile/bought">Bought</MDBNavLink>
-                                </MDBNavItem><span className="icon"><i class="fas fa-arrows-alt-h"></i></span></li>
-                        </ul>
+                                </li>
+
+                                <li>
+                                    <MDBNavItem>
+                                        <MDBNavLink to="/profile/ordered">Ordered</MDBNavLink>
+                                    </MDBNavItem><span className="icon"><i class="fas fa-arrows-alt-h"></i></span></li>
+                            </ul>
 
 
-                    </nav>
+                        </nav>
 
+                    </div >
                 </div>
-
 
 
 
@@ -119,11 +116,10 @@ export default class Profile extends Component {
                     <Switch>
                         <Route path="/profile/edit" component={Edit} />
                         <Route path="/profile/sell" component={Sell} />
-                        <Route path="/profile/bought" component={Bought} />
+                        <Route path="/profile/ordered" component={Ordered} />
                     </Switch>
                 </div>
             </>
-
         )
     }
 }

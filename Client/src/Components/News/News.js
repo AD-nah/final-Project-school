@@ -3,7 +3,7 @@ import kleidung from './newsPhoto/kleidung.jpg';
 import kleidung1 from './newsPhoto/kleidung1.jpg';
 import kleidung2 from './newsPhoto/kleidung2.jpg';
 import kleidung3 from './newsPhoto/kleidung3.jpg';
-import { BackTop } from 'antd';
+
 import api from '../../APIs/AuthApi';
 
 
@@ -102,15 +102,6 @@ export default class News extends Component {
                         </div>
 
 
-
-                        {/* Back to top btn */}
-                        <div>
-                            <BackTop>
-
-                                <i className="fas fa-angle-double-up" style={{ color: "orange", fontSize: "40px" }}></i>
-
-                            </BackTop>
-                        </div>
 
 
                         <a className="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">

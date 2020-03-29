@@ -16,8 +16,10 @@ import caro5 from './imgCarousel/d-men3.jpg';
 import caro6 from './imgCarousel/d-women3.jpg';
 
 
-import { BackTop } from 'antd';
 
+
+import Carousel, { Dots } from '@brainhubeu/react-carousel';
+import '@brainhubeu/react-carousel/lib/style.css';
 
 
 class Home extends Component {
@@ -49,6 +51,8 @@ class Home extends Component {
       <>
 
 
+
+
         {/*Started Carosel */}
         <div id="carousel-example-1z" className="carousel slide carousel-fade" data-ride="carousel">
 
@@ -72,10 +76,6 @@ class Home extends Component {
             <div className="carousel-item">
               <img className="d-block w-100 carouselimag" src={caro2}
                 alt="Second slide" />
-              <div className="carousel-caption">
-                <h3>Slide 2</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia vel in placeat corrupti. Velit quidem eos, accusantium vitae nostrum reiciendis ratione libero? Aperiam, recusandae culpa.</p>
-              </div>
             </div>
 
             <div className="carousel-item">
@@ -182,121 +182,114 @@ class Home extends Component {
           <div className="womenbox" >
             <p className='heartbeat'>Women Shop</p>
           </div>
-          <div className="row d-flex align-items-center">
-            <div className="col-1 d-flex align-items-center justify-content-center">
 
-              <a href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <div className="carousel-nav-icon">
-                  <i className="far fa-arrow-alt-circle-left" style={{ fontSize: '50px', color: "black", opacity: '0.5' }}></i>
-                </div>
-              </a>
+          {/*more info: https://brainhubeu.github.io/react-carousel/ */}
+          <Carousel
+            slidesPerPage={4}
+            autoPlay={3000}
+            animationSpeed={1000}
+            infinite
+            arrows
+            dots
+            arrowLeft={<i class="fas fa-arrow-left"></i>}
+            arrowRight={<i class="fas fa-arrow-right"></i>}
+            addArrowClickHandler
+
+            //media  Quiries
+            breakpoints={{
+              640: {
+                slidesPerPage: 1,
+                arrows: false
+              },
+              900: {
+                slidesPerPage: 2,
+                arrows: false
+              }
+            }}
+          >
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
+              {this.state.women.length > 0 ?
+                <img
+                  className="pic-1"
+                  style={{ maxHeight: "400px" }}
+                  src={this.state.women[0].images.protoTypes[0]}
+                />
+
+                :
+                <h1>Loading image...</h1>
+              }
             </div>
-            <div className="col-10">
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
+              {this.state.women.length > 0 ?
+                <img
+                  className="pic-1"
+                  style={{ maxHeight: "400px" }}
+                  src={this.state.women[1].images.protoTypes[0]}
+                />
 
-              <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
-
-                <div className="carousel-inner">
-                  <div className="carousel-item active">
-                    <div className="row">
-
-                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
-                        {this.state.women.length > 0 ?
-                          <img
-                            className="pic-1"
-                            style={{ maxHeight: "400px" }}
-                            src={this.state.women[0].images.protoTypes[0]}
-                          />
-
-                          :
-                          <h1>Loading image...</h1>
-                        }
-                      </div>
-
-                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
-                        {this.state.women.length > 0 ?
-                          <img
-                            className="pic-1"
-                            style={{ maxHeight: "400px" }}
-                            src={this.state.women[1].images.protoTypes[0]}
-                          />
-
-                          :
-                          <h1>Loading iamge...</h1>
-                        }
-                      </div>
-
-                      <div className="col-12 col-md d-flex align-items-center justify-content-center" className="col-12 col-md d-flex align-items-center justify-content-center">
-                        {this.state.women.length > 0 ?
-                          <img
-                            className="pic-1"
-                            style={{ maxHeight: "400px" }}
-                            src={this.state.women[2].images.protoTypes[0]}
-                          />
-
-                          :
-                          <h1>Loading iamge...</h1>
-                        }
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="carousel-item">
-                    <div className="row">
-
-                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
-                        {this.state.women.length > 0 ?
-                          <img
-                            className="pic-1"
-                            style={{ maxHeight: "400px" }}
-                            src={this.state.women[3].images.protoTypes[0]}
-                          />
-
-                          :
-                          <h1>Loading iamge...</h1>
-                        }
-                      </div>
-
-                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
-                        {this.state.women.length > 0 ?
-                          <img
-                            className="pic-1"
-                            style={{ maxHeight: "400px" }}
-                            src={this.state.women[4].images.protoTypes[0]}
-                          />
-
-                          :
-                          <h1>Loading iamge...</h1>
-                        }
-                      </div>
-
-                      <div className="col-12 col-md d-flex align-items-center justify-content-center" className="col-12 col-md d-flex align-items-center justify-content-center">
-                        {this.state.women.length > 0 ?
-                          <img
-                            className="pic-1"
-                            style={{ maxHeight: "400px" }}
-                            src={this.state.women[5].images.protoTypes[0]}
-                          />
-
-                          :
-                          <h1>Loading</h1>
-                        }
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+                :
+                <h1>Loading iamge...</h1>
+              }
             </div>
-            <div className="col-1 d-flex align-items-center justify-content-center"><a href="#carouselExampleIndicators" data-slide="next">
-              <div className="carousel-nav-icon">
-                <i className="far fa-arrow-alt-circle-right" style={{ fontSize: '50px', color: "black", opacity: '0.5' }}></i>
-              </div>
-            </a>
+            <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
+              {this.state.women.length > 0 ?
+                <img
+                  className="pic-1"
+                  style={{ maxHeight: "400px" }}
+                  src={this.state.women[2].images.protoTypes[0]}
+                />
+
+                :
+                <h1>Loading iamge...</h1>
+              }
             </div>
-          </div>
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
+              {this.state.women.length > 0 ?
+                <img
+                  className="pic-1"
+                  style={{ maxHeight: "400px" }}
+                  src={this.state.women[3].images.protoTypes[0]}
+                />
+
+                :
+                <h1>Loading iamge...</h1>
+              }
+            </div>
+
+
+
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
+              {this.state.women.length > 0 ?
+                <img
+                  className="pic-1"
+                  style={{ maxHeight: "400px" }}
+                  src={this.state.women[4].images.protoTypes[0]}
+                />
+
+                :
+                <h1>Loading iamge...</h1>
+              }
+            </div>
+
+            <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
+              {this.state.women.length > 0 ?
+                <img
+                  className="pic-1"
+                  style={{ maxHeight: "400px" }}
+                  src={this.state.women[5].images.protoTypes[0]}
+                />
+
+                :
+                <h1>Loading</h1>
+              }
+            </div>
+          </Carousel>
         </div >
         {/* shop women Products Carousel end */}
+
+
+
+
 
 
 
@@ -327,129 +320,123 @@ class Home extends Component {
 
 
 
-
-
-
-
         {/*Products men Carousel  */}
-        <div className="my-5 text-center container">
-          <div className="menbox" >
+        <div class="my-5 text-center container">
+          <div class="womenbox" >
             <p className='heartbeat'>Men Shop</p>
           </div>
-          <div className="row d-flex align-items-center">
-            <div className="col-1 d-flex align-items-center justify-content-center">
-              <a href="#carouselExampleIndicators2" role="button" data-slide="prev">
-                <div className="carousel-nav-icon">
-                  <i className="far fa-arrow-alt-circle-left" style={{ fontSize: '50px', color: "black", opacity: '0.5' }}></i>
-                </div>
-              </a>
+
+          {/*more info: https://brainhubeu.github.io/react-carousel/ */}
+          <Carousel
+            slidesPerPage={4}
+            autoPlay={3000}
+            animationSpeed={1000}
+            infinite
+            arrows
+            dots
+            arrowLeft={<i class="fas fa-arrow-left"></i>}
+            arrowRight={<i class="fas fa-arrow-right"></i>}
+            addArrowClickHandler
+
+            //media  Quiries
+            breakpoints={{
+              640: {
+                slidesPerPage: 1,
+                arrows: false
+              },
+              900: {
+                slidesPerPage: 2,
+                arrows: false
+              }
+            }}
+          >
+
+            <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
+              {this.state.men.length > 0 ?
+                <img
+                  className="pic-1"
+                  style={{ maxHeight: "350px" }}
+                  src={this.state.men[5].images.protoTypes[0]}
+                />
+
+                :
+                <h1>Loading image...</h1>
+              }
             </div>
 
-            <div className="col-10">
-              <div id="carouselExampleIndicators2" className="carousel slide" data-ride="carousel">
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
+              {this.state.men.length > 0 ?
+                <img
+                  className="pic-1"
+                  style={{ maxHeight: "360px" }}
+                  src={this.state.men[4].images.protoTypes[0]}
+                />
 
-                <div className="carousel-inner">
-                  <div className="carousel-item active">
-                    <div className="row">
-
-                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
-                        {this.state.men.length > 0 ?
-                          <img
-                            className="pic-1"
-                            style={{ maxHeight: "360px" }}
-                            src={this.state.men[0].images.protoTypes[0]}
-                          />
-
-                          :
-                          <h1>Loading image...</h1>
-                        }
-                      </div>
-
-                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
-                        {this.state.men.length > 0 ?
-                          <img
-                            className="pic-1"
-                            style={{ maxHeight: "360px" }}
-                            src={this.state.men[1].images.protoTypes[0]}
-                          />
-
-                          :
-                          <h1>Loading image...</h1>
-                        }
-                      </div>
-
-                      <div className="col-12 col-md d-flex align-items-center justify-content-center" className="col-12 col-md d-flex align-items-center justify-content-center">
-                        {this.state.men.length > 0 ?
-                          <img
-                            className="pic-1"
-                            style={{ maxHeight: "360px" }}
-                            src={this.state.men[2].images.protoTypes[0]}
-                          />
-
-                          :
-                          <h1>Loading image...</h1>
-                        }
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="carousel-item">
-                    <div className="row">
-
-                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
-                        {this.state.men.length > 0 ?
-                          <img
-                            className="pic-1"
-                            style={{ maxHeight: "360px" }}
-                            src={this.state.men[3].images.protoTypes[0]}
-                          />
-
-                          :
-                          <h1>Loading image...</h1>
-                        }
-                      </div>
-
-                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
-                        {this.state.men.length > 0 ?
-                          <img
-                            className="pic-1"
-                            style={{ maxHeight: "360px" }}
-                            src={this.state.men[4].images.protoTypes[0]}
-                          />
-
-                          :
-                          <h1>Loading image...</h1>
-                        }
-                      </div>
-
-                      <div className="col-12 col-md d-flex align-items-center justify-content-center" className="col-12 col-md d-flex align-items-center justify-content-center">
-                        {this.state.men.length > 0 ?
-                          <img
-                            className="pic-1"
-                            style={{ maxHeight: "350px" }}
-                            src={this.state.men[5].images.protoTypes[0]}
-                          />
-
-                          :
-                          <h1>Loading image...</h1>
-                        }
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
+                :
+                <h1>Loading image...</h1>
+              }
             </div>
 
-            <div className="col-1 d-flex align-items-center justify-content-center"><a href="#carouselExampleIndicators2" data-slide="next">
-              <div className="carousel-nav-icon">
-                <i className="far fa-arrow-alt-circle-right" style={{ fontSize: '50px', color: "black", opacity: '0.5' }}></i>
-              </div>
-            </a>
+
+
+
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
+              {this.state.men.length > 0 ?
+                <img
+                  className="pic-1"
+                  style={{ maxHeight: "360px" }}
+                  src={this.state.men[3].images.protoTypes[0]}
+                />
+
+                :
+                <h1>Loading image...</h1>
+              }
             </div>
 
-          </div>
+
+            <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
+              {this.state.men.length > 0 ?
+                <img
+                  className="pic-1"
+                  style={{ maxHeight: "360px" }}
+                  src={this.state.men[2].images.protoTypes[0]}
+                />
+
+                :
+                <h1>Loading image...</h1>
+              }
+            </div>
+
+
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
+              {this.state.men.length > 0 ?
+                <img
+                  className="pic-1"
+                  style={{ maxHeight: "360px" }}
+                  src={this.state.men[1].images.protoTypes[0]}
+                />
+
+                :
+                <h1>Loading image...</h1>
+              }
+            </div>
+
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
+              {this.state.men.length > 0 ?
+                <img
+                  className="pic-1"
+                  style={{ maxHeight: "360px" }}
+                  src={this.state.men[0].images.protoTypes[0]}
+                />
+
+                :
+                <h1>Loading image...</h1>
+              }
+            </div>
+
+          </Carousel>
         </div >
+
         {/*Products men Carousel end */}
 
 
@@ -461,9 +448,9 @@ class Home extends Component {
 
 
 
+        {/* reworked BOX */}
 
-
-        <div className="container section-2">
+        < div className="container section-2" >
           <div className="row">
 
             <div className="col-md-6 col-lg-6 ">
@@ -478,7 +465,7 @@ class Home extends Component {
               </a>
             </div>
           </div>
-        </div>
+        </div >
 
 
 
@@ -487,79 +474,126 @@ class Home extends Component {
 
 
 
-        {/* Back to top btn */}
-        <div>
-          <BackTop>
-            <i className="fas fa-angle-double-up" style={{ color: "orange", fontSize: "40px" }}></i>
-          </BackTop>
-        </div>
+      
 
 
 
         {/*Products Second Hand Carousel  */}
-        <div className="my-5 text-center container">
-          <div className="Secondhandbox" >
-            <p className='heartbeat'> Reworked</p>
+        {/*Products men Carousel  */}
+        <div class="my-5 text-center container">
+          <div class="womenbox" >
+            <p className='heartbeat'>Reworked</p>
           </div>
-          <div className="row d-flex align-items-center">
-            <div className="col-1 d-flex align-items-center justify-content-center">
-              <a href="#carouselExampleIndicators3" role="button" data-slide="prev">
-                <div className="carousel-nav-icon">
-                  <i className="far fa-arrow-alt-circle-left" style={{ fontSize: '50px', color: "black", opacity: '0.5' }}></i>
-                </div>
-              </a>
+
+          {/*more info: https://brainhubeu.github.io/react-carousel/ */}
+          <Carousel
+            slidesPerPage={4}
+            autoPlay={3000}
+            animationSpeed={1000}
+            infinite
+            arrows
+            dots
+            arrowLeft={<i class="fas fa-arrow-left"></i>}
+            arrowRight={<i class="fas fa-arrow-right"></i>}
+            addArrowClickHandler
+
+            //media  Quiries
+            breakpoints={{
+              640: {
+                slidesPerPage: 1,
+                arrows: false
+              },
+              900: {
+                slidesPerPage: 2,
+                arrows: false
+              }
+            }}
+          >
+
+            <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
+              {this.state.men.length > 0 ?
+                <img
+                  className="pic-1"
+                  style={{ maxHeight: "350px" }}
+                  src={this.state.men[5].images.protoTypes[0]}
+                />
+
+                :
+                <h1>Loading image...</h1>
+              }
             </div>
 
-            <div className="col-10">
-              <div id="carouselExampleIndicators3" className="carousel slide" data-ride="carousel">
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
+              {this.state.men.length > 0 ?
+                <img
+                  className="pic-1"
+                  style={{ maxHeight: "360px" }}
+                  src={this.state.men[4].images.protoTypes[0]}
+                />
 
-                <div className="carousel-inner">
-                  <div className="carousel-item active">
-                    <div className="row">
-
-                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
-                        First Pic
-                    </div>
-
-                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
-                        Second Pic
-                    </div>
-
-                      <div className="col-12 col-md d-flex align-items-center justify-content-center" className="col-12 col-md d-flex align-items-center justify-content-center">
-                        Third Pic
-                    </div>
-                    </div>
-                  </div>
-
-                  <div className="carousel-item">
-                    <div className="row">
-
-                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
-                        Forth Pic
-                      </div>
-
-                      <div className="col-12 col-md d-flex align-items-center justify-content-center">
-                        Fifth Pic
-                      </div>
-
-                      <div className="col-12 col-md d-flex align-items-center justify-content-center" className="col-12 col-md d-flex align-items-center justify-content-center">
-                        Sixth Pic
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
+                :
+                <h1>Loading image...</h1>
+              }
             </div>
 
-            <div className="col-1 d-flex align-items-center justify-content-center"><a href="#carouselExampleIndicators3" data-slide="next">
-              <div className="carousel-nav-icon">
-                <i className="far fa-arrow-alt-circle-right" style={{ fontSize: '50px', color: "black", opacity: '0.5' }}></i>
-              </div>
-            </a>
+
+
+
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
+              {this.state.men.length > 0 ?
+                <img
+                  className="pic-1"
+                  style={{ maxHeight: "360px" }}
+                  src={this.state.men[3].images.protoTypes[0]}
+                />
+
+                :
+                <h1>Loading image...</h1>
+              }
             </div>
 
-          </div>
+
+            <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
+              {this.state.men.length > 0 ?
+                <img
+                  className="pic-1"
+                  style={{ maxHeight: "360px" }}
+                  src={this.state.men[2].images.protoTypes[0]}
+                />
+
+                :
+                <h1>Loading image...</h1>
+              }
+            </div>
+
+
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
+              {this.state.men.length > 0 ?
+                <img
+                  className="pic-1"
+                  style={{ maxHeight: "360px" }}
+                  src={this.state.men[1].images.protoTypes[0]}
+                />
+
+                :
+                <h1>Loading image...</h1>
+              }
+            </div>
+
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
+              {this.state.men.length > 0 ?
+                <img
+                  className="pic-1"
+                  style={{ maxHeight: "360px" }}
+                  src={this.state.men[0].images.protoTypes[0]}
+                />
+
+                :
+                <h1>Loading image...</h1>
+              }
+            </div>
+
+          </Carousel>
         </div >
         {/*Products SecondHand Carousel end */}
 
