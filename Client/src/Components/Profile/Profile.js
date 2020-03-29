@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Bought from './Bought/Bought';
 import Edit from './Edit/Edit';
 import Sell from './Sell/Sell';
+import './profile.css'
 
 import { Switch, Route } from 'react-router-dom';
 import { MDBNavLink, MDBNavItem } from "mdbreact";
@@ -85,6 +86,7 @@ export default class Profile extends Component {
                             <li className="menu-hasdropdown">
                                 <MDBNavItem>
                                     <MDBNavLink to="/profile/edit">Edit your Profile</MDBNavLink>
+
                                     <span className="icon"><i class="fas fa-arrows-alt-h"></i></span>
                                 </MDBNavItem>
 
@@ -103,9 +105,11 @@ export default class Profile extends Component {
                                 </MDBNavItem><span className="icon"><i class="fas fa-arrows-alt-h"></i></span></li>
                         </ul>
 
+
                     </nav>
 
                 </div>
+
 
 
 
