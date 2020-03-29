@@ -49,7 +49,7 @@ export default class News extends Component {
 
 
     render() {
-        console.log(this.state.news)
+        //console.log(this.state.news)
         let news1 = null
 
         if (this.state.news.length > 0) {

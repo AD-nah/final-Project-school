@@ -76,7 +76,6 @@ class Home extends Component {
             <div className="carousel-item">
               <img className="d-block w-100 carouselimag" src={caro2}
                 alt="Second slide" />
-
             </div>
 
             <div className="carousel-item">
@@ -153,8 +152,8 @@ class Home extends Component {
             <div className="row align-items-center">
               <div className="col-lg-6 order-lg-2">
 
-                <header >
-                  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+                <header>
+                  <video playsInline="playsinline" autoPlay="autoplay" muted="muted" loop="loop">
                     <source src={video} type="video/mp4" />
                   </video>
 
@@ -165,8 +164,8 @@ class Home extends Component {
                 <div className="p-5">
                   <h2 className="display-5">– Daily style watch Our favourite looks for you</h2>
                   <p >“Fashion is not something that exists in dresses only. Fashion is in the sky, in the street, fashion has to do with ideas, the way we live, what is happening.”</p>
-                  <a href="#" class="btn-join">
-                    Discover More <i class="fas fa-chevron-right"></i>
+                  <a href="#" className="btn-join">
+                    Discover More <i className="fas fa-chevron-right"></i>
                   </a>
                 </div>
               </div>
@@ -179,8 +178,8 @@ class Home extends Component {
 
 
         {/*shop women Products Carousel sta */}
-        <div class="my-5 text-center container">
-          <div class="womenbox" >
+        <div className="my-5 text-center container">
+          <div className="womenbox" >
             <p className='heartbeat'>Women Shop</p>
           </div>
 
@@ -300,7 +299,7 @@ class Home extends Component {
             <div className="col-md-4 col-lg-6 ">
 
               <header className="oceanheader">
-                <video autoPlay playsinline muted loop preload poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/oceanshot.jpg">
+                <video autoPlay playsInline muted loop preload="true" poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/oceanshot.jpg">
                   <source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ocean-small.webm" />
                   <source src="http://thenewcode.com/assets/videos/ocean-small.mp4" />
                 </video>
@@ -461,8 +460,8 @@ class Home extends Component {
             <div className="col-md-6 text-center mt-5">
               <h2 className="display-5">– Got talent to Rework?<br /> Scount is your right PLace to share your skills </h2>
               <p >“Fashion is not something that exists in dresses only. Fashion is in the sky, in the street, fashion has to do with ideas”</p>
-              <a href="#" class="btn-join">
-                Register now  <i class="fas fa-chevron-right"></i>
+              <a href="#" className="btn-join">
+                Register now  <i className="fas fa-chevron-right"></i>
               </a>
             </div>
           </div>
@@ -605,7 +604,7 @@ class Home extends Component {
         <br />
 
         {/* payment cards */}
-        <div class="credit-cards" style={{ textAlign: "center", width: "100%", padding: "5px", margin: "5px" }} >
+        <div className="credit-cards" style={{ textAlign: "center", width: "100%", padding: "5px", margin: "5px" }} >
           <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_visa.png" />
           <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_master.png" />
           <img style={{ height: "40px", padding: "5px", margin: "5px" }} src="https://shoplineimg.com/assets/footer/card_paypal.png" />

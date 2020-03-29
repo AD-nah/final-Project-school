@@ -11,7 +11,8 @@ import { BackTop } from 'antd';
 export default class App extends Component {
   render() {
     return (
-        <div  className="App" style = {{marginTop: '35px'}} >
+      <>
+        <div className="App" style={{marginTop: '35px'}} >
           <Nav/>
             {/* Back to top btn */}
 
@@ -20,7 +21,9 @@ export default class App extends Component {
         </BackTop>
 
           <Footer/>
+        
         </div>
+        </>
     )
   }
 }
