@@ -77,31 +77,33 @@ export default class Profile extends Component {
 
 
 
-                            <ul className="menu-dropdown">
-                              
-                                <li className="menu-hasdropdown">
-                                    
-                                        <MDBNavLink to="/profile/edit">Edit your Profile</MDBNavLink>
-                                    
-                                    {/* <span><i className="fa fa-gear"></i></span> */}
 
 
-                                </li>
+                <div className="primary-nav">
+                    <nav role="navigation" className="menu">
+                        <ul className="menu-dropdown">
 
-                                <li>      
+                            <li className="menu-hasdropdown">
+                                <MDBNavItem>
+                                    <MDBNavLink to="/profile/edit">Edit your Profile</MDBNavLink>
+
+                                    <span className="icon"><i class="fas fa-arrows-alt-h"></i></span>
+                                </MDBNavItem>
+
+                            </li>
+
+                            <li>
+                                <MDBNavItem>
                                     <MDBNavLink to="/profile/sell">Sell</MDBNavLink>
-                                <span className="icon"><i className="fas fa-dollar-sign"></i></span>
-                                
-                                </li>
+                                </MDBNavItem>
+                                <span className="icon"><i class="fas fa-arrows-alt-h"></i></span>
+                            </li>
 
-                                <li>   
+                            <li>
+                                <MDBNavItem>
                                     <MDBNavLink to="/profile/bought">Bought</MDBNavLink>
-                                <span className="icon"><i className="fas fa-euro-sign"></i></span>
-                                
-                                </li>
-
-                            </ul>
-                </div>
+                                </MDBNavItem><span className="icon"><i class="fas fa-arrows-alt-h"></i></span></li>
+                        </ul>
 
 
                     </nav>
