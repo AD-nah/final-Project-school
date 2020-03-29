@@ -24,13 +24,6 @@ class Edit extends React.Component {
             <div className="container bootstrap snippet">
 
 
-          <div className="row">
-                    <div className="col-sm-10 m-4">
-
-                        <h1>User name</h1>
-                    </div>
-
-
 
                 <div className="row">
                     <div className="col-sm-3">
