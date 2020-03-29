@@ -85,7 +85,10 @@ export default class Profile extends Component {
                                     {/* <span><i className="fa fa-gear"></i></span> */}
 
 
-                                </li>
+
+                <div className="primary-nav">
+                    <nav role="navigation" className="menu">
+                        <ul className="menu-dropdown">
 
                                 <li>
                                     <MDBNavLink to="/profile/sell">Sell</MDBNavLink>
@@ -98,6 +101,7 @@ export default class Profile extends Component {
                                         <MDBNavLink to="/profile/ordered">Ordered</MDBNavLink>
                                     </MDBNavItem><span className="icon"><i class="fas fa-arrows-alt-h"></i></span></li>
                             </ul>
+
 
                         </nav>
 

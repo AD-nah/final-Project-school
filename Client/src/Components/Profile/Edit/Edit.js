@@ -32,6 +32,7 @@ class Edit extends React.Component {
 
 
 
+
                         <div className="row">
                             <div className="col-sm-3">
 

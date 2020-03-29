@@ -186,10 +186,12 @@ class Navbar extends Component {
 
                   <a>
                     <Link to="/profile/edit">
+
                       <strong>Profile</strong>
                     </Link>
 
                     <Link className="dropdown-item" to="/basket">
+
                       <strong>My-Basket</strong>
                     </Link>
 
