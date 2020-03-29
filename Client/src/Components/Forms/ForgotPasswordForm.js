@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import Validator from 'validator'
 import ErrorMessage from '../Messages/ErrorMessage'
 
@@ -46,10 +47,13 @@ validate = (data) => {
   render() {
     return (
 
-      <div>
+      <div >
         {/* rest the password  form*/}
         <br/>
-        <h4 className="text-center">
+        <hr/>
+
+
+        <h4 className="text-center" >
           Forgot your password ?
         </h4>
         <form onSubmit = {this.onSubmit} accept-charset="UTF-8" role="form" id="login-recordar">
@@ -66,6 +70,7 @@ validate = (data) => {
                onChange={this.onChange}
                value={this.state.data.email}
             />
+
             {this.state.errors.email && <ErrorMessage text={this.state.errors.email} />}
 
             {this.state.errors.notFound && <ErrorMessage text = {this.state.errors.notFound}/>}
@@ -75,7 +80,8 @@ validate = (data) => {
             </button>
    
    
-          </fieldset>
+
+      </fieldset>
         </form>
       </div>
 
