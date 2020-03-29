@@ -4,6 +4,8 @@ import Nav from '../src/Components/Nav';
 import Footer from "./Components/Footer/Footer";
 
 
+import { BackTop } from 'antd';
+
 
 
 export default class App extends Component {
@@ -11,7 +13,12 @@ export default class App extends Component {
     return (
         <div  className="App" style = {{marginTop: '35px'}} >
           <Nav/>
-          
+            {/* Back to top btn */}
+
+        <BackTop style={{ backgroundColor: 'grey', opacity: '0.8', color: 'white', fontSize: '20px', width: "6%", textAlign: 'center', fontWeight: '700' }}>
+          Scroll top
+        </BackTop>
+
           <Footer/>
         </div>
     )
