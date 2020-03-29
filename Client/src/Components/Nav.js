@@ -183,10 +183,11 @@ class Navbar extends Component {
                     Account
                     </a>
                   <div className="dropdown-menu flex-column" aria-labelledby="navbarDropdown">
-                    
-                   
-                    <Link to="/profile/bought">
-                      <strong>Profile</strong>
+
+                  <a>
+                    <Link to="/profile">
+
+<strong>Profile</strong>
                     </Link>
                   
 

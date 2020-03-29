@@ -50,7 +50,17 @@ export const logoutAction  = () => (dispatch) => {
     // }) */
 }
 
+export const forgotPasswordAction  = (data) => (dispatch) => {
 
+        // return api.user.loginRequest(data).then((response) => {
+   
+        //     localStorage.sCount = response.token 
+        //     dispatch(userLoggedIn(response))
+        //     loggedinMessage = true
+   
+        // })
+   }
+   
 export const authMessagesHandler = () => {
     if(loggedinMessage){
         return "loggedinMessage"

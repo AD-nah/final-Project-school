@@ -74,11 +74,9 @@ class Favorits extends Component {
   }
 
   sendToBasket(item){
-
-    console.log('sendToBasket')
     this.props.sendFromFavoriteToBasketAction(item).then(message => {
       this.setState({addedToBasket : true, addedToBasketMessage: message });
-      setTimeout(() =>  this.setState({ addedToBasket: false }), 100);
+      setTimeout(() =>  this.setState({ addedToBasket: false }), 200);
 
       removeFromFavoriteAction(item).then(res => {
         this.setState(prevState => ({
@@ -92,14 +90,12 @@ class Favorits extends Component {
   
        }).catch((res) => {
          this.setState({removedFromFavorite: true, removedFromFavoriteMessage: res})
-         setTimeout(()=> {
-          this.setState({removedFromFavorite:false})
-       },200)
+         setTimeout(()=> this.setState({removedFromFavorite:false}),200)
        })
 
     }).catch(message => {
       this.setState({alreadyInBasket : true, alreadyInBasketMessage: message });
-      setTimeout(() =>  this.setState({ alreadyInBasket: false }), 100);
+      setTimeout(() => this.setState({ alreadyInBasket: false }), 200);
     })
   }
 
@@ -115,10 +111,8 @@ class Favorits extends Component {
 
         <h3 className="card-header text-center font-weight-bold text-uppercase py-4 "><img className="float-right " src={basket}/>your Favorite </h3>
   
-        
         {/*if the chart is empty show this code , if not then show the product*/}
        
-          {console.log('products :', this.state.products)}
           {(!this.state.products || this.state.products.length === 0) &&
             (
               <div className="container">

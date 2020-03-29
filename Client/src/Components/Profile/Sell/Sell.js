@@ -8,7 +8,9 @@ import './sell.css';
 class Sell extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { file: '', imagePreviewUrl: '',
+        this.state = { 
+
+        file: '', imagePreviewUrl: '',
         file2:'',imagePreviewUrl2:'',
         file3:'',imagePreviewUrl3:'',
         };
@@ -87,7 +89,8 @@ class Sell extends React.Component {
 
         return (
             <div className="container Sell-container font-weight-bold">
-                <div className="row m-2 " style={{ backgroundColor: "#ffebd3" }}>
+
+                <div className="row m-2 " style={{ backgroundColor: "#f7f7f7" }}>
                
                     <div className="row m-2">
                         <div className=" row-md-4 img-thumbnail mx-auto d-block ">
@@ -167,9 +170,11 @@ class Sell extends React.Component {
                                 </div>
 
 
-                                <button className="submitButton btn btn-outline-transparent"
+                                <button 
+                                    className="submitButton btn btn-outline-transparent"
                                     type="submit"
-                                    onClick={(e) => this._handleSubmit(e)}>Save Product</button>
+                                    onClick={(e) => this._handleSubmit(e)}>Save Product
+                                </button>
 
 
                             </form>

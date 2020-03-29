@@ -24,12 +24,12 @@ class Edit extends React.Component {
             <div className="container bootstrap snippet">
 
 
-                <div className="row">
+          <div className="row">
                     <div className="col-sm-10 m-4">
+
                         <h1>User name</h1>
                     </div>
 
-                </div>
 
 
                 <div className="row">
@@ -46,6 +46,7 @@ class Edit extends React.Component {
                             <div className="panel-heading">Website <i className="fa fa-link fa-1x"></i></div>
                             <div className="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div>
                         </div>
+
                     </div>
 
 
@@ -106,22 +107,21 @@ class Edit extends React.Component {
                                     <div className="form-group">
                                         <div className="col-xs-12">
 
+
                                             <button className="btn btn-lg btn-outline-dark" type="submit"><i className="glyphicon glyphicon-ok-sign"></i> Save</button>
                                             <button className="btn btn-lg" type="reset"><i className="glyphicon glyphicon-repeat"></i> Reset</button>
                                         </div>
                                     </div>
                                 </form>
                             </div>
-
-
-                            
-
-
                         </div >
+
+
                     </div >
                 </div >
             </div >
         </>
+
 
         );
     }

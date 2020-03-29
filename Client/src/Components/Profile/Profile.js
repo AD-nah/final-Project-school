@@ -5,23 +5,76 @@ import Sell from './Sell/Sell';
 import './profile.css'
 
 import { Switch, Route } from 'react-router-dom';
-import { MDBNav, MDBNavLink, MDBNavItem } from "mdbreact";
+import { MDBNavLink, MDBNavItem } from "mdbreact";
+import './profile.css'
+
+
+
+
 export default class Profile extends Component {
-    constructor(props) {
-        super(props)
-
-
-    }
 
     render() {
         return (
             <>
-                <div className="primary-nav ">
-                    <nav role="navigation" className="menu ">
 
-                        <a href="#" className="logotype">My<span>Profile</span></a>
+                <div className="containe ">
+                    <div className="row">
+                     
+                            <div className="col-md-8 ">
+                                <img className="img-fluid" src="http://placehold.it/550x300" alt="" />
+                            </div>
 
-                        <div className="overflow-container">
+                            <div className="col-md-4">
+                                <h3 className="my-3">Project Description</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
+                                <h3 className="my-3">Project Details</h3>
+                                <ul>
+                                    <li>Lorem Ipsum</li>
+                                    <li>Dolor Sit Amet</li>
+                                    <li>Consectetur</li>
+                                    <li>Adipiscing Elit</li>
+                                </ul>
+                            </div>
+                       
+                    </div>
+
+
+
+                    <h3 class="my-4">You may like </h3>
+
+                    <div class="row">
+
+                        <div class="col-md-3 col-sm-6 mb-4">
+                            <a href="#">
+                                <img class="img-fluid" src="http://placehold.it/300x200" alt="" />
+                            </a>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 mb-4">
+                            <a href="#">
+                                <img class="img-fluid" src="http://placehold.it/300x200" alt="" />
+                            </a>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 mb-4">
+                            <a href="#">
+                                <img class="img-fluid" src="http://placehold.it/300x200" alt="" />
+                            </a>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 mb-4">
+                            <a href="#">
+                                <img class="img-fluid" src="http://placehold.it/300x200" alt="" />
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
 
 
                             <ul className="menu-dropdown">
@@ -50,19 +103,25 @@ export default class Profile extends Component {
                             </ul>
                 </div>
 
+
                     </nav>
 
                 </div>
-           
-
-                <Switch>
-                    <Route path="/profile/edit" component={Edit} />
-                    <Route path="/profile/sell" component={Sell} />
-                    <Route path="/profile/bought" component={Bought} />
-                </Switch>
 
 
+
+
+
+
+                <div>
+                    <Switch>
+                        <Route path="/profile/edit" component={Edit} />
+                        <Route path="/profile/sell" component={Sell} />
+                        <Route path="/profile/bought" component={Bought} />
+                    </Switch>
+                </div>
             </>
+
         )
     }
 }
