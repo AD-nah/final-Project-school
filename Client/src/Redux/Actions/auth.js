@@ -52,13 +52,9 @@ export const logoutAction  = () => (dispatch) => {
 
 export const forgotPasswordAction  = (data) => (dispatch) => {
 
-        // return api.user.loginRequest(data).then((response) => {
-   
-        //     localStorage.sCount = response.token 
-        //     dispatch(userLoggedIn(response))
-        //     loggedinMessage = true
-   
-        // })
+    return api.user.forgotPasswordRequest(data).then(response => {
+        console.log(response);
+   });
    }
    
 export const authMessagesHandler = () => {

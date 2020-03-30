@@ -14,6 +14,10 @@ export default  {
         registerRequest:(data) => {
 
             return axios.post('/api/register-post', { data }).then( response => response.data.userRegistered )
+        },
+        forgotPasswordRequest: (data) => {
+
+            return axios.post('/api/forgotpassword-post', { data })/* .then( response => response.data); */
         }
     },
     ///News Api

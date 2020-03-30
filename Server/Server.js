@@ -49,6 +49,7 @@ server.use('/api/register-post', require('./routes/register'))
 
 server.use('/api/register-post', require('./routes/register'))
 
+server.use('/api/forgotpassword-post', require('./routes/forgotpassword'));
 
 
 
