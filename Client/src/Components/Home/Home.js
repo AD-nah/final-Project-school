@@ -181,7 +181,7 @@ class Home extends Component {
         {/*shop women Products Carousel sta */}
         <div class="my-5 text-center container">
           <div class="womenbox" >
-            <p className='heartbeat'>Women Shop</p>
+            <p className='heartbeat'>Women</p>
           </div>
 
           {/*more info: https://brainhubeu.github.io/react-carousel/ */}
@@ -324,7 +324,7 @@ class Home extends Component {
         {/*Products men Carousel  */}
         <div class="my-5 text-center container">
           <div class="womenbox" >
-            <p className='heartbeat'>Men Shop</p>
+            <p className='heartbeat'>Men</p>
           </div>
 
           {/*more info: https://brainhubeu.github.io/react-carousel/ */}

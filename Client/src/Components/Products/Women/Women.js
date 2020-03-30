@@ -1,7 +1,6 @@
 import React from "react";
-import { BackTop } from "antd";
-
 import { WaveLoading } from "react-loadingg";
+
 
 import { fetchWomenProducts } from '../../../Redux/Actions/products'
 import { connect } from "react-redux";
@@ -204,18 +203,6 @@ class Women extends React.Component {
         </div>
 
 
-
-
-
-        {/* Back to top btn */}
-        <div>
-          <BackTop>
-            <i
-              className="fas fa-angle-double-up"
-              style={{ color: "black", fontSize: "40px" }}
-            ></i>
-          </BackTop>
-        </div>
 
 
         {/* // images modal */}
