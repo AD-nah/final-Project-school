@@ -20,32 +20,25 @@ class Edit extends React.Component {
     render() {
         return (
         
-        <>
-                <div className="container bootstrap snippet">
+                <div className="container">
 
-
-                    <div className="row">
-                        <div className="col-sm-10 m-4">
-
-                            <h1>User name</h1>
-                        </div>
 
 
 
 
                         <div className="row">
+
+                        <div className="col-sm-10 m-4">
+                            <h1>User name</h1>
+
+                        </div>
+
                             <div className="col-sm-3">
 
                                 <div className="text-center">
                                     <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" className="avatar img-circle img-thumbnail" alt="avatar" />
                                     <h6>Upload a different photo...</h6>
                                     <input type="file" className="text-center center-block file-upload" />
-                                </div>
-
-
-                                <div className="panel panel-default">
-                                    <div className="panel-heading">Website <i className="fa fa-link fa-1x"></i></div>
-                                    <div className="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div>
                                 </div>
 
                             </div>
@@ -116,16 +109,10 @@ class Edit extends React.Component {
                                         </form>
                                     </div>
                                 </div >
-
-
                             </div >
                         </div >
-                    </div >
                 </div>
-        </>
-
-
-        );
+        )
     }
 }
 

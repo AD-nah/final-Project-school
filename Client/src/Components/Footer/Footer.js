@@ -11,7 +11,7 @@ import Women from '../Products/Women/Women';
 import Reworked from '../Products/Reworked/Reworked';
 
 // import Profile from '../Profile/Profile';
-import Bougth from '../Profile/Bought/Bought';
+import Ordered from '../Profile/Ordered/Ordered';
 import Edit from '../Profile/Edit/Edit';
 import Sell from '../Profile/Sell/Sell';
 
@@ -101,7 +101,7 @@ const Footer = () => {
                 <ul className="footer-links">
                   
                 <li>
-                  <Link to="/profile/bought">Bought</Link>
+                  <Link to="/profile/ordered">Ordered</Link>
                   </li>
                   <li>
                   <Link to="/profile/edit">Edit</Link>
@@ -174,7 +174,7 @@ const Footer = () => {
           <Route  path="products/women" component={Women}></Route>
           <Route  path="products/reworked" component={Reworked}></Route>
 
-          <Route  path="profile/bought" component={Bougth}></Route>
+          <Route  path="profile/ordered" component={Ordered}></Route>
           <Route  path="profile/edit" component={Edit}></Route>
           <Route  path="profile/sell" component={Sell}></Route>
 

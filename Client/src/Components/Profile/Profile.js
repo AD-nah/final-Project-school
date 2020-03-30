@@ -19,7 +19,7 @@ export default class Profile extends Component {
             <>
                 {/* please dont delete it */}
 
-                <div className="containe ">
+                <div className="container">
                     <div className="row">
 
                         {/*
@@ -75,20 +75,17 @@ export default class Profile extends Component {
                 */}
 
 
-                        <nav>
-                            <ul className="menu-dropdown">
+
+<div className="primary-nav">
+                    <nav role="navigation" className="menu">
+                        <ul className="menu-dropdown">
 
                                 <li className="menu-hasdropdown">
 
                                     <MDBNavLink to="/profile/edit">Edit your Profile</MDBNavLink>
 
-                                    {/* <span><i className="fa fa-gear"></i></span> */}
+                                    </li>
 
-
-
-                <div className="primary-nav">
-                    <nav role="navigation" className="menu">
-                        <ul className="menu-dropdown">
 
                                 <li>
                                     <MDBNavLink to="/profile/sell">Sell</MDBNavLink>
@@ -106,6 +103,8 @@ export default class Profile extends Component {
                         </nav>
 
                     </div >
+
+                </div>
                 </div>
 
 
