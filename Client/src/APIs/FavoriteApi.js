@@ -11,9 +11,12 @@ export default {
             }
         },
         saveToFavoriteRequest: (item) => {
+            
             if(localStorage.sCount){
                 const payload = decode(localStorage.sCount)
-                return axios.post('/api/favorite/save-to-favorite', {item, userId: payload.userId}).then((res) => res.data.items)
+                return axios.post('/api/favorite/save-to-favorite', {item, userId: payload.userId}).then((res) => {
+                    console.log(res.data.res.products)
+                    return res.data.res.products})
             }
         },
         removeFromFavoriteRequest:(item) => {
