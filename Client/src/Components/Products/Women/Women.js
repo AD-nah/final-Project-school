@@ -1,12 +1,12 @@
 import React from "react";
-import { BackTop } from "antd";
-
-import { WaveLoading } from "react-loadingg";
-
-import { fetchWomenProducts } from '../../../Redux/Actions/products'
 import { connect } from "react-redux";
+import { fetchWomenProducts } from '../../../Redux/Actions/products'
 import { addToBasketAction } from "../../../Redux/Actions/basket";
 import { addToFavoriteAction } from '../../../Redux/Actions/favorite'
+
+import { WaveLoading } from "react-loadingg";
+import { BackTop } from "antd";
+
 import {
   MDBContainer,
   MDBModal,
@@ -43,10 +43,19 @@ class Women extends React.Component {
       data: null,
       currentProduct: [],
       currentArrayOfImages: [],
-      addedToBasketMessage: false,
-      addedToFavoriteMessage: false,
-      // alreadyInBasket : false,
-      // alreadyInBasketMessage :'',
+
+      // for basket Messages
+      addedToBasket: false,
+      addedToBasketMessage: '',
+      alreadyInBasket : false,
+      alreadyInBasketMessage :'',
+
+      // for favorite Messages
+      addedToFavorite: false,
+      addedToFavoriteMessage : '',
+      alreadyInFavorite: false,
+      alreadyInFavoriteMessage:'',
+
       // //images modal
       modal13: false
     };
@@ -68,27 +77,25 @@ class Women extends React.Component {
   };
 
   addToBasket(item) {
+    this.props.addToBasketAction(item).then(message => {
+      this.setState({addedToBasket : true, addedToBasketMessage: message });
+      setTimeout(() =>  this.setState({ addedToBasket: false }), 100);
 
-
-    this.props.addToBasketAction(item).then(res => {
-
-      this.setState({ addedToBasketMessage: true });
-      setTimeout(() => {
-        this.setState({ addedToBasketMessage: false });
-      }, 100);
-
+    }).catch(message => {
+      this.setState({alreadyInBasket : true, alreadyInBasketMessage: message });
+      setTimeout(() =>  this.setState({ alreadyInBasket: false }), 100);
     })
-
   }
   /// add the Favorites to the basket
   addToFavorite(item) {
+    this.props.addToFavoriteAction(item).then(message => {
+      this.setState({addedToFavorite : true, addedToFavoriteMessage: message });
+      setTimeout(() =>  this.setState({ addedToFavorite: false }), 100);
 
-    this.props.addToFavoriteAction(item).then(res => {
-      this.setState({ addedToFavoriteMessage: true });
-      setTimeout(() => {
-        this.setState({ addedToFavoriteMessage: false });
-      }, 100);
-    });
+    }).catch(message => {
+      this.setState({alreadyInFavorite : true, alreadyInBasketMessage: message });
+      setTimeout(() =>  this.setState({ alreadyInFavorite: false }), 100);
+    })
   }
 
   sendImagesToCarousel(array) {
@@ -98,7 +105,7 @@ class Women extends React.Component {
   starMaker(n) {
     let stars = [];
     for (let i = 0; i < n; i++) {
-      stars.push(<li key={i} className="fa fa-star"></li>);
+      stars.push(<li key= {i} className="fa fa-star"></li>);
     }
     return stars;
   }
@@ -106,19 +113,23 @@ class Women extends React.Component {
   render() {
     return (
       <>
-
-        {this.state.addedToBasketMessage && <SuccessMessage text='added to Basket' />}
-        {this.state.addedToFavoriteMessage && <SuccessMessage text='added to Favorite' />}
-        {/* {this.state.alreadyInBasket && (<SuccessMessage text = {this.state.alreadyInBasketMessage}/>)} */}
-
         <div className="container" >
+
+
+        {this.state.addedToBasket && <SuccessMessage text={this.state.addedToBasketMessage}/>}
+        {this.state.alreadyInBasket && <SuccessMessage text={this.state.alreadyInBasketMessage}/>}
+
+        {this.state.addedToFavorite && <SuccessMessage text={this.state.addedToFavoriteMessage} />}
+        {this.state.alreadyInFavorite && (<SuccessMessage text = {this.state.alreadyInFavoriteMessage}/>)}
+        <h3 className="h3">Men's Collection </h3>
+
           <div className="row">
 
 
             {this.state.data ? (
               this.state.data.map((item, index) => {
-                return (<>
-
+                return (
+                <>
                   <div key={index} className="col-md-3 col-sm-6">
                     <div className="product-grid7">
                       <div className="product-content">
@@ -128,25 +139,25 @@ class Women extends React.Component {
                       </div>
 
                       <div className="product-image7">
-                        <li onClick={() => this.sendImagesToCarousel(item.images)}>
-                            
-                        
+                        <li
+                          onClick={() => this.sendImagesToCarousel(item.images)}
+                        >
                           <a onClick={this.toggle(13)}>
                             <img
                               className="pic-1"
                               style={{ maxHeight: "400px" }}
                               src={item.images.protoTypes[0]}
                             />
-                            <img className="pic-2"
-                              src={item.images.protoTypes[1]}/>
-                              
-                            
+                            <img
+                              className="pic-2"
+                              src={item.images.protoTypes[1]}
+                            />
                           </a>
                         </li>
                         <ul className="social">
-                          <li onClick={() =>
+                          <li
+                            onClick={() =>
                               this.sendImagesToCarousel(item.images)
-                            
                             }
                           >
                             <a
@@ -175,6 +186,8 @@ class Women extends React.Component {
                       </div>
 
                       <div className="product-content">
+
+                      {/* <h3 className="title"><a href="#">{item.description}</a></h3> */}
                         <ul className="rating">
                           {this.starMaker(item.rating)}
                         </ul>
@@ -182,7 +195,8 @@ class Women extends React.Component {
                         <div className="price">
                           &#8364;
                           {item.prices[0]}
-                          <span>{item.prices[1]}</span>
+               
+                           <span>{item.prices[1]}</span>
                         </div>
 
                         {/* <img src={ImageZoomAnim} />
@@ -190,7 +204,8 @@ class Women extends React.Component {
                       </div>
                     </div>
                   </div>
-                </>);
+                </>
+                )
               })
             ) : (
                 <div style={{ height: "350px", width: "200px", textAlign: "center", position: "relative", left: "40%" }}>

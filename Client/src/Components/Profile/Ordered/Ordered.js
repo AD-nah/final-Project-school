@@ -10,7 +10,7 @@ export default class Ordered extends Component {
     return (
 
       <div className="container ">
-      <div className="table-responsive">
+      <div class="table-responsive">
           <table className="table" >
             <thead className="thead-grey" >
               <tr >

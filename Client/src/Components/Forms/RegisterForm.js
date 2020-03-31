@@ -92,10 +92,10 @@ class RegisterForm extends React.Component {
 
   render() {
     return (
-      <div className="container regFormContainer">
+      <div class="container regFormContainer">
       <form className="regFormContainer" onSubmit={this.onSubmit}>
-        <div className="row" >
-          <div className="col-md-6">
+        <div class="row" >
+          <div class="col-md-6">
             {this.state.loading && <SemipolarLoading />}
             {this.state.errors.registerError && (
               <ErrorMessage text={this.state.errors.registerError} />
@@ -166,7 +166,7 @@ class RegisterForm extends React.Component {
 
         {/* ---------------second form-------------- */}
 
-        <div className="col">
+        <div class="col">
           {" "}
            
             <MDBInput
