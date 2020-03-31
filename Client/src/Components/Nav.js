@@ -18,7 +18,7 @@ import News from "./News/News";
 import About from "./About/About";
 import LoginPage from "./Pages/LoginPage";
 import RegisterPage from "./Pages/RegisterPage";
-
+import ResetPasswordPage from './Pages/ResetPasswordPage'
 import Profile from "./Profile/Profile";
 import Basket from "./Basket/Basket";
 import Favorites from "./Favorites/Favorites";
@@ -226,6 +226,7 @@ class Navbar extends Component {
             <Route path="/profile" component={Profile} />
             <Route path="/basket" component={Basket} />
             <Route path="/favorites" component={Favorites} />
+            <Route path="/reset-password-route/:token" component={ResetPasswordPage} />
           </Switch>
         </div>
     </>);
