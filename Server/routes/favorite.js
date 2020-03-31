@@ -15,27 +15,45 @@ router.post('/get-favorite', async (req, res, next) => {
         }
 })
 
+
 router.post('/save-to-favorite', async (req, res, next)=> {
 
     const { userId, item } = req.body;
 
-    const findFavoriteAndUpdate = await Favorite.findOneAndUpdate({ userId: userId }, { $push: { favorite : item }})
+    let duplicated = false;
+    let favorite = await Favorite.findOne({userId : userId});
+    if (favorite.favorite.length > 0) {
+        favorite.favorite.forEach(product=>{
+            if(item._id===product._id){
+                duplicated = true;
+            }
+        })
+    }
 
-    if(findFavoriteAndUpdate){
-        res.json({items: findFavoriteAndUpdate.favorite});
+    if ( duplicated ){
+        res.status(400).json({message: "product is already in favorite!"})
     }else{
-        res.status(404).json({err:'favorite not found'});
+
+        Favorite.findOneAndUpdate({ userId: userId }, { $push: { favorite : item }}).then(response=>{
+             res.status(200).json( {res: { products : response.favorite, message: 'added to favorite'} });
+        }).catch(error=>{
+            res.status(400).send({msg: error})
+        })
     }
 })
+
+
+
+
+
 router.post('/remove-from-favorite', async (req, res, next) => {
 
     const { userId, item } = req.body
 
     const removeingItem = await Favorite.update({ userId : userId }, { $pull : { favorite : { _id : item._id}}})
     if(removeingItem){
-        res.status(200).json({item: 'removed from favorite'})
+        res.status(200).json({message: 'removed from favorite'})
     }
-
 })
 
 

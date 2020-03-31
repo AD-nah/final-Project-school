@@ -1,4 +1,5 @@
-import React, { Component, Link } from 'react';
+import React, { Component} from 'react';
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import empty from './images/emptyb.png';
 import paypal from './images/paypal.png';
@@ -7,16 +8,30 @@ import master from './images/master.png';
 import visa from './images/visa.png';
 import {fetchBasket} from '../../Redux/Actions/basket'
 import { removeFromBasketAction } from '../../Redux/Actions/basket'
+import {sendFromBasketToFavoriteAction} from '../../Redux/Actions/basket'
 import SuccessMessage from '../Messages/SuccessMessage'
 import decode from 'jwt-decode'
+
+
 class Chart extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      // from the Redux
+
+      // Produczs come from Redux state and will saved here!
       products: null,
+
+      // for removing from Basket Messages
       removedFromBasket: false,
       removedFromBasketMessage: '',
+
+      // for sending to Favorite Messages
+      addedToFavorite : false,
+      addedToFavoriteMessage : '',
+      alreadyInFavorite:false,
+      alreadyInFavoriteMessage:'',
+
+      // for payment
       total : 0,
       userId: null
 
@@ -59,7 +74,7 @@ class Chart extends Component {
   starMaker(n) {
     let stars = [];
     for (let i = 0; i < n; i++) {
-      stars.push(<li className="fa fa-star"></li>);
+      stars.push(<li key={i} className="fa fa-star"></li>);
     }
     return stars;
   }
@@ -67,24 +82,41 @@ class Chart extends Component {
   // remove items and its price same time
   remove(item) {
 
-     removeFromBasketAction(item).then(res => {
-       
-      this.setState(prevState => ({
-          products: prevState.products.filter(el => el._id !== item._id),
-          removedFromBasket: prevState.removedFromBasket = true,
-          removedFromBasketMessage: prevState.removedFromBasketMessage = res
-      }))
-       setTimeout(()=> {
-          this.setState({removedFromBasket:false})
-       },200)
-
-     }).catch((res) => {
-       this.setState({removedFromBasket: true, removedFromBasketMessage: res})
-       setTimeout(()=> {
-        this.setState({removedFromBasket:false})
-     },200)
+     removeFromBasketAction(item)
+     .then(message => {
+          this.setState(prevState => ({
+              products: prevState.products.filter(el => el._id !== item._id),
+              removedFromBasket: prevState.removedFromBasket = true,
+              removedFromBasketMessage: prevState.removedFromBasketMessage = message
+          }))
+          setTimeout(()=> this.setState({removedFromBasket:false}),200)
      })
+     .catch(message => {
+          this.setState({removedFromBasket:true, removedFromBasketMessage: message})
+          setTimeout(()=> this.setState({removedFromBasket:false}),200)
+     })
+  }
 
+ 
+  sendToFavorite(item){
+
+    this.props.sendFromBasketToFavoriteAction(item).then(message => {
+      this.setState({addedToFavorite : true, addedToFavoriteMessage: message });
+      setTimeout(() =>  this.setState({ addedToFavorite: false }), 100);
+
+      removeFromBasketAction(item).then(message => {
+           this.setState(prevState => ({
+               products: prevState.products.filter(el => el._id !== item._id),
+               removedFromBasket: prevState.removedFromBasket = true,
+               removedFromBasketMessage: prevState.removedFromBasketMessage = message
+           }))
+           setTimeout(()=> this.setState({removedFromBasket:false}),200)
+      })
+
+    }).catch(message => {
+      this.setState({alreadyInFavorite : true, alreadyInFavoriteMessage: message });
+      setTimeout(() =>  this.setState({ alreadyInFavorite: false }), 100);
+    })
   }
 
   render() {
@@ -93,7 +125,12 @@ class Chart extends Component {
 
         {this.state.removedFromBasket && (<SuccessMessage text = {this.state.removedFromBasketMessage} />)}
 
-        <h3 className="card-header text-center font-weight-bold text-uppercase py-4 "><img className="float-right " src={basket}/>your Basket </h3>
+        {this.state.addedToFavorite && (<SuccessMessage text = {this.state.addedToFavoriteMessage} />)}
+        {this.state.alreadyInFavorite && (<SuccessMessage text = {this.state.alreadyInFavoriteMessage} />)}
+
+
+
+        <h3 className="card-header text-center font-weight-bold text-uppercase py-4 "><img alt = 'alt1'className="float-right " src={basket}/>your Basket </h3>
         <br/>
 
         <div className=" row">
@@ -112,28 +149,28 @@ class Chart extends Component {
 
                 <div className="container row">
                   <div className="col-md-6" >
-                    <img className="img-fluid" src={empty} style={{ height: "50vh" }} />
+                    <img alt = 'alt2'className="img-fluid" src={empty} style={{ height: "50vh" }} />
                   </div>
                   <div className="col-md-6 text-center">
-                    <button type="button"
-                      className="btn btn-info btn-rounded btn-sm my-0 ">Go back to Product</button>
+  
+                      <Link to = '/products/women'>Go back to Product</Link>
                   </div>
                 </div>
               </div>
             </div>
           )}
 
-          <div className=" col-9">
+          <div className="col-9" >
             {this.state.products && this.state.products.map((item, index) => {
 
               return (
-                <div className="row mb-3 m-5">
+                <div className="row mb-3 m-5" key={index} >
 
 
                   <div className="  row">
 
                     <div className=" text-center  col">
-                      <img style={{ height: '40vh', width: "15vw" }} src={item.images.protoTypes[0]} className="img-fluid img-thumbnail" alt="Sheep" />
+                      <img  style={{ height: '40vh', width: "15vw" }} src={item.images.protoTypes[0]} className="img alt = 'alt'-fluid img-thumbnail" alt="Sheep" />
                     </div>
 
                     <div className="  col-5">
@@ -155,22 +192,21 @@ class Chart extends Component {
                           <button
                             type="button"
                             onClick={this.remove.bind(this, item)}
-                            className="btn btn-danger btn-rounded btn-sm "
+                            className="btn btn-danger"
                           >Remove from Basket
-                              </button>
+                          </button>
                           <button
                             type="button"
-                            className="btn btn-info btn-rounded btn-sm "
+                            onClick = {this.sendToFavorite.bind(this, item)}
+                            className="btn btn-info"
                           >Send To Favorite
-                              </button>
+                          </button>
                         </span>
-
                       </div>
                     </div>
 
                     <div className="  col">
                       <div className=" text-center">
-
 
                         <div className="col">
                           <h2>Price</h2>
@@ -180,22 +216,22 @@ class Chart extends Component {
                           <hr />
 
                           <select style={{ height: "30px", width: "100px", backgroundColor: "#FCC400" }} className="mr-2 md-form colorful-select dropdown-primary">
-                            <label>color</label>
-                            <option disabled selected='selected'>color</option>
+                            
+                            <option disabled defaultValue >color</option>
                             <option value="1">Red</option>
                             <option value="2">Blue</option>
                             <option value="3">White</option>
                           </select>
 
                           <select style={{ height: "30px", width: "100px", backgroundColor: "#FCC400" }} className=" md-form  dropdown-primary ">
-                            <option disabled selected='selected'>Size </option>
+                            <option disabled defaultValue>Size </option>
                             <option value="2">Small</option>
                             <option value="3">Medium</option>
                             <option value="4">Large</option>
                           </select>
                         </div>
                         <select style={{ height: "30px", width: "100px", backgroundColor: "#FCC400" }} className=" md-form  dropdown-primary ">
-                          <option disabled selected='selected'>Quantity</option>
+                          <option value=""  >Quantity</option>
                           <option value="1">1 pi's</option>
                           <option value="2">2 p's</option>
                           <option value="3">3 p's</option>
@@ -214,13 +250,13 @@ class Chart extends Component {
               <hr />
               <div className="text-center row mt-1">
                 <a href="#">
-                  <img className="img-fluid col-sm-2" src={paypal} />
+                  <img alt = 'alt4' className="img-fluid col-sm-2" src={paypal} />
                 </a>
                 <a href="#">
-                  <img className="img-fluid col-sm-2" src={master} />
+                  <img alt = 'alt5' className="img-fluid col-sm-2" src={master} />
                 </a>
                 <a href="#">
-                  <img className="img-fluid col-sm-2" src={visa} />
+                  <img alt = 'alt6' className="img-fluid col-sm-2" src={visa} />
                 </a>
               </div>
               <hr />
@@ -247,4 +283,4 @@ const mapStateToProps = (state) => {
     item: state.basketReducer
   }
 }
-export default connect(mapStateToProps, { fetchBasket })(Chart)
+export default connect(mapStateToProps, { fetchBasket, sendFromBasketToFavoriteAction })(Chart)

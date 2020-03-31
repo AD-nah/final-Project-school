@@ -8,7 +8,7 @@ import { MDBContainer, MDBCol, MDBInput, MDBBtn, MDBIcon, } from 'mdbreact';
 
 import Validator from 'validator'
 import ErrorMessage from '../Messages/ErrorMessage'
-import ForgotPasswordForm from './ForgotPasswordForm'
+import ForgotPasswordPage from '../Pages/ForgotPasswordPage'
 
 
 //Loading Spinner
@@ -142,25 +142,22 @@ class LoginForm extends React.Component {
 
             </div>
 
-            {/*remember me  checkbox */}
             {/* <div>
               <span className="rememberMe">Remember me</span>
-              <label class="checkbox">
+              <label className="checkbox">
                 <input type="checkbox" />
-                <span class="success"></span>
+                <span className="success"></span>
               </label>
             </div> */}
           </form>
 
-          <div className='text-center'>
-            <button className='btn '  onClick={showForgotPasswordForm}>{this.state.showHide}</button>
-          </div>
 
-          {this.state.fromIsOpen ?  <ForgotPasswordForm /> : null}
+        <button className='btn bg-info w-100' onClick = {showForgotPasswordForm}>{this.state.showHide}</button>
+        
+          {this.state.fromIsOpen ? <ForgotPasswordPage/> : null}
 
-          <hr/>
+          {/* <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
 
-          <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
 
             or Login in with:
                 </p>
@@ -182,7 +179,7 @@ class LoginForm extends React.Component {
             >
               <MDBIcon fab icon="google-plus-g" className="red-text" />
             </MDBBtn>
-          </div>
+          </div> */}
         </MDBCol>
 
       </MDBContainer>

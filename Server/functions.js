@@ -25,4 +25,23 @@ module.exports = {
     setPassword: (password) => {
         return bcryptjs.hashSync(password, 10)
     },
+    generateResetPasswordUrl:(userId) => {
+
+       const generateResetPasswordToken = (userId) => {
+            return jwt.sign({
+                userId : userId
+                }, 
+                process.env.JWT_SECRET,
+                { expiresIn: '1h'}
+            )   
+        }
+
+        return `http://localhost:3000/reset-password-route/${generateResetPasswordToken(userId)}`;
+    }
+
 }
+
+
+
+
+  

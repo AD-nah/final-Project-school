@@ -33,10 +33,10 @@ import SuccessMessage from '../../Messages/SuccessMessage'
   /* DON'T DELETE IT PLEASE */
 }
 
-//  {/* <h3 class="cost">
-//  <span class="glyphicon glyphicon-usd"></span> 15.00{" "}
-//  <small class="pre-cost">
-//      <span class="glyphicon glyphicon-usd"></span> 20.00
+//  {/* <h3 className="cost">
+//  <span className="glyphicon glyphicon-usd"></span> 15.00{" "}
+//  <small className="pre-cost">
+//      <span className="glyphicon glyphicon-usd"></span> 20.00
 //  </small>
 //  </h3> */}
 
@@ -105,7 +105,7 @@ class Women extends React.Component {
   starMaker(n) {
     let stars = [];
     for (let i = 0; i < n; i++) {
-      stars.push(<li className="fa fa-star"></li>);
+      stars.push(<li key={i} className="fa fa-star"></li>);
     }
     return stars;
   }
