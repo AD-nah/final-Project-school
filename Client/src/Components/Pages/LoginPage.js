@@ -20,7 +20,7 @@ class LoginPage extends Component {
 
     
          
-        submit = (data) => {
+    submit = (data) => {
               
            return this.props.loginAction(data).then((res) => {
 

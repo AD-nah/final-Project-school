@@ -41,7 +41,7 @@ class Favorits extends Component {
   starMaker(n) {
     let stars = [];
     for (let i = 0; i < n; i++) {
-      stars.push(<li className="fa fa-star"></li>);
+      stars.push(<li key={i} className="fa fa-star"></li>);
     }
     return stars;
   }
@@ -80,7 +80,7 @@ class Favorits extends Component {
         
         {/*if the chart is empty show this code , if not then show the product*/}
        
-          {console.log('products :', this.state.products)}
+          {/* {console.log('products :', this.state.products)} */}
           {(!this.state.products || this.state.products.length === 0) &&
             (
               <div className="container">
@@ -113,7 +113,7 @@ class Favorits extends Component {
             {this.state.products && this.state.products.map((item, index) => {
 
                 return ( 
-                  <div className="container">
+                  <div key={item._id} className="container">
 
                   <div className="row mb-3 m-5">
                     <div className="  row">

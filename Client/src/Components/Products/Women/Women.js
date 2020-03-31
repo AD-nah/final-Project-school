@@ -117,9 +117,9 @@ class Women extends React.Component {
 
             {this.state.data ? (
               this.state.data.map((item, index) => {
-                return (<>
+                return (
 
-                  <div key={index} className="col-md-3 col-sm-6">
+                  <div key={item._id} className="col-md-3 col-sm-6">
                     <div className="product-grid7">
                       <div className="product-content">
                         <h3 className="title">
@@ -128,7 +128,7 @@ class Women extends React.Component {
                       </div>
 
                       <div className="product-image7">
-                        <li onClick={() => this.sendImagesToCarousel(item.images)}>
+                        <li key={index+1} onClick={() => this.sendImagesToCarousel(item.images)}>
                             
                         
                           <a onClick={this.toggle(13)}>
@@ -144,7 +144,7 @@ class Women extends React.Component {
                           </a>
                         </li>
                         <ul className="social">
-                          <li onClick={() =>
+                          <li key={index+2}  onClick={() =>
                               this.sendImagesToCarousel(item.images)
                             
                             }
@@ -154,7 +154,7 @@ class Women extends React.Component {
                               className="fas fa-expand-arrows-alt"
                             ></a>
                           </li>
-                          <li>
+                          <li key={index+3} >
                             <a href="#" className="far fa-heart"
                               role="button"
                               tabIndex={1}
@@ -162,7 +162,7 @@ class Women extends React.Component {
                             ></a>
                           </li>
 
-                          <li>
+                          <li key={index+4} >
                             <a
                               role="button"
                               onClick={() => this.addToBasket(item)}
@@ -190,7 +190,7 @@ class Women extends React.Component {
                       </div>
                     </div>
                   </div>
-                </>);
+                );
               })
             ) : (
                 <div style={{ height: "350px", width: "200px", textAlign: "center", position: "relative", left: "40%" }}>
@@ -240,7 +240,8 @@ class Women extends React.Component {
                       {this.state.currentArrayOfImages.length > 0
                         ? this.state.currentArrayOfImages.map((item, index) => {
                           return (
-                            <MDBCarouselItem itemId={index + 1}>
+                            <div key={index}>
+                            <MDBCarouselItem  itemId={index + 1}>
                               <MDBView>
                                 <img
                                   className="d-block"
@@ -258,6 +259,7 @@ class Women extends React.Component {
                                     <p>First text</p>
                                   </MDBCarouselCaption> */}
                             </MDBCarouselItem>
+                            </div>
                           );
                         })
                         : null}

@@ -179,23 +179,23 @@ class Chart extends Component {
 
                           <hr />
 
-                          <select style={{ height: "30px", width: "100px", backgroundColor: "#FCC400" }} className="mr-2 md-form colorful-select dropdown-primary">
+                          <select defaultValue="0" style={{ height: "30px", width: "100px", backgroundColor: "#FCC400" }} className="mr-2 md-form colorful-select dropdown-primary">
                             
-                            <option disabled selected='selected'>color</option>
+                            <option disabled value="0">color</option>
                             <option value="1">Red</option>
                             <option value="2">Blue</option>
                             <option value="3">White</option>
                           </select>
 
-                          <select style={{ height: "30px", width: "100px", backgroundColor: "#FCC400" }} className=" md-form  dropdown-primary ">
-                            <option disabled selected='selected'>Size </option>
+                          <select defaultValue="0" style={{ height: "30px", width: "100px", backgroundColor: "#FCC400" }} className=" md-form  dropdown-primary ">
+                            <option disabled value="0" >Size </option>
                             <option value="2">Small</option>
                             <option value="3">Medium</option>
                             <option value="4">Large</option>
                           </select>
                         </div>
-                        <select style={{ height: "30px", width: "100px", backgroundColor: "#FCC400" }} className=" md-form  dropdown-primary ">
-                          <option disabled selected='selected'>Quantity</option>
+                        <select defaultValue="0" style={{ height: "30px", width: "100px", backgroundColor: "#FCC400" }} className=" md-form  dropdown-primary ">
+                          <option disabled value="0">Quantity</option>
                           <option value="1">1 pi's</option>
                           <option value="2">2 p's</option>
                           <option value="3">3 p's</option>

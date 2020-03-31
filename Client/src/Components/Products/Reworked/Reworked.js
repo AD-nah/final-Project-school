@@ -105,7 +105,7 @@ class Women extends React.Component {
   starMaker(n) {
     let stars = [];
     for (let i = 0; i < n; i++) {
-      stars.push(<li className="fa fa-star"></li>);
+      stars.push(<li key={i} className="fa fa-star"></li>);
     }
     return stars;
   }
@@ -120,7 +120,7 @@ class Women extends React.Component {
 
         <div className="container" >
           <div className="row">
-
+        
 
             {/*Started Carosel */}
             <div id="carousel-example-1z" className="carousel slide carousel-fade" data-ride="carousel">
@@ -184,7 +184,7 @@ class Women extends React.Component {
             
             {this.state.data ? (
               this.state.data.map((item, index) => {
-                return (<>
+                return (
 
                   <div key={index} className="col-md-3 col-sm-6">
                     <div className="product-grid7">
@@ -256,7 +256,7 @@ class Women extends React.Component {
                       </div>
                     </div>
                   </div>
-                </>);
+                );
               })
             ) : (
                 <div style={{ height: "350px", width: "200px", textAlign: "center", position: "relative", left: "40%" }}>

@@ -300,7 +300,7 @@ class Home extends Component {
             <div className="col-md-4 col-lg-6 ">
 
               <header className="oceanheader">
-                <video autoPlay="true" playsInline muted loop preload poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/oceanshot.jpg">
+                <video autoPlay={true} playsInline muted loop preload="true" poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/oceanshot.jpg">
                   <source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ocean-small.webm" />
                   <source src="http://thenewcode.com/assets/videos/ocean-small.mp4" />
                 </video>

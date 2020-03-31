@@ -183,23 +183,23 @@ class Navbar extends Component {
                     Account
                     </a>
                   <div className="dropdown-menu flex-column" aria-labelledby="navbarDropdown">
-                  <a>
-                    <Link to="/profile/edit">
+                  
+                    <Link className="dropdown-item" to="/profile/edit">
                       <strong>Profile</strong>
                     </Link>
-                  </a>
+                  
 
-                  <a>
+                  
                     <Link className="dropdown-item" to="/basket">
                       <strong>My-Basket</strong>
                     </Link>
-                  </a>
+                  
 
-                  <a>
-                  <Link to="/favorites">
+                  
+                  <Link className="dropdown-item" to="/favorites">
                       <strong>Favorites</strong>
                     </Link>
-                  </a>
+                  
                   
                   </div>
                 </div>
@@ -217,7 +217,7 @@ class Navbar extends Component {
 
 
         <Switch>
-          <Route exact="true" path="/" component={Home} />
+          <Route exact path="/" component={Home} />
           <Route path="/home" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/products" component={Products} />

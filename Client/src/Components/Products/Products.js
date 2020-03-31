@@ -41,25 +41,25 @@ export default class Products extends Component {
                                         <div className="collapse" id="submenu1sub1" aria-expanded="false">
                                             <ul className="flex-column nav ">
                                                
-                                                    <Link>
-                                                        <i className="fa fa-fw fa-clock-o"></i>Activity
-                                                    </Link>
+                                                    {/* <Link> */}
+                                                        <i key="Activity" className="fa fa-fw fa-clock-o"></i>Activity
+                                                    {/* </Link> */}
                                                 
                                                 
-                                                    <Link>
-                                                        <i className="far fa-address-card"></i> Dashboard
-                                                    </Link>
+                                                    {/* <Link> */}
+                                                        <i key="Dashboard"  className="far fa-address-card"></i> Dashboard
+                                                    {/* </Link> */}
                                                
                                                
 
-                                                    <Link>
-                                                        <i className="fa fa-fw fa-bar-chart"></i> Charts
-                                                    </Link>
+                                                    {/* <Link> */}
+                                                        <i key="Charts" className="fa fa-fw fa-bar-chart"></i> Charts
+                                                    {/* </Link> */}
                                                 
                                                 
-                                                    <Link>
-                                                        <i className="fa fa-fw fa-compass"></i>Areas
-                                                    </Link>
+                                                    {/* <Link> */}
+                                                        <i key="Areas" className="fa fa-fw fa-compass"></i>Areas
+                                                    {/* </Link> */}
 
                                                
                                             </ul>

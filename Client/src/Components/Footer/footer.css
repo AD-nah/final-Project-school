@@ -1,6 +1,6 @@
-p{
+.pcolor{
     font-family: 'PT Serif', serif;
-    color : #ddd
+    color : #ddd;
 } 
 .site-footer {
     background-color: #26272b;

@@ -55,7 +55,7 @@ const Footer = () => {
             <div className="col-sm-12 col-md-4">
               <h6>WHAT IS SCOUNT?</h6>
 
-              <p className="text-justify">
+              <p className="pcolor text-justify">
                 Marketplace launched in 2019 with just 10 sellers and since then we've become the leading online platform for independent brands and vintage boutiques. Having scoured the globe for hot new labels.
                 <br></br>
                 We think our unique product range is what sets us apart. Vintage 90s sportswear from brands like Tommy Hilfiger and Champion sit alongside new designs from international boutiques hand-made jewellery, culminating in a product range unlike any other. Working with small brands enables us to react to new trends often before larger high-street names, and so we attract customers who are early adopters; looking for something authentic they can't find elsewhere.
