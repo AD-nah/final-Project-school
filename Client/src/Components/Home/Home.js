@@ -54,7 +54,7 @@ class Home extends Component {
 
 
         {/*Started Carosel */}
-        <div id="carousel-example-1z" className="carousel slide carousel-fade" data-ride="carousel" style={{height:"70vh"}}>
+        <div id="carousel-example-1z" className="carousel slide carousel-fade" data-ride="carousel">
 
           <ol className="carousel-indicators">
             <li data-target="#carousel-example-1z" data-slide-to="0" className="active"></li>
@@ -76,7 +76,6 @@ class Home extends Component {
             <div className="carousel-item">
               <img className="d-block w-100 carouselimag" src={caro2}
                 alt="Second slide" />
-
             </div>
 
             <div className="carousel-item">
@@ -153,7 +152,7 @@ class Home extends Component {
             <div className="row align-items-center">
               <div className="col-lg-6 order-lg-2">
 
-                <header >
+                <header>
                   <video playsInline="playsinline" autoPlay="autoplay" muted="muted" loop="loop">
                     <source src={video} type="video/mp4" />
                   </video>
@@ -192,8 +191,8 @@ class Home extends Component {
             infinite
             arrows
             dots
-            arrowLeft={<i className="fas fa-arrow-left"></i>}
-            arrowRight={<i className="fas fa-arrow-right"></i>}
+            arrowLeft={<i class="fas fa-arrow-left"></i>}
+            arrowRight={<i class="fas fa-arrow-right"></i>}
             addArrowClickHandler
 
             //media  Quiries
@@ -208,7 +207,7 @@ class Home extends Component {
               }
             }}
           >
-            <div className="col-12 col-md d-flex align-items-center justify-content-center">
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
               {this.state.women.length > 0 ?
                 <img
                   className="pic-1"
@@ -220,7 +219,7 @@ class Home extends Component {
                 <h1>Loading image...</h1>
               }
             </div>
-            <div className="col-12 col-md d-flex align-items-center justify-content-center">
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
               {this.state.women.length > 0 ?
                 <img
                   className="pic-1"
@@ -232,7 +231,7 @@ class Home extends Component {
                 <h1>Loading iamge...</h1>
               }
             </div>
-            <div className="col-12 col-md d-flex align-items-center justify-content-center" className="col-12 col-md d-flex align-items-center justify-content-center">
+            <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
               {this.state.women.length > 0 ?
                 <img
                   className="pic-1"
@@ -244,7 +243,7 @@ class Home extends Component {
                 <h1>Loading iamge...</h1>
               }
             </div>
-            <div className="col-12 col-md d-flex align-items-center justify-content-center">
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
               {this.state.women.length > 0 ?
                 <img
                   className="pic-1"
@@ -259,7 +258,7 @@ class Home extends Component {
 
 
 
-            <div className="col-12 col-md d-flex align-items-center justify-content-center">
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
               {this.state.women.length > 0 ?
                 <img
                   className="pic-1"
@@ -272,7 +271,7 @@ class Home extends Component {
               }
             </div>
 
-            <div className="col-12 col-md d-flex align-items-center justify-content-center" className="col-12 col-md d-flex align-items-center justify-content-center">
+            <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
               {this.state.women.length > 0 ?
                 <img
                   className="pic-1"
@@ -300,7 +299,7 @@ class Home extends Component {
             <div className="col-md-4 col-lg-6 ">
 
               <header className="oceanheader">
-                <video autoPlay="true" playsInline muted loop preload poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/oceanshot.jpg">
+                <video autoPlay playsInline muted loop preload="true" poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/oceanshot.jpg">
                   <source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/ocean-small.webm" />
                   <source src="http://thenewcode.com/assets/videos/ocean-small.mp4" />
                 </video>
@@ -322,8 +321,8 @@ class Home extends Component {
 
 
         {/*Products men Carousel  */}
-        <div className="my-5 text-center container">
-          <div className="womenbox" >
+        <div class="my-5 text-center container">
+          <div class="womenbox" >
             <p className='heartbeat'>Men Shop</p>
           </div>
 
@@ -335,8 +334,8 @@ class Home extends Component {
             infinite
             arrows
             dots
-            arrowLeft={<i className="fas fa-arrow-left"></i>}
-            arrowRight={<i className="fas fa-arrow-right"></i>}
+            arrowLeft={<i class="fas fa-arrow-left"></i>}
+            arrowRight={<i class="fas fa-arrow-right"></i>}
             addArrowClickHandler
 
             //media  Quiries
@@ -352,7 +351,7 @@ class Home extends Component {
             }}
           >
 
-            <div className="col-12 col-md d-flex align-items-center justify-content-center" className="col-12 col-md d-flex align-items-center justify-content-center">
+            <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
               {this.state.men.length > 0 ?
                 <img
                   className="pic-1"
@@ -365,7 +364,7 @@ class Home extends Component {
               }
             </div>
 
-            <div className="col-12 col-md d-flex align-items-center justify-content-center">
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
               {this.state.men.length > 0 ?
                 <img
                   className="pic-1"
@@ -381,7 +380,7 @@ class Home extends Component {
 
 
 
-            <div className="col-12 col-md d-flex align-items-center justify-content-center">
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
               {this.state.men.length > 0 ?
                 <img
                   className="pic-1"
@@ -395,7 +394,7 @@ class Home extends Component {
             </div>
 
 
-            <div className="col-12 col-md d-flex align-items-center justify-content-center" className="col-12 col-md d-flex align-items-center justify-content-center">
+            <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
               {this.state.men.length > 0 ?
                 <img
                   className="pic-1"
@@ -409,7 +408,7 @@ class Home extends Component {
             </div>
 
 
-            <div className="col-12 col-md d-flex align-items-center justify-content-center">
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
               {this.state.men.length > 0 ?
                 <img
                   className="pic-1"
@@ -422,7 +421,7 @@ class Home extends Component {
               }
             </div>
 
-            <div className="col-12 col-md d-flex align-items-center justify-content-center">
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
               {this.state.men.length > 0 ?
                 <img
                   className="pic-1"
@@ -481,8 +480,8 @@ class Home extends Component {
 
         {/*Products Second Hand Carousel  */}
         {/*Products men Carousel  */}
-        <div className="my-5 text-center container">
-          <div className="womenbox" >
+        <div class="my-5 text-center container">
+          <div class="womenbox" >
             <p className='heartbeat'>Reworked</p>
           </div>
 
@@ -494,8 +493,8 @@ class Home extends Component {
             infinite
             arrows
             dots
-            arrowLeft={<i className="fas fa-arrow-left"></i>}
-            arrowRight={<i className="fas fa-arrow-right"></i>}
+            arrowLeft={<i class="fas fa-arrow-left"></i>}
+            arrowRight={<i class="fas fa-arrow-right"></i>}
             addArrowClickHandler
 
             //media  Quiries
@@ -511,7 +510,7 @@ class Home extends Component {
             }}
           >
 
-            <div className="col-12 col-md d-flex align-items-center justify-content-center" className="col-12 col-md d-flex align-items-center justify-content-center">
+            <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
               {this.state.men.length > 0 ?
                 <img
                   className="pic-1"
@@ -524,7 +523,7 @@ class Home extends Component {
               }
             </div>
 
-            <div className="col-12 col-md d-flex align-items-center justify-content-center">
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
               {this.state.men.length > 0 ?
                 <img
                   className="pic-1"
@@ -540,7 +539,7 @@ class Home extends Component {
 
 
 
-            <div className="col-12 col-md d-flex align-items-center justify-content-center">
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
               {this.state.men.length > 0 ?
                 <img
                   className="pic-1"
@@ -554,7 +553,7 @@ class Home extends Component {
             </div>
 
 
-            <div className="col-12 col-md d-flex align-items-center justify-content-center" className="col-12 col-md d-flex align-items-center justify-content-center">
+            <div class="col-12 col-md d-flex align-items-center justify-content-center" class="col-12 col-md d-flex align-items-center justify-content-center">
               {this.state.men.length > 0 ?
                 <img
                   className="pic-1"
@@ -568,7 +567,7 @@ class Home extends Component {
             </div>
 
 
-            <div className="col-12 col-md d-flex align-items-center justify-content-center">
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
               {this.state.men.length > 0 ?
                 <img
                   className="pic-1"
@@ -581,7 +580,7 @@ class Home extends Component {
               }
             </div>
 
-            <div className="col-12 col-md d-flex align-items-center justify-content-center">
+            <div class="col-12 col-md d-flex align-items-center justify-content-center">
               {this.state.men.length > 0 ?
                 <img
                   className="pic-1"
