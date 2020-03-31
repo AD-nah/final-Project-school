@@ -7,7 +7,7 @@ import './profile.css'
 
 import { Switch, Route } from 'react-router-dom';
 import { MDBNavLink, MDBNavItem } from "mdbreact";
-import './profile.css'
+
 
 
 
@@ -76,36 +76,36 @@ export default class Profile extends Component {
 
 
 
-<div className="primary-nav">
-                    <nav role="navigation" className="menu">
-                        <ul className="menu-dropdown">
+                        <div className="primary-nav">
+                            <nav role="navigation" className="menu">
+                                <ul className="menu-dropdown">
 
-                                <li className="menu-hasdropdown">
+                                    <li className="menu-hasdropdown">
 
-                                    <MDBNavLink to="/profile/edit">Edit your Profile</MDBNavLink>
+                                        <MDBNavLink to="/profile/edit">Edit your Profile</MDBNavLink>
 
-                                    <span className="icon"><i className="fas fa-arrows-alt-h"></i></span></li>
-                                    
-
-
-                                <li>
-                                    <MDBNavLink to="/profile/sell">Sell</MDBNavLink>
-                                    <span className="icon"><i className="fas fa-arrows-alt-h"></i></span></li>
-
-                              
-
-                                <li>
-                                    <MDBNavItem>
-                                        <MDBNavLink to="/profile/ordered">Ordered</MDBNavLink>
-                                    </MDBNavItem><span className="icon"><i className="fas fa-arrows-alt-h"></i></span></li>
-                            </ul>
+                                        <span className="icon"><i className="fas fa-arrows-alt-h"></i></span></li>
 
 
-                        </nav>
 
-                    </div >
+                                    <li>
+                                        <MDBNavLink to="/profile/sell">Sell</MDBNavLink>
+                                        <span className="icon"><i className="fas fa-arrows-alt-h"></i></span></li>
 
-                </div>
+
+
+                                    <li>
+                                        <MDBNavItem>
+                                            <MDBNavLink to="/profile/ordered">Ordered</MDBNavLink>
+                                        </MDBNavItem><span className="icon"><i className="fas fa-arrows-alt-h"></i></span></li>
+                                </ul>
+
+
+                            </nav>
+
+                        </div >
+
+                    </div>
                 </div>
 
 
