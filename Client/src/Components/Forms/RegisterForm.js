@@ -29,7 +29,9 @@ class RegisterForm extends React.Component {
         lastName: "",
 
         email: "",
+
         userPassword: "",
+        passwordConfirmation:'',
 
         country:"",
         city:"",
@@ -84,7 +86,7 @@ class RegisterForm extends React.Component {
     const errors = {}; // the errors var will be empty if we don`t have errors
     if (!Validator.isEmail(data.email)) errors.email = "Email is required";
     if (!data.userPassword) errors.userPassword = "Password is required";
-
+    if (data.userPassword !== data.passwordConfirmation) errors.userPassword = 'Password is not Matched!'
     return errors;
   };
 
@@ -134,6 +136,8 @@ class RegisterForm extends React.Component {
               <ErrorMessage text={this.state.errors.email} />
             )}
 
+            {this.state.errors.userPassword && <ErrorMessage text = {this.state.errors.userPassword}/>}
+
             <MDBInput
               className="text-dark"
               label="Your password"
@@ -144,10 +148,13 @@ class RegisterForm extends React.Component {
             />
 
             <MDBInput
-              className="text-dark"
-              label="Confirm password"
-              type="password"
-              //onChange={this.onChange}
+                     type = 'password' 
+                     id = 'passwordConfirmation' 
+                     className = 'text-dark'
+                     
+                     value = {this.state.data.passwordConfirmation} 
+                     onChange = {this.onChange}
+                     name = 'passwordConfirmation' 
             />
 
             {this.state.errors.userPassword && (

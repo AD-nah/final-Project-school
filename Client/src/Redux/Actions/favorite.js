@@ -36,7 +36,6 @@ export const removeFromFavoriteAction = (item) => {
     })
 }
 
-
 export const sendFromFavoriteToBasketAction = (item) => (dispatch) => {
     return BasketApi.basket.saveToBasketRequest(item).then(res => {
         dispatch(dispatchProductToBasketState(res.products));
