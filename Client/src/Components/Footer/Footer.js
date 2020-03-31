@@ -1,48 +1,10 @@
 import React from "react";
 import ContactUs from "../Forms/ContactUs";
 
-import Home from '../Home/Home';
-import About from '../About/About';
-import News from '../News/News';
 
-// import Product from '../Products/Products';
-import Man from '../Products/Men/Men';
-import Women from '../Products/Women/Women';
-import Reworked from '../Products/Reworked/Reworked';
-
-// import Profile from '../Profile/Profile';
-import Ordered from '../Profile/Ordered/Ordered';
-import Edit from '../Profile/Edit/Edit';
-import Sell from '../Profile/Sell/Sell';
-
-import Basket from '../Basket/Basket';
-import Favorits from '../Favorites/Favorites';
-
-// import LoginPage from "../Pages/LoginPage";
-// import RegisterPage from "./Pages/RegisterPage";
-
-
-
-import {
-  
-  Switch,
-  Route,
-  Link,
-
-} from "react-router-dom";
-
-
-
-
-
-
-
-// import Newa from '../News/News';
-
+import {Link} from "react-router-dom";
 
 import "./footer.css";
-
-
 
 const Footer = () => {
   return (
@@ -164,27 +126,6 @@ const Footer = () => {
 
        
         </footer>
-        <div>
-        <Switch>
-          <Route exact path="home" component={Home}></Route>
-          <Route  path="about" component={About}></Route>
-          <Route  path="news" component={News}></Route>
-
-          <Route  path="products/men" component={Man}></Route>
-          <Route  path="products/women" component={Women}></Route>
-          <Route  path="products/reworked" component={Reworked}></Route>
-
-          <Route  path="profile/ordered" component={Ordered}></Route>
-          <Route  path="profile/edit" component={Edit}></Route>
-          <Route  path="profile/sell" component={Sell}></Route>
-
-          <Route  path="basket" component={Edit}></Route>
-          <Route  path="favorites" component={Sell}></Route>
-          
-
-        </Switch>
-        </div>
-      
     
     </>
   );

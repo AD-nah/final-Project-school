@@ -25,10 +25,10 @@ import SuccessMessage from '../../Messages/SuccessMessage'
   /* DON'T DELETE IT PLEASE */
 }
 
-//  {/* <h3 class="cost">
-//  <span class="glyphicon glyphicon-usd"></span> 15.00{" "}
-//  <small class="pre-cost">
-//      <span class="glyphicon glyphicon-usd"></span> 20.00
+//  {/* <h3 className="cost">
+//  <span className="glyphicon glyphicon-usd"></span> 15.00{" "}
+//  <small className="pre-cost">
+//      <span className="glyphicon glyphicon-usd"></span> 20.00
 //  </small>
 //  </h3> */}
 
@@ -144,11 +144,13 @@ class Women extends React.Component {
                         >
                           <a onClick={this.toggle(13)}>
                             <img
+                            alt = 'alt'
                               className="pic-1"
                               style={{ maxHeight: "400px" }}
                               src={item.images.protoTypes[0]}
                             />
                             <img
+                            alt = 'alt2'
                               className="pic-2"
                               src={item.images.protoTypes[1]}
                             />

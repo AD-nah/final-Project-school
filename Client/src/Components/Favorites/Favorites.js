@@ -109,7 +109,7 @@ class Favorits extends Component {
       {this.state.addedToBasket && <SuccessMessage text={this.state.addedToBasketMessage}/>}
       {this.state.alreadyInBasket && <SuccessMessage text={this.state.alreadyInBasketMessage}/>}
 
-        <h3 className="card-header text-center font-weight-bold text-uppercase py-4 "><img className="float-right " src={basket}/>your Favorite </h3>
+        <h3 className="card-header text-center font-weight-bold text-uppercase py-4 "><img alt = 'alt'  className="float-right " src={basket}/>your Favorite </h3>
   
         {/*if the chart is empty show this code , if not then show the product*/}
        
@@ -126,7 +126,7 @@ class Favorits extends Component {
                 <hr />
                 <div className="container row">
                   <div className="col-md-6" >
-                    <img className="img-fluid" src={empty} style={{ height: "50vh" }} />
+                    <img alt = 'alt' className="img-fluid" src={empty} style={{ height: "50vh" }} />
                   </div>
 
                   <div className="col-md-6 text-center">
