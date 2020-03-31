@@ -1,5 +1,5 @@
 {
-  "name": "final-Project-school",
+  "name": "final-project-school",
   "version": "1.0.0",
   "description": "This project was bootstrapped with [Create React App, express Renerator]",
   "main": "",
@@ -22,6 +22,7 @@
     "antd": "^3.26.12",
     "concurrently": "^5.1.0",
     "material-table": "^1.57.2",
-    "material-ui": "^0.20.2"
+    "material-ui": "^0.20.2",
+    "react-bootstrap-sidebar": "0.0.1"
   }
 }

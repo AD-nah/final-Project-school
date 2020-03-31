@@ -3,7 +3,7 @@ var router = express.Router();
 const Product = require('../models/Product');
 const male =  '5e5d1d5a03249d2ee09ce758';
 const female = '5e5d1d8303249d2ee09ce759';
-
+const pool = require('../mySql')
 
 // womens.forEach( (async item => {
 
@@ -48,7 +48,6 @@ const female = '5e5d1d8303249d2ee09ce759';
 
 
 
-module.exports = router;
 
 
 let womens = [
@@ -213,7 +212,7 @@ let womens = [
 
   {
     "name": "Only Women's Onlsaga Faux Leather Jacket CC OTW Jacket",
-    "description": "Hingucker. Die super lässige Kunstlederjacke von ONLY ist genau das Richtige für jeden Anlass. Die trendige Jacke in Wildlederoptik überzeugt durch coole Ziernähte und Metallic-Reißverschlüsse an den Ärmeln. Die Seitentaschen kommen ebenfalls mit coolen Reißverschlüssen daher. ",
+    "description": "Hingucker. Die super lässige Kunstlederjacke von ONLY ist genau das Richtige für jeden Anlass. Die trendige Jacke in Wildlederoptik überzeugt durch coole Ziernähte und Metallic-Reißverschlüsse an den Ärmeln. ",
 
     "images": {
       "protoTypes": [
@@ -323,7 +322,7 @@ let womens = [
 
   {
     "name": "Only Onlmandy Sedona Women's Spring Jacket OTW",
-    "description": "Only Women's Cropped Coat. This short coat is the perfect companion for the spring and summer. The cotton outer fabric is sporty, the minimalist design with large hood adds a feminine touch. The long cut jacket fits especially well T-shirts,",
+    "description": "Only Women's Cropped Coat. This short coat is the perfect companion for the spring and summer. The cotton outer fabric is sporty, the minimalist design with large hood adds a feminine touch.",
 
     "images": {
       "protoTypes": [
@@ -347,8 +346,9 @@ let womens = [
     },
 
     "prices": [
-      59,99,
-      40
+      59,
+      99
+      
     ],
     "rating": 3,
 
@@ -365,7 +365,6 @@ let womens = [
     ]
   },
 ]
-
 
 
 
@@ -614,7 +613,8 @@ const men = [
  
     },
     "prices": [
-      1.750
+      300,
+      400
     ],
     "rating": 5,
     "sizes": [
@@ -626,5 +626,160 @@ const men = [
   },
 ]
 
+// to add products
+// womens.forEach(item => {
+//       let sql = `INSERT INTO Main_Products (productType, productName, productDescription)
+//     VALUES(
+//       ${pool.escape(String("female"))},
+//       ${pool.escape(String(item.name))},
+//       ${pool.escape(String(item.description))}
+//     )`
+//     pool.query(sql, (err, fields) => {
+//       if(err)throw err
+//       console.log('inserted')
+//     })
+//   })<
+// for (let i = 0; i < men.length; i++){
+
+//   men[i].prices.forEach((element) => {
+
+//    let sql = `INSERT INTO Product_Prices (productId, prices, productType)
+//     VALUES(
+//       ${i + 1},
+//       ${pool.escape(String(element))},
+//       ${pool.escape(String("male"))}
+//     )`
+//     pool.query(sql, (err, fields) => {
+//       if(err)throw err
+//       console.log(i+ 1 +'inserted')
+//     })
+
+//   });
+// }
+
+// for (let i = 0; i < womens.length; i++){
+
+//   womens[i].prices.forEach((element) => {
+
+//    let sql = `INSERT INTO Product_Prices (productId, prices, productType)
+//     VALUES(
+//       ${i + 11},
+//       ${pool.escape(String(element))},
+//       ${pool.escape(String("female"))}
+//     )`
+//     pool.query(sql, (err, fields) => {
+//       if(err)throw err
+//       console.log(i+ 11 +'inserted')
+//     })
+
+//   });
+// }
 
 
+
+// const Array = [
+//   {
+//     productId  : '',
+//     productType: '',
+//     productName : '',
+//     productDescription:''
+//   } 
+// ]
+
+   
+// let sql = `SELECT 
+//    main_products.productId, 
+//    main_products.productType, 
+//    main_products.productName,
+//    main_products.productDescription, 
+//    product_images.images,
+//    product_prices.prices
+//    FROM main_products 
+//    INNER JOIN product_images ON main_products.productId=product_images.productId 
+//    INNER JOIN product_prices ON main_products.productId=product_prices.productId 
+//    WHERE main_products.productType="male"`;
+// pool.query(sql, (err, row) => {
+//     if(err)throw err
+//     console.log(row)
+// })
+
+
+
+
+// let sql = `SELECT DISTINCT * FROM main_products, product_images WHERE  main_products.productId = product_images.productId`;
+// pool.query(sql, (err, row) => {
+//     if(err)throw err
+//       // row.forEach((item) => {
+//         console.log( row[0])
+//       // })
+// })
+
+// let arr = [];
+
+// pool.query( `SELECT * FROM main_products WHERE productId = 10`, (err, row) => {
+  //     if(err)throw err
+  // })
+
+//   var arr = [
+//     {
+//       male: new Array,
+//       female: new Array
+//     }
+//   ]
+
+//   pool.query(`SELECT * FROM product_images WHERE productType = 'female'`, (err, row) => {
+//     if(err) {
+//       console.log(err);
+//     }else{
+//       if(row && row.length){
+//         let images = []
+
+//         row.forEach((item) => {
+//           images.push(item.images)
+//         })
+        
+//         arr[0].male.push(images)
+//       }else{
+
+//       }
+//     }
+
+// })
+// pool.query(`SELECT * FROM product_images WHERE productType = 'male'`, (err, row) => {
+//   if(err) {
+//     console.log(err);
+//   }else{
+//     if(row && row.length){
+//       let images = []
+
+//       row.forEach((item) => {
+//         images.push(item.images)
+//       })
+      
+//       arr[0].female.push(images)
+//     }else{
+
+//     }
+//   }
+
+// })
+// setTimeout(() => {
+
+//   console.log(arr[0].male)
+//   console.log(arr[0].female)
+// },1000)
+
+
+// let sql = `INSERT INTO Product_Images (productId, images)
+//   VALUES(
+  //     ${pool.escape(String(item.name))},
+  //     ${pool.escape(String(item.images))}
+  //   )`
+  //   pool.query(sql, (err, fields) => {
+    //     if(err)throw err
+    //     console.log('inserted')
+    //   })
+    
+
+
+module.exports = router;

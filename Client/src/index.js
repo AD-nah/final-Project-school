@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
- import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
@@ -20,6 +20,10 @@ import { Provider } from 'react-redux'
 import combineReducers from './Redux/combineReducers'
 import {userLoggedIn} from './Redux/Actions/auth'
 //import decode from 'jwt-decode'
+
+
+
+
 const store = createStore(combineReducers, composeWithDevTools(applyMiddleware(thunk)))
 
 
