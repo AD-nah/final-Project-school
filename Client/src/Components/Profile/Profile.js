@@ -41,31 +41,31 @@ export default class Profile extends Component {
                     </div>
 
 
-                    <h3 class="my-4">You may like </h3>
+                    <h3 className="my-4">You may like </h3>
 
-                    <div class="row">
+                    <div className="row">
 
-                        <div class="col-md-3 col-sm-6 mb-4">
+                        <div className="col-md-3 col-sm-6 mb-4">
                             <a href="#">
-                                <img class="img-fluid" src="http://placehold.it/300x200" alt="" />
+                                <img className="img-fluid" src="http://placehold.it/300x200" alt="" />
                             </a>
                         </div>
 
-                        <div class="col-md-3 col-sm-6 mb-4">
+                        <div className="col-md-3 col-sm-6 mb-4">
                             <a href="#">
-                                <img class="img-fluid" src="http://placehold.it/300x200" alt="" />
+                                <img className="img-fluid" src="http://placehold.it/300x200" alt="" />
                             </a>
                         </div>
 
-                        <div class="col-md-3 col-sm-6 mb-4">
+                        <div className="col-md-3 col-sm-6 mb-4">
                             <a href="#">
-                                <img class="img-fluid" src="http://placehold.it/300x200" alt="" />
+                                <img className="img-fluid" src="http://placehold.it/300x200" alt="" />
                             </a>
                         </div>
 
-                        <div class="col-md-3 col-sm-6 mb-4">
+                        <div className="col-md-3 col-sm-6 mb-4">
                             <a href="#">
-                                <img class="img-fluid" src="http://placehold.it/300x200" alt="" />
+                                <img className="img-fluid" src="http://placehold.it/300x200" alt="" />
                             </a>
                         </div>
 
@@ -96,7 +96,7 @@ export default class Profile extends Component {
                                 <li>
                                     <MDBNavItem>
                                         <MDBNavLink to="/profile/ordered">Ordered</MDBNavLink>
-                                    </MDBNavItem><span className="icon"><i class="fas fa-arrows-alt-h"></i></span></li>
+                                    </MDBNavItem><span className="icon"><i className="fas fa-arrows-alt-h"></i></span></li>
                             </ul>
 
 

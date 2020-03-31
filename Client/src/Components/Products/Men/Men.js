@@ -134,11 +134,13 @@ return (
             >
               <a onClick={this.toggle(13)}>
                 <img
+                alt = 'alt'
                   className="pic-1"
                   style={{ maxHeight: "400px" }}
                   src={item.images.protoTypes[0]}
                 />
                 <img
+                alt = 'alt2'
                   className="pic-2"
                   src={item.images.protoTypes[1]}
                 />
