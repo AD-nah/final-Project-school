@@ -7,7 +7,7 @@ import Recycled3 from '../img/Recycling3.jpg'
 
 
 import React from "react";
-import { BackTop } from "antd";
+
 
 import { WaveLoading } from "react-loadingg";
 
@@ -273,16 +273,7 @@ class Women extends React.Component {
 
 
 
-        {/* Back to top btn */}
-        <div>
-          <BackTop>
-            <i
-              className="fas fa-angle-double-up"
-              style={{ color: "black", fontSize: "40px" }}
-            ></i>
-          </BackTop>
-        </div>
-
+ 
 
         {/* // images modal */}
         <div>

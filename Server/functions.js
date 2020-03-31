@@ -36,7 +36,7 @@ module.exports = {
             )   
         }
 
-        return `http://192.168.178.26:3000/reset-password-route/${generateResetPasswordToken(userId)}`;
+        return `http://localhost:3000/reset-password-route/${generateResetPasswordToken(userId)}`;
     }
 
 }

@@ -152,11 +152,11 @@ class LoginForm extends React.Component {
           </form>
 
 
-        <button className='btn bg-info w-100' onClick = {showForgotPasswordForm}>{this.state.showHide}</button>
+        <button className='btn btn-light' onClick = {showForgotPasswordForm}>{this.state.showHide}</button>
         
           {this.state.fromIsOpen ? <ForgotPasswordPage/> : null}
 
-          {/* <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
+           <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
 
 
             or Login in with:
@@ -179,7 +179,7 @@ class LoginForm extends React.Component {
             >
               <MDBIcon fab icon="google-plus-g" className="red-text" />
             </MDBBtn>
-          </div> */}
+          </div> 
         </MDBCol>
 
       </MDBContainer>
