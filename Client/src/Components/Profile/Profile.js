@@ -84,14 +84,15 @@ export default class Profile extends Component {
 
                                     <MDBNavLink to="/profile/edit">Edit your Profile</MDBNavLink>
 
-                                    </li>
+                                    <span className="icon"><i className="fas fa-arrows-alt-h"></i></span></li>
+                                    
 
 
                                 <li>
                                     <MDBNavLink to="/profile/sell">Sell</MDBNavLink>
-                                    <span className="icon"><i className="fas fa-dollar-sign"></i></span>
+                                    <span className="icon"><i className="fas fa-arrows-alt-h"></i></span></li>
 
-                                </li>
+                              
 
                                 <li>
                                     <MDBNavItem>
