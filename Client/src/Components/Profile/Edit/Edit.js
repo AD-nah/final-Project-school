@@ -19,7 +19,9 @@ class Edit extends React.Component {
 
     render() {
         return (
-            <div className="container" style={{backgroundColor:' beige'}}>
+        
+                <div className="container">
+
 
                 <div className="row ml-5">
                     <div className="col-sm-10 m-4 text-center">
@@ -29,14 +31,18 @@ class Edit extends React.Component {
 
 
 
+                        <div className="row">
 
-                    <div className="col-sm-3">
+                        <div className="col-sm-10 m-4">
+                            <h1>User name</h1>
 
-                        <div className="text-center">
-                            <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" className="avatar img-thumbnail" alt="avatar" />
-                            <h6>Upload a photo...</h6>
-                            <input type="file" className=" ml-2" />
                         </div>
+
+                            <div className="col-sm-3">
+
+
+                            </div>
+
 
                     </div>
 
@@ -102,16 +108,12 @@ class Edit extends React.Component {
                                             <button className="btn btn-lg" type="reset"><i className="glyphicon glyphicon-repeat"></i> Reset</button>
                                         </div>
                                     </div>
-                                </form>
-                            </div>
+                                </div >
+                            </div >
                         </div >
+                </div>
+        )
 
-
-                    </div >
-                </div >
-            </div >
-
-        );
     }
 }
 

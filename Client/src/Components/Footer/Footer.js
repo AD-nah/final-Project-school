@@ -99,12 +99,15 @@ const Footer = () => {
                 <li>
                   <Link to="/profile/ordered">Ordered</Link>
                 </li>
+    
                 <li>
                   <Link to="/profile/edit">Edit</Link>
                 </li>
+    
                 <li>
                   <Link to="/profile/sell">Sell</Link>
                 </li>
+    
               </ul>
             </div>
 
@@ -160,28 +163,6 @@ const Footer = () => {
 
 
       </footer>
-      <div>
-        <Switch>
-          <Route exact path="home" component={Home}></Route>
-          <Route path="about" component={About}></Route>
-          <Route path="news" component={News}></Route>
-
-          <Route path="products/men" component={Man}></Route>
-          <Route path="products/women" component={Women}></Route>
-          <Route path="products/reworked" component={Reworked}></Route>
-
-          <Route path="profile/bought" component={Ordered}></Route>
-          <Route path="profile/edit" component={Edit}></Route>
-          <Route path="profile/sell" component={Sell}></Route>
-
-          <Route path="basket" component={Basket}></Route>
-          <Route path="favorites" component={Favorits}></Route>
-
-
-        </Switch>
-      </div>
-
-
     </>
   );
 };

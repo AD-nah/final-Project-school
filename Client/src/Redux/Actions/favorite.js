@@ -27,3 +27,13 @@ export const removeFromFavoriteAction = (item) => {
         return 'failed to remove from Favorite'
     })
 }
+
+export const sendFromFavoriteToBasketAction = (item) => (dispatch) => {
+    return BasketApi.basket.saveToBasketRequest(item).then(res => {
+        dispatch(dispatchProductToBasketState(res.products));
+        return res.message
+    }).catch(err => {
+        return err.response.data.message
+    })
+
+}

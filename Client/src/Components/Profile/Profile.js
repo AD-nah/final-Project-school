@@ -18,8 +18,8 @@ export default class Profile extends Component {
             <>
             {/* please dont delete it */}
 
-                {/* 
-                <div className="containe ">
+                <div className="container">
+
                     <div className="row">
                      
                             <div className="col-md-8 ">
@@ -77,17 +77,21 @@ export default class Profile extends Component {
 
 
 
-
-
-                <div className="primary-nav">
+<div className="primary-nav">
                     <nav role="navigation" className="menu">
                         <ul className="menu-dropdown">
 
-                            
-                                <MDBNavItem className="menu-hasdropdown">
+                                <li className="menu-hasdropdown">
+
                                     <MDBNavLink to="/profile/edit">Edit your Profile</MDBNavLink>
-                                    <span className="icon"><i className="fas fa-arrows-alt-h"></i></span>
-                                </MDBNavItem>
+
+                                    </li>
+
+
+                                <li>
+                                    <MDBNavLink to="/profile/sell">Sell</MDBNavLink>
+                                    <span className="icon"><i className="fas fa-dollar-sign"></i></span>
+
 
                             
 
@@ -105,6 +109,10 @@ export default class Profile extends Component {
                         </ul>
 
                     </nav>
+
+                    </div >
+
+                </div>
 
                 </div>
 
