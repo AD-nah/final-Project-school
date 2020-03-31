@@ -52,7 +52,7 @@ router.post('/remove-from-favorite', async (req, res, next) => {
 
     const removeingItem = await Favorite.update({ userId : userId }, { $pull : { favorite : { _id : item._id}}})
     if(removeingItem){
-        res.status(200).json({item: 'removed from favorite'})
+        res.status(200).json({message: 'removed from favorite'})
     }
 })
 

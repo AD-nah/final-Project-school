@@ -79,11 +79,11 @@ class Women extends React.Component {
   addToBasket(item) {
     this.props.addToBasketAction(item).then(message => {
       this.setState({addedToBasket : true, addedToBasketMessage: message });
-      setTimeout(() =>  this.setState({ addedToBasket: false }), 100);
+      setTimeout(() =>  this.setState({ addedToBasket: false }), 200);
 
     }).catch(message => {
       this.setState({alreadyInBasket : true, alreadyInBasketMessage: message });
-      setTimeout(() =>  this.setState({ alreadyInBasket: false }), 100);
+      setTimeout(() =>  this.setState({ alreadyInBasket: false }), 200);
     })
   }
   /// add the Favorites to the basket
