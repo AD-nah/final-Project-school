@@ -13,13 +13,13 @@ export default {
         saveToBasketRequest: (item) => {
             if(localStorage.sCount){
                 const payload = decode(localStorage.sCount)
-                return axios.post('/api/basket/save-to-basket', { item, userId: payload.userId}).then((res) => res.data.res)
+                return axios.post('/api/basket/save-to-basket', { item, userId: payload.userId}).then((res) => res.data.items)
             }
         },
         removeFromBasketRequest:(item) => {
             if(localStorage.sCount){
                 const payload = decode(localStorage.sCount)
-            return axios.post('/api/basket/remove-from-basket',{ item, userId:payload.userId}).then(res => res.data.message)
+            return axios.post('/api/basket/remove-from-basket',{ item, userId:payload.userId}).then(res => res.data.item)
             }
         }
     }

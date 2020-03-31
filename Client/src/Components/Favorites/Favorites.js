@@ -4,7 +4,6 @@ import empty from './images/emptyb.png';
 import basket from './images/basket.png';
 import { fetchFavorite } from '../../Redux/Actions/favorite' 
 import { removeFromFavoriteAction } from '../../Redux/Actions/favorite' 
-import { sendFromFavoriteToBasketAction } from '../../Redux/Actions/favorite'
 import SuccessMessage from '../Messages/SuccessMessage'
 
 class Favorits extends Component {
@@ -16,11 +15,6 @@ class Favorits extends Component {
       removedFromFavorite: false,
       removedFromFavoriteMessage: '',
 
-      // for basket Messages
-      addedToBasket: false,
-      addedToBasketMessage: '',
-      alreadyInBasket : false,
-      alreadyInBasketMessage :'',
     }
   }
 
@@ -47,7 +41,7 @@ class Favorits extends Component {
   starMaker(n) {
     let stars = [];
     for (let i = 0; i < n; i++) {
-      stars.push(<li key={i} className="fa fa-star"></li>);
+      stars.push(<li className="fa fa-star"></li>);
     }
     return stars;
   }
@@ -56,6 +50,7 @@ class Favorits extends Component {
   delete(item) {
 
     removeFromFavoriteAction(item).then(res => {
+       
       this.setState(prevState => ({
           products: prevState.products.filter(el => el._id !== item._id),
           removedFromFavorite: prevState.removedFromFavorite = true,
@@ -73,32 +68,6 @@ class Favorits extends Component {
      })
   }
 
-  sendToBasket(item){
-    this.props.sendFromFavoriteToBasketAction(item).then(message => {
-      this.setState({addedToBasket : true, addedToBasketMessage: message });
-      setTimeout(() =>  this.setState({ addedToBasket: false }), 200);
-
-      removeFromFavoriteAction(item).then(res => {
-        this.setState(prevState => ({
-            products: prevState.products.filter(el => el._id !== item._id),
-            removedFromFavorite: prevState.removedFromFavorite = true,
-            removedFromFavoriteMessage: prevState.removedFromFavoriteMessage = res
-        }))
-         setTimeout(()=> {
-            this.setState({removedFromFavorite:false})
-         },200)
-  
-       }).catch((res) => {
-         this.setState({removedFromFavorite: true, removedFromFavoriteMessage: res})
-         setTimeout(()=> this.setState({removedFromFavorite:false}),200)
-       })
-
-    }).catch(message => {
-      this.setState({alreadyInBasket : true, alreadyInBasketMessage: message });
-      setTimeout(() => this.setState({ alreadyInBasket: false }), 200);
-    })
-  }
-
   render() {
 
     return (
@@ -106,13 +75,12 @@ class Favorits extends Component {
       
       {this.state.removedFromFavorite && (<SuccessMessage text = {this.state.removedFromFavoriteMessage} />)}
 
-      {this.state.addedToBasket && <SuccessMessage text={this.state.addedToBasketMessage}/>}
-      {this.state.alreadyInBasket && <SuccessMessage text={this.state.alreadyInBasketMessage}/>}
-
         <h3 className="card-header text-center font-weight-bold text-uppercase py-4 "><img className="float-right " src={basket}/>your Favorite </h3>
   
+        
         {/*if the chart is empty show this code , if not then show the product*/}
        
+          {console.log('products :', this.state.products)}
           {(!this.state.products || this.state.products.length === 0) &&
             (
               <div className="container">
@@ -145,7 +113,7 @@ class Favorits extends Component {
             {this.state.products && this.state.products.map((item, index) => {
 
                 return ( 
-                  <div className="container" key="container">
+                  <div className="container">
 
                   <div className="row mb-3 m-5">
                     <div className="  row">
@@ -180,21 +148,17 @@ class Favorits extends Component {
                             <h5 className="text-danger font-weight-bold"><s>{item.prices[1]}$</s></h5>
                             <hr/>
                             <span className="table-remove">
-
                               <button
-                                  type="button"
-                                  onClick={this.delete.bind(this, item)}  
-                                  className="btn btn-danger  "
-                                  >Remove from Favorite
+                                type="button"
+                                onClick={this.delete.bind(this, item)}  
+                                className="btn btn-danger btn-rounded btn-sm "
+                                >Remove from Favorite
                               </button>
-
                               <button 
-                                  type="button" 
-                                  className="btn btn-info  "
-                                  onClick = {this.sendToBasket.bind(this, item)}
-                                  >Send To Basket
+                                type="button" 
+                                className="btn btn-info btn-rounded btn-sm "
+                                >Send To Basket
                               </button>
-
                               </span>
                           </div>
                       </div> 
@@ -215,7 +179,7 @@ const mapStateToProps = (state) => {
     item: state.favoriteReducer
   }
 }
-export default connect(mapStateToProps, {fetchFavorite, sendFromFavoriteToBasketAction})(Favorits)
+export default connect(mapStateToProps, {fetchFavorite})(Favorits)
 
 
 

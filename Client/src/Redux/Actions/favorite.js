@@ -1,12 +1,7 @@
 import {ADD_TO_FAVORITE} from '../types'
-import FavoriteApi from '../../APIs/FavoriteApi'
+import api from '../../APIs/FavoriteApi'
 
-
-// to save products into The Basket DB from the Favorite DB
-import {dispatchProductToBasketState} from '../Actions/basket'
-import BasketApi from '../../APIs/BasketApi'
-
-export const dispatchProductToFavoriteState = (items) => {
+export const addedToFavorite = (items) => {
     return {
         type: ADD_TO_FAVORITE,
         items
@@ -14,34 +9,21 @@ export const dispatchProductToFavoriteState = (items) => {
 }
 
 export const  addToFavoriteAction = (item) => (dispatch) => {
-   return FavoriteApi.favorite.saveToFavoriteRequest(item).then(res => {
-        dispatch(dispatchProductToFavoriteState(res.products));
-        return res.message
-    }).catch(err => {
-        return err.response.data.message
+   return api.favorite.saveToFavoriteRequest(item).then(items => {
+        dispatch(addedToFavorite(items));
     })
 }
 
 export const fetchFavorite = () => (dispatch) => {
-   return FavoriteApi.favorite.getFavoriteRequest().then(items => {
-        dispatch(dispatchProductToFavoriteState(items))
+   return api.favorite.getFavoriteRequest().then(items => {
+        dispatch(addedToFavorite(items))
     })
 }
 
 export const removeFromFavoriteAction = (item) => {
-    return FavoriteApi.favorite.removeFromFavoriteRequest(item).then(item => {
+    return api.favorite.removeFromFavoriteRequest(item).then(item => {
         return item
     }).catch(()=> {
         return 'failed to remove from Favorite'
-    })
-}
-
-
-export const sendFromFavoriteToBasketAction = (item) => (dispatch) => {
-    return BasketApi.basket.saveToBasketRequest(item).then(res => {
-        dispatch(dispatchProductToBasketState(res.products));
-        return res.message
-    }).catch(err => {
-        return err.response.data.message
     })
 }
