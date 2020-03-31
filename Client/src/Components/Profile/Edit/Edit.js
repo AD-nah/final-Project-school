@@ -21,13 +21,7 @@ class Edit extends React.Component {
         return (
         
                 <div className="container">
-
-
-
-
-
-                        <div className="row">
-
+                        <div className="row  m-2 ">
                         <div className="col-sm-10 m-4">
                             <h1>User name</h1>
 
@@ -38,17 +32,14 @@ class Edit extends React.Component {
                                 <div className="text-center">
                                     <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" className="avatar img-circle img-thumbnail" alt="avatar" />
                                     <h6>Upload a different photo...</h6>
-                                    <input type="file" className="text-center center-block file-upload" />
+                                    <input type="file" className="text-center center-block file-upload  p-4" />
                                 </div>
 
                             </div>
 
 
 
-
-
-                            <div className="col-sm-9">
-
+                            <div className="col-sm-9 p-4">
 
                                 <div className="tab-content">
                                     <div className="tab-pane active" id="home">
