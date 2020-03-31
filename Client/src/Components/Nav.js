@@ -18,7 +18,7 @@ import News from "./News/News";
 import About from "./About/About";
 import LoginPage from "./Pages/LoginPage";
 import RegisterPage from "./Pages/RegisterPage";
-
+import ResetPasswordPage from './Pages/ResetPasswordPage'
 import Profile from "./Profile/Profile";
 import Basket from "./Basket/Basket";
 import Favorites from "./Favorites/Favorites";
@@ -49,7 +49,7 @@ class Navbar extends Component {
   loginToggle = () => {
     this.setState({
       loginModal: !this.state.loginModal
-    }); 
+    });
   };
 
   logoutHandler = () => {
@@ -85,7 +85,7 @@ class Navbar extends Component {
     return (<>
       <div>
 
-        <nav  className={`${this.state.NavbarClass} navbar_header navbar navbar-expand-lg`}>
+        <nav className={`${this.state.NavbarClass} navbar_header navbar navbar-expand-lg`}>
           {this.state.logoutSuccess && <SuccessMessage text="Good Bey" />}
 
           {authMessagesHandler() === "registerdMessage" && (
@@ -100,12 +100,12 @@ class Navbar extends Component {
 
 
 
-        <div >
-        <img className="logo " style={{display:"flex",float:"left"}} src={Logo} alt="Logo" />
-        <a className="navbar-brand scount" href="#"> Scount</a>
-       
-          
-        </div>
+          <div >
+            <img className="logo " style={{ display: "flex", float: "left" }} src={Logo} alt="Logo" />
+            <a className="navbar-brand scount" href="#"> Scount</a>
+
+
+          </div>
 
           <button className="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon ">Menu</span>
@@ -126,13 +126,13 @@ class Navbar extends Component {
               </li>
 
               <li className="nav-item">
-               
+
                 <Link to="/news" >
                   News
                 </Link>
               </li>
               <li className="nav-item">
-           
+
                 <Link to="/about" >
                   about
                 </Link>
@@ -142,102 +142,99 @@ class Navbar extends Component {
 
 
 
-              {/* login btn auth with modal */}
-                {!this.props.isAuthenticated && (<button className="btn-5 " onClick={this.loginToggle}>Login</button>)}
+            {/* login btn auth with modal */}
+            {!this.props.isAuthenticated && (<button className="btn-5 " onClick={this.loginToggle}>Login</button>)}
 
-                <MDBModal isOpen={this.state.loginModal}
-                  toggle={this.loginToggle}
-                >
-                  <MDBModalHeader toggle={this.loginToggle}>
-                    {/* Please Login */}
-                  </MDBModalHeader>
-                  <MDBModalBody>
-                    <LoginPage closeLogin={this.loginToggle} />
-                  </MDBModalBody>
-                </MDBModal>
-            
-
-
-
-
-              {/* Register auth and Modal */}
-              {!this.props.isAuthenticated && (<button className=" btn-5  my-2 my-sm-0" onClick={this.registerToggle}>Register</button>)}
-              <MDBModal
-                isOpen={this.state.registerModal}
-                toggle={this.registerToggle}
-                size="lg"
-              >
-                <MDBModalHeader toggle={this.registerToggle}></MDBModalHeader>
-                <MDBModalBody>
-                  <RegisterPage closeRegister={this.registerToggle} />
-                </MDBModalBody>
-              </MDBModal>
+            <MDBModal isOpen={this.state.loginModal}
+              toggle={this.loginToggle}
+            >
+              <MDBModalHeader toggle={this.loginToggle}>
+                {/* Please Login */}
+              </MDBModalHeader>
+              <MDBModalBody>
+                <LoginPage closeLogin={this.loginToggle} />
+              </MDBModalBody>
+            </MDBModal>
 
 
 
 
-              {/* Acoount Dropdown Authentication */}
-              {this.props.isAuthenticated && (
-                <div className="nav-item dropdown">
-                  <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Account
+
+            {/* Register auth and Modal */}
+            {!this.props.isAuthenticated && (<button className=" btn-5  my-2 my-sm-0" onClick={this.registerToggle}>Register</button>)}
+            <MDBModal
+              isOpen={this.state.registerModal}
+              toggle={this.registerToggle}
+              size="lg"
+            >
+              <MDBModalHeader toggle={this.registerToggle}></MDBModalHeader>
+              <MDBModalBody>
+                <RegisterPage closeRegister={this.registerToggle} />
+              </MDBModalBody>
+            </MDBModal>
+
+
+
+
+            {/* Acoount Dropdown Authentication */}
+            {this.props.isAuthenticated && (
+              <div className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Account
                     </a>
-                  <div className="dropdown-menu flex-column" aria-labelledby="navbarDropdown">
-                  
-                    <Link className="dropdown-item" to="/profile/edit">
+                <div className="dropdown-menu flex-column" aria-labelledby="navbarDropdown">
+
+                  <a>
+                    <Link to="/profile/edit">
                       <strong>Profile</strong>
                     </Link>
-                  
 
-                  
-                    <Link className="dropdown-item" to="/basket">
+                    <Link  to="/basket">
                       <strong>My-Basket</strong>
                     </Link>
-                  
 
-                  
-                  <Link className="dropdown-item" to="/favorites">
+                    <Link to="/favorites">
                       <strong>Favorites</strong>
                     </Link>
-                  
-                  
+                    </a>
                   </div>
                 </div>
               )}
 
 
-              {/* logout handler auth */}
-              {this.props.isAuthenticated && (<button className="btn-5 my-2 my-sm-0" onClick={this.logoutHandler}>Logout</button>)}
+                {/* logout handler auth */}
+                {this.props.isAuthenticated && (<button className="btn-5 my-2 my-sm-0" onClick={this.logoutHandler}>Logout</button>)}
 
-          
-          </div>
+
+              </div>
         </nav>
       </div>
-      <div>
 
 
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/home" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/products" component={Products} />
+        <div>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/home" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/products" component={Products} />
 
-          <Route path="/news" component={News} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/basket" component={Basket} />
-          <Route path="/favorites" component={Favorites} />
-        </Switch>
-      </div>
+            <Route path="/news" component={News} />
+            <Route path="/profile" component={Profile} />
+            <Route path="/basket" component={Basket} />
+            <Route path="/favorites" component={Favorites} />
+            <Route path="/reset-password-route/:token" component={ResetPasswordPage} />
+          </Switch>
+        </div>
     </>);
   }
 }
 
 const mapStateToProps = state => {
   return {
-    isAuthenticated: !!state.userReducer.token
+        isAuthenticated: !!state.userReducer.token
   };
 };
 
 export default connect(mapStateToProps, {
-  logoutAction: reduxActios.logoutAction
+        logoutAction: reduxActios.logoutAction
 })(Navbar);

@@ -17,38 +17,52 @@ export  const userLoggedOut = () =>  {
     }
 }
 
-
 export const registerAction  = (data) => (dispatch) => {
 
     return api.user.registerRequest(data).then((response) => {
-
          localStorage.sCount = response.token 
          dispatch(userLoggedIn(response))
          registerdMessage = true
-
     })
 }
 export const loginAction  = (data) => (dispatch) => {
 
      return api.user.loginRequest(data).then((response) => {
-
          localStorage.sCount = response.token 
          dispatch(userLoggedIn(response))
          loggedinMessage = true
-
      })
 }
 
 export const logoutAction  = () => (dispatch) => {
-          
     // return api.user.logoutRequest(localStorage.sCount).then(res =>{
         localStorage.removeItem('sCount')
-       return dispatch(userLoggedOut())    
+        return dispatch(userLoggedOut())    
     // })/* catch(err => {   // just for testing!
         // console.log("auth.js")
         // dispatch(userLoggedOut())
     // }) */
 }
+
+export const forgotPasswordAction  = (data) => (dispatch) => {
+    return api.user.forgotPasswordRequest(data).then(responsee => {
+        console.log(responsee);
+   });
+}
+
+export const validateResetPasswordTokenAction = (token) => () => {
+    return api.user.validateResetPasswordTokenRequest(token);
+};
+
+export const resetPasswordAction = (data) => (dispatch) => {
+    return api.user.resetPasswordRequest(data).then((response) => {
+        localStorage.sCount = response.token 
+        dispatch(userLoggedIn(response))
+        //loggedinMessage = true
+    })
+};
+
+
 
 
 export const authMessagesHandler = () => {

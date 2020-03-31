@@ -1,4 +1,4 @@
-import React, { Component, Link } from 'react';
+import React, { Component } from 'react';
 import ReworkedImg from './Boxes images/wailorWorkShop.jpg';
 import { fetchWomenProducts } from '../../Redux/Actions/products'
 import { fetchMenProducts } from '../../Redux/Actions/products'
@@ -18,7 +18,7 @@ import caro6 from './imgCarousel/d-women3.jpg';
 
 
 
-import Carousel, { Dots } from '@brainhubeu/react-carousel';
+import Carousel/* , { Dots }  */from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
 
 
@@ -54,7 +54,7 @@ class Home extends Component {
 
 
         {/*Started Carosel */}
-        <div id="carousel-example-1z" className="carousel slide carousel-fade" data-ride="carousel" style={{height:"70vh"}}>
+        <div id="carousel-example-1z" className="carousel slide carousel-fade" data-ride="carousel">
 
           <ol className="carousel-indicators">
             <li data-target="#carousel-example-1z" data-slide-to="0" className="active"></li>
@@ -76,7 +76,6 @@ class Home extends Component {
             <div className="carousel-item">
               <img className="d-block w-100 carouselimag" src={caro2}
                 alt="Second slide" />
-
             </div>
 
             <div className="carousel-item">
@@ -135,8 +134,8 @@ class Home extends Component {
                 <div className="p-5">
                   <h2 className="display-5">– Coco Chanel</h2>
                   <p >“Fashion is not something that exists in dresses only. Fashion is in the sky, in the street, fashion has to do with ideas, the way we live, what is happening.”</p>
-                  <a href="#" class="btn-join">
-                    Get inspired <i class="fas fa-chevron-right"></i>
+                  <a href="#" className="btn-join">
+                    Get inspired <i className="fas fa-chevron-right"></i>
                   </a>
                 </div>
               </div>
@@ -153,7 +152,7 @@ class Home extends Component {
             <div className="row align-items-center">
               <div className="col-lg-6 order-lg-2">
 
-                <header >
+                <header>
                   <video playsInline="playsinline" autoPlay="autoplay" muted="muted" loop="loop">
                     <source src={video} type="video/mp4" />
                   </video>

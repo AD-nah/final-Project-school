@@ -31,9 +31,10 @@
     "morgan": "~1.9.1",
     "mssql": "^6.2.0",
     "mysql": "^2.18.1",
+    "nodemailer": "^6.4.6",
     "nodemon": "^2.0.2",
+    "paypal-rest-sdk": "^1.8.1",
     "randomstring": "^1.1.5",
-    "uuid": "^7.0.2",
-    "paypal-rest-sdk": "^1.8.1"
+    "uuid": "^7.0.2"
   }
 }

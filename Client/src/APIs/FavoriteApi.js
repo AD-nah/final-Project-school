@@ -14,15 +14,13 @@ export default {
             
             if(localStorage.sCount){
                 const payload = decode(localStorage.sCount)
-                return axios.post('/api/favorite/save-to-favorite', {item, userId: payload.userId}).then((res) => {
-                    console.log(res.data.res.products)
-                    return res.data.res.products})
+                return axios.post('/api/favorite/save-to-favorite', {item, userId: payload.userId}).then((res) => res.data.res)
             }
         },
         removeFromFavoriteRequest:(item) => {
             if(localStorage.sCount){
                 const payload = decode(localStorage.sCount)
-            return axios.post('/api/favorite/remove-from-favorite',{ item, userId:payload.userId}).then(res => res.data.item)
+            return axios.post('/api/favorite/remove-from-favorite',{ item, userId:payload.userId}).then(res => res.data.message)
             }
         }
     }
