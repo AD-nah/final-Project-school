@@ -130,7 +130,7 @@ class Chart extends Component {
 
 
 
-        <h3 className="card-header text-center font-weight-bold text-uppercase py-4 "><img className="float-right " src={basket}/>your Basket </h3>
+        <h3 className="card-header text-center font-weight-bold text-uppercase py-4 "><img alt = 'alt1'className="float-right " src={basket}/>your Basket </h3>
         <br/>
 
         <div className=" row">
@@ -149,7 +149,7 @@ class Chart extends Component {
 
                 <div className="container row">
                   <div className="col-md-6" >
-                    <img className="img-fluid" src={empty} style={{ height: "50vh" }} />
+                    <img alt = 'alt2'className="img-fluid" src={empty} style={{ height: "50vh" }} />
                   </div>
                   <div className="col-md-6 text-center">
   
@@ -170,7 +170,7 @@ class Chart extends Component {
                   <div className="  row">
 
                     <div className=" text-center  col">
-                      <img style={{ height: '40vh', width: "15vw" }} src={item.images.protoTypes[0]} className="img-fluid img-thumbnail" alt="Sheep" />
+                      <img  style={{ height: '40vh', width: "15vw" }} src={item.images.protoTypes[0]} className="img alt = 'alt'-fluid img-thumbnail" alt="Sheep" />
                     </div>
 
                     <div className="  col-5">
@@ -250,13 +250,13 @@ class Chart extends Component {
               <hr />
               <div className="text-center row mt-1">
                 <a href="#">
-                  <img className="img-fluid col-sm-2" src={paypal} />
+                  <img alt = 'alt4' className="img-fluid col-sm-2" src={paypal} />
                 </a>
                 <a href="#">
-                  <img className="img-fluid col-sm-2" src={master} />
+                  <img alt = 'alt5' className="img-fluid col-sm-2" src={master} />
                 </a>
                 <a href="#">
-                  <img className="img-fluid col-sm-2" src={visa} />
+                  <img alt = 'alt6' className="img-fluid col-sm-2" src={visa} />
                 </a>
               </div>
               <hr />

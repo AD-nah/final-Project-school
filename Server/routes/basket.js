@@ -25,7 +25,7 @@ const findInBasket = await Basket.findOne({userId: userId})
 router.post('/save-to-basket', async (req, res, next)=> {
 
     const { userId, item } = req.body
-
+    console.log(item)
     let duplicated = false;
 
     let basket = await Basket.findOne({userId:userId});
@@ -39,12 +39,13 @@ router.post('/save-to-basket', async (req, res, next)=> {
     }
 
     if ( duplicated ){
-
+        console.log('product is already in basket')
         res.status(400).json({message: "product is already in basket!"})
 
     }else{
 
         Basket.findOneAndUpdate({ userId: userId }, { $push: { basket : item }}).then(response=>{
+            console.log('added to basket')
              res.status(200).json( {res: { products : response.basket, message: 'added to basket'} });
         }).catch(error=>{
             res.status(400).send({msg: error})

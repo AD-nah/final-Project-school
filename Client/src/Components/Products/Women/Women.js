@@ -25,10 +25,10 @@ import SuccessMessage from '../../Messages/SuccessMessage'
   /* DON'T DELETE IT PLEASE */
 }
 
-//  {/* <h3 class="cost">
-//  <span class="glyphicon glyphicon-usd"></span> 15.00{" "}
-//  <small class="pre-cost">
-//      <span class="glyphicon glyphicon-usd"></span> 20.00
+//  {/* <h3 className="cost">
+//  <span className="glyphicon glyphicon-usd"></span> 15.00{" "}
+//  <small className="pre-cost">
+//      <span className="glyphicon glyphicon-usd"></span> 20.00
 //  </small>
 //  </h3> */}
 
@@ -79,11 +79,11 @@ class Women extends React.Component {
   addToBasket(item) {
     this.props.addToBasketAction(item).then(message => {
       this.setState({addedToBasket : true, addedToBasketMessage: message });
-      setTimeout(() =>  this.setState({ addedToBasket: false }), 100);
+      setTimeout(() =>  this.setState({ addedToBasket: false }), 200);
 
     }).catch(message => {
       this.setState({alreadyInBasket : true, alreadyInBasketMessage: message });
-      setTimeout(() =>  this.setState({ alreadyInBasket: false }), 100);
+      setTimeout(() =>  this.setState({ alreadyInBasket: false }), 200);
     })
   }
   /// add the Favorites to the basket
@@ -144,11 +144,13 @@ class Women extends React.Component {
                         >
                           <a onClick={this.toggle(13)}>
                             <img
+                            alt = 'alt'
                               className="pic-1"
                               style={{ maxHeight: "400px" }}
                               src={item.images.protoTypes[0]}
                             />
                             <img
+                            alt = 'alt2'
                               className="pic-2"
                               src={item.images.protoTypes[1]}
                             />

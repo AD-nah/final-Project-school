@@ -144,9 +144,9 @@ class LoginForm extends React.Component {
 
             {/* <div>
               <span className="rememberMe">Remember me</span>
-              <label class="checkbox">
+              <label className="checkbox">
                 <input type="checkbox" />
-                <span class="success"></span>
+                <span className="success"></span>
               </label>
             </div> */}
           </form>
