@@ -151,6 +151,7 @@ class RegisterForm extends React.Component {
                      type = 'password' 
                      id = 'passwordConfirmation' 
                      className = 'text-dark'
+                      label="verify Your password"
                      
                      value = {this.state.data.passwordConfirmation} 
                      onChange = {this.onChange}
