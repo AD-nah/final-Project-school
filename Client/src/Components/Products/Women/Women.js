@@ -168,14 +168,17 @@ class Women extends React.Component {
                                 className="fas fa-expand-arrows-alt"
                               ></a>
                             </li>
-                            <li>
-                              <a href="#" className="far fa-heart"
-                                role="button"
-                                tabIndex={1}
-                                onClick={() => this.addToFavorite(item)}
-                              ></a>
-                            </li>
+                            {this.props.isAuthenticated && (
+                              <li>
+                                <a href="#" className="far fa-heart"
+                                  role="button"
+                                  tabIndex={1}
+                                  onClick={() => this.addToFavorite(item)}
+                                ></a>
+                              </li>
+                            )}
 
+                            {this.props.isAuthenticated && (
                             <li>
                               <a
                                 role="button"
@@ -183,6 +186,7 @@ class Women extends React.Component {
                                 className="fa fa-shopping-cart"
                               ></a>
                             </li>
+                            )}
                           </ul>
 
                           {/* <span className="product-new-label">New</span> */}
@@ -283,7 +287,8 @@ class Women extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    getWomenProducts: state.productReducer
+    getWomenProducts: state.productReducer,
+    isAuthenticated: state.userReducer.token
   }
 }
 
