@@ -231,7 +231,7 @@ class Navbar extends Component {
 
 const mapStateToProps = state => {
   return {
-        isAuthenticated: !!state.userReducer.token
+        isAuthenticated: state.userReducer.token
   };
 };
 
