@@ -4,7 +4,8 @@
   "private": true,
   "main": "Server.js",
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "node": "node ./bin/www"
   },
   "keywords": [
     "paypal",

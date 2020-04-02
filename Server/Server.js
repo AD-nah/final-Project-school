@@ -9,7 +9,6 @@ require('dotenv').config('./.env')
 
 //require('mongoose').connect(process.env.SERVER_DB_URI_LOCAL, { 
 require('mongoose').connect(process.env.SERVER_DB_URI_CLOUD, { 
-        
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -24,24 +23,20 @@ require('mongoose').connect(process.env.SERVER_DB_URI_CLOUD, {
 })
 
 
-
-
-
-
-
 server.use(logger('dev'));
 server.use(express.json());
-server.use(express.urlencoded({ extended: false }));
+server.use(express.urlencoded({ extended: true }));
 server.use(cookieParser());
-server.use(express.static(path.join(__dirname, 'public')));
 
-
-
-
+server.use(express.static(path.join(__dirname, 'build')));
 
 
 //////////////////////  Authentication //////////////////////
-server.use('/', require('./routes/index'));
+// server.use('/', require('./routes/index'));
+server.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 server.use('/users', require('./routes/users'));
 server.use('/api/auth-post', require('./routes/auth'))
 // server.use('/api/logout-post',    require('./routes/logout'))

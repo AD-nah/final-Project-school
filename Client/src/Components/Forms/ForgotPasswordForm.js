@@ -75,7 +75,7 @@ validate = (data) => {
 
             {this.state.errors.notFound && <ErrorMessage text = {this.state.errors.notFound}/>}
 
-            <button type="submit" className="btn btn-primary btn-block" id="btn-olvidado">
+            <button type="submit" className="btn btn-outline-dark btn-block" id="btn-olvidado">
               Send
             </button>
    
