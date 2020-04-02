@@ -1,11 +1,13 @@
 import React from "react";
-import { BackTop } from "antd";
-
 import { WaveLoading } from "react-loadingg";
 
 import { fetchWomenProducts } from '../../../Redux/Actions/products'
 import { connect } from "react-redux";
 import { addToBasketAction } from "../../../Redux/Actions/basket";
+import { addToFavoriteAction } from '../../../Redux/Actions/favorite'
+
+
+
 import {
   MDBContainer,
   MDBModal,
@@ -17,7 +19,6 @@ import {
   MDBMask
 } from "mdbreact";
 import SuccessMessage from '../../Messages/SuccessMessage'
-// import ImageZoomAnim from "../../../imgs/cadinfluencer1.jpg";
 
 // ----------------------------------
 
@@ -25,10 +26,10 @@ import SuccessMessage from '../../Messages/SuccessMessage'
   /* DON'T DELETE IT PLEASE */
 }
 
-//  {/* <h3 class="cost">
-//  <span class="glyphicon glyphicon-usd"></span> 15.00{" "}
-//  <small class="pre-cost">
-//      <span class="glyphicon glyphicon-usd"></span> 20.00
+//  {/* <h3 className="cost">
+//  <span className="glyphicon glyphicon-usd"></span> 15.00{" "}
+//  <small className="pre-cost">
+//      <span className="glyphicon glyphicon-usd"></span> 20.00
 //  </small>
 //  </h3> */}
 
@@ -43,19 +44,32 @@ class Women extends React.Component {
       data: null,
       currentProduct: [],
       currentArrayOfImages: [],
-      successMessage: false,
-      //images modal
+
+      // for basket Messages
+      addedToBasket: false,
+      addedToBasketMessage: '',
+      alreadyInBasket: false,
+      alreadyInBasketMessage: '',
+
+      // for favorite Messages
+      addedToFavorite: false,
+      addedToFavoriteMessage: '',
+      alreadyInFavorite: false,
+      alreadyInFavoriteMessage: '',
+
+      // //images modal
       modal13: false
     };
   }
 
-    componentDidMount() {
-        this.props.fetchWomenProducts().then(res => {
-          this.setState({data: this.props.getWomenProducts.womenProducts})
-        })
-    }
+  componentDidMount() {
+    this.props.fetchWomenProducts().then(res => {
+      this.setState({ data: this.props.getWomenProducts.womenProducts })
+    })
+  }
 
- // for the images modal
+
+  // for the images modal
   toggle = nr => () => {
     let modalNumber = "modal" + nr;
     this.setState({
@@ -63,19 +77,26 @@ class Women extends React.Component {
     });
   };
 
-  setCurrentProduct(item) {
-    this.props.addToBasketAction(item);
-    this.setState({successMessage:true});
+  addToBasket(item) {
+    this.props.addToBasketAction(item).then(message => {
+      this.setState({ addedToBasket: true, addedToBasketMessage: message });
+      setTimeout(() => this.setState({ addedToBasket: false }), 200);
 
-    setTimeout(()=>{
-      this.setState({successMessage:false});
-    },100);
+    }).catch(message => {
+      this.setState({ alreadyInBasket: true, alreadyInBasketMessage: message });
+      setTimeout(() => this.setState({ alreadyInBasket: false }), 200);
+    })
   }
   /// add the Favorites to the basket
-  addingFavorits(item) {
-   // this.props.addToBasketAction(item);
+  addToFavorite(item) {
+    this.props.addToFavoriteAction(item).then(message => {
+      this.setState({ addedToFavorite: true, addedToFavoriteMessage: message });
+      setTimeout(() => this.setState({ addedToFavorite: false }), 100);
 
-   // alert("added to Favorites");
+    }).catch(message => {
+      this.setState({ alreadyInFavorite: true, alreadyInBasketMessage: message });
+      setTimeout(() => this.setState({ alreadyInFavorite: false }), 100);
+    })
   }
 
   sendImagesToCarousel(array) {
@@ -85,7 +106,7 @@ class Women extends React.Component {
   starMaker(n) {
     let stars = [];
     for (let i = 0; i < n; i++) {
-      stars.push(<li className="fa fa-star"></li>);
+      stars.push(<li key={i} className="fa fa-star"></li>);
     }
     return stars;
   }
@@ -93,145 +114,116 @@ class Women extends React.Component {
   render() {
     return (
       <>
-        <div className="container" style={{maxWidth:"100%"}}>
+        <div className="container" >
 
 
-          <div className="container" style={{height:"200px "}}>
-            <h4 class="wordCarousel" style={{height:"100px "}}>
-              <span className="whyScount">Why Scount ? </span>
+          {this.state.addedToBasket && <SuccessMessage text={this.state.addedToBasketMessage} />}
+          {this.state.alreadyInBasket && <SuccessMessage text={this.state.alreadyInBasketMessage} />}
 
-              <div>
-                <ul class="flip4">
-                  <li>Best Quality</li>
-                  <li>New Trends</li>
-                  <li>Free Shipping</li>
-                  <li>Satisfiction </li>
-                </ul>
-              </div>
-            </h4>
-          </div>
-
-        
-    
+          {this.state.addedToFavorite && <SuccessMessage text={this.state.addedToFavoriteMessage} />}
+          {this.state.alreadyInFavorite && (<SuccessMessage text={this.state.alreadyInFavoriteMessage} />)}
+          <h3 className="h3">Men's Collection </h3>
 
           <div className="row">
+
+
             {this.state.data ? (
               this.state.data.map((item, index) => {
-                return (<>
-                  <div key={index} className="col-md-3 col-sm-6">
-                    <div className="product-grid7">
-                      <div className="product-content">
-                        <h3 className="title">
-                          <a href="#">{item.name}</a>
-                        </h3>
-                      </div>
-
-                      <div className="product-image7">
-                        <li
-                          onClick={() => this.sendImagesToCarousel(item.images)}
-                        >
-                          <a onClick={this.toggle(13)}>
-                            <img
-                              className="pic-1"
-                              style={{ maxHeight: "400px" }}
-                              src={item.images.protoTypes[0]}
-                            />
-
-
-
-
-                            <img
-                              className="pic-2"
-                              
-                              src={item.images.protoTypes[1]}
-                            />
-                          </a>
-                        </li>
-
-                        <ul className="social">
-                          <li
-                            onClick={() =>
-                              this.sendImagesToCarousel(item.images)
-                            }
-                          >
-                            <a
-                              onClick={this.toggle(13)}
-                              className="fas fa-expand-arrows-alt"
-                            ></a>
-                          </li>
-
-                          <li>
-                            <a href="#" className="far fa-heart" 
-                             role="button"
-                             tabIndex={1}
-                             onClick={() => this.addingFavorits(item)}
-                            ></a>
-                          </li>
-
-                          <li>
-                            <a
-                              role="button"
-                              tabIndex={0}
-                              onClick={() => this.setCurrentProduct(item)}
-                              className="fa fa-shopping-cart"
-                            ></a>
-                          </li>
-                        </ul>
-
-                        {/* <span className="product-new-label">New</span> */}
-                      </div>
-
-                      <div className="product-content">
-                        <ul className="rating">
-                          {this.starMaker(item.rating)}
-                        </ul>
-
-                        <div className="price">
-                          &#8364;
-                          {item.prices[0]}
-                          <span>{item.prices[1]}</span>
+                return (
+                  <>
+                    <div key={index} className="col-md-3 col-sm-6">
+                      <div className="product-grid7">
+                        <div className="product-content">
+                          <h3 className="title">
+                            <a href="#">{item.name}</a>
+                          </h3>
                         </div>
 
-                        {/* <img src={ImageZoomAnim} />
+                        <div className="product-image7">
+                          <li
+                            onClick={() => this.sendImagesToCarousel(item.images)}
+                          >
+                            <a onClick={this.toggle(13)}>
+                              <img
+                                alt='alt'
+                                className="pic-1"
+                                style={{ maxHeight: "400px" }}
+                                src={item.images.protoTypes[0]}
+                              />
+                              <img
+                                alt='alt2'
+                                className="pic-2"
+                                src={item.images.protoTypes[1]}
+                              />
+                            </a>
+                          </li>
+                          <ul className="social">
+                            <li
+                              onClick={() =>
+                                this.sendImagesToCarousel(item.images)
+                              }
+                            >
+                              <a
+                                onClick={this.toggle(13)}
+                                className="fas fa-expand-arrows-alt"
+                              ></a>
+                            </li>
+                            {this.props.isAuthenticated && (
+                              <li>
+                                <a href="#" className="far fa-heart"
+                                  role="button"
+                                  tabIndex={1}
+                                  onClick={() => this.addToFavorite(item)}
+                                ></a>
+                              </li>
+                            )}
+
+                            {this.props.isAuthenticated && (
+                            <li>
+                              <a
+                                role="button"
+                                onClick={() => this.addToBasket(item)}
+                                className="fa fa-shopping-cart"
+                              ></a>
+                            </li>
+                            )}
+                          </ul>
+
+                          {/* <span className="product-new-label">New</span> */}
+                        </div>
+
+                        <div className="product-content">
+
+                          {/* <h3 className="title"><a href="#">{item.description}</a></h3> */}
+                          <ul className="rating">
+                            {this.starMaker(item.rating)}
+                          </ul>
+
+                          <div className="price">
+                            &#8364;
+                          {item.prices[0]}
+
+                            <span>{item.prices[1]}</span>
+                          </div>
+
+                          {/* <img src={ImageZoomAnim} />
                          */}
+                        </div>
                       </div>
                     </div>
-                       <div className="space-ten"></div>
-                      <div className="space-ten"></div>
-                      <div className="space-ten"></div>
-                
-                  </div>
-                </>);
+                  </>
+                )
               })
             ) : (
-              <div style={{height:"500px",width:"400px",textAlign:"center",position:"relative",top:"50px",left:"350px"}}>
-                <span style={{fontSize:"25px",fontWeight:"10px"}}>Loading Products Chill ...
-                <WaveLoading /> </span>
-                
-              </div>
-            )}
-
-
+                <div style={{ height: "350px", width: "200px", textAlign: "center", position: "relative", left: "40%" }}>
+                  <span style={{ fontSize: "20px", fontWeight: "700" }}>Loading ...
+                <WaveLoading />
+                  </span>
+                </div>
+              )}
 
           </div>
         </div>
-
-
-
-
-
-
-        {/* Back to top btn */}
-        <div>
-          <BackTop>
-            <i
-              className="fas fa-angle-double-up"
-              style={{ color: "black", fontSize: "40px" }}
-            ></i>
-          </BackTop>
-        </div>
-
-
 
 
 
@@ -257,27 +249,27 @@ class Women extends React.Component {
                     <MDBCarouselInner>
                       {this.state.currentArrayOfImages.length > 0
                         ? this.state.currentArrayOfImages.map((item, index) => {
-                            return (
-                              <MDBCarouselItem itemId={index + 1}>
-                                <MDBView>
-                                  <img
-                                    className="d-block"
-                                    style={{ maxHeight: "550px" }}
-                                    src={item}
-                                    alt="First slide"
-                                  />
-                                  <MDBMask overlay="black-light" />
-                                </MDBView>
+                          return (
+                            <MDBCarouselItem itemId={index + 1}>
+                              <MDBView>
+                                <img
+                                  className="d-block"
+                                  style={{ maxHeight: "550px" }}
+                                  src={item}
+                                  alt="First slide"
+                                />
+                                <MDBMask overlay="black-light" />
+                              </MDBView>
 
-                                {/* <MDBCarouselCaption>
+                              {/* <MDBCarouselCaption>
 
 
                                     <h3 className="h3-responsive">Light mask</h3>
                                     <p>First text</p>
                                   </MDBCarouselCaption> */}
-                              </MDBCarouselItem>
-                            );
-                          })
+                            </MDBCarouselItem>
+                          );
+                        })
                         : null}
                     </MDBCarouselInner>
                   </MDBCarousel>
@@ -293,10 +285,13 @@ class Women extends React.Component {
   }
 }
 
-const  mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
   return {
-    getWomenProducts: state.productReducer
+    getWomenProducts: state.productReducer,
+    isAuthenticated: state.userReducer.token
   }
 }
 
-export default connect(mapStateToProps, {addToBasketAction,  fetchWomenProducts })(Women);
+
+export default connect(mapStateToProps, { addToBasketAction, addToFavoriteAction, fetchWomenProducts })(Women);
+

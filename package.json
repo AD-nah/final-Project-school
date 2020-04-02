@@ -1,27 +1,16 @@
 {
-  "name": "final-Project-school",
-  "version": "1.0.0",
-  "description": "This project was bootstrapped with [Create React App, express Renerator]",
-  "main": "",
+  "name": "final-project-school",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "dev": "concurrently \"cd Server && npm start\" \"cd Client && npm start \" "
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AD-nah/final-Project-school.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AD-nah/final-Project-school/issues"
-  },
-  "homepage": "https://github.com/AD-nah/final-Project-school#readme",
   "dependencies": {
-    "@material-ui/lab": "^4.0.0-alpha.44",
-    "antd": "^3.26.12",
-    "concurrently": "^5.1.0",
-    "material-table": "^1.57.2",
-    "material-ui": "^0.20.2"
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1"
   }
 }

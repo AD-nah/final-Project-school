@@ -3,13 +3,18 @@ const mongoose = require('mongoose')
 
 
 const basketSchema = mongoose.Schema({
-      user_ID: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'users'
+  userId: {
+       // type: mongoose.Schema.Types.ObjectId,
+       //ref: 'users'
+       type: String,
       },
       basket : {
         type : Array,
         required: false
+      },
+      basket_owner:{
+        type:String,
+        required:true
       }
 })
 

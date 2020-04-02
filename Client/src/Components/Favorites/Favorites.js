@@ -1,38 +1,102 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import empty from './images/emptyb.png';
-import paypal from './images/paypal.png';
 import basket from './images/basket.png';
-
+import { fetchFavorite } from '../../Redux/Actions/favorite' 
+import { removeFromFavoriteAction } from '../../Redux/Actions/favorite' 
+import { sendFromFavoriteToBasketAction } from '../../Redux/Actions/favorite'
+import SuccessMessage from '../Messages/SuccessMessage'
 
 class Favorits extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      // from the Redux
+
       products: null,
+      removedFromFavorite: false,
+      removedFromFavoriteMessage: '',
+
+      // for basket Messages
+      addedToBasket: false,
+      addedToBasketMessage: '',
+      alreadyInBasket : false,
+      alreadyInBasketMessage :'',
     }
   }
 
-  // to remove duplicated items, thats come from the redux Store, and then save it inside the Compoment's state 
+
   componentDidMount() {
-    this.setState({ products: this.props.item.filter((item, index) => this.props.item.indexOf(item) === index) })
+    this.props.fetchFavorite().then(() => {
+
+
+      const filteredArr = this.props.item.reduce((acc, current) => {
+        const x = acc.find(item => item._id === current._id);
+        if (!x) {
+          return acc.concat([current]);
+        } else {
+          return acc;
+        }
+      }, []);
+
+      this.setState({ products: filteredArr })
+
+    })
   }
 
   // to take a Number and convert it to Star
   starMaker(n) {
     let stars = [];
     for (let i = 0; i < n; i++) {
-      stars.push(<li className="fa fa-star"></li>);
+      stars.push(<li key={i} className="fa fa-star"></li>);
     }
     return stars;
   }
 
   // remove items
   delete(item) {
-    this.setState(prevState => ({
-      products: prevState.products.filter(el => el != item)
-    }))
+
+    removeFromFavoriteAction(item).then(res => {
+      this.setState(prevState => ({
+          products: prevState.products.filter(el => el._id !== item._id),
+          removedFromFavorite: prevState.removedFromFavorite = true,
+          removedFromFavoriteMessage: prevState.removedFromFavoriteMessage = res
+      }))
+       setTimeout(()=> {
+          this.setState({removedFromFavorite:false})
+       },200)
+
+     }).catch((res) => {
+       this.setState({removedFromFavorite: true, removedFromFavoriteMessage: res})
+       setTimeout(()=> {
+        this.setState({removedFromFavorite:false})
+     },200)
+     })
+  }
+
+  sendToBasket(item){
+    this.props.sendFromFavoriteToBasketAction(item).then(message => {
+      this.setState({addedToBasket : true, addedToBasketMessage: message });
+      setTimeout(() =>  this.setState({ addedToBasket: false }), 200);
+
+      removeFromFavoriteAction(item).then(res => {
+        this.setState(prevState => ({
+            products: prevState.products.filter(el => el._id !== item._id),
+            removedFromFavorite: prevState.removedFromFavorite = true,
+            removedFromFavoriteMessage: prevState.removedFromFavoriteMessage = res
+        }))
+         setTimeout(()=> {
+            this.setState({removedFromFavorite:false})
+         },200)
+  
+       }).catch((res) => {
+         this.setState({removedFromFavorite: true, removedFromFavoriteMessage: res})
+         setTimeout(()=> this.setState({removedFromFavorite:false}),200)
+       })
+
+    }).catch(message => {
+      this.setState({alreadyInBasket : true, alreadyInBasketMessage: message });
+      setTimeout(() => this.setState({ alreadyInBasket: false }), 200);
+    })
   }
 
   render() {
@@ -40,12 +104,15 @@ class Favorits extends Component {
     return (
       <>
       
-        <h3 className="card-header text-center font-weight-bold text-uppercase py-4 "><img className="float-right " src={basket}/>MY Favorets </h3>
+      {this.state.removedFromFavorite && (<SuccessMessage text = {this.state.removedFromFavoriteMessage} />)}
+
+      {this.state.addedToBasket && <SuccessMessage text={this.state.addedToBasketMessage}/>}
+      {this.state.alreadyInBasket && <SuccessMessage text={this.state.alreadyInBasketMessage}/>}
+
+        <h3 className="card-header text-center font-weight-bold text-uppercase py-4 "><img alt = 'alt'  className="float-right " src={basket}/>your Favorite </h3>
   
-        
         {/*if the chart is empty show this code , if not then show the product*/}
        
-          {console.log('products :', this.state.products)}
           {(!this.state.products || this.state.products.length === 0) &&
             (
               <div className="container">
@@ -59,7 +126,7 @@ class Favorits extends Component {
                 <hr />
                 <div className="container row">
                   <div className="col-md-6" >
-                    <img className="img-fluid" src={empty} style={{ height: "50vh" }} />
+                    <img alt = 'alt' className="img-fluid" src={empty} style={{ height: "50vh" }} />
                   </div>
 
                   <div className="col-md-6 text-center">
@@ -73,88 +140,70 @@ class Favorits extends Component {
                 </div>
 
               </div>
-
-
-
-
-
             )}
-          {this.state.products && this.state.products.map((item, index) => {
-            return (
 
-              <div className="container col-lg-12 border border-dark">
-              <div className="row mb-3 m-5">
-                <div className="col-md-4 text-center"> {/* bg-success*/}
-                  <h3></h3>
-                  <img style={{ height: '40vh', width: "15vw" }} src={item.images.protoTypes[0]} className="img-fluid img-thumbnail" alt="Sheep" />
+            {this.state.products && this.state.products.map((item, index) => {
 
+                return ( 
+                  <div className="container" key="container">
 
-                </div>
-                {/*des and Price*/}
-                <div className="col-md-4 text-center "> {/*bg-info*/}
-                  <div className="col">
+                  <div className="row mb-3 m-5">
+                    <div className="  row">
 
-                    <div className="col">
-                      {/* <h1>Name</h1> */}
-                      <p className="font-weight-bold">{item.name}</p>
+                      <div className=" text-center  col">
+                        <img style={{ height: '40vh', width: "15vw" }} src={item.images.protoTypes[0]} className="img-fluid img-thumbnail" alt="Sheep" />
+                      </div>
 
+                      <div className="  col-5">
+                            <div className=" text-center ">
+                            <div className="col">         
+                              <div className="col">
+                                <p className="font-weight-bold">{item.name}</p>
+                              </div>
+                              <hr />
+                              <h3 className="mt-2">Descreption</h3>
+                              <p style={{ fontSize: "1rem" }}>{item.description}</p>
+                              <hr/>
+                              <div className="col">
+                                  <span>{this.starMaker(item.rating)}</span>
+                              </div>
+                            </div>
 
-                    </div>
-                    <hr />
-                    <h3 className="mt-5">Descreption</h3>
-                    <p style={{ fontSize: "1rem" }}>{item.description}</p>
+                          </div>
+                      </div>
+                      
+                  <div className="  col">
+                      <div className=" text-center"> 
+                          <div className="col">
+                            <h2>Price</h2>  
+                            <h3 className="text-primary font-weight-bold">{item.prices[0]}$</h3>
+                            <h5 className="text-danger font-weight-bold"><s>{item.prices[1]}$</s></h5>
+                            <hr/>
+                            <span className="table-remove">
 
+                              <button
+                                  type="button"
+                                  onClick={this.delete.bind(this, item)}  
+                                  className="btn btn-danger  "
+                                  >Remove from Favorite
+                              </button>
+
+                              <button 
+                                  type="button" 
+                                  className="btn btn-info  "
+                                  onClick = {this.sendToBasket.bind(this, item)}
+                                  >Send To Basket
+                              </button>
+
+                              </span>
+                          </div>
+                      </div> 
+                   </div>
                   </div>
-                  <button type="button" class="btn btn-dark btn-lg">Go Back TO Basket</button>
-                  <span className="table-remove"><button type="button"
-                    onClick={this.delete.bind(this, item)}
-                    className="btn btn-info btn-rounded btn-sm my-0  w-25">Delete</button></span>
-
-                  {/* <div className="col">
-                <h1>Price</h1>
-                <span>$66</span>
-
-
-              </div> */}
-                </div>
-                {/*des and Price*/}
-
-                <div className="col-md-4 text-center"> {/*bg-danger*/}
-
-                  <div className="col">
-                    <h2>Stars</h2>
-                    <span>{this.starMaker(item.rating)}</span>
-
-
+                  </div>
                   </div>
 
-                  <div className="col mt-5">
-                    <h2>Price</h2>
-                    <h3 className="text-danger font-weight-bold">{item.prices}$</h3>
-
-                    <select style={{ height: "30px", width: "100px", backgroundColor: "#FCC400" }} className="mr-2 md-form colorful-select dropdown-primary">
-                      <option value="1">color 1</option>                           <option value="2">color 2</option>                          <option value="3">color 3</option>                           <option value="4">color 4</option>
-                    </select>
-                    <select style={{ height: "30px", width: "100px", backgroundColor: "#FCC400" }} className=" md-form  dropdown-primary ">
-                      <option value="1">Size 1</option>
-                      <option value="2">Size 2</option>
-                      <option value="3">Size 3</option>
-                      <option value="4">Size 4</option>
-
-                    </select>
-
-                  
-                  </div>
-                
-                </div>
-
-              </div>
-
-              </div>
-
-              
-            )
-          })}
+                )})}
     
       </>
     )
@@ -163,10 +212,10 @@ class Favorits extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    item: state.basketReducer
+    item: state.favoriteReducer
   }
 }
-export default connect(mapStateToProps)(Favorits)
+export default connect(mapStateToProps, {fetchFavorite, sendFromFavoriteToBasketAction})(Favorits)
 
 
 

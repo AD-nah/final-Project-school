@@ -1,75 +1,93 @@
-import React, { Component} from 'react'
-import Men from './Men/Men'
-import Women from './Women/Women'
-import Outfits from './Outfits/Outfits'
-import {Switch,Route} from 'react-router-dom';
-import {MDBNav, MDBNavLink, MDBNavItem} from "mdbreact"
+import React, { Component } from 'react';
+import Men from './Men/Men';
+import Women from './Women/Women';
+import Reworked from './Reworked/Reworked'; 
+import { Switch, Route, Link } from 'react-router-dom';
 
-
+import '../Products/Products.css'
 
 
 export default class Products extends Component {
     render() {
-        return (<>
-      
-            <div style={{fontSize:"20px"}} >
+        return (
 
-                <MDBNav className="nav-fill ">
-
-                    <MDBNavItem>
-                        <MDBNavLink className="text-dark  btn-3_custom" to="/products/women">Women's</MDBNavLink>
-                    </MDBNavItem>
-                   
-
-                    <MDBNavItem>
-                        <MDBNavLink className="text-dark" to="/products/men">Men's</MDBNavLink>
-                    </MDBNavItem>
-                 
-                    <MDBNavItem>
-                        <MDBNavLink className="text-dark" to="/products/Outfits">Outfits</MDBNavLink>
-                    </MDBNavItem>
-
-                    <MDBNavItem>
-                    <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
-                        <i class="fas fa-search" aria-hidden="true"></i>
-                        <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
-                            aria-label="Search" />
-                    </form>
-                    </MDBNavItem>
-                </MDBNav>
-
-<ul class="nav flex-column">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Active</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#">Disabled</a>
-  </li>
-</ul>
-
+<>
+            <div className="container-fluid">
+                <div className="row">
+                <div className="wordCarousel">
+              <span className="whyScount">Why Scount ? </span>
+              <div>
+                <ul className="flip4">
+                  <li>Best Quality</li>
+                  <li>New Trends</li>
+                  <li>Free Shipping</li>
+                  <li>Satisfiction </li>
+                </ul>
+              </div>
             </div>
+                    <div className="products-sidebar">
+                        <Link  to="/products/women" className="fa fa-venus ">Women</Link>
+                        <Link to="/products/men" className="fa fa-mars">Men</Link>
+                        <Link to="/products/reworked" className="fa fa-cut">Rework</Link>
 
-            <div>
-                <Switch>
-                <Route exact path="/products/outfits" component={Outfits}/>
-                    <Route  path="/products/men" component={Men}/>
-                    <Route  path="/products/women" component={Women}/>
-                </Switch> 
-            </div>         
-        </>
-    )
+                        <li >
+                            <a className="collapsed  fa fa-caret-down" href="#submenu1" data-toggle="collapse" data-target="#submenu1">More
+                            </a>
+                            <div className="collapse" id="submenu1" aria-expanded="false">
+                                <ul className="flex-column nav">
+                                    <li ><a  href="#"><span>Orders</span></a></li>
+                                    <li >
+                                        <a className="collapsed fa fa-caret-down" href="#submenu1sub1" data-toggle="collapse" data-target="#submenu1sub1"><span>Profile</span></a>
+                                        <div className="collapse" id="submenu1sub1" aria-expanded="false">
+                                            <ul className="flex-column nav ">
+                                                <li >
+                                                    
+                                                        <i className="fa fa-fw fa-clock-o"></i>Activity
+                                                    
+                                                </li>
+                                                <li >
+                                                    
+                                                        <i className="far fa-address-card"></i> Dashboard
+                                                    
+                                                </li>
+                                                <li >
+
+                                                   
+                                                        <i className="fa fa-fw fa-bar-chart"></i> Charts
+                                                    
+                                                </li>
+                                                <li >
+                                                    
+                                                        <i className="fa fa-fw fa-compass"></i>Areas
+                                                    
+
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                    </div>
+
+
+
+
+                    <div key='col-sm-12 col-md-10 col-lg-10'  className='col-sm-12 col-md-10 col-lg-10' >
+                        <Switch >
+                            <Route path="/products/reworked" component={Reworked}   />
+                            <Route path="/products/men" component={Men}    />
+                            <Route path="/products/women" component={Women}   />
+                        </Switch >
+
+                    </div>
+
+
+
+                </div>
+            </div>
+            </>
+        )
     }
 }
-
-
-
-
-
-
-
