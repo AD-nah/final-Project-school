@@ -7,7 +7,7 @@
     "node": "12.14.1"
   },
   "scripts": {
-    "start":"node ./Server.js",
+    "start": "node ./Server.js",
     "devstart": "concurrently \"nodemon ./Server.js\" \"cd Client && npm start \" ",
     "build": "cd Client && npm run build"
   },
