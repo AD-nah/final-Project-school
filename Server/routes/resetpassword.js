@@ -5,7 +5,7 @@ const pool = require('../mySql')
 const functions = require('../functions')
 
 router.post('/', async (req, res) => {
-    jwt.verify(req.body.data.token, process.env.JWT_SECRET, ( err, decoded ) => {
+    jwt.verify(req.body.data.token, process.env.JWT_SEC, ( err, decoded ) => {
         if(err){
             res.status(401).json({ resetPasswordError : { resetPasswordError : 'error while decoding the token' }})
         }else{

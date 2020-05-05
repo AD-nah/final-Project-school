@@ -89,7 +89,9 @@ class Sell extends React.Component {
 
         return (
             <div className="container Sell-container font-weight-bold">
-
+        <h2 className="h1-responsive font-weight-bold my-4">
+        still not finished ...
+          </h2>
                 <div className="row m-2 " style={{ backgroundColor: "#f7f7f7" }}>
                
                     <div className="row m-2">
@@ -173,7 +175,9 @@ class Sell extends React.Component {
                                 <button 
                                     className="submitButton btn btn-outline-transparent"
                                     type="submit"
-                                    onClick={(e) => this._handleSubmit(e)}>Save Product
+                                    // onClick={(e) => this._handleSubmit(e)}
+                                    onClick={()=> alert('working on it ...')}
+                                    >Save Product
                                 </button>
 
 

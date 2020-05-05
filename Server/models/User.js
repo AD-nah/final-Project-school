@@ -59,7 +59,7 @@ userSchema.methods.generateJWT = function generateJWT() {
       email: this.email,
       //confirmed: this.confirmed
     },
-    process.env.JWT_SECRET
+    process.env.JWT_SEC
   )
 }
 

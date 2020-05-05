@@ -6,7 +6,7 @@ router.post('/', async (req, res) => {
 
     jwt.verify(req.body.token,
 
-    process.env.JWT_SECRET,
+    process.env.JWT_SEC,
     ( err, decoded ) => {
 
         if(err){

@@ -13,6 +13,7 @@ export default class Products extends Component {
 
 <>
             <div className="container-fluid">
+    
                 <div className="row">
                 <div className="wordCarousel">
               <span className="whyScount">Why Scount ? </span>
@@ -25,11 +26,12 @@ export default class Products extends Component {
                 </ul>
               </div>
             </div>
+
                     <div className="products-sidebar">
                         <Link  to="/products/women" className="fa fa-venus ">Women</Link>
                         <Link to="/products/men" className="fa fa-mars">Men</Link>
                         <Link to="/products/reworked" className="fa fa-cut">Rework</Link>
-
+{/* 
                         <li >
                             <a className="collapsed  fa fa-caret-down" href="#submenu1" data-toggle="collapse" data-target="#submenu1">More
                             </a>
@@ -67,7 +69,7 @@ export default class Products extends Component {
                                     </li>
                                 </ul>
                             </div>
-                        </li>
+                        </li> */}
 
                     </div>
 

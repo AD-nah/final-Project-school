@@ -266,7 +266,11 @@ class Chart extends Component {
               <br />
 
               <a href={"http://localhost:3001/paypal/buy?id="+this.state.userId}>
-                <button type="button" className="btn btn-info btn-rounded w-100 " >Pay</button>
+                <button 
+                 type="button"
+                 onClick={()=> alert('working on it ...')}
+                 
+                 className="btn btn-info btn-rounded w-100 " >Pay</button>
               </a>
 
             </div>

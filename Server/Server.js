@@ -1,15 +1,17 @@
+
+
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var server = express();
+
 require('dotenv').config('./.env')
 // var pool = require('./mySql')
 
 
 //require('mongoose').connect(process.env.SERVER_DB_URI_LOCAL, { 
-require('mongoose').connect(process.env.SERVER_DB_URI_CLOUD, { 
-        
+require('mongoose').connect(process.env.MONGO, { 
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -18,30 +20,26 @@ require('mongoose').connect(process.env.SERVER_DB_URI_CLOUD, {
     if( err ){ 
         console.log('database connecton Error: ', err )
     }else{
-         console.log('Connected to mongodb:',[res.name, res.user])
- 
+         console.log('connected to mongodb:',[res.name, res.user])
+  
     }
 })
 
 
-
-
-
-
-
 server.use(logger('dev'));
 server.use(express.json());
-server.use(express.urlencoded({ extended: false }));
+server.use(express.urlencoded({ extended: true }));
 server.use(cookieParser());
-server.use(express.static(path.join(__dirname, 'public')));
 
-
-
-
+server.use(express.static(path.join(__dirname, 'build')));
 
 
 //////////////////////  Authentication //////////////////////
-server.use('/', require('./routes/index'));
+// server.use('/', require('./routes/index'));
+server.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 server.use('/users', require('./routes/users'));
 server.use('/api/auth-post', require('./routes/auth'))
 // server.use('/api/logout-post',    require('./routes/logout'))
@@ -64,5 +62,8 @@ server.use('/api/favorite', require('./routes/favorite'));
 server.use('/paypal',require('./routes/Paypal'));
 
 
-module.exports = server;
+server.listen(process.env.PORT || 3001, () => console.log(`Example app listening`))
+
+
+// module.exports = server;
  
