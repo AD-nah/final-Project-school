@@ -253,6 +253,7 @@ class RegisterForm extends React.Component {
               color="white"
               rounded
               className="mr-md-3 z-depth-1a"
+              onClick={()=> alert('working on it ...')}
             >
               <MDBIcon
                 fab
@@ -266,6 +267,7 @@ class RegisterForm extends React.Component {
               color="white"
               rounded
               className="z-depth-1a"
+              onClick={()=> alert('working on it ...')}
             >
               <MDBIcon fab icon="google-plus-g" className="red-text " />
             </MDBBtn>

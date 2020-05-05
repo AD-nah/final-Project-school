@@ -21,6 +21,9 @@ class Edit extends React.Component {
         return (
         
                 <div className="container">
+                            <h2 className="h1-responsive font-weight-bold my-4">
+        still not finished ...
+          </h2>
                         <div className="row  m-2 ">
                         <div className="col-sm-10 m-4">
                             <h1>User name</h1>
@@ -93,8 +96,11 @@ class Edit extends React.Component {
                                                 <div className="col-xs-12">
 
 
-                                                    <button className="btn btn-lg btn-outline-dark" type="submit"><i className="glyphicon glyphicon-ok-sign"></i> Save</button>
-                                                    <button className="btn btn-lg" type="reset"><i className="glyphicon glyphicon-repeat"></i> Reset</button>
+                                                    <button
+                                    onClick={()=> alert('working on it ...')}
+                                                    
+                                                    className="btn btn-lg btn-outline-dark" type="button"><i className="glyphicon glyphicon-ok-sign"></i> Save</button>
+
                                                 </div>
                                             </div>
                                         </form>

@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import Validator from 'validator'
 import ErrorMessage from '../Messages/ErrorMessage'
 
-import { MDBContainer, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBModalFooter } from 'mdbreact';
+import { MDBInput } from 'mdbreact';
 
 export default class ForgotPasswordForm extends Component {
 constructor(props) {

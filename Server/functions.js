@@ -14,7 +14,7 @@ module.exports = {
                 email : email
                 // confirmed: this.confirmed
               },
-              process.env.JWT_SECRET
+              process.env.JWT_SEC
             )
         }
 
@@ -31,7 +31,7 @@ module.exports = {
             return jwt.sign({
                 userId : userId
                 }, 
-                process.env.JWT_SECRET,
+                process.env.JWT_SEC,
                 { expiresIn: '1h'}
             )   
         }

@@ -1,14 +1,17 @@
+
+
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var server = express();
+
 require('dotenv').config('./.env')
 // var pool = require('./mySql')
 
 
 //require('mongoose').connect(process.env.SERVER_DB_URI_LOCAL, { 
-require('mongoose').connect(process.env.SERVER_DB_URI_CLOUD, { 
+require('mongoose').connect(process.env.MONGO, { 
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -59,5 +62,8 @@ server.use('/api/favorite', require('./routes/favorite'));
 server.use('/paypal',require('./routes/Paypal'));
 
 
-module.exports = server;
+server.listen(process.env.PORT || 3001, () => console.log(`Example app listening`))
+
+
+// module.exports = server;
  

@@ -122,7 +122,7 @@ class Women extends React.Component {
 
           {this.state.addedToFavorite && <SuccessMessage text={this.state.addedToFavoriteMessage} />}
           {this.state.alreadyInFavorite && (<SuccessMessage text={this.state.alreadyInFavoriteMessage} />)}
-          <h3 className="h3">Men's Collection </h3>
+          <h3 className="h3">Women's Collection </h3>
 
           <div className="row">
 

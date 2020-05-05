@@ -119,6 +119,9 @@ class Women extends React.Component {
         {/* {this.state.alreadyInBasket && (<SuccessMessage text = {this.state.alreadyInBasketMessage}/>)} */}
 
         <div className="container" >
+        <h2 className="h1-responsive font-weight-bold my-4">
+        still not finished ...
+          </h2>
           <div className="row">
 
 
