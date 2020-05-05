@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node ./Server.js",
     "devstart": "concurrently \"nodemon ./Server.js\" \"cd Client && npm start \" ",
-    "build": "cd Client && npm run build"
+    "probuild": "cd Client && npm run build"
   },
   "keywords": [
     "paypal",
