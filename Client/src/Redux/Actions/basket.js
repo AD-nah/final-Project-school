@@ -4,7 +4,7 @@ import BasketApi from '../../APIs/BasketApi'
 
 
 // to save products into The Favorite DB from the Basket DB
-import {dispatchProductToFavoriteState} from '../Actions/favorite'
+import {dispatchProductToFavoriteState} from './favorite'
 import FavoriteApi from '../../APIs/FavoriteApi'
 
 

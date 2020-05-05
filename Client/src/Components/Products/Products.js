@@ -4,7 +4,7 @@ import Women from './Women/Women';
 import Reworked from './Reworked/Reworked'; 
 import { Switch, Route, Link } from 'react-router-dom';
 
-import '../Products/Products.css'
+import './Products.css'
 
 
 export default class Products extends Component {

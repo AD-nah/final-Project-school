@@ -1,28 +1,42 @@
 {
-  "name": "final-project-school",
-  "version": "1.0.0",
-  "description": "This project was bootstrapped with [Create React App, express Renerator]",
-  "main": "",
+  "name": "server",
+  "version": "0.0.0",
+  "private": true,
+  "main": "Server.js",
   "scripts": {
-    "dev": "concurrently \"cd Server && npm start\" \"cd Client && npm start \" "
+    "start":"node ./Server.js",
+    "devstart": "concurrently \"nodemon ./Server.js\" \"cd Client && npm start \" ",
+    "build": "cd Client && npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AD-nah/final-Project-school.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AD-nah/final-Project-school/issues"
-  },
-  "homepage": "https://github.com/AD-nah/final-Project-school#readme",
+  "keywords": [
+    "paypal",
+    "payment",
+    "gateway",
+    "nodejs",
+    "payment",
+    "integration",
+    "in",
+    "web",
+    "apps"
+  ],
   "dependencies": {
-    "@material-ui/lab": "^4.0.0-alpha.44",
-    "antd": "^3.26.12",
+    "bcryptjs": "^2.4.3",
     "concurrently": "^5.1.0",
-    "material-table": "^1.57.2",
-    "material-ui": "^0.20.2",
-    "react-bootstrap-sidebar": "0.0.1"
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.9.2",
+    "mongoose-unique-validator": "^2.0.3",
+    "morgan": "~1.9.1",
+    "mssql": "^6.2.0",
+    "mysql": "^2.18.1",
+    "nodemailer": "^6.4.6",
+    "nodemon": "^2.0.2",
+    "paypal-rest-sdk": "^1.8.1",
+    "randomstring": "^1.1.5",
+    "uuid": "^7.0.2"
   }
 }

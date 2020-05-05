@@ -11,10 +11,11 @@ require('dotenv').config('./.env')
 
 
 //require('mongoose').connect(process.env.SERVER_DB_URI_LOCAL, { 
-require('mongoose').connect(process.env.MONGO, { 
+require('mongoose').connect(process.env.MONGO,{ 
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     useCreateIndex: true,
+
     useFindAndModify: true,
 }, ( err, res ) => {
     if( err ){ 
@@ -25,19 +26,18 @@ require('mongoose').connect(process.env.MONGO, {
     }
 })
 
-
 server.use(logger('dev'));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(cookieParser());
 
-server.use(express.static(path.join(__dirname, 'build')));
+server.use(express.static(path.join(__dirname, './Client/build')));
 
 
 //////////////////////  Authentication //////////////////////
 // server.use('/', require('./routes/index'));
 server.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, './Client/build', 'index.html'));
 });
 
 server.use('/users', require('./routes/users'));
