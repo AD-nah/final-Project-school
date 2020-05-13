@@ -40,7 +40,6 @@ header {
 
 .section-2{
   margin: 20px;
-  background-color:rgba(255, 228, 196, 0.74);
   /* background-color: #e6e6fa */
 }
   /*end Video Section*/
@@ -106,18 +105,26 @@ header {
   background-color: rgb(0,0,0); /* Fallback color */
   color: white;
   font-weight: bold;
-  border: 3px solid #f1f1f1;
+  border: 3px solid #b61b1b;
   position: relative;
   z-index: 2;
-  width: 190px;
+  width: 290px;
   height:75px;
   padding: 20px;
   margin: 0 auto;
   text-align: center;
 }
 
-.my-5{
+
+.mens{
+  background:  rgba(214, 207, 196, 0.74);;
+}
+.reworked{
+  background:  rgba(214, 207, 196, 0.74);;
+}
+.womens{
   background:  rgba(255, 228, 196, 0.74);;
+
 }
 
 

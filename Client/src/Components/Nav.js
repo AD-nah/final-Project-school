@@ -23,6 +23,9 @@ import Profile from "./Profile/Profile";
 import Basket from "./Basket/Basket";
 import Favorites from "./Favorites/Favorites";
 
+// later!!
+// import ProductProfile from "./Products/ProductProfile";
+
 
 class Navbar extends Component {
   state = {
@@ -89,10 +92,10 @@ class Navbar extends Component {
           {this.state.logoutSuccess && <SuccessMessage text="Good Bey" />}
 
           {authMessagesHandler() === "registerdMessage" && (
-            <SuccessMessage text="Happy Shoping" />
+            <SuccessMessage text="Welcome to your Shop" />
           )}
           {authMessagesHandler() === "loggedinMessage" && (
-            <SuccessMessage text="logged in" />
+            <SuccessMessage text="You are logged In" />
           )}
           {this.state.redirectSuccess && <Redirect to="/" />}
 
@@ -210,7 +213,6 @@ class Navbar extends Component {
         </nav>
       </div>
 
-
         <div>
           <Switch>
             <Route exact path="/" component={Home} />
@@ -222,10 +224,11 @@ class Navbar extends Component {
             <Route path="/profile" component={Profile} />
             <Route path="/basket" component={Basket} />
             <Route path="/favorites" component={Favorites} />
+            {/* <Route path="/product-profile/:name/:description/:photo" component={ProductProfile} /> */}
             <Route path="/reset-password-route/:token" component={ResetPasswordPage} />
           </Switch>
         </div>
-    </>);
+    </>)
   }
 }
 
