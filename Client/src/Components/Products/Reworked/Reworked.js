@@ -255,8 +255,8 @@ class Women extends React.Component {
 
                         <div className="price">
                           &#8364;
-                                    {item.prices[0]}
-                          <span>{item.prices[1]}</span>
+                                    {item.prices[1]}
+                          <span>{item.prices[0]}</span>
                         </div>
 
                       

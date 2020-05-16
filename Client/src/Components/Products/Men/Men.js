@@ -5,7 +5,6 @@ import { addToBasketAction } from "../../../Redux/Actions/basket";
 import { addToFavoriteAction } from '../../../Redux/Actions/favorite'
 
 
-import { BackTop } from "antd";
 import { WaveLoading } from "react-loadingg";
 import {
   MDBContainer,
@@ -157,6 +156,7 @@ return (
                   className="fas fa-expand-arrows-alt"
                 ></a>
               </li>
+              {this.props.isAuthenticated && (
               <li>
                 <a href="#" className="far fa-heart"
                   role="button"
@@ -164,7 +164,9 @@ return (
                   onClick={() => this.addToFavorite(item)}
                 ></a>
               </li>
+              )}
 
+              {this.props.isAuthenticated && (
               <li>
                 <a
                   role="button"
@@ -172,6 +174,7 @@ return (
                   className="fa fa-shopping-cart"
                 ></a>
               </li>
+              )}
             </ul>
 
             {/* <span className="product-new-label">New</span> */}
@@ -186,8 +189,8 @@ return (
 
             <div className="price">
               &#8364;
-              {item.prices[0]}
-              <span>{item.prices[1]}</span>
+              {item.prices[1]}
+              <span>{item.prices[0]}</span>
             </div>
 
             {/* <img src={ImageZoomAnim} />
@@ -218,14 +221,6 @@ return (
 
 
         {/* Back to top btn */}
-        <div>
-          <BackTop>
-            <i
-              className="fas fa-angle-double-up"
-              style={{ color: "black", fontSize: "40px" }}
-            ></i>
-          </BackTop>
-        </div>
 
 
         {/* // images modal */}
@@ -290,7 +285,9 @@ return (
 
 const mapStateToProps = (state) => {
     return {
-        getMenProducts: state.productReducer
+      getMenProducts: state.productReducer,
+      isAuthenticated: state.userReducer.token
+
     }
 }
 export default connect(mapStateToProps, { fetchMenProducts ,addToBasketAction, addToFavoriteAction})(Men)

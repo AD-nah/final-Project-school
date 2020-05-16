@@ -1,12 +1,10 @@
 import React from "react";
 import { WaveLoading } from "react-loadingg";
 
-import { fetchWomenProducts } from '../../../Redux/Actions/products'
+import { fetchWomenProducts } from "../../../Redux/Actions/products";
 import { connect } from "react-redux";
 import { addToBasketAction } from "../../../Redux/Actions/basket";
-import { addToFavoriteAction } from '../../../Redux/Actions/favorite'
-
-
+import { addToFavoriteAction } from "../../../Redux/Actions/favorite";
 
 import {
   MDBContainer,
@@ -16,9 +14,9 @@ import {
   MDBCarouselInner,
   MDBCarouselItem,
   MDBView,
-  MDBMask
+  MDBMask,
 } from "mdbreact";
-import SuccessMessage from '../../Messages/SuccessMessage'
+import SuccessMessage from "../../Messages/SuccessMessage";
 
 // ----------------------------------
 
@@ -36,7 +34,6 @@ import SuccessMessage from '../../Messages/SuccessMessage'
 // ----------------------------------------------------------------------
 
 class Women extends React.Component {
-
   constructor(props) {
     super(props);
 
@@ -47,61 +44,73 @@ class Women extends React.Component {
 
       // for basket Messages
       addedToBasket: false,
-      addedToBasketMessage: '',
+      addedToBasketMessage: "",
       alreadyInBasket: false,
-      alreadyInBasketMessage: '',
+      alreadyInBasketMessage: "",
 
       // for favorite Messages
       addedToFavorite: false,
-      addedToFavoriteMessage: '',
+      addedToFavoriteMessage: "",
       alreadyInFavorite: false,
-      alreadyInFavoriteMessage: '',
+      alreadyInFavoriteMessage: "",
 
       // //images modal
-      modal13: false
+      modal13: false,
     };
   }
 
   componentDidMount() {
-    this.props.fetchWomenProducts().then(res => {
-      this.setState({ data: this.props.getWomenProducts.womenProducts })
-    })
+    this.props.fetchWomenProducts().then((res) => {
+      this.setState({ data: this.props.getWomenProducts.womenProducts });
+    });
   }
 
-
   // for the images modal
-  toggle = nr => () => {
+  toggle = (nr) => () => {
     let modalNumber = "modal" + nr;
     this.setState({
-      [modalNumber]: !this.state[modalNumber]
+      [modalNumber]: !this.state[modalNumber],
     });
   };
 
   addToBasket(item) {
-    this.props.addToBasketAction(item).then(message => {
-      this.setState({ addedToBasket: true, addedToBasketMessage: message });
-      setTimeout(() => this.setState({ addedToBasket: false }), 200);
-
-    }).catch(message => {
-      this.setState({ alreadyInBasket: true, alreadyInBasketMessage: message });
-      setTimeout(() => this.setState({ alreadyInBasket: false }), 200);
-    })
+    this.props
+      .addToBasketAction(item)
+      .then((message) => {
+        this.setState({ addedToBasket: true, addedToBasketMessage: message });
+        setTimeout(() => this.setState({ addedToBasket: false }), 200);
+      })
+      .catch((message) => {
+        this.setState({
+          alreadyInBasket: true,
+          alreadyInBasketMessage: message,
+        });
+        setTimeout(() => this.setState({ alreadyInBasket: false }), 200);
+      });
   }
   /// add the Favorites to the basket
   addToFavorite(item) {
-    this.props.addToFavoriteAction(item).then(message => {
-      this.setState({ addedToFavorite: true, addedToFavoriteMessage: message });
-      setTimeout(() => this.setState({ addedToFavorite: false }), 100);
-
-    }).catch(message => {
-      this.setState({ alreadyInFavorite: true, alreadyInBasketMessage: message });
-      setTimeout(() => this.setState({ alreadyInFavorite: false }), 100);
-    })
+    this.props
+      .addToFavoriteAction(item)
+      .then((message) => {
+        this.setState({
+          addedToFavorite: true,
+          addedToFavoriteMessage: message,
+        });
+        setTimeout(() => this.setState({ addedToFavorite: false }), 100);
+      })
+      .catch((message) => {
+        this.setState({
+          alreadyInFavorite: true,
+          alreadyInBasketMessage: message,
+        });
+        setTimeout(() => this.setState({ alreadyInFavorite: false }), 100);
+      });
   }
 
   sendImagesToCarousel(array) {
     this.setState({ currentArrayOfImages: array.protoTypes });
-  };
+  }
   // to take a Number and convert it to Star
   starMaker(n) {
     let stars = [];
@@ -114,19 +123,23 @@ class Women extends React.Component {
   render() {
     return (
       <>
-        <div className="container" >
+        <div className="container">
+          {this.state.addedToBasket && (
+            <SuccessMessage text={this.state.addedToBasketMessage} />
+          )}
+          {this.state.alreadyInBasket && (
+            <SuccessMessage text={this.state.alreadyInBasketMessage} />
+          )}
 
-
-          {this.state.addedToBasket && <SuccessMessage text={this.state.addedToBasketMessage} />}
-          {this.state.alreadyInBasket && <SuccessMessage text={this.state.alreadyInBasketMessage} />}
-
-          {this.state.addedToFavorite && <SuccessMessage text={this.state.addedToFavoriteMessage} />}
-          {this.state.alreadyInFavorite && (<SuccessMessage text={this.state.alreadyInFavoriteMessage} />)}
+          {this.state.addedToFavorite && (
+            <SuccessMessage text={this.state.addedToFavoriteMessage} />
+          )}
+          {this.state.alreadyInFavorite && (
+            <SuccessMessage text={this.state.alreadyInFavoriteMessage} />
+          )}
           <h3 className="h3">Women's Collection </h3>
 
           <div className="row">
-
-
             {this.state.data ? (
               this.state.data.map((item, index) => {
                 return (
@@ -141,17 +154,19 @@ class Women extends React.Component {
 
                         <div className="product-image7">
                           <li
-                            onClick={() => this.sendImagesToCarousel(item.images)}
+                            onClick={() =>
+                              this.sendImagesToCarousel(item.images)
+                            }
                           >
                             <a onClick={this.toggle(13)}>
                               <img
-                                alt='alt'
+                                alt="alt"
                                 className="pic-1"
                                 style={{ maxHeight: "400px" }}
                                 src={item.images.protoTypes[0]}
                               />
                               <img
-                                alt='alt2'
+                                alt="alt2"
                                 className="pic-2"
                                 src={item.images.protoTypes[1]}
                               />
@@ -170,7 +185,9 @@ class Women extends React.Component {
                             </li>
                             {this.props.isAuthenticated && (
                               <li>
-                                <a href="#" className="far fa-heart"
+                                <a
+                                  href="#"
+                                  className="far fa-heart"
                                   role="button"
                                   tabIndex={1}
                                   onClick={() => this.addToFavorite(item)}
@@ -179,13 +196,13 @@ class Women extends React.Component {
                             )}
 
                             {this.props.isAuthenticated && (
-                            <li>
-                              <a
-                                role="button"
-                                onClick={() => this.addToBasket(item)}
-                                className="fa fa-shopping-cart"
-                              ></a>
-                            </li>
+                              <li>
+                                <a
+                                  role="button"
+                                  onClick={() => this.addToBasket(item)}
+                                  className="fa fa-shopping-cart"
+                                ></a>
+                              </li>
                             )}
                           </ul>
 
@@ -193,7 +210,6 @@ class Women extends React.Component {
                         </div>
 
                         <div className="product-content">
-
                           {/* <h3 className="title"><a href="#">{item.description}</a></h3> */}
                           <ul className="rating">
                             {this.starMaker(item.rating)}
@@ -201,32 +217,36 @@ class Women extends React.Component {
 
                           <div className="price">
                             &#8364;
-                          {item.prices[0]}
-
-                            <span>{item.prices[1]}</span>
+                            {item.prices[1]}
+                            <span>{item.prices[0]}</span>
                           </div>
 
                           {/* <img src={ImageZoomAnim} />
-                         */}
+                           */}
                         </div>
                       </div>
                     </div>
                   </>
-                )
+                );
               })
             ) : (
-                <div style={{ height: "350px", width: "200px", textAlign: "center", position: "relative", left: "40%" }}>
-                  <span style={{ fontSize: "20px", fontWeight: "700" }}>Loading ...
-                <WaveLoading />
-                  </span>
-                </div>
-              )}
-
+              <div
+                style={{
+                  height: "350px",
+                  width: "200px",
+                  textAlign: "center",
+                  position: "relative",
+                  left: "40%",
+                }}
+              >
+                <span style={{ fontSize: "20px", fontWeight: "700" }}>
+                  Loading ...
+                  <WaveLoading />
+                </span>
+              </div>
+            )}
           </div>
         </div>
-
-
-
 
         {/* // images modal */}
         <div>
@@ -249,27 +269,27 @@ class Women extends React.Component {
                     <MDBCarouselInner>
                       {this.state.currentArrayOfImages.length > 0
                         ? this.state.currentArrayOfImages.map((item, index) => {
-                          return (
-                            <MDBCarouselItem itemId={index + 1}>
-                              <MDBView>
-                                <img
-                                  className="d-block"
-                                  style={{ maxHeight: "550px" }}
-                                  src={item}
-                                  alt="First slide"
-                                />
-                                <MDBMask overlay="black-light" />
-                              </MDBView>
+                            return (
+                              <MDBCarouselItem itemId={index + 1}>
+                                <MDBView>
+                                  <img
+                                    className="d-block"
+                                    style={{ maxHeight: "550px" }}
+                                    src={item}
+                                    alt="First slide"
+                                  />
+                                  <MDBMask overlay="black-light" />
+                                </MDBView>
 
-                              {/* <MDBCarouselCaption>
+                                {/* <MDBCarouselCaption>
 
 
                                     <h3 className="h3-responsive">Light mask</h3>
                                     <p>First text</p>
                                   </MDBCarouselCaption> */}
-                            </MDBCarouselItem>
-                          );
-                        })
+                              </MDBCarouselItem>
+                            );
+                          })
                         : null}
                     </MDBCarouselInner>
                   </MDBCarousel>
@@ -288,10 +308,12 @@ class Women extends React.Component {
 const mapStateToProps = (state) => {
   return {
     getWomenProducts: state.productReducer,
-    isAuthenticated: state.userReducer.token
-  }
-}
+    isAuthenticated: state.userReducer.token,
+  };
+};
 
-
-export default connect(mapStateToProps, { addToBasketAction, addToFavoriteAction, fetchWomenProducts })(Women);
-
+export default connect(mapStateToProps, {
+  addToBasketAction,
+  addToFavoriteAction,
+  fetchWomenProducts,
+})(Women);

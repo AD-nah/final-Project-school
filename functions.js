@@ -36,7 +36,7 @@ module.exports = {
             )   
         }
 
-        return `http://localhost:3000/reset-password-route/${generateResetPasswordToken(userId)}`;
+        return `https://scount.herokuapp.com/reset-password-route/${generateResetPasswordToken(userId)}`;
     }
 
 }

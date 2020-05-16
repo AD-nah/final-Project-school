@@ -3,17 +3,19 @@ module.exports.mailer = (options) =>{
 
 
     let transporter = nodemailer.createTransport({
-        host: process.env.MAILER_HOST,
+        // host: process.env.MAILER_HOST,
     //  host:'mail.hamburg-coders.pro',
-        port: process.env.MAILER_PORT ,
-        secure: false, 
+        // port: process.env.MAILER_PORT ,
+        service: 'gmail',
+        // secure: false, 
         auth: {
             user: process.env.MAILER_USER, 
-            pass: process.env.MAILER_PASS 
+            pass: process.env.MAILER_PASS
+       
         },
-        tls:{
-            rejectUnauthorized:false
-        }
+        // tls:{
+        //     rejectUnauthorized:false
+        // }
     });
 
 
