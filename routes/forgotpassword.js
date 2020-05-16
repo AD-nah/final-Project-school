@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const pool = require("../mySql");
+// const pool = require("../mySql");
 const functions = require("../functions");
 const User = require("../models/User");
 
@@ -23,9 +23,6 @@ router.post("/", async (req, res) => {
     }
   });
 
-
-
-  
   // pool.query('SELECT * FROM `users` WHERE `email` =' +pool.escape(String(email)),function (err, row)  {
   //      if (err) throw err
 

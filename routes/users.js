@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-const Product = require('../models/Product');
-const male =  '5e5d1d5a03249d2ee09ce758';
-const female = '5e5d1d8303249d2ee09ce759';
-const pool = require('../mySql')
+// const Product = require('../models/Product');
+// const male =  '5e5d1d5a03249d2ee09ce758';
+// const female = '5e5d1d8303249d2ee09ce759';
+// const pool = require('../mySql')
 
 // womens.forEach( (async item => {
 

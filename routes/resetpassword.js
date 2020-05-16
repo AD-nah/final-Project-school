@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
 // const pool = require("../mySql");
-const functions = require("../functions");
+// const functions = require("../functions");
 const User = require("../models/User");
 
 router.post("/", async (req, res) => {
