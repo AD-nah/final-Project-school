@@ -63,6 +63,10 @@ router.post('/',  (req, res) => {
         }
     })
 
+
+
+  // SQL register request
+
     // pool.query('SELECT * FROM `users` WHERE `email`='+pool.escape(String(req.body.data.email)), function(err, row, fields) {
 
     //     if(err) {

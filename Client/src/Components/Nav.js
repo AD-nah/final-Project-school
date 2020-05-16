@@ -88,7 +88,7 @@ class Navbar extends Component {
     return (<>
       <div>
 
-        <nav className={`${this.state.NavbarClass} navbar_header navbar navbar-expand-lg`}>
+        <nav className={`${this.state.NavbarClass} navbar_header navbar navbar-expand-sm`}>
           {this.state.logoutSuccess && <SuccessMessage text="Good Bey" />}
 
           {authMessagesHandler() === "registerdMessage" && (

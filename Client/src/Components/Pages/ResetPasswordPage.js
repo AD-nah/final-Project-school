@@ -43,7 +43,7 @@ class ResetPasswordPage extends Component {
 
         return (
             <div>
-                <h1  className = "bg-light text-center" style = {{ padding :'6px', height:'60px' }}>Reset You Password</h1>
+                <h1  className = "bg-light text-center" style = {{ padding :'6px', height:'60px' }}>Reset Your Password</h1>
 
                     {this.state.loading && (
                         <Spinner animation="border" />

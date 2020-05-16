@@ -33,6 +33,10 @@ router.post('/', (req, res) => {
         }
     })
 
+
+    
+  // SQL login request
+
     // pool.query('SELECT * FROM `users` WHERE `email` =' +pool.escape(String(email)),function (err, row)  {
     //     if (err) throw err
     
