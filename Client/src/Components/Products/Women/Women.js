@@ -5,17 +5,8 @@ import { fetchWomenProducts } from "../../../Redux/Actions/products";
 import { connect } from "react-redux";
 import { addToBasketAction } from "../../../Redux/Actions/basket";
 import { addToFavoriteAction } from "../../../Redux/Actions/favorite";
+import ModalRouter from "../../Home/ModalRouter";
 
-import {
-  MDBContainer,
-  MDBModal,
-  MDBModalBody,
-  MDBCarousel,
-  MDBCarouselInner,
-  MDBCarouselItem,
-  MDBView,
-  MDBMask,
-} from "mdbreact";
 import SuccessMessage from "../../Messages/SuccessMessage";
 
 // ----------------------------------
@@ -39,8 +30,8 @@ class Women extends React.Component {
 
     this.state = {
       data: null,
-      currentProduct: [],
-      currentArrayOfImages: [],
+      currentProduct: null,
+      show: false,
 
       // for basket Messages
       addedToBasket: false,
@@ -53,9 +44,6 @@ class Women extends React.Component {
       addedToFavoriteMessage: "",
       alreadyInFavorite: false,
       alreadyInFavoriteMessage: "",
-
-      // //images modal
-      modal13: false,
     };
   }
 
@@ -64,14 +52,18 @@ class Women extends React.Component {
       this.setState({ data: this.props.getWomenProducts.womenProducts });
     });
   }
+  sendProductToModal(product) {
+    this.setState({
+      currentProduct: product,
+      show: true,
+    });
+  }
+
+  handleClose() {
+    this.setState({ show: false });
+  }
 
   // for the images modal
-  toggle = (nr) => () => {
-    let modalNumber = "modal" + nr;
-    this.setState({
-      [modalNumber]: !this.state[modalNumber],
-    });
-  };
 
   addToBasket(item) {
     this.props
@@ -108,9 +100,6 @@ class Women extends React.Component {
       });
   }
 
-  sendImagesToCarousel(array) {
-    this.setState({ currentArrayOfImages: array.protoTypes });
-  }
   // to take a Number and convert it to Star
   starMaker(n) {
     let stars = [];
@@ -153,12 +142,8 @@ class Women extends React.Component {
                         </div>
 
                         <div className="product-image7">
-                          <li
-                            onClick={() =>
-                              this.sendImagesToCarousel(item.images)
-                            }
-                          >
-                            <a onClick={this.toggle(13)}>
+                          <li onClick={() => this.sendProductToModal(item)}>
+                            <a>
                               <img
                                 alt="alt"
                                 className="pic-1"
@@ -173,15 +158,8 @@ class Women extends React.Component {
                             </a>
                           </li>
                           <ul className="social">
-                            <li
-                              onClick={() =>
-                                this.sendImagesToCarousel(item.images)
-                              }
-                            >
-                              <a
-                                onClick={this.toggle(13)}
-                                className="fas fa-expand-arrows-alt"
-                              ></a>
+                            <li onClick={() => this.sendProductToModal(item)}>
+                              <a className="fas fa-expand-arrows-alt"></a>
                             </li>
                             {this.props.isAuthenticated && (
                               <li>
@@ -248,58 +226,13 @@ class Women extends React.Component {
           </div>
         </div>
 
-        {/* // images modal */}
-        <div>
-          <MDBContainer>
-            <MDBModal
-              isOpen={this.state.modal13}
-              toggle={this.toggle(13)}
-              className="w-auto p-3"
-            >
-              <MDBModalBody>
-                {/* modal carousel starthere */}
-                <MDBContainer>
-                  <MDBCarousel
-                    activeItem={1}
-                    length={this.state.currentArrayOfImages.length}
-                    showControls={true}
-                    showIndicators={true}
-                    className="z-depth-1"
-                  >
-                    <MDBCarouselInner>
-                      {this.state.currentArrayOfImages.length > 0
-                        ? this.state.currentArrayOfImages.map((item, index) => {
-                            return (
-                              <MDBCarouselItem itemId={index + 1}>
-                                <MDBView>
-                                  <img
-                                    className="d-block"
-                                    style={{ maxHeight: "550px" }}
-                                    src={item}
-                                    alt="First slide"
-                                  />
-                                  <MDBMask overlay="black-light" />
-                                </MDBView>
-
-                                {/* <MDBCarouselCaption>
-
-
-                                    <h3 className="h3-responsive">Light mask</h3>
-                                    <p>First text</p>
-                                  </MDBCarouselCaption> */}
-                              </MDBCarouselItem>
-                            );
-                          })
-                        : null}
-                    </MDBCarouselInner>
-                  </MDBCarousel>
-                </MDBContainer>
-                {/* modal carousel end here */}
-              </MDBModalBody>
-            </MDBModal>
-          </MDBContainer>
-        </div>
-        {/*images modal end here */}
+        {this.state.currentProduct && (
+          <ModalRouter
+            show={this.state.show}
+            handleClose={this.handleClose.bind(this)}
+            product={this.state.currentProduct}
+          />
+        )}
       </>
     );
   }
