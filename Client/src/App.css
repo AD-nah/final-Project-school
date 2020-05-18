@@ -17,8 +17,7 @@
 }
 
 body {
-  padding-top: 30px;
- 
+  /* padding-top: 30px; */
 }
 
 
@@ -39,8 +38,8 @@ body {
 
 .navbarDown {
   padding: 3px 3px !important;
-  font-size: 14px !important;
-  opacity: 0.5;
+  font-size: 12px !important;
+  /* opacity: 0.5; */
 }
 
 .navbarTop {
@@ -51,10 +50,10 @@ body {
 .navbar_header {
   background-color: #1a1110;
   transition: 0.4s;
-  position: fixed !important;
+  /* position: fixed !important; */
   width: 100%;
   top: 0;
-  z-index: 99;
+  /* z-index: 99; */
 }
 
 .navbar_header a {

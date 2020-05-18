@@ -10,13 +10,14 @@ import ModalRouter from "./ModalRouter";
 
 import "./home.css";
 
-import video from "./video/GUSTFashionEditorial .mp4";
+//import video from "./video/GUSTFashionEditorial .mp4";
 import caro1 from "./imgCarousel/d-women4.jpg";
 import caro2 from "./imgCarousel/d-men1.jpeg";
 import caro3 from "./imgCarousel/d-women1.jpg";
 import caro4 from "./imgCarousel/d-men2.jpg";
 import caro5 from "./imgCarousel/d-men3.jpg";
 import caro6 from "./imgCarousel/d-women3.jpg";
+import {Link} from 'react-router-dom'
 
 import Carousel /* , { Dots }  */ from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
@@ -65,6 +66,7 @@ class Home extends Component {
   render() {
     return (
       <>
+      
         {/*Started Carosel */}
         <div
           id="carousel-example-1z"
@@ -192,7 +194,7 @@ class Home extends Component {
           <div className="container col-lg-12 ">
             <div className="row align-items-center">
               <div className="col-lg-6 order-lg-2">
-                <header>
+                {/* <header>
                   <video
                     playsInline="playsinline"
                     autoPlay="autoplay"
@@ -201,7 +203,8 @@ class Home extends Component {
                   >
                     <source src={video} type="video/mp4" />
                   </video>
-                </header>
+                </header> */}
+                <img src='https://cdn.digitalmenta.com/wp-content/uploads/2019/04/potenciar-campanas-shopping.jpg'/>
               </div>
               <div className="col-lg-6 order-lg-1">
                 <div className="p-5">
@@ -213,9 +216,9 @@ class Home extends Component {
                     Fashion is in the sky, in the street, fashion has to do with
                     ideas, the way we live, what is happening.”
                   </p>
-                  <a href="#" className="btn-join">
+                  <Link to="/products/women" className="btn-join">
                     Discover More <i className="fas fa-chevron-right"></i>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -302,6 +305,9 @@ class Home extends Component {
                 “Fashion is not something that exists in dresses only. Fashion
                 is in the sky, in the street, fashion has to do with ideas”
               </p>
+              <Link to="/products/men" className="btn-join">
+                    Discover More <i className="fas fa-chevron-right"></i>
+                  </Link>
             </div>
           </div>
         </div>
