@@ -1,4 +1,5 @@
 import axios from 'axios';
+import decode from 'jwt-decode'
 
 export default  {
     user:{
@@ -20,6 +21,16 @@ export default  {
         },
         resetPasswordRequest: (data) => {
             return axios.post('/api/resetpassword-post', { data }).then( response => response.data.userSignedInData )
+        },
+        getUserData: () => {
+            const payload = decode(localStorage.sCount)
+            return axios.post('/api/auth-post/getUserData', {userId: payload.userId}).then( response => response.data.userData )
+
+        },
+        saveUserData: (data) => {
+            const payload = decode(localStorage.sCount)
+            return axios.post('/api/auth-post/saveUserData', {data , userId: payload.userId}).then( response => response.data.message )
+
         }
     },
 
@@ -30,4 +41,3 @@ export default  {
         }
     }
 }
-

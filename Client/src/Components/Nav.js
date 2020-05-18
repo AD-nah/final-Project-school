@@ -103,20 +103,17 @@ class Navbar extends Component {
 
 
 
-          <div >
+          <div>
             <img className="logo " style={{ display: "flex", float: "left" }} src={Logo} alt="Logo" />
-            <a className="navbar-brand scount" href="#"> Scount</a>
-
-
+            <a className = "navbar-brand scount" href="#"> Scount</a>
           </div>
 
           <button className="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon ">Menu</span>
-          </button>
+            <span className="navbar-toggler-icon ">MU</span></button>
 
           <div className="collapse navbar-collapse " id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto ">
-              <li className="nav-item ">
+              <li className="nav-item text-center">
 
                 <Link exact="true" to="/home" >
                   Home
@@ -183,21 +180,21 @@ class Navbar extends Component {
             {this.props.isAuthenticated && (
               <div className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Account
+                  Account Settings
                     </a>
                 <div className="dropdown-menu flex-column" aria-labelledby="navbarDropdown">
 
                   <a>
                     <Link to="/profile/edit">
-                      <strong>Profile</strong>
+                      <strong> your Profile</strong>
                     </Link>
 
                     <Link  to="/basket">
-                      <strong>My-Basket</strong>
+                      <strong>your Basket</strong>
                     </Link>
 
                     <Link to="/favorites">
-                      <strong>Favorites</strong>
+                      <strong>your Favorite</strong>
                     </Link>
                     </a>
                   </div>
@@ -205,7 +202,6 @@ class Navbar extends Component {
               )}
 
 
-                {/* logout handler auth */}
                 {this.props.isAuthenticated && (<button className="btn-5 my-2 my-sm-0" onClick={this.logoutHandler}>Logout</button>)}
 
 
@@ -219,11 +215,18 @@ class Navbar extends Component {
             <Route path="/home" component={Home} />
             <Route path="/about" component={About} />
             <Route path="/products" component={Products} />
-
             <Route path="/news" component={News} />
-            <Route path="/profile" component={Profile} />
-            <Route path="/basket" component={Basket} />
-            <Route path="/favorites" component={Favorites} />
+
+            {this.props.isAuthenticated ? (
+              <>
+                <Route path="/profile" component={Profile} />
+                <Route path="/basket" component={Basket} />
+                <Route path="/favorites" component={Favorites} />
+              </>
+            ):(
+               <Redirect to='/home'/>
+            )}
+
             {/* <Route path="/product-profile/:name/:description/:photo" component={ProductProfile} /> */}
             <Route path="/reset-password-route/:token" component={ResetPasswordPage} />
           </Switch>

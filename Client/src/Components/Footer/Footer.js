@@ -1,12 +1,16 @@
 import React from "react";
 import ContactUs from "../Forms/ContactUs";
 
+import { connect } from "react-redux";
 
 import {Link} from "react-router-dom";
 
 import "./footer.css";
 
-const Footer = () => {
+class Footer extends React.Component {
+  render(){
+
+ 
   return (
     <>
      
@@ -28,52 +32,6 @@ const Footer = () => {
               </p>
               </div>
 
-              <div className="col-xs-6 col-md-2">
-              <h6>Products</h6>
-                <ul className="footer-links">
-                 
-                  <li>
-                  <Link to="/products/men">Man</Link>
-                  </li>
-                  <li>
-                  <Link to="/products/women">Women</Link>
-                  </li>
-                  <li>
-                  <Link to="/products/reworked">Reworked</Link>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="col-xs-6 col-md-2">
-                <h6>Account</h6>
-                <ul className="footer-links">
-                <li>
-                  <Link to="/basket">Basket</Link>
-                  </li>
-                  <li>
-                  <Link to="/favorites">Edit</Link>
-                  </li>
-                 
-
-                </ul>
-              </div>
-
-              <div className="col-xs-6 col-md-2">
-                <h6>Profile</h6>
-                <ul className="footer-links">
-                  
-                <li>
-                  <Link to="/profile/ordered">Ordered</Link>
-                  </li>
-                  <li>
-                  <Link to="/profile/edit">Edit</Link>
-                  </li>
-                  <li>
-                  <Link to="/profile/sell">Sell</Link>
-                  </li>
-                </ul>
-              </div>
-
               <div className="col-xs-6 col-md-2 ">
                 <h6>Quick Links</h6>
                 <ul className="footer-links">
@@ -92,23 +50,67 @@ const Footer = () => {
                   <Link to="/news">News</Link>
                   </li>
                 </ul>
-
-          
               </div>
+
+              <div className="col-xs-6 col-md-2">
+              <h6>Products</h6>
+                <ul className="footer-links">
+                 
+                  <li>
+                  <Link to="/products/men">Men's Collection</Link>
+                  </li>
+                  <li>
+                  <Link to="/products/women">Women's Collection</Link>
+                  </li>
+                  <li>
+                  <Link to="/products/reworked">Reworked</Link>
+                  </li>
+                </ul>
+              </div>
+
+              {this.props.isAuthenticated && (
+                <div className="col-xs-6 col-md-2">
+                  <h6>Account</h6>
+                  <ul className="footer-links">
+                  <li>
+                    <Link to="/basket">Basket</Link>
+                    </li>
+                    <li>
+                    <Link to="/favorites">Favorites</Link>
+                    </li>
+                  </ul>
+                </div>
+              )}
+  
+              {this.props.isAuthenticated && (
+              <div className="col-xs-6 col-md-2">
+                <h6>Profile</h6>
+                <ul className="footer-links">
+                <li>
+                  <Link to="/profile/ordered">Ordered</Link>
+                  </li>
+                  <li>
+                  <Link to="/profile/edit">Edit</Link>
+                  </li>
+                  <li>
+                  <Link to="/profile/sell">Sell</Link>
+                  </li>
+                </ul>
+              </div>
+              )}
             </div>
           </div>
 
           <div className="container-fluid">
             <hr />
-
             <div className="row">
-              <div className="col-md-8 col-sm-6 col-xs-12">
+              {/* <div className="col-md-8 col-sm-6 col-xs-12">
                 <p className="copyright-text">
                   {" "}
                   &copy; {new Date().getFullYear()} Copyright:{" "}
                   <a href="#"> Scount </a>
                 </p>
-              </div>
+              </div> */}
 
               <div className="col-md-4 col-sm-6 col-xs-12">
                 <ul className="social-icons">
@@ -129,5 +131,16 @@ const Footer = () => {
     
     </>
   );
+ }
 };
-export default Footer;
+
+
+
+const mapStateToProps = state => {
+  return {
+        isAuthenticated: state.userReducer.token
+  };
+};
+
+export default connect(mapStateToProps)(Footer);
+
